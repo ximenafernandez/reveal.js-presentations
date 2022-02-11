@@ -1,0 +1,614 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Topological time series analysis</title>
+
+		<meta name="description" content="Presentation on TDA applied to the study of time series">
+		<meta name="author" content="Ximena Fernandez">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/white.css" id="theme">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			* {
+			  box-sizing: border-box;
+			}
+
+			.column {
+			  float: left;
+			  width: 25%;
+			  padding: 10px;
+			}
+
+			.column_big {
+			  float: left;
+			  width: 50%;
+			  padding: 10px;
+			}
+
+			.column_Big {
+			  float: left;
+			  width: 75%;
+			  padding: 10px;
+			}	
+
+			.column_eq {
+			  float: left;
+			  width: 33%;
+			  padding: 10px;
+			}	
+			}
+
+			/* Clear floats after the columns */
+			.row:after {
+			  content: "";
+			  display: table;
+			  clear: both;
+			}
+			</style>
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+				<section>
+					<h3>Topological time series analysis</h3>
+					<p style="font-size:30px;">XIMENA FERNANDEZ</p>
+					<p style="font-size:24px;">EPSRC Centre for Topological Data Analysis</p>
+					<p style="font-size:34px;">Applied Math Seminar - <i>October 13, 2021 </i></p> 
+					<p style="font-size:32px;">Durham University</p>  
+					
+					<img src='media_ts/birdsongs.gif' width="1000" height=auto/> 
+				</section>
+
+
+
+				<section>
+					<section>
+						<h2>Persistent homology</h2>
+						<br>
+						<br>
+						<p style="font-size: 18px;text-align:left;">$\bullet$ Boissonnat, J.-D., Chazal, F., Yvinec, M. <i>Geometric and Topological Inference.</i> (2018).
+						</p>
+						<p style="font-size: 18px;text-align:left;">$\bullet$ Otter, N., Porter, M.A., Tillmann, U. et al. <i>A roadmap for the computation of persistent homology.</i> EPJ Data Sci. 6, 17 (2017).</p>
+						<p style="font-size: 18px;text-align:left;">$\bullet$ Edelsbrunner, H., Harer, J. <i>Persistent Homology - a Survey.</i> (2000)</p>
+						
+					</section>
+
+					<section data-auto-animate>
+					<h3>Topological inference</h3>
+					<span style="font-size: 22px; text-align:center;"> 
+					<p class="fragment">Let $(X, d)$ be a metric space and let $\mathbb{X}_n = \{x_1,...,x_n\}$ a finite sample of $X$.</p>
+					<p class="fragment"><b>Q:</b> How to infer the homology of $X$ from $\mathbb{X}_n$?</p>
+
+					<div class="row">
+					 	 <div class="column">
+					 	 	<p class="fragment">Point cloud <br>$\mathbb{X}_n \subset \mathbb{R}^D$
+							 	<img width="400" height = auto src='media_ts/circle_resized.png'/>
+							 	</p>
+					 	 </div>
+					 	 
+						<div class="column"><p class="fragment">
+							 For $\epsilon>0$, the <b>$\epsilon$-thickening</b> of $\mathbb{X}_n$:
+							 \[\displaystyle U_\epsilon = \bigcup_{x\in \mathbb{X}_n}B_{\epsilon}(x)\]						 <img width="165" height = auto src='media_ts/balls.png'/>
+							 </p>
+						</div>
+
+						<div class="column_big">
+							 <blockquote class="fragment"  style="font-size:18px; text-align:left; border: 2px solid #666; padding: 4 px; background-color: #ccc;">
+							 <b>Theorem (Niyogi, Smale & Weinberger, 2008).</b> 
+							 Given $\mathcal{M}$ a compact submanifold of $\mathbb{R}^D$ of dimension $k$ and $\mathbb{X}_n$  a  set  of i.i.d. $n$ points  drawn according  to  the uniform  probability  measure  on $\mathcal{M}$, then $$
+							 U_\epsilon \simeq \mathcal{M}$$ with probability $>1-\delta$ if
+							 $0<\epsilon< \frac{\tau_\mathcal{M}}{2}$ and $n> \beta_1 \left(\log(\beta_2)+\log\left(\frac{1}{\delta}\right)\right)$.*
+							 <br>
+						    <p style="font-size:14 px; text-align:left; color: #737373;">
+						    *Here $\beta_1=\frac{\mathrm{vol}(\mathcal{M})}{cos^k(\theta_1) \mathrm{vol(B^k_{\epsilon/4})}}$, $\beta_2=\frac{\mathrm{vol}(\mathcal{M})}{\cos^k(\theta_2)\mathrm{vol}(B^k_{\epsilon/8})}$
+						    and $\theta_1=\arcsin\left(\frac{\epsilon}{8\tau_\mathcal M}\right),$ $\theta_2=\arcsin\left(\frac{\epsilon}{16\tau_\mathcal M}\right)$.
+							</p>
+							</blockquote>
+						</div>
+					</div>
+					</span>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Topological inference</h3>
+						<span style="font-size: 22px; text-align:center;">
+						<p>Let $(X, d)$ be a metric space and let $\mathbb{X}_n = \{x_1,...,x_n\}$ a finite sample of $X$.</p>
+						<p><b>Q:</b> How to infer the homology of $X$ from $\mathbb{X}_n$?</p>
+
+						<div class="row">
+						 	 <div class="column">
+						 	 	<p>Point cloud 
+ 							 	<img width="350" height = auto src='media_ts/circle_resized.png'/>
+ 							 	</p>
+						 	 </div>
+						 	 
+ 							 <div class="column_big"><p class="fragment">Filtration of simplicial complexes
+ 							 <img width="350" height = auto src='media_ts/filtration_circle.gif'/>
+ 							 </p>
+ 							 </div>
+
+ 							 <div class="column"><p class="fragment">Persistence diagram
+ 							 <img width="350" height = auto src='media_ts/PD_resized.png'/>
+ 							 </p>
+ 							 </div>
+						</div> 
+						</span>
+					</section>
+
+					<section data-auto-animate>
+						<h4>From point clouds to filtered complexes</h4>
+						<br> 
+						<span style="font-size: 22px; text-align:left;">
+						<ul> 
+						 <li class="fragment">A <b>filtered simplicial complex</b> $K_\bullet$ is a sequence of nested simplicial complexes \[K_0 \hookrightarrow K_1 \hookrightarrow K_2 \hookrightarrow \dots K_s = K\]
+						 </li>
+						</ul>
+						<br>
+						<img class="fragment" width="550" height = auto src='media_ts/filtration.png'/>
+						</span>
+					</section>
+
+
+					<section data-auto-animate>
+						<h4>From point clouds to filtered complexes</h4>
+						<br> 
+						<span style="font-size: 22px; text-align:left;">
+						<ul> 
+						 <li>A <b>filtered simplicial complex</b> $K_\bullet$ is a sequence of nested simplicial complexes \[K_0 \hookrightarrow K_1 \hookrightarrow K_2 \hookrightarrow \dots K_s = K\]
+						 </li>
+						</ul>
+						
+						<p><b>
+						- <span style="color: #e67300"> $\check{\mathrm{C}}$ech filtration:</span></b>
+						For every $\varepsilon>0$, let $~\mathcal{U}_{\varepsilon} = \{B(x_i, \varepsilon)\}_{x_i\in \mathbb{X}_n}$ be a collection of open sets. Define
+						\[\check C_{\varepsilon} = \mathcal{N}(\mathcal{U}_{\varepsilon})\]
+						</p>
+						<p class="fragment"><b>
+						- <span style="color: #e67300">Vietoris Rips filtration:</span></b>
+						Let $\Delta_n$ be the $(n-1)$-simplex with vertices in $\mathbb{X}_n$. Define
+						$$V_{\varepsilon} = \{\sigma  \in \Delta_n: \mathrm{diam}(\sigma)<\varepsilon\}$$
+					    </p>
+						<img class="fragment" width="350" height = auto src='media_ts/cech_rips.png'/>
+
+						</span>
+
+					</section>
+
+
+					<section data-auto-animate>
+						<h4>From point clouds to filtered complexes</h4>
+						<br> 
+						<span style="font-size: 22px; text-align:left;">
+						<ul> 
+						 <li>A <b>filtered simplicial complex</b> $K_\bullet$ is a sequence of nested simplicial complexes \[K_0 \hookrightarrow K_1 \hookrightarrow K_2 \hookrightarrow \dots K_s = K\]
+						 </li>
+						</ul>
+						
+						<p><b>
+						- <span style="color: #e67300"> $\check{\mathrm{C}}$ech filtration:</span></b>
+						For every $\varepsilon>0$, let $~\mathcal{U}_{\varepsilon} = \{B(x_i, \varepsilon)\}_{x_i\in \mathbb{X}_n}$ be a collection of open sets. Define
+						\[\check C_{\varepsilon} = \mathcal{N}(\mathcal{U}_{\varepsilon})\]
+						</p>
+						<p><b>
+						- <span style="color: #e67300">Vietoris Rips filtration:</span></b>
+						Let $\Delta_n$ be the $(n-1)$-simplex with vertices in $\mathbb{X}_n$. Define
+						$$V_{\varepsilon} = \{\sigma  \in \Delta_n: \mathrm{diam}(\sigma)<\varepsilon\}$$
+					    </p>
+					    <br>
+						<blockquote style="padding: 2px; border: 2px solid coral;"> \[\check C_{\varepsilon}\subseteq V_\varepsilon \subseteq \check C_{2\varepsilon}, ~~\forall \varepsilon>0\]</blockquote>
+						</span>
+
+					</section>
+
+					<section data-auto-animate>
+						<h3>Persistent homology</h3>
+						<br> 
+						<span style="font-size: 22px">
+						<ul>
+						<li> A filtration $\{K_i\}$ of simplicial complexes induces a <b>persistence complex</b> $\{C_i\}$ with $C_i = C_\bullet(K_i)$ and morphisms induced by the inclusions
+						\[C_\bullet(K_0)\rightarrow C_\bullet(K_1) \rightarrow \dots\rightarrow C_\bullet(K_i) \rightarrow \dots\]
+						</li>
+						<li class="fragment"> The associated <b>persistence module</b> over a field $k$ at degree $j$ is defined as
+							\[M_j = \bigoplus_{i\geq 0} H_j(C_i)\]
+						</li>
+						<blockquote class="fragment" style="border: 2px solid #666; padding: 2px; background-color: #ccc;"> <b>Theorem (Zomorodian, Carlsson, 2005).</b> For every degree $j\geq 0$, there is a decomposition
+						$$M_j = 
+						\left( \bigoplus_{s=1}^n \Sigma^{\alpha_s} k[x]\right) \oplus \left(\bigoplus_{l=1}^m \Sigma^{\gamma_l}k[x]/x^{n_l}k[x]\right)$$
+						where $\alpha_s, \gamma_j\in \mathbb{Z}$, $n_l< n_{l+1}$ y  $\Sigma^{\alpha}$ denotes an $\alpha$-shift in the degree.</blockquote>
+						<p class="fragment" style="padding: 8px; border: 2px solid coral;">We can represent $M_j$ as a set of intervals $(\alpha_s, + \infty)$ and $(\gamma_l,\gamma_l+n_l)$, also known as <b>barcode</b>.</p>
+						</ul>
+						</span>
+
+					</section>
+
+					<section data-auto-animate>
+						<h3>Persistent homology</h3>
+						<br>
+						<img width="700" height = auto src='media_ts/barcode.gif'/>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Persistent homology</h3>
+						<br>
+						<img width="900" height = auto src='media_ts/PDvsBarcode.png'/>
+					</section>
+
+
+					<section data-auto-animate>
+						<h4>Persistence diagrams as a metric space</h4>
+						<br> 
+						<span class="fragment" style="font-size: 22px; text-align:left;">
+						<ul>
+						<li>Given two persistence diagrams $\mathrm{dgm_1}$ and $\mathrm{dgm_2}$, define is <b>bottleneck distance</b> by
+						$$d_b(\mathrm{dgm_1},\mathrm{dgm_2}) = \inf_{M} \sup_{(x,y)\in M} ||x-y||_{\infty}$$
+						where the infimum is over all matchings $M\subseteq \mathrm{dgm_1}\times \mathrm{dgm_2}$. Here, the points in the diagonal are considered part of both diagrams.
+						</li>
+						</ul>
+						<br>
+						<img width="250" height = auto src='media_ts/bottleneck.png'/>
+						</span>
+
+					</section>
+
+					<section data-auto-animate>
+						<h3>Stability</h3>
+						<br> 
+						<span style="font-size: 20px">
+						<blockquote class="fragment" style="border: 2px solid #666; padding: 2px; background-color: #ccc;"> <b>Theorem (Cohen-Steiner, Edelsbrunner, Harer, 2007).</b> For any two precompact metric spaces $(X, d_X)$ and $(Y, d_Y)$,
+						\[
+						d_b\Big(\mathrm{dgm}\big(\mathrm{Filt}(X, d_{X})\big),\mathrm{dgm}\big(\mathrm{Filt}(Y, d_{Y})\big)\Big)\leq 2 d_{GH}\big((X,d_{X}),(Y,d_{Y})\big).
+						\]
+						</blockquote>
+						</span>
+						<img class="fragment" width="450" height = auto src='media_ts/stability.gif'/>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Applications</h3>
+						<br> 
+						<span style="font-size: 22px">
+						<ul>
+						<li class="fragment"> Phase transitions.
+							<p style="font-size: 18px;"> N. Sale, J. Giansiracusa, and B. Lucini, <i>Quantitative analysis of phase transitions in two-dimensional XY models using persistent homology</i>, 2021, ArXiv:2109.10960</p>
+						</li>
+						<li class="fragment"> Development of new materials.
+						<p style="font-size: 18px;"> Work of Vitaly Kurlin et. al. University of Liverpool</p></li>
+						<li class="fragment"> Knotted structure of proteins.
+							<p style="font-size: 18px;"> A. Barbensi, N. Yerolemou, O. Vipond, B.I. Mahler, P. Dabrowski-Tumanski and D. Goundaroulis. <i>A topological selection of folding pathways from native states of knotted proteins</i>. 2021.</p>
+						</li>
+						<li class="fragment"> Biological networks.
+							<p style="font-size: 18px;"> Work of Heather Harrington et. al. Oxford University</p></li>
+						<li class="fragment" > <b>Time series analysis.</b></li>
+						<li class="fragment"> $\dots$</li>
+						</ul>
+						</span>
+
+					</section>
+
+
+				</section>
+				
+
+				<section>
+					<section>
+						<h2>Topology of time series</h2>
+						<br>
+						<p style="font-size: 18px;text-align:left;">$\bullet$ Perea, J.A., Harer, J. <i>Sliding Windows and Persistence: An Application of Topological Methods to Signal Analysis.</i> Found Comput Math 15, 799–838 (2015).</p>
+						<p style="font-size: 18px;text-align:left;">$\bullet$ Perea J.A., <i>Topological Time Series Analysis</i>, Notices of the American Mathematical Society, vol. 66, no. 5, pp. 686-694, May 2019.</p>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Dynamical systems</h3>
+						<br>
+						<span style="font-size: 24px; text-align:left;">
+						<ul>
+							<li class="fragment">
+								A <b>global continuous time dynamical system</b>
+								is a pair $$(\mathcal{M}, \phi)$$ where $\mathcal{M}$ is a topological space and $\phi \colon \mathbb{R} \times \mathcal{M} \to \mathcal{M}$ is a continuous map such that $\phi(0, p) = p$ and $\phi(s, \phi(𝑡, 𝑝)) = \phi(s + t, p)$ for all $p \in \mathcal{M}$ and all $t, s \in \mathbb{R}$.
+							</li>
+							<br>
+							<li class="fragment">
+								The typical examples arising from <b>differential equations</b> have as state space a smooth manifold $\mathcal{M}$ and the dynamics are given by the integral curves of a smooth vector field on $\mathcal{M}$.
+							</li>
+							<br>
+							<li class="fragment">
+								A set $A \subset \mathcal{M}$ is called an <b>attractor</b> if it satisfies the following conditions: it
+								is compact, it is an invariant set (i.e. if $a \in A$
+								then $\phi(𝑡, 𝑎) \in 𝐴$ for all $𝑡 \geq 0$) and it has an open
+								basin of attraction.
+								Equivalently, there is an invariant
+								open neighborhood $𝑈 \subset \mathcal{M}$ of $𝐴$ such that
+								$\cap_{t\geq 0} \{\phi(𝑡, 𝑝) ∶ 𝑝 \in 𝑈\} = 𝐴$.
+							</li>
+						</ul>
+						</span>
+					</section>
+
+						<section data-auto-animate>
+						<h3>Dynamical systems</h3>
+						<br>
+						<span style="font-size: 24px; text-align:left;">
+						<ul>
+							<li>
+								A <b>global continuous time dynamical system</b>
+								is a pair $$(\mathcal{M}, \phi)$$ where $\mathcal{M}$ is a topological space and $\phi \colon \mathbb{R} \times \mathcal{M} \to \mathcal{M}$ is a continuous map such that $\phi(0, p) = p$ and $\phi(s, \phi(𝑡, 𝑝)) = \phi(s + t, p)$ for all $p \in \mathcal{M}$ and all $t, s \in \mathbb{R}$.
+							</li>
+							<br>
+							<li>
+								The typical examples arising from <b>differential equations</b> have as state space a smooth manifold $\mathcal{M}$ and the dynamics are given by the integral curves of a smooth vector field on $\mathcal{M}$.
+							</li>
+						<div class="row" style="font-size: 18px">
+					 	 		<div class="column_big" style="font-size: 18px">
+					 	 		<br>
+					 	 		<br>
+					 	 		<b>Lorenz attractor</b>
+								\begin{equation}\begin{cases}
+								\dot x = \sigma ( y - x ) , \\
+								\dot y = x(\rho-z)-y ,\\
+								\dot z = xy-\beta z \end{cases}
+								\end{equation}
+								with $(\sigma, \rho, \beta) = (10, 28, 8/3)$. 
+								</div>
+								<div class="column_big">
+								<img width="350" height = auto src='media_ts/lorenz_time_series.gif'/>
+								</div>
+						</div>
+
+							
+						</ul>
+						</span>
+
+					</section>
+
+					<section data-auto-animate>
+						<h3>Dynamical systems</h3>
+						<span style="font-size: 24px; text-align:left;">
+						<br>
+						<li> In practice, we only have measurements, that are the result of an  <b>observation function</b> $F:\mathcal{M}\to \mathbb R$  and an <b>initial state</b> $p\in \mathcal{M}$ that produces a <b>time series</b>
+							\begin{align}\varphi_p:\mathbb{R}&\to \mathbb{R}\\
+							t&\mapsto F(\phi(t,p))
+							\end{align}
+						</li>
+						<blockquote class="fragment" style="border: 2px solid #666; padding: 15px; background-color: #ccc; width:750px"> <b>Theorem (Takens).</b> Let $\mathcal{M}$ be a smooth, compact, Riemannian manifold. Let $\tau > 0$ be a real number and let $d ≥ 2 \mathrm{dim}(\mathcal{M})$
+						be an integer. Then, for generic $\phi \in  C^2(\mathbb{R} \times \mathcal{M}, \mathcal{M})$ and $F\in  C^2(\mathcal{M}, \mathbb{R})$ and for $\varphi_\bullet(𝑡)$ defined as above, the <b>delay map</b>
+						\begin{align}
+						\varphi~ \colon & ~~\mathcal{M} &\rightarrow & ~~\mathbb{R}^{d+1}\\
+						&~~p &\mapsto & ~~(\varphi_p(0), \varphi_p(𝜏), \varphi_p(2𝜏),\dots, \varphi_p(d\tau))
+						\end{align}
+						is an embedding (i.e., $\varphi$ is injective and its derivative has full-rank everywhere).
+						</blockquote>
+					</span>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Dynamical systems</h3>
+						<br>
+						<span style="font-size: 24px; text-align:left;">
+						<li> Let $f\colon\mathbb{R} \rightarrow \mathbb{R}$ be a function, $\tau> 0$ a real number and $d > 0$ an integer. The <b>sliding window embedding</b> (or <b>delay-embedding</b>) of $f$ with parameters $d$ and $\tau$ is the vector-valued function 
+						\begin{align}
+						SW_{d,\tau}f\colon &~~\mathbb{R}\rightarrow ~~\mathbb{R}^{d+1}\\
+						&~~~t ~\mapsto ~(f(t), 𝑓(t + \tau), 𝑓(t + 2\tau), \dots, 𝑓(t + d\tau))\\
+						\end{align}
+						</li>
+						<li class="fragment"> Given time series data $f(t) = \varphi_p(t)$ with $t\in T$ observed
+						from a potentially unknown dynamical system $(\mathcal{M}, \phi)$, Takens’ theorem implies that (generically) the sliding window point cloud $SW_{d,\tau}f(T)$ provides a topological copy of $\{\phi(t, p) ∶ t \in T\} \subseteq \mathcal{M}$. In particular this will reconstruct attractors. 
+						</li>
+						</span>
+						<div  class="fragment" class="row" style="font-size: 18px">
+							<div class="column_big">
+							<img width="300" height = auto src='media_ts/lorenz_time_series.gif'/>
+							</div>
+				 	 		<div class="column_big" style="font-size: 18px">
+				 	 		<img width="300" height = auto src='media_ts/lorenz_takens.gif'/>
+							</div>
+						</div>
+					
+					</section>
+
+
+					<section data-auto-animate>
+						<h3>Topology of time series</h3> 
+						<h5>Periodicity</h5>
+						<img width="800" height = auto src='media_ts/perea.png'/>
+						</span>
+
+						<p style="font-size: 15px">$\bullet$ Perea, J.A., Harer, J. <i>Sliding Windows and Persistence: An Application of Topological Methods to Signal Analysis.</i> Found Comput Math 15, 799–838 (2015).</p>
+					</section>
+
+				</section>
+
+				<section>
+					<section>
+						<h2>Applications in real data</h2>
+						<br>
+						<br>
+						<p style="font-size: 18px;text-align:left;">$\bullet$ Fernandez X., Borghini E., Mindlin G., Groisman P. <i>Intrinsic persistent homology via density-based metric learning</i>, 2020. arXiv:2012.07621</p>
+						<p style="font-size: 18px; text-align:left;">$\bullet$ Fernandez X., Mateos D. <i>Topological prediction of epilepsy seizures.</i> Work in progress, 2021.</p>
+					</section>
+
+
+					<section data-auto-animate>
+						<h3>Anomaly detection</h3>
+						<h5 class="fragment">Electrocardiogram</h5>
+						<img class="fragment" width="900" height = auto src='media_ts/ECG_signal_raw.png'/>
+						<p class="fragment" style="font-size: 15px; text-align:left;"><i>Source data:</i> PhysioNet Database  https://physionet.org/about/database/</p>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Anomaly detection</h3>
+						<h5>Electrocardiogram</h5>
+						<img width="900" height = auto src='media_ts/ECG_signal_raw.png'/>
+						<img width="300" height = auto src='media_ts/ECG_embedding_raw.png'/>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Anomaly detection</h3>
+						<h5>Electrocardiogram</h5>
+						<img width="900" height = auto src='media_ts/ECG_signal.png'/>
+						<img width="300" height = auto src='media_ts/ECG_embedding.png'/>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Anomaly detection</h3>
+						<h5>Electrocardiogram</h5>
+						<img width="900" height = auto src='media_ts/ECG_signal.png'/>
+						<div class="row">
+						 	 <div class="column_eq">
+							<img width="300" height = auto src='media_ts/ECG_embedding.png'/>
+							</div>
+							<div class="column_eq">
+							<img width="290" height = auto src='media_ts/PH_ECG_4000.png'/>
+							</div>
+							<div class="fragment" class="column_eq">
+							<img width="280" height = auto src='media_ts/PH_ECG_6000.png'/>
+							</div>
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Anomaly detection</h3>
+						<h5>Electrocardiogram</h5>
+						<img width="900" height = auto src='media_ts/ECG_signal.png'/>
+						<small>
+						\[t\mapsto \mathbb{dgm_1}(SW_{\tau, d}f([0,t]))\]
+						</small>
+						<img width="900" height = auto src='media_ts/bottleneck_ECG.png'/>
+					</section>
+
+
+					<section data-auto-animate>
+						<h3>Change-points detection</h3>
+						<h4 class="fragment"> Birdsongs</h4>
+						<img class="fragment" width="900" height = auto src='media_ts/birdsong.png'/>
+						<p class="fragment" style="font-size: 15px; text-align:left;"><i>Source data:</i> Private experiments. Laboratory of Dynamical Systems, University of Buenos Aires.</p>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Change-points detection</h3>
+						<h4> Birdsongs</h4>
+						<img width="900" height = auto src='media_ts/birdsong.png'/><img width="300" height = auto src='media_ts/canary_embedding.png'/>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Change-points detection</h3>
+						<h4> Birdsongs</h4>
+						<img width="900" height = auto src='media_ts/birdsong.png'/>
+						<div class="row">
+						 	 <div class="column_big">
+							<img width="300" height = auto src='media_ts/canary_embedding.png'/>
+							</div>
+							 <div class="column_big">
+							 <img width="290" height = auto src='media_ts/PH_canary.png'/>
+							 </div>
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Change-points detection</h3>
+						<h4> Birdsongs</h4>
+						<img width="900" height = auto src='media_ts/time_series_birdsong_cuts.png'/>
+						<div class="row">
+						 	 <div class="column_Big">
+							<img width="800" height = auto src='media_ts/canary_embedding_cuts.png'/>
+							</div>
+							 <div class="column">
+							 <img width="300" height = auto src='media_ts/PH_canary.png'/>
+							 </div>
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Change-points detection</h3>
+						<h4> Birdsongs</h4>
+						<img width="900" height = auto src='media_ts/time_series_birdsong_cuts.png'/>
+						<small>
+						\[t\mapsto \mathbb{dgm_1}(SW_{\tau, d}f([0,t]))\]
+						</small>
+
+						<img width="900" height = auto src='media_ts/PH_canary_peaks.png'/>
+					</section>
+
+
+					<section data-auto-animate>
+						<h4>Prediction of transitions</h4>
+						<h5 class="fragment">Electroencefalogram</h5>
+						<img class="fragment" width="650" height = auto src='media_ts/EEG.png'/>
+						<p style="font-size: 15px; text-align:left;"><i>Source data:</i> Private experiments. Institute of Applied Math of Litoral (IMAL-CONICET-UNL).</p>
+					</section>
+
+					<section data-auto-animate>
+						<h4>Prediction of transitions</h4>
+						<h5 >Electroencefalogram</h5>
+						<img width="810" height = auto src='media_ts/EEG_channel143.png'/>
+						<small>
+						\[t\mapsto \mathbb{dgm_0}((f_0, \dots, f_{143})[30000,t])\]
+						</small>
+						<br>
+						<img  width="750" height = auto src='media_ts/Wasserstein_EEG.png'/>
+						<p style="font-size: 15px; text-align:left;"><i>Source data:</i> Private experiments. Institute of Applied Math of Litoral (IMAL-CONICET-UNL).</p>
+					</section>
+
+
+
+
+					<section data-auto-animate>
+						<h4>Prediction of transitions</h4>
+						<h5 >Electroencefalogram</h5>
+						<img width="810" height = auto src='media_ts/EEG_channel143.png'/>
+						<small>
+						$W$ size of the restricted interval.
+						\[t\mapsto \mathbb{dgm_1}((f_0, \dots, f_{143})[t-W,t])\]
+						</small>
+						<br>
+						<img width="920" height = auto src='media_ts/SW_EEG_dgm1.png'/>
+						<p style="font-size: 15px; text-align:left;"><i>Source data:</i> Private experiments. Institute of Applied Math of Litoral (IMAL-CONICET-UNL).</p>
+					</section>
+
+
+
+
+				<section>
+					<h2>Thanks!</h2>
+					<img width="1000" height = auto src='media_ts/birdsong_twitter.gif'/>
+				</section>
+
+
+			</div>
+
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/math/math.js"></script>
+		<script>
+			Reveal.initialize({
+				history: true,
+				transition: 'linear',
+
+				math: {
+					// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+					config: 'TeX-AMS_HTML-full',
+					TeX: {
+						Macros: {
+							R: '\\mathbb{R}',
+							set: [ '\\left\\{#1 \\; ; \\; #2\\right\\}', 2 ]
+						}
+					}
+				},
+
+				plugins: [ RevealMath ]
+			});
+		</script>
+
+	</body>
+</html>

@@ -1,0 +1,596 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Geometric inference in the brain</title>
+
+		<meta name="description" content="Presentation on TDA applied to teh study of grid cells">
+		<meta name="author" content="Ximena Fernandez">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/white.css" id="theme">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			* {
+			  box-sizing: border-box;
+			}
+
+			/* Create two equal columns that floats next to each other */
+			.column {
+			  float: left;
+			  width: 33%;
+			  padding: 10px;
+			}
+
+			/* Clear floats after the columns */
+			.row:after {
+			  content: "";
+			  display: table;
+			  clear: both;
+			}
+			</style>
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+				<section>
+					<!--<h2>Geometric inference <br> in the brain</h2>-->
+					<h3>An application of TDA <br> to (real) neural networks</h3>
+					TDA Seminar - Swansea University
+					<p><small>Ximena Fernandez</small>
+					<br>
+					<br>
+					<span style="font-size: 24px">
+					<i>joint work with Emilio Kropff and Sabrina Benas</i>
+					<br>
+					 <b>from the Laboratory of Neuronal Plasticity, Leloir Institute, Buenos Aires</b>
+					</span></p>
+				</section>
+
+
+				<section>
+					<section>
+						<h3>Geometric inference in the brain</h3>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Place cells</h3>
+						<br> 
+						<video class="fragment" src="media/place_cells.mp4" data-autoplay></video>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Place cells</h3>
+						<br> 
+						<video width="520" height=auto src="media/10_place_cells.mp4" data-autoplay></video>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Place cells</h3>
+						<br>
+						<span style="font-size: 28px">
+						<ul>
+						<li> Cognitive representation of a specific <b>location in space</b>.</li>
+						<li class="fragment">Placed in the hippocampus.</li>
+						<li class="fragment">Discovered by John O'Keefe in 1971.<br>
+							<small> J. O'Keefe, J. Dostrovsky,
+							<i>The hippocampus as a spatial map. Preliminary evidence from unit activity in the freely-moving rat.</i>
+							<b>Brain Research</b>, Volume 34, Issue 1, 1971, Pages 171-175.</small>
+						</li>
+						<li class="fragment">Awarded with Nobel Prize in Physiology or Medicine 2014.</li>
+						</ul>
+						</span>
+
+						<br>
+
+						<img src='media/place_cells.png' width="450" height=auto/> 
+						
+					</section>
+
+					<section data-auto-animate>
+						<h3>Grid cells</h3>
+						<br> 
+						<video class="fragment"src="media/grid_cells.mp4" data-autoplay></video>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Grid cells</h3>
+						<br>
+						<span style="font-size: 28px"> 
+						<ul>
+						<li>Part of an environment-independent <b>spatial coordinate system. </b></li>
+						<li class="fragment">Placed in the medial entorhinal cortex (mEC).</li>
+						<li class="fragment">Discovered by Edvard and May-Britt Moser in 2005.
+							<br>
+							<small>T. Hafting, M. Fyhn, S, Molden, M.B. Moser, E.I. Moser. <i>Microstructure of a spatial map in the entorhinal cortex.</i> <b>Nature.</b> 2005 Aug; 436(7052) 801-806.
+							</small>
+						</li>
+						<li class="fragment">Awarded with Nobel Prize in Physiology or Medicine 2014.</li>
+						</ul>
+						</span>
+						<br>
+						<img src='media/grid_cells.png' width="400" height=auto/> 
+					</section>
+				</section>
+				
+
+				<section>
+					<section>
+						<h3>Models for neural activity</h3>
+					</section>
+
+					<section data-auto-animate>
+						<h4>A physical model for activity of grid cells</h4>
+						<small>
+							<p class="fragment"><a href="https://pubmed.ncbi.nlm.nih.gov/19021261/" target="_blank">The Emergence of Grid Cells: Intelligent Design or Just Adaptation?</a> <br> <span style="font-size: 22px"> Emilio Kropff and Alessandro Treves. <i>Hippocampus (2008)</i></span> </p>
+							<br>
+							<p class="fragment"><b>Recurrently connected continuous attractor network.</b></p>
+							<ul>
+								<li class="fragment"><b>Input layer:</b> $N_{hip}$ neurons from hippocampus (<i>place cells</i>).</li>
+								<li class="fragment"><b>mEC layer:</b> $N_{mEC}$ neurons from mEC (<i>grid cells</i>).</li>
+								<li class="fragment"><b>Architecture:</b> 
+									<ul>
+										<li><i>Feed-forward</i> connections between input layer and mEC layer.</li>
+										<li> <i>Internal</i> connections between grid-cells.
+									</ul>
+								<center>
+ 							   		<img src='media/neural_network.png' width="300" height=auto />
+								</center>
+								</li>
+							</ul>
+						</small>
+					</section>
+
+					<section data-auto-animate>
+						<h4>A physical model for grid cells activity</h4>
+						<small>
+							<ul>	
+								<li><b>Synaptic activation:</b> \[h_i^t (x) = \sum_{j=1}^{N_{hip}}J_{ij}r_j^t (x) + \sum_{k=1}^{N_{mEC}}W_{ik}\psi_k^t(x)\]
+								where:
+									<ul>
+								    <li>$J_{ij}$ the weight of the synapse going from neuron $j$ in the input layer to neuron $i$ in the mEC layer;</li>
+									<li>$r_j^t$ the firing rate of the place cell $j$ at time $t$ and position $x$;</li>
+									<li>$W_{ik}$ the recurrent excitatory connectivity from neuron $k$ to neuron $i$ in the mEC layer;</li>
+									<li>$\psi_k^t(x)$ the firing rate of the grid cell $k$ at time $t$ and position $x$.</li>
+									</ul>
+								</li>
+							</ul>
+						</small>
+					</section>
+
+					<!--
+					<section data-auto-animate>
+						<h4>A physical model for grid cells activity</h4>
+						<small>
+							<p><b>Synaptic activation</b> 
+								\[h_i^t (x) = \sum_{j=1}^{N_{hip}}J_{ij}r_j^t (x) + \sum_{k=1}^{N_{mEC}}W_{ik}\psi_k^t\]
+							</p>
+							<p><b>Feed-forward connections</b>\[r_j^t = \varphi_{sat} \exp\left(\dfrac{\bar x_j^t - x_{j_0}^t}{2\sigma^2}\right)\]</p>
+						    <p>\[J_{ij}^t = J_{ij}^t + \varepsilon (\phi_i r_j + \bar \phi_i \bar r_i)\]</p>
+						</small>
+					</section>
+				
+					<section data-auto-animate>
+						<h4>A physical model for grid cells activity</h4>
+						<small>
+							<p><b>Synaptic activation</b> 
+								\[h_i^t (x) = \sum_{j=1}^{N_{hip}}J_{ij}r_j^t (x) + \sum_{k=1}^{N_{mEC}}W_{ik}\psi_k^t\]
+							</p>
+						    <p><b>Adaptation mechanism</b>
+						    	\begin{align*}\alpha_i^{t+1} = & h_i -\beta_i^t\\
+						    	\beta_i^{t+1}= & \beta_i^t + b\alpha_i^t
+								\end{align*}
+							</p>
+						</small>
+					</section>
+
+					<section data-auto-animate>
+						<h4>A physical model for grid cells activity</h4>
+						<small>
+							<p><b>Synaptic activation</b> 
+								\[h_i^t (x) = \sum_{j=1}^{N_{hip}}J_{ij}r_j^t (x) + \sum_{k=1}^{N_{mEC}}W_{ik}\psi_k^t\]
+							</p>
+						    <p><b>Competition</b>
+							    \begin{align*}
+							    a = & \dfrac{1}{N_{mEC}}\sum_{k+1}^{N_{mEC}}\psi_k & \text{mean activity}\\
+							    s = & \dfrac{\left(\sum_{k=1}^{N_{mEC}}\psi_k\right)^2}{N_{mEC} \sum_{k=1}^{N_{mEC}}\psi_k^2} & \text{sparseness}\\
+							    \end{align*}
+						    </p>
+						    <p>
+						    	\begin{align*}
+						    	g^{t+1} = & g^t + b_3(a-a_0)\\
+						    	\theta^{t+1} = & \theta^t + b_4(s-s_0)\\
+						    	\end{align*}
+						    </p>
+						</small>
+					</section>
+				-->
+
+					<section data-auto-animate>
+						<h4>Topology of the attractor</h4> 
+						<small>
+						
+						<p class="fragment">
+							<a href="https://www.biorxiv.org/content/10.1101/2021.02.25.432776v1" target="_blank">Toroidal topology of population activity in grid cells (2021)</a><br>
+							<span style="font-size: 18px">
+							  Gardner R, Hermansen E, Pachitariu M, Burak Y,  N, Dunn B, Moser M B, Moser E.
+							</span>
+							<br>
+							<span style="font-size: 20px; color:grey; float:left"><b>Experiment:</b>
+								<i>Given an arena and a rat moving freely in the environment, they recorded simultaneously the activity of $N_{mEC}$ grid cells at each point $x$ in the arena for a period of time.
+								For a discretization of the environment in $M$ bins and average over time of the spike rate, they obtained a pointcloud of $M$ points in $\mathbb R^{N_{mEC}}$.
+								</i>
+							</span>
+						</p>
+						<br>
+						<p class="fragment">
+						<br>
+						<video width="400" height="400" src="media/population_experiments.mp4" data-autoplay></video>
+						</p>
+						
+						</small>
+					</section>
+
+					<section data-auto-animate>
+						<h4>Topology of the attractor</h4>
+						<img src='media/toroidal_population.png' /> 
+					</section>
+
+					<!--
+					<section data-auto-animate>
+						<h4>Topology of the attractor</h4>
+						<img width=auto height="620" src='media/cup_product_argument.png' /> 
+					</section>
+
+					<section data-auto-animate>
+						<h4>Topology of the attractor</h4>
+						<img src='media/cup_product_figure.png' /> 
+					</section>
+					-->
+
+
+
+				</section>
+
+				<section>
+					<section>
+						<h3>Architecture of the <br> neural network</h3>
+					</section>
+
+
+					<section data-auto-animate>
+						<h4>Connectivity of the <br> excitatory recurrent network of grid cells</h4>
+						 <div class="row">
+						 	 <div class="column"><p class="fragment">2D connectivity
+						 	 <img src='media/connection2D_torus.png'/>
+						 	</p>
+						 	 <br>
+						 	 <p  class="fragment" style="font-size: 15px"> 
+							 $\bullet$ Gardner R, Hermansen E, Pachitariu M, Burak Y,  N, Dunn B, Moser M B, Moser E. <i>Toroidal topology of population activity in grid cells</i> (2021)
+							 <br>
+							 $\bullet$ Guanella A, Kiper D, Verschure P. <i> A model of grid cells based on a twisted torus topology.</i> Int J Neural Syst. 2007 Aug; 17 (4):231-40. 
+						 	 </p>
+						 	 </div>
+						 	 
+ 							 <div class="column"><p class="fragment">1D connectivity
+ 							 <img width="350" height = auto src='media/connection1D_cycle.png'/>
+ 							 </p>
+ 							 </div>
+
+ 							 <div class="column"><p class="fragment">No connectivity
+ 							 </p>
+ 							 </div>
+						</div> 
+					</section>
+
+					<section data-auto-animate>						
+						<p><b>Experiment</b>
+						<small>
+						<ul>
+						<li>Simulation of the neural activity of $100$ grid cells in an arena of $25\times 25$.</li>
+						<li>Point cloud of $625$ points in $\mathbb{R}^{100}$.</li>
+						<li>Metric: <i>$k$-NN</i> ($k=10$)</li>
+						</ul>
+						</p>
+						<b class="fragment">Isomap projection</b>
+						<div class="row">
+						 	 <div class="column">
+						 	 	<p class="fragment">2D connectivity
+ 							 	<img width="350" height = auto src='media/2D_isomap.png'/>
+ 							 	</p>
+						 	 </div>
+						 	 
+ 							 <div class="column"><p class="fragment">1D connectivity
+ 							 <img width="350" height = auto src='media/1D_isomap.png'/>
+ 							 </p>
+ 							 </div>
+
+ 							 <div class="column"><p class="fragment">No connectivity
+ 							 <img width="350" height = auto src='media/0D_isomap.png'/>
+ 							 </p>
+ 							 </div>
+						</div> 
+						</small>
+					</section>
+
+					<section>
+						<big>Global Geometry</big>
+					</section>
+
+					<section data-auto-animate>
+						<p><b>Persistent homology</b>
+							<br><small>(coefficient field $\mathbb{Z}_2$ and $\mathbb{Z}_3$)</small>
+						</p>
+
+						 <div class="row">
+						 	 <div class="column">
+						 	 	<p class="fragment">2D connectivity
+ 							 	<img width="350" height = auto src='media/PD_2D.png'/>
+ 							 	</p>
+						 	 </div>
+						 	 
+ 							 <div class="column"><p class="fragment">1D connectivity
+ 							 <img width="350" height = auto src='media/PD_1D.png'/>
+ 							 </p>
+ 							 </div>
+
+ 							 <div class="column"><p class="fragment">No connectivity
+ 							 <img width="350" height = auto src='media/PD_0D.png'/>
+ 							 </p>
+ 							 </div>
+						</div> 
+					</section>
+
+<!-- 					<section data-auto-animate>
+						<p><b>Persistent homology</b>
+							<br><small>Generators</small>
+
+						 <div class="row">
+						 	 <div class="column">
+						 	 	<p class="fragment">2D connectivity
+ 							 	<img width="350" height = auto src='media/PD_2D.png'/>
+ 							 	</p>
+						 	 </div>
+						 	 
+ 							 <div class="column"><p class="fragment">1D connectivity
+ 							 <img width="350" height = auto src='media/PD_1D.png'/>
+ 							 </p>
+ 							 </div>
+
+ 							 <div class="column"><p class="fragment">No connectivity
+ 							 <img width="350" height = auto src='media/PD_0D.png'/>
+ 							 </p>
+ 							 </div>
+						</div> 
+					</section> -->
+
+					<section data-auto-animate>
+						<p><b>Persistent homology</b>
+							<br><small>Frechet mean</small>
+
+						 <div class="row">
+						 	 <div class="column">
+						 	 	<p>2D connectivity
+ 							 	<img width="350" height = auto src='media/mean_2D.png'/>
+ 							 	</p>
+						 	 </div>
+						 	 
+ 							 <div class="column"><p>1D connectivity
+ 							 <img width="350" height = auto src='media/mean_1D.png'/>
+ 							 </p>
+ 							 </div>
+
+ 							 <div class="column"><p>No connectivity
+ 							 <img width="350" height = auto src='media/mean_0D.png'/>
+ 							 </p>
+ 							 </div>
+						</div> 
+					</section>
+
+				<!--
+					<section data-auto-animate>
+					<small>
+						 <div class="row">
+						 	 <div class="column">
+						 	 	<p>2D connectivity
+ 							 	<img width="215" height = auto src='media/2D_H0.png'/>
+ 							 	<img width="215" height = auto src='media/2D_H1.png'/>
+ 							 	<img width="215" height = auto src='media/2D_H2.png'/>
+ 							 	</p>
+						 	 </div>
+						 	 
+ 							 <div class="column">
+ 							 	<p>1D connectivity
+ 							  	<img width="215" height = auto src='media/1D_H0.png'/>
+ 							 	<img width="215" height = auto src='media/1D_H1.png'/>
+ 							 	<img width="215" height = auto src='media/1D_H2.png'/>
+ 								</p>
+ 							 </div>
+
+ 							 <div class="column"><p>No connectivity
+ 							  	<img width="215" height = auto src='media/0D_H0.png'/>
+ 							 	<img width="215" height = auto src='media/0D_H1.png'/>
+ 							 	<img width="215" height = auto src='media/0D_H2.png'/>
+ 							 </p>
+ 							 </div>
+						</div> 
+					</small>
+					</section>
+				-->
+
+				<!--
+					<section data-auto-animate>
+						<p><b>Intrinsic dimension</b>
+							<br>
+						Local PCA</p>
+						 <div class="row">
+						 	 <div class="column"><p>2D connectivity
+						 	 <img width="400" height = auto src='media/2D_local_dim_var.png'/>
+						 	 </p>
+						 	 </div>
+						 	 
+ 							 <div class="column"><p>1D connectivity
+ 							 <img width="400" height = auto src='media/1D_local_dim_var.png'/>
+ 							 </p>
+ 							 </div>
+
+ 							  <div class="column"><p>No connectivity
+ 							 <img width="400" height = auto src='media/0D_local_dim_var.png'/>
+ 							 </p>
+ 							 </div>
+						</div> 
+					</section>
+				-->
+				
+					<section data-auto-animate>
+						<p><b>Intrinsic dimension</b>
+							<br>
+						Local PCA</p>
+						 <div class="row">
+						 	 <div class="column"><p>2D connectivity
+						 	 <img width="400" height = auto src='media/2D_local_dim.png'/>
+						 	 </p>
+						 	 </div>
+						 	 
+ 							 <div class="column"><p>1D connectivity
+ 							 <img width="400" height = auto src='media/1D_local_dim.png'/>
+ 							 </p>
+ 							 </div>
+
+ 							  <div class="column"><p>No connectivity
+ 							 <img width="400" height = auto src='media/0D_local_dim.png'/>
+ 							 </p>
+ 							 </div>
+						</div> 
+					</section>
+				
+
+
+					<section data-auto-animate>
+						<p><b>Local (persistent) homology</b></p>
+						<p><small>Compute an estimate of $H_1(B_x(r), \{x\})$ for every $x$.</small></p>
+
+						 <div class="row">
+						 	 <div class="column"><p>2D connectivity
+						 	 <img width="400" height = auto src='media/2D_anomalies.png'/>
+						 	 </p>
+						 	 </div>
+						 	 
+ 							 <div class="column"><p>1D connectivity
+ 							 <img width="400" height = auto src='media/1D_anomalies.png'/>
+ 							 </p>
+ 							 </div>
+
+ 							 <div class="column"><p>No connectivity
+ 							 <img width="400" height = auto src='media/0D_anomalies.png'/>
+ 							 </p>
+ 							 </div>
+						</div> 
+						<p style="font-size: 15px">Stolz BJ, Tanner J, Harrington HA, Nanda V. <i>Geometric anomaly detection in data.</i> Proceedings of the National Academy of Sciences of the United States of America. 2020 Aug; 117(33):19664-19669</p>
+					</section>
+
+				</section>
+
+				<section>
+
+					<section>
+						<h3>From neural activity to <br> neural network architecture</h3>
+					</section>
+
+				<section data-auto-animate>						
+						<p><b>Experiment</b>
+						<small>
+						<ul>
+						<li>Simulation of the neural activity of 100 grid cells in an arena of $25\times 25$.</li>
+						<li>Point cloud of 100 points in $\mathbb{R}^{625}$.</li>
+						<li>Metric: <i>correlation</i></li>
+						</ul>
+						</p>
+						</small>
+
+						<div class="row">
+						 	 <div class="column">
+						 	 	<p class="fragment">2D connectivity
+ 							 	<img width="350" height = auto src='media/2D_architecture.png'/>
+ 							 	</p>
+						 	 </div>
+						 	 
+ 							 <div class="column"><p class="fragment">1D connectivity
+ 							 <img width="350" height = auto src='media/1D_architecture.png'/>
+ 							 </p>
+ 							 </div>
+
+ 							 <div class="column"><p class="fragment">No connectivity
+ 							 <img width="350" height = auto src='media/0D_architecture.png'/>
+ 							 </p>
+ 							 </div>
+						</div> 
+					</section>
+
+					<section data-auto-animate>						
+						<p><b>Persistence diagram</b>
+						<p><small>Frechet mean and variance</small></p>
+						</p>
+
+						<div class="row">
+						 	 <div class="column">
+						 	 	<p>2D connectivity
+ 							 	<img width="350" height = auto src='media/mean_2D_architecture.png'/>
+ 							 	</p>
+						 	 </div>
+						 	 
+ 							 <div class="column"><p>1D connectivity
+ 							 <img width="350" height = auto src='media/mean_1D_architecture.png'/>
+ 							 </p>
+ 							 </div>
+
+ 							 <div class="column"><p>No connectivity
+ 							 <img width="350" height = auto src='media/mean_0D_architecture.png'/>
+ 							 </p>
+ 							 </div>
+						</div> 
+					</section>
+
+				</section>
+
+				<section>
+					<h2>Thanks!</h2>
+				</section>
+
+
+			</div>
+
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/math/math.js"></script>
+		<script>
+			Reveal.initialize({
+				history: true,
+				transition: 'linear',
+
+				math: {
+					// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+					config: 'TeX-AMS_HTML-full',
+					TeX: {
+						Macros: {
+							R: '\\mathbb{R}',
+							set: [ '\\left\\{#1 \\; ; \\; #2\\right\\}', 2 ]
+						}
+					}
+				},
+
+				plugins: [ RevealMath ]
+			});
+		</script>
+
+	</body>
+</html>
