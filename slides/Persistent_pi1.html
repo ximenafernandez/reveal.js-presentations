@@ -314,8 +314,8 @@
 				<h5>Discrete Morse Theory & Whitehead deformations</h5>
 				<span style="font-size: 24px; text-align:left;"> 
 				
-				<p style="padding: 6px; border: 2px solid black;"><b style = "color: #ff4040">Theorem [F. 2021]: </b> Let $K$ be a regular CW-complex of <b>dimension $n$</b> and let $f:K\to \mathbb{R}$  be discrete Morse function.
-				 Then, $f$ induces a  sequence of CW-subcomplexes of $K$ 
+				<p style="padding: 6px; border: 2px solid black;"><b style = "color: #ff4040">Theorem [F. 2021]: </b> Let $K$ be a regular CW-complex of <b>dim $n$</b> and let $f:K\to \mathbb{R}$  be discrete Morse function.
+				 Then, $f$ induces a  sequence internal collapses given by a filtration of $K$ 
 				  \[ \varnothing = K_{-1} \subseteq L_0 \subseteq K_0\subseteq L_1\subseteq K_1 \dots \subseteq L_{N}\subseteq K_{N}=K\]
 				  such that $K_j\searrow L_{j}$ for all $1\leq j\leq N$ and $\displaystyle L_{j}=K_{j-1}\cup \bigcup_{i=1}^{d_j} 
 				e_i^j$ with $\{e_i^j:0\leq j\leq N, 1\leq i \leq d_j\}$ the set of <b>critical cells</b> of $f$.
@@ -798,9 +798,22 @@
 					<span style="font-size: 20px; text-align:left;">
 					<!--<p><b>Persistent fundamental group</b> $\mathrm{P}\Pi_1(X_n)$</p>-->
 					<p><b>Vietoris–Rips filtration</b> $\mathrm{VR}_{\alpha}(X_n)$</p>
+					<div class="column_65">
 					<img width="650" height = auto src='media_perspi1/perspi1_wedge.png'/ class="center"> 
-					<img width="500" height = auto src='media_perspi1/perspi1_torus.png'/ class="center"> 
+					</div>
 
+					<div class="column_65">
+		 	 			<img width="500" height = auto src='media_perspi1/perspi1_torus.png'/ class="center"> 
+					</div>
+					<div class="column_35" style="font-size: 18px;">For $\alpha \in [1, \sqrt{2})$ and $\alpha' \in [\sqrt{2}, 2)$,
+		 	 								\[\varphi_{\alpha, \alpha'}(x_i) =  \begin{cases}
+											x_{16} & \text{if }i = 13,14,15,16\\
+											x_{17} & \text{if }i = 4,8,12,17\\
+											1 & \text{otherwise}.\end{cases}
+											\]
+
+					</div>
+					
 					</span>
 				</section>
 
