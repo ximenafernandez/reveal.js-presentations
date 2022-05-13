@@ -75,7 +75,7 @@
 					<p style="font-size:30px;">XIMENA FERNANDEZ</p>
 					<p style="font-size:22px;">Durham University</p>
 					<p style="font-size:20px;">UK CENTRE FOR TOPOLOGICAL DATA ANALYSIS</p>
-					<p style="font-size:24px;">Transpennine Topology Triangle Meeting 116 </i></p> 
+					<p style="font-size:24px;"><b>Transpennine Topology Triangle Meeting 116 </b></i></p> 
 					<br>
 					<br>
 					<p style="font-size:20px;text-align:right;"><i style = "color: #ff4040">'Every mathematician has a secret weapon.<br>
@@ -101,7 +101,7 @@
 					<br>
 					$\bullet$ J. H. C. Whitehead, <i>Combinatorial homotopy. I,</i> Bull. Amer. Math. Soc. 55, 213–245, 1949.
 					<br>
-					$\bullet$ J. H. C. Whitehead, <i>Combinatorial homotopy. I,</i> Bull. Amer. Math. Soc. 55, 453-496, 1949.
+					$\bullet$ J. H. C. Whitehead, <i>Combinatorial homotopy. II,</i> Bull. Amer. Math. Soc. 55, 453-496, 1949.
 					<br>
 					$\bullet$ J. H. C. Whitehead, <i>Simple Homotopy Types.</i> Amer. Math. J., 72, 1–57, 1950.
 				    </p>
@@ -150,13 +150,13 @@
 					<span style="font-size: 24px; text-align:left;"> 
 					<p>Let $K,L$ be CW-complexes.</p>
 					<ul>
-						<li> There is an <b style = "color: #ff4040">$n$-deformation</b> $K \diagup\hspace{-4 pt}\searrow\hspace{-10pt}^{^{n}}L$  if there is a
+						<li> There is an <b style = "color: #ff4040">$n$-deformation</b> $K \nearrow \hspace{-2 pt}\searrow\hspace{-5pt}^{^{n}}L$  if there is a
 						 sequence of CW-complexes $K=K_0,K_1,\dots K_r=L$ such that 
 						 $K_i \searrow^e  K_{i+1}$ or
 						 $K_i \hspace{5pt}^e\hspace{-5pt}\nearrow K_{i+1}$  for each $0\leq i\leq r-1$, and $\dim(K_i)\leq n$ for all $1\leq i\leq r$.
 						 </li>
 						<li lass="fragment">
-						 There is <b style = "color: #ff4040">simple homotopy equivalence</b> $K\diagup\hspace{-4 pt}\searrow  L$ if $K \diagup\hspace{-4 pt}\searrow\hspace{-10pt}^{^{n}}L$  for some $n\in \mathbb{N}$.
+						 There is <b style = "color: #ff4040">simple homotopy equivalence</b> $K\nearrow\hspace{-2 pt}\searrow  L$ if $K \nearrow \hspace{-2 pt}\searrow\hspace{-5pt}^{^{n}}L$  for some $n\in \mathbb{N}$.
 					    </li>
 					</ul>
 				</span>
@@ -168,14 +168,14 @@
 					<span style="font-size: 24px; text-align:left;"> 
 					<p>Let $K,L$ be CW-complexes.</p>
 					<ul>
-						<li> $K \diagup\hspace{-4 pt}\searrow L \Rightarrow K\simeq L.$</li>
+						<li> $K \nearrow\hspace{-2 pt}\searrow L \Rightarrow K\simeq L.$</li>
   						<li class="fragment"> The converse is not true, the obstruction is measured by the <b>Whitehead group</b>.
   							<br> <i  style = "font-size: 22px; color: grey">If the Whitehead group $\mathrm{Wh} (K)$ of the complex $K$ is <b>trivial</b>, then any complex <b>homotopy equivalent</b> to $K$ is also <b>simple homotopy equivalent</b> to $K$.</i>
   						</li>
-						<li class="fragment"> For $K$ <b>contractible</b>, $\mathrm{Wh}(K)=0$ and hence $K\simeq * \Leftrightarrow K \diagup\hspace{-4 pt}\searrow *.$ </li>
-						<li class="fragment"> (Whitehead '50) If $K, L$ are $n$-complexes, then $K \diagup\hspace{-4 pt}\searrow  L \Rightarrow K \diagup\hspace{-4 pt}\searrow\hspace{-10pt}^{^{n+1}}L$ if $n\neq 2$.
+						<li class="fragment"> For $K$ <b>contractible</b>, $\mathrm{Wh}(K)=0$ and hence $K\simeq * \Leftrightarrow K \nearrow\hspace{-2 pt}\searrow *.$ </li>
+						<li class="fragment"> (Whitehead '50) If $K, L$ are $n$-complexes, then $K \nearrow\hspace{-2 pt}\searrow  L \Rightarrow K \nearrow\hspace{-2 pt}\searrow\hspace{-7pt}^{^{n+1}}L$ if $n\neq 2$.
 						<br><span  style = "color: #ff4040"> For $n=2$, this question is open.</span>
-    					<li class="fragment"> (C.T.C. Wall '66) If $K, L$ are $2$-complexes, then $K \diagup\hspace{-4 pt}\searrow L \Rightarrow K\diagup\hspace{-4 pt}\searrow\hspace{-10pt}^{^4} L$.</li>
+    					<li class="fragment"> (C.T.C. Wall '66) If $K, L$ are $2$-complexes, then $K \nearrow\hspace{-2 pt}\searrow L \Rightarrow K\nearrow\hspace{-2 pt}\searrow\hspace{-7pt}^{^4} L$.</li>
 					</ul>
 				</span>
 				</section>
@@ -817,7 +817,75 @@
 						<li ><b>Filtration</b> (connected)\[K_1 \xrightarrow{i_1} K_2 \xrightarrow{i_2} \dots \xrightarrow{i_{N-1}} K_N\]</li>
 						<img width="680" height = auto src='media_perspi1/filtration2.png'/ class="center">
 
-						<li ><b>Persistent fundamental group</b> \[\pi_1(K_1) \xrightarrow{(i_1)_*} \pi_1(K_2) \xrightarrow{(i_2)_*} \dots \xrightarrow{(i_{N-1})_*} \pi_1(K_N)\]</li>
+						<li ><b>Persistent invariant $F$</b> \[F(K_1) \xrightarrow{(i_1)_*} F(K_2) \xrightarrow{(i_2)_*} \dots \xrightarrow{(i_{N-1})_*} F(K_N)\]</li>
+					</ul>
+					</p>
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h3> Persistence</h3>
+					<span style="font-size: 24px; text-align:left;">
+					<p>
+					<ul>
+						<li ><b>Metric space</b> $(X_n,d)$</li>
+						<li ><b>Filtration</b> (connected)\[K_1 \xrightarrow{i_1} K_2 \xrightarrow{i_2} \dots \xrightarrow{i_{N-1}} K_N\]</li>
+						<img width="680" height = auto src='media_perspi1/filtration2.png'/ class="center">
+
+						<li ><b>Persistent <span style = "color: #ff4040">homology</span></b> \[H_i(K_1) \xrightarrow{(i_1)_*} H_i(K_2) \xrightarrow{(i_2)_*} \dots \xrightarrow{(i_{N-1})_*} H_i(K_N)\]</li>
+					</ul>
+					</p>
+					</span>
+				</section>
+
+				<section data-auto-animate> 
+					<h4>Example</h4>
+					<p style="font-size: 24px;"> $S^2\vee S^1\vee S^1$ vs $S^1\times S^1$</p>
+					<img width="600" height = auto src='media_perspi1/torusvswedge.png'/ class="center"> 
+					<!--<img class="fragment" width="600" height = auto src='media_perspi1/barcodes.png'/ class="center"> -->
+				</section>
+
+				
+				<section data-auto-animate> 
+					<h4>Example</h4>
+					<p style="font-size: 24px;"> $S^1\times S^1$ vs $S^2\vee S^1\vee S^1$</p>
+					<span style="font-size: 24px; text-align:left;">
+					<p><b>Vietoris–Rips filtration</b> $\mathrm{VR}_{\alpha}(X_n)$</p>
+					<img width="600" height = auto src='media_perspi1/VR_wedge.png'/ class="center"> 
+					<img width="500" height = auto src='media_perspi1/VR_torus.png'/ class="center"> 
+					</span>
+				</section>
+
+				<section data-auto-animate> 
+					<h4>Example</h4>
+					<p style="font-size: 24px;"> $S^2\vee S^1\vee S^1$ vs $S^1\times S^1$</p>
+					<span style="font-size: 22px; text-align:left;">
+					<div class="column_65">
+						<p><b>Vietoris–Rips filtration</b> $\mathrm{VR}_{\alpha}(X_n)$</p>
+						<img width="600" height = auto src='media_perspi1/VR_wedge.png'/ class="center"> 
+						<img width="500" height = auto src='media_perspi1/VR_torus.png'/ class="center"> 
+					</div>
+
+		 	 		<div class="column_35">
+		 	 			<p><b>Persistent homology</b> $\mathrm{P H}_{*}(X_n)$</p>
+		 	 			<img width="400" height = auto src='media_perspi1/barcode_wedge.png'/ class="center"> 
+		 	 			<img width="400" height = auto src='media_perspi1/barcode_torus.png'/ class="center"> 
+					</div>
+					
+					</span>
+				</section>
+				
+
+				<section data-auto-animate>
+					<h3> Persistence</h3>
+					<span style="font-size: 24px; text-align:left;">
+					<p>
+					<ul>
+						<li ><b>Metric space</b> $(X_n,d)$</li>
+						<li ><b>Filtration</b> (connected)\[K_1 \xrightarrow{i_1} K_2 \xrightarrow{i_2} \dots \xrightarrow{i_{N-1}} K_N\]</li>
+						<img width="680" height = auto src='media_perspi1/filtration2.png'/ class="center">
+
+						<li ><b>Persistent <span style = "color: #ff4040">fundamental group</span></b> \[\pi_1(K_1) \xrightarrow{(i_1)_*} \pi_1(K_2) \xrightarrow{(i_2)_*} \dots \xrightarrow{(i_{N-1})_*} \pi_1(K_N)\]</li>
 					</ul>
 					</p>
 					</span>
@@ -946,13 +1014,28 @@
 					</span>
 				</section>
 
+				<section data-auto-animate> 
+					<h4>Future work</h4>
+					<span style="font-size: 26px; text-align:left;">
+					<ul>
+					<li> <b style = "color: #ff4040">Canonical (efficient) Morse functions</b> for Vietoris-Rips filtrations of point clouds.</li>
+					<li> <b style = "color: #ff4040">Stability</b> to small perturbations. </li>
+					<li> <b style = "color: #ff4040">Barcode</b> decompositions (interaction with Persistent Homology).</li>
+					<li> Persistence of <b style = "color: #ff4040">group invariants</b>.</li>
+					<li> <b style = "color: #ff4040">Implementation</b> in GAP. </li>
+					<li> Applications in <b style = "color: #ff4040"> real data</b>.</li>
+					</ul>
+					</span>
+				</section>
+
+			</section>
 
 				<section>
 					<h2>Thanks!</h2>
 					<br>
 					<img width="300" height = auto src='media_perspi1/matching_no_labels2.png'/ class="center">
 				</section>
-			</section>
+			
 
 
 			</div>
