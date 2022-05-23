@@ -37,9 +37,14 @@
 			  padding: 10px;
 			}	
 
-			.column_eq {
+			.column_33 {
 			  float: left;
 			  width: 33%;
+			  padding: 10px;
+			}	
+			.column_66 {
+			  float: left;
+			  width: 66%;
 			  padding: 10px;
 			}	
 			}
@@ -75,9 +80,9 @@
 					<br>
 					<span style="font-size:30px;">
 					<ul>
-						<li> <b style="color: #ff4040;">Day 1.</b> Topological data analysis</li>
-						<li> <b style="color: #ff4040;">Day 2.</b> Hands on: computational topology in action</li>
-						<li> <b style="color: #ff4040;">Day 3.</b> Applications in dynamics</li>
+						<li> <b style="color: #fe6e61;">Day 1.</b> Topological data analysis</li>
+						<li> <b style="color: #fe6e61;">Day 2.</b> Hands on: computational topology in action</li>
+						<li> <b style="color: #fe6e61;">Day 3.</b> Applications in dynamics</li>
 					</ul>
 				</span>
 				</section>
@@ -87,7 +92,7 @@
 					<section data-auto-animate>
 						<h2>Topological data analysis</h2>
 						<br>
-						<p class="fragment" style="font-size:28px;"><b style="color: #ff4040;">Goal:</b> Study <b>data sets</b> with techniques coming from <i>geometry</i> and <i>topology</i>.</p>
+						<p class="fragment" style="font-size:28px;"><b style="color: #fe6e61;">Goal:</b> Study <b>data sets</b> with techniques coming from <i>geometry</i> and <i>topology</i>.</p>
 					</section>
 
 
@@ -130,7 +135,7 @@
 						The goal of topology is to <i>classify</i> spaces depending on its <i>shape</i>.
 						</span>
 						<br>
-						<img width="700" height = auto src='media_ph/homology_betti.png'/>
+						<img width="700" height = auto src='media_ph/topology.png'/>
 					</section>
 
 					<section data-auto-animate>
@@ -142,10 +147,22 @@
 					</section>
 
 					<section data-auto-animate>
+						<h3>Betti numbers</h3>
+						<p style="font-size: 28px; text-align:left;">
+						The $d^{th}$ <b>Betti number</b> counts the number of 'independent' $d$-dimensional holes.
+						</p>
+						<img width="700" height = auto src='media_ph/combinatorial_betti.png'/>
+					</section>
+
+
+					<section data-auto-animate>
 						<h3>Combinatorial Topology</h3>
 						<span style="font-size: 28px; text-align:left;">
-						<p class="fragment"><b>Q1:</b> How to encode topological spaces for computational purposes?</p>
-						<p class="fragment"><b>Q2:</b> Looking for topological equivalences is extremely difficult. Are there mathematical quantities that are invariant to homotopy equivalences and easy to compute?</p>
+							<ul>
+						<li class="fragment"> Encodes <b style="color: #fe6e61;">topological spaces</b> combinatorially for computational purposes.</li>
+						<br>
+						<li class="fragment"> Encodes <b style="color: #fe6e61;">topological features</b> in terms of  mathematical quantities that are invariant to homotopy equivalences and easy to compute.</li>
+							</ul>
 						</span>
 					</section>
 
@@ -158,14 +175,44 @@
 						<img class="fragment" width="800" height = auto src='media_ph/simplices.png'/>
 					</section>
 
+					<section data-auto-animate>
+						<h3>Simplicial Complexes</h3>
+						<span style="font-size: 24px; text-align:left;">
+						Simplicial complexes are combinatorial objects built of small convex bricks called <i>simplices</i>.
+						</span>
+						<img  width="600" height = auto src='media_ph/simplicial_complex.png'/>
+					</section>
+
 
 
 					<section data-auto-animate>
 						<h3>Simplicial Complexes</h3>
 						<span style="font-size: 24px; text-align:left;">
 						<p>Simplicial complexes can be stored as a list of non-empty subsets of its vertices.</p>
+						
+						<div class="column_big">
+						<img width="300" height = auto src='media_ph/abstract_simplicial_complex.png'/>
+						</div>
+						<div class="column_big">
+							<br>
+							<br>
+							$K = \{\{a\}, \{b\}, \{c\}, \{a, b\}, \{b, c\}, \{a, c\}\}$
+
+							\[
+							\begin{array}{cccc}
+							&ab&bc&ac\\
+							\end{array}\\
+							  \begin{array}{c}
+							  a\\b\\c \end{array}
+							  \left(\begin{array}{@{}c@{}c@{}c@{}}
+							    1 & 0 & 1 \\
+							    1 & 1 & 0 \\
+							    0 & 1 & 1 \\
+							  \end{array}\right)
+							\]
+													
+							</div>
 						</span>
-						<img width="900" height = auto src='media_ph/abstract_simplicial_complex.png'/>
 					</section>
 
 					<section data-auto-animate>
@@ -179,8 +226,29 @@
 						<li>If $\sigma \in S$ and $\tau \subset \sigma$, then $\tau \in K$.</li>
 						</ul>
 						</p>
+						<div class="column_big">
+						<img width="300" height = auto src='media_ph/abstract_simplicial_complex.png'/>
+						</div>
+						<div class="column_big">
+							<br>
+							<br>
+							$K = \{\{a\}, \{b\}, \{c\}, \{a, b\}, \{b, c\}, \{a, c\}\}$
+
+							\[
+							\begin{array}{cccc}
+							&ab&bc&ac\\
+							\end{array}\\
+							  \begin{array}{c}
+							  a\\b\\c \end{array}
+							  \left(\begin{array}{@{}c@{}c@{}c@{}}
+							    1 & 0 & 1 \\
+							    1 & 1 & 0 \\
+							    0 & 1 & 1 \\
+							  \end{array}\right)
+							\]
+								
+						</div>
 						</span>
-						<img width="900" height = auto src='media_ph/abstract_simplicial_complex.png'/>
 					</section>
 
 					<section data-auto-animate>
@@ -194,7 +262,7 @@
 						<li><b>The homology group</b> $H_p$ characterizes the $p$-dimensional holes in a topological space.</li>
 						<li>The $p$-th <b>Betti number</b> $b_p$ is the rank of the group $H_p$.</li>
 						</ul>
-						<img width="500" height = auto src='media_ph/homology_betti.png'/>
+						<img width="500" height = auto src='media_ph/combinatorial_betti.png'/>
 						</span>
 					</section>
 
@@ -210,16 +278,14 @@
 						<span style="font-size: 26px; text-align:left;">
 						<p ><b>Q:</b> How to algorithmically compute homology of simplicial complexes?</p>
 						<div class="row">
-					 	 <div class="column">
-					 	 	<img  width="400" height = auto src='media_ph/cycle_labeled.png'/>
+					 	 <div class="column_big">
+					 	 	<img  width="500" height = auto src='media_ph/cycle_labeled.png'/>
 					 	 </div>
 					 	 
-						<div class="column_Big" style="font-size: 18px; text-align:left;">
-						<p>Chain</p>
+						<div class="column_big" style="font-size: 20px; text-align:left;">
+						<ul>
+						<p>$\bullet$ <b>Chain</b></p>
 						<p>$C = [v_0,v_1]+[v_1,v_2]+[v_2,v_3]+[v_3,v_4]+[v_4,v_5]+[v_5,v_0]$ </p>
-						<p>Cycle</p>
-						<p>$\partial C = [v_1]-[v_0]+[v_2]-[v_1]+[v_3]-[v_2]+[v_4]-[v_3]+[v_5]-[v_4]+[v_0]-[v_5] = 0$</p>
-						<p>$C$ is a hole</p> 
 						</div> 
 						</span>
 					</section>
@@ -229,21 +295,59 @@
 						<span style="font-size: 26px; text-align:left;">
 						<p ><b>Q:</b> How to algorithmically compute homology of simplicial complexes?</p>
 						<div class="row">
-					 	 <div class="column">
+					 	 <div class="column_big">
+					 	 	<img  width="500" height = auto src='media_ph/cycle_labeled.png'/>
+					 	 </div>
+					 	 
+						<div class="column_big" style="font-size: 20px; text-align:left;">
+						<ul>
+						<p>$\bullet$ <b>Chain</b></p>
+						<p>$C = [v_0,v_1]+[v_1,v_2]+[v_2,v_3]+[v_3,v_4]+[v_4,v_5]+[v_5,v_0]$ </p>
+						<p> $\bullet$ <b>Cycle</b></p>
+						<p>$\partial C = [v_1]-[v_0]+[v_2]-[v_1]+[v_3]-[v_2]+[v_4]-[v_3]+[v_5]\\-[v_4]+[v_0]-[v_5] = 0$</p>
+						</div> 
+						</span>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Homology</h3>
+						<span style="font-size: 26px; text-align:left;">
+						<p ><b>Q:</b> How to algorithmically compute homology of simplicial complexes?</p>
+						<div class="row">
+					 	 <div class="column_big">
+					 	 	<img  width="400" height = auto src='media_ph/non_boundary.png'/>
+					 	 </div>
+					 	 
+						<div class="column_big" style="font-size: 20px; text-align:left;">
+						<ul>
+						<p>$\bullet$ <b>Chain</b></p>
+						<p>$C = [v_0,v_1]+[v_1,v_2]+[v_2,v_3]+[v_3,v_4]+[v_4,v_5]+[v_5,v_0]$ </p>
+						<p> $\bullet$ <b>Cycle</b></p>
+						<p>$\partial C = [v_1]-[v_0]+[v_2]-[v_1]+[v_3]-[v_2]+[v_4]-[v_3]+[v_5]\\-[v_4]+[v_0]-[v_5] = 0$</p>
+						<p> $\bullet$ <b>Non boundary</b></p> 
+						</div> 
+						</span>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Homology</h3>
+						<span style="font-size: 26px; text-align:left;">
+						<p ><b>Q:</b> How to algorithmically compute homology of simplicial complexes?</p>
+						<div class="row">
+					 	 <div class="column_33">
 					 	 	<img  width="400" height = auto src='media_ph/cycle_labeled.png'/>
 					 	 </div>
 					 	 
-						<div class="column_Big" style="font-size: 18px; text-align:left;">
+						<div class="column_66" style="font-size: 20px; text-align:left;">
 						<ul>
-						<li>A <b>$d$-chain</b> is a formal sum of $d$-simplices</li>
-						<p>$C = [v_0,v_1]+[v_1,v_2]+[v_2,v_3]+[v_3,v_4]+[v_4,v_5]+[v_5,v_0]$ </p>
-						<li>The <b>boundary</b> of a $d$-simplex is the chain made of its (d − 1)-simplices. This operation extents linearly to chains of $d$-simplices.</li>
-						<p>$\partial_d[v_1,\dots,v_{d+1}] = \sum_{i=1}^{d+1}[v_1,\dots,v_{i−1},v_{i+1},\dots,v_{d+1}]$</p>
+						<li>A <b>$d$-chain</b> is a formal sum of $d$-simplices.</li>
+						<p style="color: #fe6e61">$C = [v_0,v_1]+[v_1,v_2]+[v_2,v_3]+[v_3,v_4]+[v_4,v_5]+[v_5,v_0]$ </p>
+						<li><p>The <b>boundary</b> of a $d$-simplex is the alternate chain made of its $(d − 1)$-simplices.</p><p> This operation extents linearly to chains of $d$-simplices.</p></li>
+						<p>$\partial_d[v_1,\dots,v_{d+1}] = \sum_{i=1}^{d+1}(-1)^i[v_1,\dots,v_{i−1},v_{i+1},\dots,v_{d+1}]$</p>
 						<li>A <b>$d$-cycle</b> is a $d$-chain $C$ s.t. $\partial C = 0$.</li>
-						<p>$\partial C = [v_1]-[v_0]+[v_2]-[v_1]+[v_3]-[v_2]+[v_4]-[v_3]+[v_5]-[v_4]+[v_0]-[v_5] = 0$</p>
-						<li>A $d$-cycle is not a <b>boundary</b> if there not exist a $(d+1)$-chain $C'$ such that $partial (C') = C.</li>
-						<p>$C$ is a hole.</p> 
-						<li>Homology in degree $d$ is the quotient of cycles over boundaries.
+						<p style="color: #fe6e61">$\partial C = [v_1]-[v_0]+[v_2]-[v_1]+[v_3]-[v_2]+[v_4]-[v_3]+[v_5]-[v_4]+[v_0]-[v_5] = 0$</p>
+						<li>A $d$-cycle is a <b>boundary</b> if there  exist a $(d+1)$-chain $C'$ such that $\partial (C') = C$.</li>
+						<li><b>Homology</b> in degree $d$ is the quotient of cycles over boundaries.
 						\[H_d = \frac{Z_d}{B_d}\]
 						</li>
 						</ul>
@@ -657,43 +761,74 @@
 				</section>
 
 
-				<section> <h4>  Take away messages</h4>
-					<span style="font-size: 22px">
-					<ul>
-						<li> Topological spaces can be encoded combinatorially as <b>simplicial complexes</b></li>
-						<li> <b>Homology groups</b> characterise holes in topological spaces.</li>
-						<li> The computation of homology groups boils down to <b>linear algebra</b>.</li>
-						<br>
-						<li> <b>Point clouds</b> can be converted in filtrations of <b>simplicial complexes</b>.</li>
-						<li> <b>Persistent homology</b> is the multi-scale equivalent of homology.</li>
-						<li> The computation of persistent homology also boils down to <b>linear algebra</b>.</li>
-						<li> <b>Persistent</b> homology classes captures topological features in the <b>underlying space</b>.</li>
-						<br>
-						<li> <b>Data sets</b> can be viewed as samples of an (unknown) topological space.</li>
-						<li> The shape of a point cloud </li>
-
-					</ul>
-				</span>
-				</section>
-
-				<section> <h3>  Day 2</h3>
-					<h6>  Hands on: computational topology in action </h6>
-					<span style="font-size: 26px">
-					<ul>
-						<li> Computation of persistent homology in <b>Python</b>.</li>
-						<li> Topology of <b>real data sets</b>.</li>
-						<li> Two computational applications in classification of <b>proteins</b>.</li>
-					</ul>
-				</span>
-				</section>
-
-
 				<section>
-					<h2>Thanks!</h2>
-					<img width="450" height = auto src='media_ts/barcode.gif'/>
-					<br>
-					<br>
-					<span style="font-size: 16px">Animation from <i>'Introduction to Persistent Homology'</i>, Mathew Wright.</span>
+
+					<section data-auto-animate> <h3>  Take away messages</h3>
+						
+					</section>
+
+					<section data-auto-animate> <h3>  Take away messages</h3>
+						<span style="font-size: 22px">
+						<ul>
+							<li> Topological spaces can be encoded combinatorially as <b style="color: #fe6e61;">simplicial complexes</b></li>
+							<li> <b style="color: #fe6e61;">Homology groups</b> characterise holes in topological spaces.</li>
+							<li> The computation of homology groups boils down to <b style="color: #fe6e61;">linear algebra</b>.</li>
+
+						</ul>
+					</span>
+					</section>
+
+					<section data-auto-animate> <h3>  Take away messages</h3>
+						<span style="font-size: 22px">
+						<ul>
+							<li> Topological spaces can be encoded combinatorially as <b>simplicial complexes</b></li>
+							<li> <b>Homology groups</b> characterise holes in topological spaces.</li>
+							<li> The computation of homology groups boils down to <b>linear algebra</b>.</li>
+							<br>
+							<li> <b style="color: #fe6e61;">Point clouds</b> can be converted in filtrations of <b>simplicial complexes</b>.</li>
+							<li> <b style="color: #fe6e61;">Persistent homology</b> is the multi-scale equivalent of homology.</li>
+							<li> The computation of persistent homology also boils down to <b style="color: #fe6e61;">linear algebra</b>.</li>
+
+						</ul>
+					</span>
+					</section>
+
+					<section data-auto-animate> <h3>  Take away messages</h3>
+						<span style="font-size: 22px">
+						<ul>
+							<li> Topological spaces can be encoded combinatorially as <b style="color: #fe6e61;">simplicial complexes</b></li>
+							<li> <b style="color: #fe6e61;">Homology groups</b> characterise holes in topological spaces.</li>
+							<li> The computation of homology groups boils down to <b style="color: #fe6e61;">linear algebra</b>.</li>
+							<br>
+							<li> <b style="color: #fe6e61;">Point clouds</b> can be converted in filtrations of <b>simplicial complexes</b>.</li>
+							<li> <b style="color: #fe6e61;">Persistent homology</b> is the multi-scale equivalent of homology.</li>
+							<li> The computation of persistent homology also boils down to <b style="color: #fe6e61;">linear algebra</b>.</li>
+							<br>
+							<li> <b style="color: #fe6e61;">Data sets</b> can be viewed as samples of an (unknown) <b style="color: #fe6e61;">topological space</b>.</li>
+							<li> Persistent homology classes capture <b style="color: #fe6e61;">topological features</b> in data.</li>
+
+						</ul>
+					</span>
+					</section>
+
+					<section> <h3>  Day 2</h3>
+						<h6>  Hands on: computational topology in action </h6>
+						<span style="font-size: 26px">
+						<ul>
+							<li> Computation of persistent homology in <b style="color: #fe6e61;">Python</b>.</li>
+							<li> Topology of <b style="color: #fe6e61;">real data sets</b>.</li>
+							<li> Two computational applications in classification of <b style="color: #fe6e61;">proteins</b>.</li>
+						</ul>
+					</span>
+					</section>
+
+
+					<section>
+						<br>
+						<h2>Thanks!</h2>
+						<img width="450" height = auto src='media_ts/filtration_circle.gif'/>
+
+					</section>
 				</section>
 
 
