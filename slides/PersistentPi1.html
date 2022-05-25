@@ -98,7 +98,7 @@
 				<section data-auto-animate>
 					<h3> Topological inference</h3>
 					<span style="font-size: 24px; text-align:left;">
-					<p>Let $X_n$ be a (possible noisy) finite <b>sample</b> of an <b>unknown topological space</b> $\mathcal X$. </p>
+					<p>Let $\mathbb{X}_n$ be a (possible noisy) finite <b>sample</b> of an <b>unknown topological space</b> $\mathcal X$. </p>
 					
 					<img width="600" height = auto src='media_perspi1/torus_pc_crop.png'/ class="center">
 					</span>
@@ -107,8 +107,8 @@
 				<section data-auto-animate>
 					<h3> Topological inference</h3>
 					<span style="font-size: 24px; text-align:left;">
-					<p>Let $X_n$ be a (possible noisy) finite <b>sample</b> of an <b>unknown topological space</b> $\mathcal X$. </p>
-					<p > <span style = "color: #ff4040"><b>Goal:</b> </span> Describe (algorithmic) tools to infer  <b>topological properties</b> of $\mathcal{X}$ from $X_n$.</p>
+					<p>Let $\mathbb{X}_n$ be a (possible noisy) finite <b>sample</b> of an <b>unknown topological space</b> $\mathcal X$. </p>
+					<p > <span style = "color: #ff4040"><b>Goal:</b> </span> Describe (algorithmic) tools to infer  <b>topological properties</b> of $\mathcal{X}$ from $\mathbb{X}_n$.</p>
 					<img width="500" height = auto src='media_perspi1/torus_pc_crop.png'/ class="center">
 					</span>
 				</section>
@@ -120,7 +120,7 @@
 					<span style="font-size: 24px; text-align:left;">
 
 					<ul>
-						<li class="fragment" ><b>Metric space</b> $(X_n,d)$<br>
+						<li class="fragment" ><b>Metric space</b> $(\mathbb{X}_n,d)$<br>
 						<img width="400" height = auto src='media_perspi1/torus_pc_crop.png'/ class="center"></li>
 					</ul>
 
@@ -132,7 +132,7 @@
 					<span style="font-size: 24px; text-align:left;">
 					<p>
 					<ul>
-						<li><b>Metric space</b> $(X_n,d)$<br>
+						<li><b>Metric space</b> $(\mathbb{X}_n,d)$<br>
 						<img width="200" height = auto src='media_perspi1/torus_pc_crop.png'/ class="center"></li>
 						<li ><b>Filtration of complexes</b> \[K_1 \xrightarrow{i_1} K_2 \xrightarrow{i_2} \dots \xrightarrow{i_{N-1}} K_N\]</li>
 						<img width="680" height = auto src='media_perspi1/filtration2.png'/ class="center">
@@ -147,7 +147,7 @@
 					<span style="font-size: 24px; text-align:left;">
 					<p>
 					<ul>
-						<li ><b>Metric space</b> $(X_n,d)$</li>
+						<li ><b>Metric space</b> $(\mathbb{X}_n,d)$</li>
 						<li ><b>Filtration of complexes</b> \[K_1 \xrightarrow{i_1} K_2 \xrightarrow{i_2} \dots \xrightarrow{i_{N-1}} K_N\]</li>
 						<img width="680" height = auto src='media_perspi1/filtration2.png'/ class="center">
 						<li ><b>Apply a topological invariant $F$</b> \[F(K_1) \xrightarrow{(i_1)_*} F(K_2) \xrightarrow{(i_2)_*} \dots \xrightarrow{(i_{N-1})_*} F(K_N)\]</li>
@@ -161,7 +161,7 @@
 					<span style="font-size: 24px; text-align:left;">
 					<p>
 					<ul>
-						<li ><b>Metric space</b> $(X_n,d)$</li>
+						<li ><b>Metric space</b> $(\mathbb{X}_n,d)$</li>
 						<li ><b>Filtration of complexes</b> \[K_1 \xrightarrow{i_1} K_2 \xrightarrow{i_2} \dots \xrightarrow{i_{N-1}} K_N\]</li>
 						<li >Apply a <b>topological invariant $F$</b> \[F(K_1) \xrightarrow{(i_1)_*} F(K_2) \xrightarrow{(i_2)_*} \dots \xrightarrow{(i_{N-1})_*} F(K_N)\]</li>
 						<li >For every $i < j$, there exist  a homomorphism $f^{i,j}:F(K_i) \to F(K_j)$ and the <b>persistent invariant</b> is defined as  \[F^{i\rightarrow j} := \mathrm{Im}(f^{i,j})\]</li>
@@ -178,7 +178,7 @@
 					<span style="font-size: 22px; text-align:left;">
 					<p>
 					<ul>
-						<li ><b>Metric space</b> $(X_n,d)$</li>
+						<li ><b>Metric space</b> $(\mathbb{X}_n,d)$</li>
 						<li ><b>Filtration of complexes</b> \[K_1 \xrightarrow{i_1} K_2 \xrightarrow{i_2} \dots \xrightarrow{i_{N-1}} K_N\]</li>
 						<li >Apply <span style = "color: #ff4040">$H_d(\bullet)$</span> \[H_d(K_1) \xrightarrow{(i_1)_*} H_d(K_2) \xrightarrow{(i_2)_*} \dots \xrightarrow{(i_{N-1})_*} H_d(K_N)\]</li>
 						<li >For every $i < j$, there exist  a homomorphism $f^{i,j}:H_d(K_i) \to H_d(K_j)$ and the <b style = "color: #ff4040">persistent homology</b> is defined as  \[H_d^{i\rightarrow j} := \mathrm{Im}(f^{i,j})\]</li>
@@ -192,7 +192,7 @@
 					<span style="font-size: 22px; text-align:left;">
 					<p>
 					<ul>
-						<li ><b>Metric space</b> $(X_n,d)$</li>
+						<li ><b>Metric space</b> $(\mathbb{X}_n,d)$</li>
 						<li ><b>Filtration of complexes</b> \[K_1 \xrightarrow{i_1} K_2 \xrightarrow{i_2} \dots \xrightarrow{i_{N-1}} K_N\]</li>
 						<li > The invariant <span style = "color: #ff4040"> $F = H_d(\bullet, k)$</span> with $k$ a field induces a <b style = "color: #ff4040">persistence module</b>  defined as
 							\[M_d = \bigoplus_{i\geq 0} H_d(K_i)\]
@@ -213,7 +213,7 @@
 					<span style="font-size: 22px; text-align:left;">
 
 					<ul>
-						<li ><b>Metric space</b> $(X_n,d)$</li>
+						<li ><b>Metric space</b> $(\mathbb{X}_n,d)$</li>
 						<br>
 						<li ><b>Filtration of complexes</b> \[K_1 \xrightarrow{i_1} K_2 \xrightarrow{i_2} \dots \xrightarrow{i_{N-1}} K_N\]</li>
 						<br>
@@ -226,18 +226,63 @@
 					</span>
 				</section>
 
+
+
 				<section data-auto-animate> 
 					<h4>Example</h4>
 					<p style="font-size: 24px;"> $S^2\vee S^1\vee S^1$</p>
-					<img width="600" height = auto src='media_perspi1/torusvswedge.png'/ class="center"> 
-					<img class="fragment" width="600" height = auto src='media_perspi1/torus.png'/ class="center">
+					<br>
+					<span style="font-size: 22px; text-align:left;">
+					<ul>
+					<li> <b>Point cloud</b> $\mathbb{X}_n$
+					<br>
+					<img width="400" height = auto src='media_perspi1/wedge.png'/ class="center">
+					</li>
+				</ul>
+					</span>
+				</section>
+
+				<section data-auto-animate> 
+					<h4>Example </h4>
+					<p style="font-size: 24px;"> $S^2\vee S^1\vee S^1$</p>
+					<br>
+					<span style="font-size: 22px; text-align:left;">
+					<ul>
+					<li> <b>Point cloud</b> $\mathbb{X}_n$</li>
+					<img width="300" height = auto src='media_perspi1/wedge.png'/ class="center">
+					<li><b>Vietoris–Rips filtration</b> $\mathrm{VR}_{\alpha}(\mathbb{X}_n)$</li>
+					<img width="800" height = auto src='media_perspi1/VR_wedge.png'/ class="center">
+					</ul>
+				</section>
+
+				<section data-auto-animate> 
+					<h4>Example </h4>
+					<p style="font-size: 24px;"> $S^2\vee S^1\vee S^1$</p>
+					<span style="font-size: 20px; text-align:center;">
+					<ul>
+					<li> <b>Point cloud</b> $\mathbb{X}_n$</li>
+					<img width="200" height = auto src='media_perspi1/wedge.png' class="center">
+					<li><b>Vietoris–Rips filtration</b> $\mathrm{VR}_{\alpha}(\mathbb{X}_n)$</li>
+					<img width="650" height = auto src='media_perspi1/VR_wedge.png'/ class="center">
+					<li> <b>Persistent Homology</b></li>
+					<img width="270" height = auto src='media_perspi1/barcode_wedge_nolabel.png'/ class="center">
+					</ul>
+					</span>
 				</section>
 
 				<section data-auto-animate> 
 					<h4>Example</h4>
 					<p style="font-size: 24px;"> $S^1\times S^1$ vs $S^2\vee S^1\vee S^1$</p>
 					<span style="font-size: 24px; text-align:left;">
-					<p><b>Vietoris–Rips filtration</b> $\mathrm{VR}_{\alpha}(X_n)$</p>
+					<img width="600" height = auto src='media_perspi1/torusvswedge.png'/ class="center"> 
+					</span>
+				</section>
+
+				<section data-auto-animate> 
+					<h4>Example</h4>
+					<p style="font-size: 24px;"> $S^1\times S^1$ vs $S^2\vee S^1\vee S^1$</p>
+					<span style="font-size: 24px; text-align:left;">
+					<p><b>Vietoris–Rips filtration</b> </p>
 					<img width="600" height = auto src='media_perspi1/VR_wedge.png'/ class="center"> 
 					<img width="500" height = auto src='media_perspi1/VR_torus.png'/ class="center"> 
 					</span>
@@ -248,7 +293,7 @@
 					<p style="font-size: 24px;"> $S^2\vee S^1\vee S^1$ vs $S^1\times S^1$</p>
 					<span style="font-size: 22px; text-align:left;">
 					<div class="column_65">
-						<p><b>Vietoris–Rips filtration</b> $\mathrm{VR}_{\alpha}(X_n)$</p>
+						<p><b>Vietoris–Rips filtration</b></p>
 						<img width="600" height = auto src='media_perspi1/VR_wedge.png'/ class="center"> 
 						<img width="500" height = auto src='media_perspi1/VR_torus.png'/ class="center"> 
 					</div>
@@ -278,7 +323,7 @@
 					<span style="font-size: 24px; text-align:left;">
 					<p>
 					<ul>
-						<li ><b>Metric space</b> $(X_n,d)$</li>
+						<li ><b>Metric space</b> $(\mathbb{X}_n,d)$</li>
 						<li ><b>Filtration</b> of (connected) complexes \[K_1 \xrightarrow{i_1} K_2 \xrightarrow{i_2} \dots \xrightarrow{i_{N-1}} K_N\]</li>
 
 						<li ><b>Persistent <span style = "color: #ff4040">fundamental group</span></b> \[\pi_1(K_1) \xrightarrow{(i_1)_*} \pi_1(K_2) \xrightarrow{(i_2)_*} \dots \xrightarrow{(i_{N-1})_*} \pi_1(K_N)\]</li>
@@ -304,7 +349,7 @@
 		 	 		<div class="column_45">
 		 	 			<h4>Group presentations</h4>
 
-		 	 			<p style="font-size: 28px"> $\mathcal{P}_K = \langle x_4, x_6, x_7, x_8, x_9, x_{10}, x_{11},  x_{12}, x_{13}~ | \\~ ~ ~ ~ ~ ~ ~ ~ ~ ~x_{13}, x_{13}^{-1}x_{12}x_4^{-1},x_{12}^{-1}x_{11}, x_{11}^{-1}x_{10}x_6^{-1}, \\
+		 	 			<p style="font-size: 24px"> $\mathcal{P}_K = \langle x_4, x_6, x_7, x_8, x_9, x_{10}, x_{11},  x_{12}, x_{13}~ | \\~ ~ ~ ~ ~ ~ ~ ~ ~ ~x_{13}, x_{13}^{-1}x_{12}x_4^{-1},x_{12}^{-1}x_{11}, x_{11}^{-1}x_{10}x_6^{-1}, \\
 								~ ~ ~ ~ ~ ~ ~ ~ ~ ~x_{10}^{-1}x_9x_4, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $</p>
 					</div>
 					</div>
@@ -318,7 +363,7 @@
 					<ul>
 						<li><b>Metric space</b> $(\mathbb{X}_n,d)$</li>
 						<li><b>Filtration</b> of (connected) complexes \[K_1 \xrightarrow{i_1} K_2 \xrightarrow{i_2} \dots \xrightarrow{i_{N-1}} K_N\]</li>
-						<li class="fragment" > Spanning tree $T$ on $K_1$ (and hence, on $K_i ~\forall i\geq 0$).
+						<li class="fragment" > <b>Spanning tree</b> $T$ on $K_1$ (and hence, on $K_i ~\forall i\geq 0$).
 						<li class="fragment" ><b style = "color: #ff4040">Persistent group presentation</b> \[\mathcal{P}_{K_1} \xrightarrow{(i_1)_*} \mathcal{P}_{K_2} \xrightarrow{(i_2)_*} \dots \xrightarrow{(i_{N-1})_*} \mathcal{P}_{K_N}\]</li>
 					</ul>
 					</p>
@@ -337,7 +382,7 @@
 						</p>
 						<p class="fragment"> The <b>homomorphisms</b> $(i_j)_*$ are induced by the inclusions $X_j\subseteq X_{j+1}$, $R_j\subseteq R_{j+1}$.</p>
 
-						<blockquote class="fragment" style="padding: 8px; border: 2px solid red;"><b style = "color: #ff4040">Problem:</b> In practice, the presentations $\mathcal{P}_{K_N}$ may be <b>huge</b>.</blockquote>
+						<blockquote class="fragment" style="padding: 8px; border: 2px solid red;"><b style = "color: #ff4040">Problem:</b> In practice, the presentations $\mathcal{P}_{K_j}$ may be <b>huge</b>.</blockquote>
 						
 					</ul>
 
@@ -609,7 +654,7 @@
 		 	 		<div class="column_45">
 		 	 			<h4>Group presentations</h4>
 
-		 	 			<p style="font-size: 28px"> $\mathcal{P}_K = \langle x_4, x_6, x_7, x_8, x_9, x_{10}, x_{11},  x_{12}, x_{13}~ | \\~ ~ ~ ~ ~ ~ ~ ~ ~ ~x_{13}, x_{13}^{-1}x_{12}x_4^{-1},x_{12}^{-1}x_{11}, x_{11}^{-1}x_{10}x_6^{-1}, \\
+		 	 			<p style="font-size: 24px"> $\mathcal{P}_K = \langle x_4, x_6, x_7, x_8, x_9, x_{10}, x_{11},  x_{12}, x_{13}~ | \\~ ~ ~ ~ ~ ~ ~ ~ ~ ~x_{13}, x_{13}^{-1}x_{12}x_4^{-1},x_{12}^{-1}x_{11}, x_{11}^{-1}x_{10}x_6^{-1}, \\
 								~ ~ ~ ~ ~ ~ ~ ~ ~ ~x_{10}^{-1}x_9x_4, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $</p>
 					</div>
 				</div>
@@ -654,7 +699,7 @@
 				<section data-auto-animate>
 					<h4>Morse theory for group presentations</h4>
 					<span style="font-size: 24px; text-align:left;">
-					<p>Given $K$ a <b style = "color: #ff4040">regular CW-complex</b> and $f\colon K\to \mathbb{R}$ a <b style = "color: #ff4040"> discrete Morse function </b> with a single critical 0-cell, we developed an <b>algorithmic</b> description of the <b style = "color: #ff4040"> Morse presentation</b> $\mathcal{P}_{K_{\mathcal M}}$.
+					<p>Given $K$ a <b style = "color: #ff4040">regular CW-complex</b> of dim 2 and $f\colon K\to \mathbb{R}$ a <b style = "color: #ff4040"> discrete Morse function </b> with a single critical 0-cell, we developed an <b>algorithmic</b> description of the <b style = "color: #ff4040"> Morse presentation</b> $\mathcal{P}_{K_{\mathcal M}}$.
 					</p>
 					<p> 
 						<ul>
@@ -671,7 +716,7 @@
 				<section data-auto-animate>
 					<h4>Morse theory for group presentations</h4>
 					<span style="font-size: 24px; text-align:left;">
-					<p>Given $K$ a <b style = "color: #ff4040">regular CW-complex</b> and $f\colon K\to \mathbb{R}$ a <b style = "color: #ff4040"> discrete Morse function </b> with a single critical 0-cell, we developed an <b>algorithmic</b> description of the <b style = "color: #ff4040"> Morse presentation</b> $\mathcal{P}_{K_{\mathcal M}}$.
+					<p>Given $K$ a <b style = "color: #ff4040">regular CW-complex</b> of dim 2 and $f\colon K\to \mathbb{R}$ a <b style = "color: #ff4040"> discrete Morse function </b> with a single critical 0-cell, we developed an <b>algorithmic</b> description of the <b style = "color: #ff4040"> Morse presentation</b> $\mathcal{P}_{K_{\mathcal M}}$.
 					</p>
 					<p> 
 						<ul>
@@ -687,7 +732,7 @@
 				<section data-auto-animate>
 					<h4>Morse theory for group presentations</h4>
 					<span style="font-size: 24px; text-align:left;">
-					<p>Given $K$ a <b style = "color: #ff4040">regular CW-complex</b> and $f\colon K\to \mathbb{R}$ a <b style = "color: #ff4040"> discrete Morse function </b> with a single critical 0-cell, we developed an <b>algorithmic</b> description of the <b style = "color: #ff4040"> Morse presentation</b> $\mathcal{P}_{K_{\mathcal M}}$.
+					<p>Given $K$ a <b style = "color: #ff4040">regular CW-complex</b> of dim 2 and $f\colon K\to \mathbb{R}$ a <b style = "color: #ff4040"> discrete Morse function </b> with a single critical 0-cell, we developed an <b>algorithmic</b> description of the <b style = "color: #ff4040"> Morse presentation</b> $\mathcal{P}_{K_{\mathcal M}}$.
 					</p>
 					<p> 
 						<ul>
@@ -709,7 +754,7 @@
 				<section data-auto-animate>
 					<h4>Morse theory for group presentations</h4>
 					<span style="font-size: 24px; text-align:left;">
-					<p>Given $K$ a <b style = "color: #ff4040">regular CW-complex</b> and $f\colon K\to \mathbb{R}$ a <b style = "color: #ff4040"> discrete Morse function </b> with a single critical 0-cell, we developed an <b>algorithmic</b> description of the <b style = "color: #ff4040"> Morse presentation</b> $\mathcal{P}_{K_{\mathcal M}}$.
+					<p>Given $K$ a <b style = "color: #ff4040">regular CW-complex</b> of dim 2 and $f\colon K\to \mathbb{R}$ a <b style = "color: #ff4040"> discrete Morse function </b> with a single critical 0-cell, we developed an <b>algorithmic</b> description of the <b style = "color: #ff4040"> Morse presentation</b> $\mathcal{P}_{K_{\mathcal M}}$.
 					</p>
 					<img width="800" height = auto src='media_perspi1/pseudocode.png'/>
 					</span>
@@ -717,21 +762,23 @@
 
 				<section data-auto-animate>
 					<h4>Morse theory for group presentations</h4>
-					<span style="font-size: 24px; text-align:left;">
-				    <p style="padding: 10px; border: 2px solid black;"><b style = "color: #ff4040; ">Definition:</b> Let $K$ be a regular CW-complex. Let $M$ be an acyclic matching in $ \mathcal X(K)$ such that 
-					 there is only one critical cell of dimension 0. 
-					  Label $M^{(2)}=\{(x_1, e_1), \dots, (x_n, e_n)\}$,  the subset of matched pairs of cells of dimension 1 and 2. 
+					<span style="font-size: 22px; text-align:left;">
+				    <p style="padding: 10px; border: 2px solid black;"><b style = "color: #ff4040; ">Definition [F.2021]</b> Let $K$ be a regular CW-complex. Let $f:K\to \mathbb{R}$ be a Morse function
+					 with only one critical cell of dimension 0. 
+					  Label $M^{(2)}=\{(x_1, e_1), \dots, (x_S, e_S)\}$,  the subset of induced matched pairs of cells of dimension 1 and 2. 
 					  <br>
-					 The <b style = "color: #ff4040; ">Morse presentation</b> $\mathcal{Q}_{K,M}$ is the presentation $\mathcal Q_N$ defined by the following iterative procedure:
-					<br>
+					  <br>
+					 The <b style = "color: #ff4040; ">Morse presentation</b> $\mathcal{Q}_{K,f}$ is the presentation $\mathcal Q_S$ defined by the following iterative procedure:
 					<br>
 					$\bullet$ $\mathcal Q_0$ is the standard presentation $ \mathcal P_K$ constructed using
 					 the spanning tree $T$  induced by $M^{(1)}$.
-					 <span style = "color: grey; ">The generators of $\mathcal Q_0$ are the unmatched 1-cells of $K$ with respect to the matching $M^{(1)}$, and its relators are the words induced by the attaching maps of the 2-cells of $K$. Associate to each relator $r_i$ in $\mathcal Q_0$ the $2$-cell $e_i$ that produces it. </span>
 					 <br>
 					 <br>
 					$\bullet$ For $0\leq i < n$, let $\mathcal Q_{i+1}$ be the presentation obtained from $\mathcal Q_{i}$ after removing the relator $r_i$ associated to $e_i$ and the generator $x_i$, and applying the <b>rewriting rule</b> on every occurrence of the generator $x_i$ in the rest of the relators.
 					
+					</p>
+
+					<p style="padding: 10px; border: 2px solid black;"><b style = "color: #ff4040; ">Theorem [F.2021]</b> $\mathcal Q_{K,f}$ is is the standard presentation $\mathcal P_{K_\mathcal M}$.
 					</p>
 				</section>
 
@@ -795,7 +842,7 @@
 
 					<div class="column_50">
 					
-						<li><b>Metric space</b> $(\mathbb{X_n},d)$</li>
+						<li><b>Metric space</b> $(\mathbb{X}_n,d)$</li>
 						<br>
 						<li><b>Filtration</b> of (connected) complexes\[K_1 \xrightarrow{i_1} K_2 \xrightarrow{i_2} \dots \xrightarrow{i_{N-1}} K_N\]</li>
 						<br>
@@ -823,7 +870,7 @@
 					<span style="font-size: 24px; text-align:left;">
 
 					<ul>
-						<li><b>Metric space</b> $(X_n,d)$</li>
+						<li><b>Metric space</b> $(\mathbb{X}_n,d)$</li>
 						<li><b>Filtration</b> (connected) \[K_1 \xrightarrow{i_1} K_2 \xrightarrow{i_2} \dots \xrightarrow{i_{N-1}} K_N\]</li>
 						<li>$f\colon K_N\to \mathbb{R}$ a <b>Morse function</b></li>
 						<br>
@@ -924,7 +971,7 @@
 					<p style="font-size: 24px;"> $S^2\vee S^1\vee S^1$ vs $S^1\times S^1$</p>
 					<span style="font-size: 20px; text-align:left;">
 					<!--<p><b>Persistent fundamental group</b> $\mathrm{P}\Pi_1(X_n)$</p>-->
-					<p><b>Vietoris–Rips filtration</b> $\mathrm{VR}_{\alpha}(X_n)$</p>
+					<p><b>Vietoris–Rips filtration</b> $\mathrm{VR}_{\alpha}(\mathbb{X}_n)$</p>
 					<div class="column_65">
 					<img width="650" height = auto src='media_perspi1/perspi1_wedge.png'/ class="center"> 
 					</div>
