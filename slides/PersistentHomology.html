@@ -25,6 +25,12 @@
 			  padding: 10px;
 			}
 
+			.column_20 {
+			  float: left;
+			  width: 20%;
+			  padding: 10px;
+			}
+
 			.column_big {
 			  float: left;
 			  width: 50%;
@@ -36,10 +42,24 @@
 			  width: 75%;
 			  padding: 10px;
 			}	
-
 			.column_33 {
 			  float: left;
 			  width: 33%;
+			  padding: 10px;
+			}	
+			.column_30{
+			  float: left;
+			  width: 30%;
+			  padding: 10px;
+			}	
+			.column_40 {
+			  float: left;
+			  width: 40%;
+			  padding: 10px;
+			}	
+			.column_60 {
+			  float: left;
+			  width: 60%;
 			  padding: 10px;
 			}	
 			.column_66 {
@@ -157,6 +177,7 @@
 
 					<section data-auto-animate>
 						<h3>Combinatorial Topology</h3>
+						<br>
 						<span style="font-size: 28px; text-align:left;">
 							<ul>
 						<li class="fragment"> Encodes <b style="color: #fe6e61;">topological spaces</b> combinatorially for computational purposes.</li>
@@ -170,7 +191,7 @@
 					<section data-auto-animate>
 						<h3>Simplicial Complexes</h3>
 						<span style="font-size: 24px; text-align:left;">
-						Simplicial complexes are combinatorial objects built of small convex bricks called <i>simplices</i>.
+						Simplicial complexes are combinatorial objects built of small convex bricks called <b>simplices</b>.
 						</span>
 						<img class="fragment" width="800" height = auto src='media_ph/simplices.png'/>
 					</section>
@@ -178,7 +199,7 @@
 					<section data-auto-animate>
 						<h3>Simplicial Complexes</h3>
 						<span style="font-size: 24px; text-align:left;">
-						Simplicial complexes are combinatorial objects built of small convex bricks called <i>simplices</i>.
+						Simplicial complexes are combinatorial objects built of small convex bricks called <b>simplices</b>.
 						</span>
 						<img  width="600" height = auto src='media_ph/simplicial_complex.png'/>
 					</section>
@@ -188,7 +209,7 @@
 					<section data-auto-animate>
 						<h3>Simplicial Complexes</h3>
 						<span style="font-size: 24px; text-align:left;">
-						<p>Simplicial complexes can be stored as a list of non-empty subsets of its vertices.</p>
+						<p>Simplicial complexes can be <b>stored</b> as a list of non-empty subsets of its vertices.</p>
 						
 						<div class="column_big">
 						<img width="300" height = auto src='media_ph/abstract_simplicial_complex.png'/>
@@ -210,6 +231,7 @@
 							    0 & 1 & 1 \\
 							  \end{array}\right)
 							\]
+						
 													
 							</div>
 						</span>
@@ -218,9 +240,9 @@
 					<section data-auto-animate>
 						<h3>Simplicial Complexes</h3>
 						<span style="font-size: 24px; text-align:left;">
-						<p>Simplicial complexes can be stored as a list of non-empty subsets of its vertices.</p>
+						<p>Simplicial complexes can be <b>stored</b> as a list of non-empty subsets of its vertices.</p>
 
-						<p>An <b>abstract simplicial</b> complex $K$  is non-empty family of sets $S$ such as:
+						<p>An <b style="color: #fe6e61">abstract simplicial</b> complex $K$  is non-empty family of sets $S$ such as:
 						<ul>
 						<li>$\{v\}\in S$ forall $v\in K$.</li>
 						<li>If $\sigma \in S$ and $\tau \subset \sigma$, then $\tau \in K$.</li>
@@ -246,8 +268,9 @@
 							    0 & 1 & 1 \\
 							  \end{array}\right)
 							\]
-								
-						</div>
+						
+													
+							</div>
 						</span>
 					</section>
 
@@ -259,8 +282,8 @@
 						<h3>Homology</h3>
 						<span style="font-size: 24px; text-align:left;">
 						<ul>
-						<li><b>The homology group</b> $H_p$ characterizes the $p$-dimensional holes in a topological space.</li>
-						<li>The $p$-th <b>Betti number</b> $b_p$ is the rank of the group $H_p$.</li>
+						<li> The <b style="color: #fe6e61">homology group</b> $H_p$ characterizes the $p$-dimensional holes in a topological space.</li>
+						<li>The $p$-th <b style="color: #fe6e61">Betti number</b> $b_p$ is the rank of the group $H_p$.</li>
 						</ul>
 						<img width="500" height = auto src='media_ph/combinatorial_betti.png'/>
 						</span>
@@ -278,11 +301,11 @@
 						<span style="font-size: 26px; text-align:left;">
 						<p ><b>Q:</b> How to algorithmically compute homology of simplicial complexes?</p>
 						<div class="row">
-					 	 <div class="column_big">
+					 	 <div class="column_40">
 					 	 	<img  width="500" height = auto src='media_ph/cycle_labeled.png'/>
 					 	 </div>
 					 	 
-						<div class="column_big" style="font-size: 20px; text-align:left;">
+						<div class="column_60" style="font-size: 20px; text-align:left;">
 						<ul>
 						<p>$\bullet$ <b>Chain</b></p>
 						<p>$C = [v_0,v_1]+[v_1,v_2]+[v_2,v_3]+[v_3,v_4]+[v_4,v_5]+[v_5,v_0]$ </p>
@@ -295,11 +318,11 @@
 						<span style="font-size: 26px; text-align:left;">
 						<p ><b>Q:</b> How to algorithmically compute homology of simplicial complexes?</p>
 						<div class="row">
-					 	 <div class="column_big">
+					 	 <div class="column_40">
 					 	 	<img  width="500" height = auto src='media_ph/cycle_labeled.png'/>
 					 	 </div>
 					 	 
-						<div class="column_big" style="font-size: 20px; text-align:left;">
+						<div class="column_60" style="font-size: 20px; text-align:left;">
 						<ul>
 						<p>$\bullet$ <b>Chain</b></p>
 						<p>$C = [v_0,v_1]+[v_1,v_2]+[v_2,v_3]+[v_3,v_4]+[v_4,v_5]+[v_5,v_0]$ </p>
@@ -314,16 +337,16 @@
 						<span style="font-size: 26px; text-align:left;">
 						<p ><b>Q:</b> How to algorithmically compute homology of simplicial complexes?</p>
 						<div class="row">
-					 	 <div class="column_big">
+					 	 <div class="column_40">
 					 	 	<img  width="400" height = auto src='media_ph/non_boundary.png'/>
 					 	 </div>
 					 	 
-						<div class="column_big" style="font-size: 20px; text-align:left;">
+						<div class="column_60" style="font-size: 20px; text-align:left;">
 						<ul>
 						<p>$\bullet$ <b>Chain</b></p>
 						<p>$C = [v_0,v_1]+[v_1,v_2]+[v_2,v_3]+[v_3,v_4]+[v_4,v_5]+[v_5,v_0]$ </p>
 						<p> $\bullet$ <b>Cycle</b></p>
-						<p>$\partial C = [v_1]-[v_0]+[v_2]-[v_1]+[v_3]-[v_2]+[v_4]-[v_3]+[v_5]\\-[v_4]+[v_0]-[v_5] = 0$</p>
+						<p>$\partial C = [v_1]-[v_0]+[v_2]-[v_1]+[v_3]-[v_2]+[v_4]-[v_3]+[v_5] \\ -[v_4]+[v_0]-[v_5] = 0$</p>
 						<p> $\bullet$ <b>Non boundary</b></p> 
 						</div> 
 						</span>
@@ -341,13 +364,13 @@
 						<div class="column_66" style="font-size: 20px; text-align:left;">
 						<ul>
 						<li>A <b>$d$-chain</b> is a formal sum of $d$-simplices.</li>
-						<p style="color: #fe6e61">$C = [v_0,v_1]+[v_1,v_2]+[v_2,v_3]+[v_3,v_4]+[v_4,v_5]+[v_5,v_0]$ </p>
+						<p style="color: #fe6e61; font-size: 17px">$C = [v_0,v_1]+[v_1,v_2]+[v_2,v_3]+[v_3,v_4]+[v_4,v_5]+[v_5,v_0]$ </p>
 						<li><p>The <b>boundary</b> of a $d$-simplex is the alternate chain made of its $(d − 1)$-simplices.</p><p> This operation extents linearly to chains of $d$-simplices.</p></li>
 						<p>$\partial_d[v_1,\dots,v_{d+1}] = \sum_{i=1}^{d+1}(-1)^i[v_1,\dots,v_{i−1},v_{i+1},\dots,v_{d+1}]$</p>
 						<li>A <b>$d$-cycle</b> is a $d$-chain $C$ s.t. $\partial C = 0$.</li>
-						<p style="color: #fe6e61">$\partial C = [v_1]-[v_0]+[v_2]-[v_1]+[v_3]-[v_2]+[v_4]-[v_3]+[v_5]-[v_4]+[v_0]-[v_5] = 0$</p>
+						<p style="color: #fe6e61; font-size: 17px">$\partial C = [v_1]-[v_0]+[v_2]-[v_1]+[v_3]-[v_2]+[v_4]-[v_3]+[v_5]-[v_4]+[v_0]-[v_5] = 0$</p>
 						<li>A $d$-cycle is a <b>boundary</b> if there  exist a $(d+1)$-chain $C'$ such that $\partial (C') = C$.</li>
-						<li><b>Homology</b> in degree $d$ is the quotient of cycles over boundaries.
+						<li><b>Homology</b> in degree $d$ is the quotient of <b>cycles</b> over <b>boundaries</b>.
 						\[H_d = \frac{Z_d}{B_d}\]
 						</li>
 						</ul>
@@ -364,7 +387,7 @@
 						\[C\simeq C' \Leftrightarrow C+C'\in \mathrm{Im} \partial\]
 						<div class="row">
 					 	 <div class="column_big">
-					 	 	<img  width="300" height = auto src='media_ph/cycle.png'/>
+					 	 	<img  width="300" height = auto src='media_ph/cycle_labeled.png'/>
 					 	 </div>
 					 	 
 						<div class="column_big" style="font-size: 20px; text-align:left;">
@@ -377,17 +400,25 @@
 						<h3>Homology</h3>
 						<span style="font-size: 26px; text-align:left;">
 						<p ><b>Q:</b> How to algorithmically compute homology of simplicial complexes?</p>
-						<p ><b>A:</b> Algorithm to compute homology</p> 
-						</span>
-					</section>
-
-					<section data-auto-animate>
-						<h3>Homology</h3>
-						<span style="font-size: 26px; text-align:left;">
-						<ul>
-						<li>$H_d$ is a group (vector space) in which each element is an equivalence class of cycles associated to the same hole.</li>
-						<li>The rank (dimension) of $H_d$ is called the <b>Betti</b> number $b_d$.</li>
-						</ul>
+						<p ><b>Algorithm</b>
+							<ol>
+							<li> Calculate <b>boundary operator matrices</b>.</li>
+							<li> Bring each matrix into <b>Smith normal form </b>(similar to Gaussian elimination).</li>
+							<li> The $d^{th}$ Betti number $b_d$ is computed as <b>rank $Z_d$ - rank $B_d$</b>, where
+							<ul>
+								<li>rank $Z_d$ is the number of zero columns of the boundary matrix of $\partial_d$,</li>
+								<li>rank $B_d$ is the number of non-zero rows of the boundary matrix of $\partial_{d+1}$.</li>
+								</ul></li>
+						</li>
+						</ol>
+						<div class="column_big"><img  width="300" height = auto src='media_ph/cycle.png'/></div> <div class="column_big">
+							<br>
+							<br>
+							$b_0 = 1$
+							<br>
+							$b_1 = 1$ 
+							<br>
+							$b_2 = 0$</div>
 						</span>
 					</section>
 
@@ -455,8 +486,6 @@
 							</p>
 							</blockquote>
 						</div>
-						<div> 
-						</div>
 
 					</div>
 					</span>
@@ -480,9 +509,34 @@
  							 </p>
  							 </div>
 
- 							 <div class="column"><p class="fragment">Filtration of simplicial complexes
- 							 <img width="350" height = auto src='media_ts/'/>
- 							 </p>
+						</div> 
+						</span>
+					</section>
+
+					<section data-auto-animate>
+						<h2>Topological inference</h2>
+						<span style="font-size: 22px; text-align:center;">
+						<p>Let $(X, d)$ be a metric space and let $\mathbb{X}_n = \{x_1,...,x_n\}$ a finite sample of $X$.</p>
+						<p><b>Q:</b> How to infer the homology of $X$ from $\mathbb{X}_n$?</p>
+
+						<div class="row">
+						 	 <div class="column_20">
+						 	 	<p>Point cloud 
+ 							 	<img width="150" height = auto src='media_ts/circle_resized.png'/>
+ 							 	</p>
+						 	 </div>
+ 							 <div class="column_30">
+	 							 <p >Evolving thickenings
+	 							 <img width="350" height = auto src='media_ts/filtration_circle.gif'/>
+	 							 </p>
+ 							 </div>
+ 							 <div class="column_big">
+ 							 	<p>Filtration of simplicial complexes
+ 							 		<br>
+ 							 		<br>
+ 							 		<br>
+ 							 	<img width="600" height = auto src='media_ph/filtration.png'/>
+ 							 	</p>
  							 </div>
 						</div> 
 						</span>
@@ -497,8 +551,8 @@
 						<span style="font-size: 21px; text-align:left;">
 
 						 <p>Let $(\mathbb{X}_n, d)$ be a finite set of points wiht a metric.</p>
-						 <p> Given a <b>parameter</b> $\epsilon>0$, the Vietoris-Rips complex $V_{\epsilon}$ is defined as
-						 	\[V_{\epsilon}(\mathbb{X_n}) := \{\sigma \subseteq \mathbb{X}_n\colon \forall u,v\in \sigma, d(u,v)\leq \epsilon\}\]
+						 <p> Given a <b>parameter</b> $\epsilon>0$, the <b style="color: #fe6e61">Vietoris-Rips complex</b> $V_{\epsilon}$ is defined as
+						 	\[V_{\epsilon}(\mathbb{X}_n) := \{\sigma \subseteq \mathbb{X}_n\colon \forall u,v\in \sigma, d(u,v)\leq \epsilon\}\]
 						 <p>Equivalently, $V_\epsilon$ contains all simplices whose <i>diameter</i> is less than or equal to $\epsilon$.</p>
 
 						 <img class="fragment" width="700" height = auto src='media_ph/rips.png'/>
@@ -511,8 +565,8 @@
 						<span style="font-size: 21px; text-align:left;">
 
 						 <p>Let $(\mathbb{X}_n, d)$ be a finite set of points wiht a metric.</p>
-						 <p> Given a <b>parameter</b> $\epsilon>0$, the Vietoris-Rips complex $V_{\epsilon}$ is defined as
-						 	\[V_{\epsilon}(\mathbb{X_n}) := \{\sigma \subseteq \mathbb{X}_n\colon \forall u,v\in \sigma, d(u,v)\leq \epsilon\}\]
+						 <p> Given a <b>parameter</b> $\epsilon>0$, the <b style="color: #fe6e61">Vietoris-Rips complex</b> $V_{\epsilon}$ is defined as
+						 	\[V_{\epsilon}(\mathbb{X}_n) := \{\sigma \subseteq \mathbb{X}_n\colon \forall u,v\in \sigma, d(u,v)\leq \epsilon\}\]
 						 <p>Equivalently, $V_\epsilon$ contains all simplices whose <i>diameter</i> is less than or equal to $\epsilon$.</p>
 						 <blockquote style="padding: 1px; border: 2px solid coral;"><b>Idea:</b> Track the evolution of the homology of $V_\epsilon$ as the value of $\epsilon$ increases.</blockquote>
 
@@ -616,13 +670,13 @@
 						<h3>Persistent homology</h3>
 						<span style="font-size: 22px">
 						<ul>
-						<li class="fragment">A <b>filtered simplicial complex</b> $K_\bullet$ is a sequence of nested simplicial complexes \[K_0 \hookrightarrow K_1 \hookrightarrow K_2 \hookrightarrow \dots K_s = K\]
+						<li class="fragment">A <b style="color: #fe6e61">filtered simplicial complex</b> $K_\bullet$ is a sequence of nested simplicial complexes \[K_0 \hookrightarrow K_1 \hookrightarrow K_2 \hookrightarrow \dots K_s = K\]
 						 </li>
-						<li class="fragment"> A filtration $\{K_i\}$ of simplicial complexes induces a sequence of homology groups $\{H_d(K_i)\}$ along with homomorphisms $f_d^{i,j}:H_d(K_i) \to H_d(K_j)$ induced by $K_i\subseteq K_j$ every time $i\leq j$
+						<li class="fragment"> A filtration $\{K_i\}$ of simplicial complexes induces a sequence of <b style="color: #fe6e61"> homology groups</b> $\{H_d(K_i)\}$ along with homomorphisms $f_d^{i,j}:H_d(K_i) \to H_d(K_j)$ induced by $K_i\subseteq K_j$ every time $i\leq j$
 							\[H_d(K_0) \rightarrow H_d(K_1) \rightarrow H_d(K_2) \rightarrow \dots H_d(K_s) = H_d(K).\]
 
 						</li>
-						<li class="fragment"> Given $i\leq j$, the <b> persistent homology group</b> $H_d^{i,j}$ is defined as 
+						<li class="fragment"> Given $i\leq j$, the <b style="color: #fe6e61">persistent homology group</b> $H_d^{i,j}$ is defined as 
 							\[H_d^{i,j} :=\frac{Z_d(K_i)}{B_d(K_j)\cap Z_d(K_i)}\]
 						i.e., all the homology classes of $K_i$ that are still present in $K_j$.
 						</li>
@@ -633,10 +687,11 @@
 						where $\alpha_s, \gamma_j\in \mathbb{Z}$, $n_l< n_{l+1}$ y  $\Sigma^{\alpha}$ denotes an $\alpha$-shift in the degree.</blockquote>
 						<p class="fragment" style="padding: 8px; border: 2px solid coral;">We can represent $M_j$ as a set of intervals $(\alpha_s, + \infty)$ and $(\gamma_l,\gamma_l+n_l)$, also known as <b>barcode</b>.</p>
 						-->
+						<br>
 						<li class="fragment"><b>Persistent homology classes.</b>
 							<ul>
-							<li><i>Birth</i> in $K_i$: $C\in H_d(K_i)$, but $C\notin H_d^{i−1,i}$</li>
-							<li><i>Death</i> in $K_j$: once $C$ is created in $K_i$, $C\in H_d^{i, j-1}$ but $C\notin H_d^{i, j}$ </li>
+							<li><i style="color: #fe6e61">Birth</i> in $K_i$: $C\in H_d(K_i)$, but $C\notin H_d^{i−1,i}$</li>
+							<li><i style="color: #fe6e61">Death</i> in $K_j$: once $C$ is created in $K_i$, $C\in H_d^{i, j-1}$ but $C\notin H_d^{i, j}$ </li>
 							</ul>
 						</li>
 						</ul>
@@ -650,8 +705,8 @@
 						<ul>
 						<li><b>Persistent homology classes.</b>
 							<ul>
-							<li><i>Birth</i> in $K_i$: $C\in H_d(K_i)$, but $C\notin H_d^{i−1,i}$</li>
-							<li><i>Death</i> in $K_j$: once $C$ is created in $K_i$, $C\in H_d^{i, j-1}$ but $C\notin H_d^{i, j}$ </li>
+							<li><i style="color: #fe6e61">Birth</i> in $K_i$: $C\in H_d(K_i)$, but $C\notin H_d^{i−1,i}$</li>
+							<li><i style="color: #fe6e61">Death</i> in $K_j$: once $C$ is created in $K_i$, $C\in H_d^{i, j-1}$ but $C\notin H_d^{i, j}$ </li>
 							</ul>
 						</li>
 						</ul>
@@ -661,16 +716,12 @@
 					</section>
 
 					<section data-auto-animate>
-						<h3>computation of persistent homology</h3>
-						<span style="font-size: 22px">
-						<ul>
-						<li><b>Computation:</b>
+						<h4>Computation of persistent homology</h4>
+						<span style="font-size: 26px">
 							<ul>
 							<li>Algebra: </li>
 							<li>Implementation:   </li>
 							</ul>
-						</li>
-						</ul>
 						</span>
 
 					</section>
@@ -685,17 +736,16 @@
 				-->
 
 					<section data-auto-animate>
-						<h3>Persistence diagrams</h3>
+						<h4>Barcodes & Persistence diagrams</h4>
 						<br>
 						<!--<img width="900" height = auto src='media_ts/PDvsBarcode.png'/>-->
 					</section>
 
 
 					<section data-auto-animate>
-						<h3>Persistence diagrams as a metric space</h3>
-						<br> 
+						<h4>Persistence diagrams as a metric space</h4>
 						<span style="font-size: 22px; text-align:left;">
-						<p>Given two persistence diagrams $\mathrm{dgm_1}$ and $\mathrm{dgm_2}$, define is <b>bottleneck distance</b> by
+						<p>Given two persistence diagrams $\mathrm{dgm_1}$ and $\mathrm{dgm_2}$, define is <b style="color: #fe6e61">bottleneck distance</b> by
 						$$d_b(\mathrm{dgm_1},\mathrm{dgm_2}) = \inf_{M} \sup_{(x,y)\in M} ||x-y||_{\infty}$$
 						where the infimum is over all matchings $M\subseteq \mathrm{dgm_1}\times \mathrm{dgm_2}$. Here, the points in the diagonal are considered part of both diagrams.</p>
 
@@ -785,7 +835,7 @@
 							<li> <b>Homology groups</b> characterise holes in topological spaces.</li>
 							<li> The computation of homology groups boils down to <b>linear algebra</b>.</li>
 							<br>
-							<li> <b style="color: #fe6e61;">Point clouds</b> can be converted in filtrations of <b>simplicial complexes</b>.</li>
+							<li> <b style="color: #fe6e61;">Point clouds</b> can be converted in <b style="color: #fe6e61"> filtrations of simplicial complexes</b>.</li>
 							<li> <b style="color: #fe6e61;">Persistent homology</b> is the multi-scale equivalent of homology.</li>
 							<li> The computation of persistent homology also boils down to <b style="color: #fe6e61;">linear algebra</b>.</li>
 
@@ -796,13 +846,13 @@
 					<section data-auto-animate> <h3>  Take away messages</h3>
 						<span style="font-size: 22px">
 						<ul>
-							<li> Topological spaces can be encoded combinatorially as <b style="color: #fe6e61;">simplicial complexes</b></li>
-							<li> <b style="color: #fe6e61;">Homology groups</b> characterise holes in topological spaces.</li>
-							<li> The computation of homology groups boils down to <b style="color: #fe6e61;">linear algebra</b>.</li>
+							<li> Topological spaces can be encoded combinatorially as <b>simplicial complexes</b></li>
+							<li> <b>Homology groups</b> characterise holes in topological spaces.</li>
+							<li> The computation of homology groups boils down to <b>linear algebra</b>.</li>
 							<br>
-							<li> <b style="color: #fe6e61;">Point clouds</b> can be converted in filtrations of <b>simplicial complexes</b>.</li>
-							<li> <b style="color: #fe6e61;">Persistent homology</b> is the multi-scale equivalent of homology.</li>
-							<li> The computation of persistent homology also boils down to <b style="color: #fe6e61;">linear algebra</b>.</li>
+							<li> <b>Point clouds</b> can be converted in <b> filtrations of simplicial complexes</b>.</li>
+							<li> <b >Persistent homology</b> is the multi-scale equivalent of homology.</li>
+							<li> The computation of persistent homology also boils down to <b>linear algebra</b>.</li>
 							<br>
 							<li> <b style="color: #fe6e61;">Data sets</b> can be viewed as samples of an (unknown) <b style="color: #fe6e61;">topological space</b>.</li>
 							<li> Persistent homology classes capture <b style="color: #fe6e61;">topological features</b> in data.</li>
