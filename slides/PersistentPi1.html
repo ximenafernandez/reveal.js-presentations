@@ -77,14 +77,15 @@
 			<div class="slides">
 
 			<section>
-					<h4>The persistent fundamental group of clouds</h3>
+					<h4>The persistent fundamental group <br>of point clouds</h3>
+					
 					<p style="font-size:30px;">XIMENA FERNANDEZ</p>
 					<p style="font-size:22px;">Durham University</p>
 					<p style="font-size:20px;">UK CENTRE FOR TOPOLOGICAL DATA ANALYSIS</p>
-					<p style="font-size:24px; color: #ff4040"><b>$11^{th}$ International Conference on Geometric and Topological Methods in Computer Science</b></i></p> 
+					<p style="font-size:28px; color: #ff4040"><b>GETCO 2022</b></i></p> 
 					<br>
 					<br>
-					 <p style="font-size:22px;text-align:right;">Joint work with Kevin Piterman	</p>
+					 <p style="font-size:22px;text-align:right;"><i>Joint work with Kevin Piterman</i></p>
 					
 			</section>
 
@@ -202,7 +203,7 @@
 					<ul>
 						<li ><b>Metric space</b> $(\mathbb{X}_n,d)$</li>
 						<li ><b>Filtration of complexes</b> \[K_1 \xrightarrow{i_1} K_2 \xrightarrow{i_2} \dots \xrightarrow{i_{N-1}} K_N\]</li>
-						<li > The invariant <span style = "color: #ff4040"> $F = H_d(\bullet, k)$</span> with $k$ a field induces a <b style = "color: #ff4040">persistence module</b>  defined as
+						<li > The invariant <span style = "color: #ff4040"> $F = H_d(\bullet, k)$</span> with $k$ a field induces a <b style = "color: #ff4040">$k[x]$- graded module</b>  defined as
 							\[M_d = \bigoplus_{i\geq 0} H_d(K_i)\]
 						</li>
 						<blockquote class="fragment" style="border: 2px solid #666; padding: 3px; background-color: #ccc; font-size: 20px"> <b>Theorem (Zomorodian & Carlsson, 2005).</b> For every degree $d\geq 0$, there is a decomposition
@@ -224,12 +225,12 @@
 						<li ><b>Metric space</b> $(\mathbb{X}_n,d)$</li>
 						<br>
 						<li ><b>Filtration of complexes</b> \[K_1 \xrightarrow{i_1} K_2 \xrightarrow{i_2} \dots \xrightarrow{i_{N-1}} K_N\]</li>
-						<li > The invariant <span style = "color: #ff4040"> $F = H_d(\bullet, k)$</span> with $k$ a field induces a <b style = "color: #ff4040">persistence module</b>  defined as
+						<li > The invariant <span style = "color: #ff4040"> $F = H_d(\bullet, k)$</span> with $k$ a field induces a <b style = "color: #ff4040">$k[x]$- graded module</b>  defined as
 							\[M_d = \bigoplus_{i\geq 0} H_d(K_i)\]
 						</li>
-						<li > The <b style = "color: #ff4040">algorithm</b> to compute the interval decomposition of $M_d$ reduces to the computation of homology of $K_N$ seen as a filtered complex (based on <i>matrix normal reduction</i>).</li>
+						<li > The <b style = "color: #ff4040">algorithm</b> to compute the <b>interval decomposition</b> of $M_d$ reduces to the computation of homology of $K_N$ seen as a filtered complex (based on <i>matrix normal reduction</i>).</li>
 						<br>
-						<li> The <b style = "color: #ff4040">complexity</b> of the computation of the persistent homology at degree $d$ is $$O(M^3)$$ with $M$ the number of $(d+1)$ simplices in $K_N$.
+						<li> The <b style = "color: #ff4040">complexity</b> of the computation of the persistent homology at degree $d$ is $$O(M^3)$$ with $M$ the number of $(d+1)$-simplices in $K_N$.
 					</ul>
 					
 					</span>
@@ -361,7 +362,7 @@
 					<p>
 					<ul>
 						<li><b>Metric space</b> $(\mathbb{X}_n,d)$</li>
-						<li><b>Filtration</b> of (connected) complexes \[K_1 \xrightarrow{i_1} K_2 \xrightarrow{i_2} \dots \xrightarrow{i_{N-1}} K_N\]</li>
+						<li><b>Filtration</b> of  complexes (connected with constant set of vertices)  \[K_1 \xrightarrow{i_1} K_2 \xrightarrow{i_2} \dots \xrightarrow{i_{N-1}} K_N\]</li>
 						<li class="fragment" > <b>Spanning tree</b> $T$ on $K_1$ (and hence, on $K_i ~\forall i\geq 0$).
 						<li class="fragment" ><b style = "color: #ff4040">Persistent group presentation</b> \[\mathcal{P}_{K_1} \xrightarrow{(i_1)_*} \mathcal{P}_{K_2} \xrightarrow{(i_2)_*} \dots \xrightarrow{(i_{N-1})_*} \mathcal{P}_{K_N}\]</li>
 					</ul>
@@ -483,6 +484,28 @@
 				<img width="700" height = auto src='media_perspi1/thm_morse.png'/ class="center"> <img class="fragment" width="250" height = auto src='media_perspi1/CW_decomposition.png'/ class="center"> 
 				</section>
 
+				<section data-auto-animate>
+				<h3>Discrete Morse Theory</h3>
+				<span style="font-size: 24px; text-align:left;"> 
+				
+				<p><span style = "color: #ff4040"><b>Goal:</b> </span>'Simplify' the cell decomposition of a CW-complex while preserving its homotopy type.</p>
+				
+				<ul>
+				<li> $K$ a <b>regular</b> CW-complex.
+				</li>
+				<li> $f:K\to \mathbb{R}$ a <b>discrete Morse function</b>.
+				</li>
+				<li> $C$ the set of <b>critical cells</b> of $K$.<br>
+				</li>
+				</ul>
+				
+				<p style="padding: 6px; border: 2px solid black; font-size: 24px"><b> <span style ="color: #ff4040">Theorem </span>[Forman, '98].</b> $K$ is <b>homotopy equivalent</b> to a CW-complex <b>$K_\mathcal{M}$</b> with exactly one cell of dimension $k$ for every critical cell of index $k$. In particular, $\pi_1(K) \cong \pi_1(K_\mathcal{M}).$</p>
+
+				</span>
+
+				<img width="700" height = auto src='media_perspi1/thm_morse.png'/ class="center"> <img width="210" height = auto src='media_perspi1/torusvswedge_pi.png'/ class="center"> 
+				</section>
+
 
 				<section data-auto-animate>
 				<h3>Discrete Morse Theory</h3>
@@ -502,7 +525,7 @@
 				
 				<p style="padding: 6px; border: 2px solid black;"><b><span style = "color: #ff4040">Lemma </span>(Internal collapse):</b> Let $K$ be a CW-complex of dimension  $\leq n$. Let $\varphi:\partial D^n\to K$ be the 
 					attaching map of an $n$-cell $e^n$. 
-					If $K \searrow L$, then \[K\cup e^n \nearrow\hspace{-1.5 pt} \searrow\hspace{-8pt}^{^{n+1}}L\cup \widetilde{e}^n\]
+					If $K \searrow L$, then \[K\cup e^n \simeq L\cup \widetilde{e}^n\]
 					where the attaching map $\widetilde{\varphi}\colon \partial D^ n\to L$ of $\widetilde{e}^n$ is defined as $\widetilde{\varphi}=r \varphi$ with $r:K\to L$ the canonical
 					strong deformation retract induced by the collapse $K \searrow L$. </p>
 				
@@ -519,7 +542,7 @@
 				
 				<p style="padding: 6px; border: 2px solid black;"><b><span style = "color: #ff4040">Lemma </span>(Internal collapse):</b>  Let $K$ be a CW-complex of dimension  $\leq n$. Let $\varphi:\partial D^n\to K$ be the 
 					attaching map of an $n$-cell $e^n$. 
-					If $K \searrow L$, then \[K\cup e^n \nearrow\hspace{-1.5 pt} \searrow\hspace{-8pt}^{^{n+1}}L\cup \widetilde{e}^n\]
+					If $K \searrow L$, then \[K\cup e^n \simeq L\cup \widetilde{e}^n\]
 					where the attaching map $\widetilde{\varphi}\colon \partial D^ n\to L$ of $\widetilde{e}^n$ is defined as $\widetilde{\varphi}=r \varphi$ with $r:K\to L$ the canonical
 					strong deformation retract induced by the collapse $K \searrow L$. </p>
 
@@ -534,7 +557,7 @@
 				
 				<p style="padding: 6px; border: 2px solid black;"><b><span style = "color: #ff4040">Lemma </span>(Internal collapse):</b> Let $K$ be a CW-complex of dimension  $\leq n$. Let $\varphi:\partial D^n\to K$ be the 
 					attaching map of an $n$-cell $e^n$. 
-					If $K \searrow L$, then \[K\cup e^n \nearrow\hspace{-1.5 pt} \searrow\hspace{-8pt}^{^{n+1}}L\cup \widetilde{e}^n\]
+					If $K \searrow L$, then \[K\cup e^n \simeq L\cup \widetilde{e}^n\]
 					where the attaching map $\widetilde{\varphi}\colon \partial D^ n\to L$ of $\widetilde{e}^n$ is defined as $\widetilde{\varphi}=r \varphi$ with $r:K\to L$ the canonical
 					strong deformation retract induced by the collapse $K \searrow L$. </p>
 				
@@ -550,7 +573,7 @@
 				
 				<p style="padding: 6px; border: 2px solid black;"><b><span style = "color: #ff4040">Lemma </span>(Internal collapse):</b>  Let $K$ be a CW-complex of dimension  $\leq n$. Let $\varphi:\partial D^n\to K$ be the 
 					attaching map of an $n$-cell $e^n$. 
-					If $K \searrow L$, then \[K\cup e^n \nearrow\hspace{-1.5 pt} \searrow\hspace{-8pt}^{^{n+1}}L\cup \widetilde{e}^n\]
+					If $K \searrow L$, then \[K\cup e^n \simeq L\cup \widetilde{e}^n\]
 					where the attaching map $\widetilde{\varphi}\colon \partial D^ n\to L$ of $\widetilde{e}^n$ is defined as $\widetilde{\varphi}=r \varphi$ with $r:K\to L$ the canonical
 					strong deformation retract induced by the collapse $K \searrow L$. </p>
 
@@ -565,7 +588,7 @@
 				
 				<p style="padding: 6px; border: 2px solid black;"><b><span style = "color: #ff4040">Lemma </span>(Internal collapse):</b>  Let $K$ be a CW-complex of dimension  $\leq n$. Let $\varphi:\partial D^n\to K$ be the 
 					attaching map of an $n$-cell $e^n$. 
-					If $K \searrow L$, then \[K\cup e^n \nearrow\hspace{-1.5 pt} \searrow\hspace{-8pt}^{^{n+1}}L\cup \widetilde{e}^n\]
+					If $K \searrow L$, then \[K\cup e^n \simeq L\cup \widetilde{e}^n\]
 					where the attaching map $\widetilde{\varphi}\colon \partial D^ n\to L$ of $\widetilde{e}^n$ is defined as $\widetilde{\varphi}=r \varphi$ with $r:K\to L$ the canonical
 					strong deformation retract induced by the collapse $K \searrow L$. </p>
 				
@@ -574,7 +597,23 @@
 				<img width="650" height = auto src='media_perspi1/question.png'/ class="center"> 
 				</section>
 
+				<section data-auto-animate>
+				<h5>Discrete Morse Theory & Whitehead deformations</h5>
+				<span style="font-size: 24px; text-align:left;"> 
+				
+				<p style="padding: 6px; border: 2px solid black;"><b><span style = "color: #ff4040">Lemma </span>(Internal collapse):</b>  Let $K$ be a CW-complex of dimension  $\leq n$. Let $\varphi:\partial D^n\to K$ be the 
+					attaching map of an $n$-cell $e^n$. 
+					If $K \searrow L$, then \[K\cup e^n \simeq L\cup \widetilde{e}^n\]
+					where the attaching map $\widetilde{\varphi}\colon \partial D^ n\to L$ of $\widetilde{e}^n$ is defined as $\widetilde{\varphi}=r \varphi$ with $r:K\to L$ the canonical
+					strong deformation retract induced by the collapse $K \searrow L$. </p>
+				
+				</span>
 
+				<img width="650" height = auto src='media_perspi1/internal_collapse_he.png'/ class="center"> 
+				</section>
+
+
+				<!--
 				<section data-auto-animate>
 				<h5>Discrete Morse Theory & Whitehead deformations</h5>
 				<span style="font-size: 24px; text-align:left;"> 
@@ -589,13 +628,14 @@
 
 				<img width="650" height = auto src='media_perspi1/deformation.jpeg'/ class="center"> 
 				</section>
+				-->
 
-
+				<!--
 				<section data-auto-animate>
 				<h5>Discrete Morse Theory & Whitehead deformations</h5>
 				<span style="font-size: 24px; text-align:left;"> 
 				
-				<p style="padding: 6px; border: 2px solid black;"><b style = "color: #ff4040">Proposition: </b> Let $ \displaystyle K \cup \bigcup_{i=1}^d e_i$ be a CW-complex where
+				<p style="padding: 6px; border: 2px solid black;"><b style = "color: #ff4040">Proposition [F.2021]: </b> Let $ \displaystyle K \cup \bigcup_{i=1}^d e_i$ be a CW-complex where
 				$\dim (K) \leq \dim (e_{i})\leq  \dim (e_{i+1})\leq n$ for all $i=1, 2, \dots, d$.
 				Let $\displaystyle \varphi_j:\partial D_j\to K\cup \bigcup_{i < j} e_i$  be the attaching map of $e_j$. 
 				 If $K\searrow L$, then there exist CW-complexes $Z_1\leq Z_2\leq \dots \leq Z_d$ of dim $\leq n+1$ such that for every $j=1, 2, \dots, d,$
@@ -613,22 +653,26 @@
 				
 				</span>
 				</section>
+			-->
 
 
 				<section data-auto-animate>
 				<h5>Discrete Morse Theory & Whitehead deformations</h5>
 				<span style="font-size: 24px; text-align:left;"> 
 				
-				<p style="padding: 6px; border: 2px solid black;"><b style = "color: #ff4040">Theorem [F. 2021]: </b> Let $K$ be a regular CW-complex of <b>dim $n$</b> and let $f:K\to \mathbb{R}$  be discrete Morse function.
+				<p style="padding: 6px; border: 2px solid black;"><b style = "color: #ff4040">Theorem [F. 2021]: </b> Let $K$ be a regular CW-complex and let $f:K\to \mathbb{R}$  be discrete Morse function.
 				 Then, $f$ induces a  sequence of internal collapses given by a filtration of $K$ 
 				  \[ \varnothing = K_{-1} \subseteq L_0 \subseteq K_0\subseteq L_1\subseteq K_1 \dots \subseteq L_{N}\subseteq K_{N}=K\]
 				  such that $K_j\searrow L_{j}$ for all $1\leq j\leq N$ and $\displaystyle L_{j}=K_{j-1}\cup \bigcup_{i=1}^{d_j} 
 				e_i^j$ with $\{e_i^j:0\leq j\leq N, 1\leq i \leq d_j\}$ the set of <b>critical cells</b> of $f$.
 				Moreover,
-				\[
+				<!--\[
 				K \nearrow\hspace{-1.5 pt} \searrow\hspace{-8pt}^{^{n+1}}
 				L_0\cup \bigcup_{j=1}^{N} \bigcup_{i=1}^{d_j}\widetilde e_i^j = K_\mathcal{M}.\]
-
+				-->
+				\[
+				K \simeq 
+				L_0\cup \bigcup_{j=1}^{N} \bigcup_{i=1}^{d_j}\widetilde e_i^j = K_\mathcal{M}.\]
 				Here, the attaching maps of the cells $\widetilde e_i^j$ can be explicitly reconstructed from the internal collapses.
 				</p>
 				</span>
@@ -636,7 +680,7 @@
 
 				<section data-auto-animate>
 				<h5>Discrete Morse Theory & Whitehead deformations</h5>
-				<img width="850" height = auto src='media_perspi1/whitehead_morse.png'/ class="center"> 
+				<img width="850" height = auto src='media_perspi1/deformation_morse_he.png'/ class="center"> 
 				</section>
 
 
@@ -700,9 +744,11 @@
 				<section data-auto-animate>
 					<h4>Morse theory for group presentations</h4>
 					<span style="font-size: 24px; text-align:left;">
-					<p>Given $K$ a <b style = "color: #ff4040">regular CW-complex</b> of dim 2 and $f\colon K\to \mathbb{R}$ a <b style = "color: #ff4040"> discrete Morse function </b> with a single critical 0-cell, we developed an <b>algorithmic</b> description of the <b style = "color: #ff4040"> Morse presentation</b> $\mathcal{P}_{K_{\mathcal M}}$.
+					<p>Given $K$ a <b style = "color: #ff4040">regular CW-complex</b> of dim 2 and $f\colon K\to \mathbb{R}$ a <b style = "color: #ff4040"> discrete Morse function </b> with a single critical 0-cell, we developed  an <b>algorithm</b> to compute the <b style = "color: #ff4040"> Morse presentation</b> $\mathcal{P}_{K_{\mathcal M}}$.
 					</p>
-					
+					<p><i class="fas fa-desktop"></i> $~O(M^2)$ with $M$ = |2-cells of $K$|</p>
+					<p > <i class="fab fa-github"> </i> <span style ="font-family:Courier New"> ximenafernandez/Finite-Topological-Spaces</span> (SAGE)
+					</p>
 					</span>
 				</section>
 
@@ -711,7 +757,7 @@
 				<section data-auto-animate>
 					<h4>Morse theory for group presentations</h4>
 					<span style="font-size: 24px; text-align:left;">
-					<p>Given $K$ a <b style = "color: #ff4040">regular CW-complex</b> of dim 2 and $f\colon K\to \mathbb{R}$ a <b style = "color: #ff4040"> discrete Morse function </b> with a single critical 0-cell, we developed an <b>algorithmic</b> description of the <b style = "color: #ff4040"> Morse presentation</b> $\mathcal{P}_{K_{\mathcal M}}$.
+					<p>Given $K$ a <b style = "color: #ff4040">regular CW-complex</b> of dim 2 and $f\colon K\to \mathbb{R}$ a <b style = "color: #ff4040"> discrete Morse function </b> with a single critical 0-cell, we developed  an <b>algorithm</b> to compute the <b style = "color: #ff4040"> Morse presentation</b> $\mathcal{P}_{K_{\mathcal M}}$.
 					</p>
 					<p > 
 						<ul>
@@ -728,7 +774,7 @@
 				<section data-auto-animate>
 					<h4>Morse theory for group presentations</h4>
 					<span style="font-size: 24px; text-align:left;">
-					<p>Given $K$ a <b style = "color: #ff4040">regular CW-complex</b> of dim 2 and $f\colon K\to \mathbb{R}$ a <b style = "color: #ff4040"> discrete Morse function </b> with a single critical 0-cell, we developed an <b>algorithmic</b> description of the <b style = "color: #ff4040"> Morse presentation</b> $\mathcal{P}_{K_{\mathcal M}}$.
+					<p>Given $K$ a <b style = "color: #ff4040">regular CW-complex</b> of dim 2 and $f\colon K\to \mathbb{R}$ a <b style = "color: #ff4040"> discrete Morse function </b> with a single critical 0-cell, we developed  an <b>algorithm</b> to compute the <b style = "color: #ff4040"> Morse presentation</b> $\mathcal{P}_{K_{\mathcal M}}$.
 					</p>
 					<p> 
 						<ul>
@@ -744,7 +790,7 @@
 				<section data-auto-animate>
 					<h4>Morse theory for group presentations</h4>
 					<span style="font-size: 24px; text-align:left;">
-					<p>Given $K$ a <b style = "color: #ff4040">regular CW-complex</b> of dim 2 and $f\colon K\to \mathbb{R}$ a <b style = "color: #ff4040"> discrete Morse function </b> with a single critical 0-cell, we developed an <b>algorithmic</b> description of the <b style = "color: #ff4040"> Morse presentation</b> $\mathcal{P}_{K_{\mathcal M}}$.
+					<p>Given $K$ a <b style = "color: #ff4040">regular CW-complex</b> of dim 2 and $f\colon K\to \mathbb{R}$ a <b style = "color: #ff4040"> discrete Morse function </b> with a single critical 0-cell, we developed  an <b>algorithm</b> to compute the <b style = "color: #ff4040"> Morse presentation</b> $\mathcal{P}_{K_{\mathcal M}}$.
 					</p>
 					<p> 
 						<ul>
@@ -752,53 +798,16 @@
 							<br>
 							<li> A Morse function with a <b>single critical  0-cell</b> determines a <b>spanning tree</b> on $K^{(1)}$.</li>
 							<br>
-							<li> The <b>internal collapse</b> induced by every pair of matched cells $(x,e)$ of dim 1 and 2 determines a <b>rewriting</b> in the attaching map of every 2 cell.
-								<p class="fragment" style = "color: grey; font-size: 22px"><i> Given a relator $r=w_1x^{\epsilon}w_2$ and a generator $x$ that appears neither in
+							<li> The <b>internal collapse</b> induced by every pair of matched cells $(x,e)$ of dim 1 and 2 determines a <b>rewriting</b> in the attaching map of every 2-cell.
+								<!--<p class="fragment" style = "color: grey; font-size: 22px"><i> Given a relator $r=w_1x^{\epsilon}w_2$ and a generator $x$ that appears neither in
 								$w_1$ nor in $w_2$ and $\epsilon=\pm 1$, the <b>equivalent expression $\omega(x,r)$ of $x$ induced by $r$</b>
-								is defined as $(w_1^{-1}w_2^{-1})^{\epsilon}$.</i></p>
+								is defined as $(w_1^{-1}w_2^{-1})^{\epsilon}$.</i></p>-->
 							</li>
 						</ul>
 					</p>
 					</span>
 				</section>
 			
-
-				<section data-auto-animate>
-					<h4>Morse theory for group presentations</h4>
-					<span style="font-size: 22px; text-align:left;">
-				    <p style="padding: 10px; border: 2px solid black;"><b style = "color: #ff4040; ">Definition [F.2021]</b> Let $K$ be a regular CW-complex. Let $f:K\to \mathbb{R}$ be a Morse function
-					 with only one critical cell of dimension 0. 
-					  Label $M^{(2)}=\{(x_1, e_1), \dots, (x_m, e_m)\}$ the subset of induced matched pairs of cells of dimension 1 and 2. 
-					  <br>
-					  <br>
-					 The <b style = "color: #ff4040; ">Morse presentation</b> $\mathcal{Q}_{K,f}$ is the presentation $\mathcal Q_m$ defined by the following iterative procedure:
-					<br>
-					<br>
-					$\bullet$ $\mathcal Q_0$ is the standard presentation $ \mathcal P_K$ constructed using
-					 the spanning tree $T$  induced by $M^{(1)}$, the induced matched pairs of cells of dimension 0 and 1. 
-					 <br>
-					 <br>
-					$\bullet$ For $0\leq i < m$, let $\mathcal Q_{i+1}$ be the presentation obtained from $\mathcal Q_{i}$ after removing the relator $r_i$ associated to $e_i$ and the generator $x_i$, and applying the <b>rewriting rule</b> on every occurrence of the generator $x_i$ in the rest of the relators.
-					
-					</p>
-
-					<p style="padding: 10px; border: 2px solid black;"><b style = "color: #ff4040; ">Theorem [F.2021]</b> $\mathcal Q_{K,f}$ is is the standard presentation $\mathcal P_{K_\mathcal M}$.
-					</p>
-				</section>
-
-				<section data-auto-animate>
-					<h4>Morse theory for group presentations</h4>
-					<span style="font-size: 24px; text-align:left;">
-					<p><i class="fas fa-desktop"></i> $~O(M^2)$ with $M$ = |2-cells of $K$|</p>
-					<p > <i class="fab fa-github"> </i> <span style ="font-family:Courier New"> ximenafernandez/Finite-Topological-Spaces</span> (SAGE)
-					</p>
-					<img width="800" height = auto src='media_perspi1/pseudocode.png'/>
-					</span>
-				</section>
-
-
-
-				
 				<section data-auto-animate>
 					<h5>Example</h5>
 					<span style="font-size: 22px; text-align:left;">
@@ -809,7 +818,7 @@
 					<p class="fragment">$\omega_0 (x_{13}, x_{13}^{-1}x_{12}x_4^{-1}) =  x_{12}x_4^{-1}$
 					</p>
 
-					<img width="250" height = auto src='media_perspi1/CW_Morse_0.png'/>
+					<img width="250" height = auto src='media_perspi1/CW_Morse_0.png'/> <img width="208" height = 208 src='media_perspi1/tree_no_labels.png'/>
 					</span>
 				</section>
 
@@ -827,6 +836,9 @@
 					</p>
 
 					<p class="fragment">$\omega_1 (x_{12}, x_{12}^{-1}x_{12}) =  x_{11}$
+					</p>
+
+					<p class="fragment">$\mathcal{Q}_2 = \langle x_4, x_6, x_7, x_8, x_9, x_{10}, x_{11} ~ | ~ x_{11}x_4^{-1},  x_{11}^{-1}x_{10}x_6^{-1}, x_{10}^{-1}x_9x_4, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $
 					</p>
 
 					<img width="250" height = auto src='media_perspi1/CW_Morse_0.png'/> <img width="250" height = auto src='media_perspi1/CW_Morse_1.png'/>
@@ -870,9 +882,48 @@
 						$\mathcal{Q}_7 = \langle x_4, x_6~ | ~ x_6x_4x_6^{-1}x_4^{-1}\rangle $
 					</p>
 
-					<img width="250" height = auto src='media_perspi1/CW_Morse_0.png'/> <img width="250" height = auto src='media_perspi1/CW_Morse_1.png'/><img width="240" height = auto src='media_perspi1/CW_Morse_2.png'/>
+					<img width="250" height = auto src='media_perspi1/CW_Morse_0.png'/> <img width="250" height = auto src='media_perspi1/CW_Morse_1.png'/><img width="35" src='media_perspi1/dots.png'/><img width="240" height = auto src='media_perspi1/CW_Morse_2.png'/>
 					</span>
 				</section>
+
+				<section data-auto-animate>
+					<h4>Morse theory for group presentations</h4>
+					<span style="font-size: 22px; text-align:left;">
+				    <p style="padding: 10px; border: 2px solid black;"><b style = "color: #ff4040; ">Definition [F.2021]</b> Let $K$ be a regular CW-complex. Let $f:K\to \mathbb{R}$ be a Morse function
+					 with only one critical cell of dimension 0. 
+					  Label $M^{(2)}=\{(x_1, e_1), \dots, (x_m, e_m)\}$ the subset of induced matched pairs of cells of dimension 1 and 2. 
+					  <br>
+					  <br>
+					 The <b style = "color: #ff4040; ">Morse presentation</b> $\mathcal{Q}_{K,f}$ is the presentation $\mathcal Q_m$ defined by the following iterative procedure:
+					<br>
+					<br>
+					$\bullet$ $\mathcal Q_0$ is the standard presentation $ \mathcal P_K$ constructed using
+					 the spanning tree $T$  induced by $M^{(1)}$, the induced matched pairs of cells of dimension 0 and 1. 
+					 <br>
+					 <br>
+					$\bullet$ For $0\leq i < m$, let $\mathcal Q_{i+1}$ be the presentation obtained from $\mathcal Q_{i}$ after removing the relator $r_i$ associated to $e_i$ and the generator $x_i$, and applying the <b>rewriting rule*</b> $\omega(x_i, r_i)$ on every occurrence of the generator $x_i$ in the rest of the relators.
+					<br>
+					<span style = "color: grey; font-size: 18px"><i> * Given a relator $r=w_1x^{\epsilon}w_2$ and a generator $x$ that appears neither in
+								$w_1$ nor in $w_2$ and $\epsilon=\pm 1$, the <b>equivalent expression $\omega(x,r)$ of $x$ induced by $r$</b>
+								is defined as $(w_1^{-1}w_2^{-1})^{\epsilon}$.</i>
+					</span>
+				</p>
+
+					<p style="padding: 10px; border: 2px solid black;"><b style = "color: #ff4040; ">Theorem [F.2021]</b> $\mathcal Q_{K,f}$ is is the standard presentation $\mathcal P_{K_\mathcal M}$.
+					</p>
+				</section>
+
+				<!--
+				<section data-auto-animate>
+					<h4>Morse theory for group presentations</h4>
+					<span style="font-size: 24px; text-align:left;">
+					<p><i class="fas fa-desktop"></i> $~O(M^2)$ with $M$ = |2-cells of $K$|</p>
+					<p > <i class="fab fa-github"> </i> <span style ="font-family:Courier New"> ximenafernandez/Finite-Topological-Spaces</span> (SAGE)
+					</p>
+					<img width="800" height = auto src='media_perspi1/pseudocode.png'/>
+					</span>
+				</section>
+				-->
 				
 			</section>
 
@@ -915,7 +966,7 @@
 
 				<section data-auto-animate>
 					<h3> The persistent fundamental group</h3>
-					<span style="font-size: 24px; text-align:left;">
+					<span style="font-size: 22px; text-align:left;">
 
 					<ul>
 						<li><b>Metric space</b> $(\mathbb{X}_n,d)$</li>
@@ -924,11 +975,249 @@
 						<br>
 						<li><b style = "color: #ff4040">Persistent fundamental group</b> 
 							<br>
-							There exist $g_j: \pi_1((K_j)_\mathcal{M})\to\pi_1((K_{j+1})_\mathcal{M})$ such that \[~~~~~~~~~~\pi_1(K_1) \xrightarrow{(i_1)_*} \pi_1(K_2) \xrightarrow{(i_2)_*} \dots \xrightarrow{(i_{N-1})_*} \pi_1(K_N)\]
+							We developed  an <b>algorithm</b> with complexity $O(M^2)$ with $M$ = |2-cells of $K_N$| to compute presentations of $\pi_1((K_j)_\mathcal{M})$ and homomorhisms $g_j: \pi_1((K_j)_\mathcal{M})\to\pi_1((K_{j+1})_\mathcal{M})$  for all $j$ s.t. \[~~~~~~~~~~\pi_1(K_1) \xrightarrow{(i_1)_*} \pi_1(K_2) \xrightarrow{(i_2)_*} \dots \xrightarrow{(i_{N-1})_*} \pi_1(K_N)\]
 							\[~~~~~~~~~~\cong ~~~~~\circlearrowleft~~~~~\cong ~~~~~\circlearrowleft~~~~~~~~\circlearrowleft~~~~~\cong \]
 							\[~~~~~~~~~~\pi_1((K_1)_\mathcal{M})\xrightarrow{g_1}  \pi_1((K_2)_\mathcal{M}) \xrightarrow{g_2} \dots \xrightarrow{g_{N-1}}\pi_1((K_N)_\mathcal{M})\]
 						</li>
 					</ul>
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h5>Example</h5>
+					<span style="font-size: 20px; text-align:left;">
+					<img width="800" height = auto src='media_perspi1/example_persistent_pi1.png'/> 
+					<p class = "fragment">
+						$\mathcal{Q}_0 = \langle x_4, x_6, x_7, x_8, x_9, x_{10}, x_{11},  x_{12}, x_{13}~ | ~   x_{13}, x_{13}^{-1}x_{12}x_4^{-1},x_{12}^{-1}x_{11}, x_{11}^{-1}x_{10}x_6^{-1}, x_{10}^{-1}x_9x_4, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $
+
+						<br>
+
+						<span>$\mathcal{Q}_1 = \langle x_4, x_6, x_7, x_8, x_9, x_{10}, x_{11}, x_{12} ~ | ~ x_{12}x_4^{-1}, x_{12}^{-1}x_{11}, x_{11}^{-1}x_{10}x_6^{-1}, x_{10}^{-1}x_9x_4, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $</span>
+
+						<br>
+						
+						$\mathcal{Q}_2 = \langle x_4, x_6, x_7, x_8, x_9, x_{10}, x_{11} ~ | ~ x_{11}x_4^{-1},  x_{11}^{-1}x_{10}x_6^{-1}, x_{10}^{-1}x_9x_4, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $
+
+						<br>
+
+						$\mathcal{Q}_3 = \langle x_4, x_6, x_7, x_8, x_9, x_{10} ~ | ~ x_{10}x_6^{-1}x_4^{-1}, x_{10}^{-1}x_9x_4, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $
+
+						<br>
+
+						$\mathcal{Q}_4 = \langle x_4, x_6, x_7, x_8, x_9 ~ | ~ x_{9}x_4x_6^{-1}x_4^{-1}, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $
+
+						<br>
+
+						$\mathcal{Q}_5 = \langle x_4, x_6, x_7, x_8~ | ~ x_{8}x_4x_6^{-1}x_4^{-1}, x_8^{-1}x_7x_6, x_7^{-1}\rangle $
+						
+						<br>
+
+						<span>$\mathcal{Q}_6 = \langle x_4, x_6, x_7~ | ~ x_7x_6x_4x_6^{-1}x_4^{-1}, x_7^{-1}\rangle $</span>
+					
+						<br>
+
+						$\mathcal{Q}_7 = \langle x_4, x_6~ | ~ x_6x_4x_6^{-1}x_4^{-1}\rangle $
+					</p>
+
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h5>Example</h5>
+					<span style="font-size: 20px; text-align:left;">
+					<img width="800" height = auto src='media_perspi1/example_persistent_pi1.png'/> 
+					<p>
+						$\mathcal{Q}_0 = \langle x_4, x_6, x_7, x_8, x_9, x_{10}, x_{11},  x_{12}, x_{13}~ | ~   x_{13}, x_{13}^{-1}x_{12}x_4^{-1},x_{12}^{-1}x_{11}, x_{11}^{-1}x_{10}x_6^{-1}, x_{10}^{-1}x_9x_4, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $
+
+						<br>
+
+						<span style = "color: #ff4040">$\mathcal{Q}_1 = \langle x_4, x_6, x_7, x_8, x_9, x_{10}, x_{11}, x_{12} ~ | ~ x_{12}x_4^{-1}, x_{12}^{-1}x_{11}, x_{11}^{-1}x_{10}x_6^{-1}, x_{10}^{-1}x_9x_4, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $</span>
+
+						<br>
+
+						$\mathcal{Q}_2 = \langle x_4, x_6, x_7, x_8, x_9, x_{10}, x_{11} ~ | ~ x_{11}x_4^{-1},  x_{11}^{-1}x_{10}x_6^{-1}, x_{10}^{-1}x_9x_4, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $
+
+						<br>
+
+						$\mathcal{Q}_3 = \langle x_4, x_6, x_7, x_8, x_9, x_{10} ~ | ~ x_{10}x_6^{-1}x_4^{-1}, x_{10}^{-1}x_9x_4, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $
+
+						<br>
+
+						$\mathcal{Q}_4 = \langle x_4, x_6, x_7, x_8, x_9 ~ | ~ x_{9}x_4x_6^{-1}x_4^{-1}, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $
+
+						<br>
+
+						$\mathcal{Q}_5 = \langle x_4, x_6, x_7, x_8~ | ~ x_{8}x_4x_6^{-1}x_4^{-1}, x_8^{-1}x_7x_6, x_7^{-1}\rangle $
+						
+						<br>
+
+						<span>$\mathcal{Q}_6 = \langle x_4, x_6, x_7~ | ~ x_7x_6x_4x_6^{-1}x_4^{-1}, x_7^{-1}\rangle $</span>
+					
+						<br>
+
+						$\mathcal{Q}_7 = \langle x_4, x_6~ | ~ x_6x_4x_6^{-1}x_4^{-1}\rangle $
+					</p>
+
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h5>Example</h5>
+					<span style="font-size: 20px; text-align:left;">
+					<img width="800" height = auto src='media_perspi1/example_persistent_pi1.png'/> 
+					<p>$~~~~~~~~~P_{(K_1)_\mathcal M} = \langle x_4, x_6,  x_{10}, x_{11},  x_{12}~ | ~ \rangle$</p>
+					<p>
+						$\mathcal{Q}_0 = \langle x_4, x_6, x_7, x_8, x_9, x_{10}, x_{11},  x_{12}, x_{13}~ | ~   x_{13}, x_{13}^{-1}x_{12}x_4^{-1},x_{12}^{-1}x_{11}, x_{11}^{-1}x_{10}x_6^{-1}, x_{10}^{-1}x_9x_4, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $
+
+						<br>
+
+						<span style = "color: #ff4040">$\mathcal{Q}_1 = \langle x_4, x_6, x_7, x_8, x_9, x_{10}, x_{11}, x_{12} ~ | ~ x_{12}x_4^{-1}, x_{12}^{-1}x_{11}, x_{11}^{-1}x_{10}x_6^{-1}, x_{10}^{-1}x_9x_4, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $</span>
+
+						<br>
+
+						$\mathcal{Q}_2 = \langle x_4, x_6, x_7, x_8, x_9, x_{10}, x_{11} ~ | ~ x_{11}x_4^{-1},  x_{11}^{-1}x_{10}x_6^{-1}, x_{10}^{-1}x_9x_4, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $
+
+						<br>
+
+						$\mathcal{Q}_3 = \langle x_4, x_6, x_7, x_8, x_9, x_{10} ~ | ~ x_{10}x_6^{-1}x_4^{-1}, x_{10}^{-1}x_9x_4, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $
+
+						<br>
+
+						$\mathcal{Q}_4 = \langle x_4, x_6, x_7, x_8, x_9 ~ | ~ x_{9}x_4x_6^{-1}x_4^{-1}, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $
+
+						<br>
+
+						$\mathcal{Q}_5 = \langle x_4, x_6, x_7, x_8~ | ~ x_{8}x_4x_6^{-1}x_4^{-1}, x_8^{-1}x_7x_6, x_7^{-1}\rangle $
+						
+						<br>
+
+						<span>$\mathcal{Q}_6 = \langle x_4, x_6, x_7~ | ~ x_7x_6x_4x_6^{-1}x_4^{-1}, x_7^{-1}\rangle $</span>
+					
+						<br>
+
+						$\mathcal{Q}_7 = \langle x_4, x_6~ | ~ x_6x_4x_6^{-1}x_4^{-1}\rangle $
+					</p>
+
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h5>Example</h5>
+					<span style="font-size: 20px; text-align:left;">
+					<img width="800" height = auto src='media_perspi1/example_persistent_pi1.png'/> 
+					<p>$~~~~~~~~~P_{(K_1)_\mathcal M} = \langle x_4, x_6,  x_{10}, x_{11},  x_{12}~ | ~ \rangle$</p>
+					<p>
+						$\mathcal{Q}_0 = \langle x_4, x_6, x_7, x_8, x_9, x_{10}, x_{11},  x_{12}, x_{13}~ | ~   x_{13}, x_{13}^{-1}x_{12}x_4^{-1},x_{12}^{-1}x_{11}, x_{11}^{-1}x_{10}x_6^{-1}, x_{10}^{-1}x_9x_4, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $
+
+						<br>
+
+						<span>$\mathcal{Q}_1 = \langle x_4, x_6, x_7, x_8, x_9, x_{10}, x_{11}, x_{12} ~ | ~ x_{12}x_4^{-1}, x_{12}^{-1}x_{11}, x_{11}^{-1}x_{10}x_6^{-1}, x_{10}^{-1}x_9x_4, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $</span>
+
+						<br>
+
+						$\mathcal{Q}_2 = \langle x_4, x_6, x_7, x_8, x_9, x_{10}, x_{11} ~ | ~ x_{11}x_4^{-1},  x_{11}^{-1}x_{10}x_6^{-1}, x_{10}^{-1}x_9x_4, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $
+
+						<br>
+
+						$\mathcal{Q}_3 = \langle x_4, x_6, x_7, x_8, x_9, x_{10} ~ | ~ x_{10}x_6^{-1}x_4^{-1}, x_{10}^{-1}x_9x_4, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $
+
+						<br>
+
+						$\mathcal{Q}_4 = \langle x_4, x_6, x_7, x_8, x_9 ~ | ~ x_{9}x_4x_6^{-1}x_4^{-1}, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $
+
+						<br>
+
+						$\mathcal{Q}_5 = \langle x_4, x_6, x_7, x_8~ | ~ x_{8}x_4x_6^{-1}x_4^{-1}, x_8^{-1}x_7x_6, x_7^{-1}\rangle $
+						
+						<br>
+
+						<span style = "color: #ff4040">$\mathcal{Q}_6 = \langle x_4, x_6, x_7~ | ~ x_7x_6x_4x_6^{-1}x_4^{-1}, x_7^{-1}\rangle $</span>
+					
+						<br>
+
+						$\mathcal{Q}_7 = \langle x_4, x_6~ | ~ x_6x_4x_6^{-1}x_4^{-1}\rangle $
+					</p>
+
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h5>Example</h5>
+					<span style="font-size: 20px; text-align:left;">
+					<img width="800" height = auto src='media_perspi1/example_persistent_pi1.png'/> 
+					<p>$~~~~~~~~~P_{(K_1)_\mathcal M} = \langle x_4, x_6,  x_{10}, x_{11},  x_{12}~ | ~ \rangle~~~~~~P_{(K_2)_\mathcal M} =\langle x_4, x_6, x_7~ | ~ x_7x_6 x_4x_6^{-1}x_4^{-1}\rangle$</p>
+					<p>
+						$\mathcal{Q}_0 = \langle x_4, x_6, x_7, x_8, x_9, x_{10}, x_{11},  x_{12}, x_{13}~ | ~   x_{13}, x_{13}^{-1}x_{12}x_4^{-1},x_{12}^{-1}x_{11}, x_{11}^{-1}x_{10}x_6^{-1}, x_{10}^{-1}x_9x_4, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $
+
+						<br>
+
+						<span>$\mathcal{Q}_1 = \langle x_4, x_6, x_7, x_8, x_9, x_{10}, x_{11}, x_{12} ~ | ~ x_{12}x_4^{-1}, x_{12}^{-1}x_{11}, x_{11}^{-1}x_{10}x_6^{-1}, x_{10}^{-1}x_9x_4, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $</span>
+
+						<br>
+
+						$\mathcal{Q}_2 = \langle x_4, x_6, x_7, x_8, x_9, x_{10}, x_{11} ~ | ~ x_{11}x_4^{-1},  x_{11}^{-1}x_{10}x_6^{-1}, x_{10}^{-1}x_9x_4, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $
+
+						<br>
+
+						$\mathcal{Q}_3 = \langle x_4, x_6, x_7, x_8, x_9, x_{10} ~ | ~ x_{10}x_6^{-1}x_4^{-1}, x_{10}^{-1}x_9x_4, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $
+
+						<br>
+
+						$\mathcal{Q}_4 = \langle x_4, x_6, x_7, x_8, x_9 ~ | ~ x_{9}x_4x_6^{-1}x_4^{-1}, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $
+
+						<br>
+
+						$\mathcal{Q}_5 = \langle x_4, x_6, x_7, x_8~ | ~ x_{8}x_4x_6^{-1}x_4^{-1}, x_8^{-1}x_7x_6, x_7^{-1}\rangle $
+						
+						<br>
+
+						<span style = "color: #ff4040">$\mathcal{Q}_6 = \langle x_4, x_6, x_7~ | ~ x_7x_6x_4x_6^{-1}x_4^{-1}, x_7^{-1}\rangle $</span>
+					
+						<br>
+
+						$\mathcal{Q}_7 = \langle x_4, x_6~ | ~ x_6x_4x_6^{-1}x_4^{-1}\rangle $
+					</p>
+
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h5>Example</h5>
+					<span style="font-size: 20px; text-align:left;">
+					<img width="800" height = auto src='media_perspi1/example_persistent_pi1.png'/> 
+					<p>$~~~~~~~~~P_{(K_1)_\mathcal M} = \langle x_4, x_6,  x_{10}, x_{11},  x_{12}~ | ~ \rangle~~~~~~P_{(K_2)_\mathcal M} =\langle x_4, x_6, x_7~ | ~ x_7x_6 x_4x_6^{-1}x_4^{-1}\rangle ~~~~~~ P_{(K_3)_\mathcal M} = \langle x_4, x_6~ | ~ x_6 x_4x_6^{-1}x_4^{-1}\rangle$</p>
+					<p>
+						$\mathcal{Q}_0 = \langle x_4, x_6, x_7, x_8, x_9, x_{10}, x_{11},  x_{12}, x_{13}~ | ~   x_{13}, x_{13}^{-1}x_{12}x_4^{-1},x_{12}^{-1}x_{11}, x_{11}^{-1}x_{10}x_6^{-1}, x_{10}^{-1}x_9x_4, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $
+
+						<br>
+
+						<span>$\mathcal{Q}_1 = \langle x_4, x_6, x_7, x_8, x_9, x_{10}, x_{11}, x_{12} ~ | ~ x_{12}x_4^{-1}, x_{12}^{-1}x_{11}, x_{11}^{-1}x_{10}x_6^{-1}, x_{10}^{-1}x_9x_4, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $</span>
+
+						<br>
+
+						$\mathcal{Q}_2 = \langle x_4, x_6, x_7, x_8, x_9, x_{10}, x_{11} ~ | ~ x_{11}x_4^{-1},  x_{11}^{-1}x_{10}x_6^{-1}, x_{10}^{-1}x_9x_4, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $
+
+						<br>
+
+						$\mathcal{Q}_3 = \langle x_4, x_6, x_7, x_8, x_9, x_{10} ~ | ~ x_{10}x_6^{-1}x_4^{-1}, x_{10}^{-1}x_9x_4, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $
+
+						<br>
+
+						$\mathcal{Q}_4 = \langle x_4, x_6, x_7, x_8, x_9 ~ | ~ x_{9}x_4x_6^{-1}x_4^{-1}, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $
+
+						<br>
+
+						$\mathcal{Q}_5 = \langle x_4, x_6, x_7, x_8~ | ~ x_{8}x_4x_6^{-1}x_4^{-1}, x_8^{-1}x_7x_6, x_7^{-1}\rangle $
+						
+						<br>
+
+						<span >$\mathcal{Q}_6 = \langle x_4, x_6, x_7~ | ~ x_7x_6x_4x_6^{-1}x_4^{-1}, x_7^{-1}\rangle $</span>
+					
+						<br>
+
+						<span style = "color: #ff4040">$\mathcal{Q}_7 = \langle x_4, x_6~ | ~ x_6x_4x_6^{-1}x_4^{-1}\rangle $</span>
+					</p>
+
 					</span>
 				</section>
 
@@ -987,6 +1276,7 @@
 					</span>
 				</section>
 
+				<!--
 				<section data-auto-animate>
 					<h3> The Persistent fundamental group</h3>
 					<span style="font-size: 24px; text-align:left;">
@@ -995,6 +1285,7 @@
 
 					</span>
 				</section>
+				-->
 
 
 

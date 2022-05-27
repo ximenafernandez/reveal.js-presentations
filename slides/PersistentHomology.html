@@ -190,17 +190,17 @@
 
 					<section data-auto-animate>
 						<h3>Simplicial Complexes</h3>
-						<span style="font-size: 24px; text-align:left;">
+						<p style="font-size: 24px; text-align:left;">
 						Simplicial complexes are combinatorial objects built of small convex bricks called <b>simplices</b>.
-						</span>
-						<img class="fragment" width="800" height = auto src='media_ph/simplices.png'/>
+						</p>
+						<img width="800" height = auto src='media_ph/simplices.png'/>
 					</section>
 
 					<section data-auto-animate>
 						<h3>Simplicial Complexes</h3>
-						<span style="font-size: 24px; text-align:left;">
+						<p style="font-size: 24px; text-align:left;">
 						Simplicial complexes are combinatorial objects built of small convex bricks called <b>simplices</b>.
-						</span>
+						</p>
 						<img  width="600" height = auto src='media_ph/simplicial_complex.png'/>
 					</section>
 
@@ -400,8 +400,8 @@
 						<h3>Homology</h3>
 						<span style="font-size: 26px; text-align:left;">
 						<p ><b>Q:</b> How to algorithmically compute homology of simplicial complexes?</p>
-						<p ><b>Algorithm</b>
-							<ol>
+						<p><b>Algorithm</b>
+							<ol style="font-size: 20px; text-align:left;">
 							<li> Calculate <b>boundary operator matrices</b>.</li>
 							<li> Bring each matrix into <b>Smith normal form </b>(similar to Gaussian elimination).</li>
 							<li> The $d^{th}$ Betti number $b_d$ is computed as <b>rank $Z_d$ - rank $B_d$</b>, where
@@ -453,6 +453,7 @@
 					</section>
 				-->
 
+				<!--
 					<section data-auto-animate>
 					<h2>Topological inference</h2>
 					<span style="font-size: 24px; text-align:center;"> 
@@ -490,13 +491,12 @@
 					</div>
 					</span>
 					</section>
+					-->
+
 
 					<section data-auto-animate>
-						<h2>Topological inference</h2>
+						<h2>Persistence</h2>
 						<span style="font-size: 22px; text-align:center;">
-						<p>Let $(X, d)$ be a metric space and let $\mathbb{X}_n = \{x_1,...,x_n\}$ a finite sample of $X$.</p>
-						<p><b>Q:</b> How to infer the homology of $X$ from $\mathbb{X}_n$?</p>
-
 						<div class="row">
 						 	 <div class="column">
 						 	 	<p>Point cloud 
@@ -508,16 +508,13 @@
  							 <img width="350" height = auto src='media_ts/filtration_circle.gif'/>
  							 </p>
  							 </div>
-
 						</div> 
 						</span>
 					</section>
 
 					<section data-auto-animate>
-						<h2>Topological inference</h2>
+						<h2>Persistence</h2>
 						<span style="font-size: 22px; text-align:center;">
-						<p>Let $(X, d)$ be a metric space and let $\mathbb{X}_n = \{x_1,...,x_n\}$ a finite sample of $X$.</p>
-						<p><b>Q:</b> How to infer the homology of $X$ from $\mathbb{X}_n$?</p>
 
 						<div class="row">
 						 	 <div class="column_20">
@@ -526,7 +523,7 @@
  							 	</p>
 						 	 </div>
  							 <div class="column_30">
-	 							 <p >Evolving thickenings
+	 							 <p>Evolving thickenings
 	 							 <img width="350" height = auto src='media_ts/filtration_circle.gif'/>
 	 							 </p>
  							 </div>
@@ -550,7 +547,7 @@
 						<h4>From point clouds to (filtered) complexes</h4>
 						<span style="font-size: 21px; text-align:left;">
 
-						 <p>Let $(\mathbb{X}_n, d)$ be a finite set of points wiht a metric.</p>
+						 <p>Let $(\mathbb{X}_n, d)$ be a finite set of points with a metric.</p>
 						 <p> Given a <b>parameter</b> $\epsilon>0$, the <b style="color: #fe6e61">Vietoris-Rips complex</b> $V_{\epsilon}$ is defined as
 						 	\[V_{\epsilon}(\mathbb{X}_n) := \{\sigma \subseteq \mathbb{X}_n\colon \forall u,v\in \sigma, d(u,v)\leq \epsilon\}\]
 						 <p>Equivalently, $V_\epsilon$ contains all simplices whose <i>diameter</i> is less than or equal to $\epsilon$.</p>
@@ -670,10 +667,10 @@
 						<h3>Persistent homology</h3>
 						<span style="font-size: 22px">
 						<ul>
-						<li class="fragment">A <b style="color: #fe6e61">filtered simplicial complex</b> $K_\bullet$ is a sequence of nested simplicial complexes \[K_0 \hookrightarrow K_1 \hookrightarrow K_2 \hookrightarrow \dots K_s = K\]
+						<li class="fragment">A <b style="color: #fe6e61">filtration of simplicial complexes</b> is a sequence of nested simplicial complexes \[K_0 \hookrightarrow K_1 \hookrightarrow K_2 \hookrightarrow \dots \hookrightarrow K_s \]
 						 </li>
 						<li class="fragment"> A filtration $\{K_i\}$ of simplicial complexes induces a sequence of <b style="color: #fe6e61"> homology groups</b> $\{H_d(K_i)\}$ along with homomorphisms $f_d^{i,j}:H_d(K_i) \to H_d(K_j)$ induced by $K_i\subseteq K_j$ every time $i\leq j$
-							\[H_d(K_0) \rightarrow H_d(K_1) \rightarrow H_d(K_2) \rightarrow \dots H_d(K_s) = H_d(K).\]
+							\[H_d(K_0) \rightarrow H_d(K_1) \rightarrow H_d(K_2) \rightarrow \dots \rightarrow H_d(K_s) .\]
 
 						</li>
 						<li class="fragment"> Given $i\leq j$, the <b style="color: #fe6e61">persistent homology group</b> $H_d^{i,j}$ is defined as 
@@ -709,6 +706,9 @@
 							<li><i style="color: #fe6e61">Death</i> in $K_j$: once $C$ is created in $K_i$, $C\in H_d^{i, j-1}$ but $C\notin H_d^{i, j}$ </li>
 							</ul>
 						</li>
+						<br>
+						<li> The birth and death of homology classes determine a <b>barcode</b> decomposition.
+						</li>
 						</ul>
 						</span>
 						<img width="830" height = auto src='media_ph/evolution_rips.png'/>
@@ -719,8 +719,13 @@
 						<h4>Computation of persistent homology</h4>
 						<span style="font-size: 26px">
 							<ul>
-							<li>Algebra: </li>
-							<li>Implementation:   </li>
+							<li><i style="color: #fe6e61">Algorithm.</i> <br>
+								As a consecuence of the Structure Theorem, the computation of <b>persistent homology</b> reduces to the algorithm for computation of regular <b>homology</b>.</li>
+							<br>
+							<li> <i style="color: #fe6e61">Software.</i>  <br>
+							There are open access implementations to compute persistent homology in  R, Julia, C++, Matlab and Python (tomorrow).
+							<br>
+							There is also a <a href="https://live.ripser.org"> browser version </a> of the software <b>Ripser</b>.</li>
 							</ul>
 						</span>
 
@@ -735,13 +740,16 @@
 					</section>
 				-->
 
+				<!--
 					<section data-auto-animate>
 						<h4>Barcodes & Persistence diagrams</h4>
 						<br>
-						<!--<img width="900" height = auto src='media_ts/PDvsBarcode.png'/>-->
+						<img width="900" height = auto src='media_ts/PDvsBarcode.png'/>
 					</section>
+				-->
 
 
+					<!--
 					<section data-auto-animate>
 						<h4>Persistence diagrams as a metric space</h4>
 						<span style="font-size: 22px; text-align:left;">
@@ -767,6 +775,7 @@
 						</span>
 						<img class="fragment" width="450" height = auto src='media_ts/stability.gif'/>
 					</section>
+					-->
 
 				</section>
 
@@ -784,7 +793,7 @@
 						<ul>
 						<li><b>Coverage in Sensor Networks.</b>
 							<p style="font-size: 16px;" >[de Silva V, Ghrist R (2007) Coverage in sensor networks via persistent homology. Algebraic Geom Topol 7:339-358]</p>
-							<p style="font-size: 18px;" >Determine when static nodes with minimal and localized sensing capabilities completely cover a bounded domain of unknown topological type.</p>
+							The problem. Each node has sensors that can cover a circular region of radius r c Each node can detect other nodes within its broadcast radius r b r c ≥ r b /√(3) Nodes lie in compact connected planar domain with piecewise linear boundary. Fence nodes at the vertices All fence nodes know their neighbors’ identities and are no more than r b apart 
 						</li>
 						<!--
 						<li class="fragment"> <i>Phase transitions.</i>
@@ -798,11 +807,57 @@
 						<li class="fragment"> Biological networks.
 							<p style="font-size: 18px;"> Work of Heather Harrington et. al. Oxford University</p></li>
 						-->
-						<li> Neuroscience
+						</ul>
+						</span>
+
+					</section>
+
+					<section data-auto-animate>
+						<h4>Applications to data analysis</h4>
+						<span style="font-size: 21px">
+						<ul>
+						<li><b>Coverage in Sensor Networks.</b>
+							<p style="font-size: 15px;" >[de Silva V, Ghrist R (2007) <i>Coverage in sensor networks via persistent homology.</i> Algebraic Geom Topol 7:339-358]</p>
 						</li>
-						<li class="fragment" > <b>Proteins</b> (Day 2).</li>
-						<li class="fragment" > <b>Dynamics and time series analysis</b> (Day 3).</li>
-						<li class="fragment"> $\dots$</li>
+						<!--
+						<li class="fragment"> <i>Phase transitions.</i>
+							<p style="font-size: 18px;"> N. Sale, J. Giansiracusa, and B. Lucini, <i>Quantitative analysis of phase transitions in two-dimensional XY models using persistent homology</i>, 2021, ArXiv:2109.10960</p>
+						</li>
+						<li class="fragment"> Development of new materials.
+						<p style="font-size: 18px;"> Work of Vitaly Kurlin et. al. University of Liverpool</p></li>
+						<li class="fragment"> Knotted structure of proteins.
+							<p style="font-size: 18px;"> A. Barbensi, N. Yerolemou, O. Vipond, B.I. Mahler, P. Dabrowski-Tumanski and D. Goundaroulis. <i>A topological selection of folding pathways from native states of knotted proteins</i>. 2021.</p>
+						</li>
+						<li class="fragment"> Biological networks.
+							<p style="font-size: 18px;"> Work of Heather Harrington et. al. Oxford University</p></li>
+						-->
+						<li class="fragment" > <b>Chemistry</b>, energy landscape of molecules (Day 2).
+						<p style="font-size: 15px;"> [Martin, S., Thompson, A., Coutsias, E. A., & Watson, J. P. (2010). <i>Topology of cyclo-octane energy landscape.</i> The Journal of Chemical Physics, 132(23), 234115.]</p>
+						<li class="fragment" > <b>Neuroscience</b>, neural activity  (Day 2).
+						<p style="font-size: 15px;">[Curto, Carina. <i>What can topology tell us about the neural code?</i> Bull. Amer. Math. Soc. (N.S.) 54 (2017), no. 1, 63--78]
+						<br>
+						[Gardner, R.J., Hermansen, E., Pachitariu, M. et al. <i>Toroidal topology of population activity in grid cells.</i> Nature 602, 123–128 (2022)]</p>
+						</li>
+						<li class="fragment"> <b>Proteins</b>, classification of foldings (Day 2).
+						<p style="font-size: 15px;">
+						[Kovacev-Nikolic V, Bubenik P, Nikolić D, Heo G. <i>Using persistent homology and dynamical distances to analyze protein binding.</i> Stat Appl Genet Mol Biol. 2016 Mar;15(1):19-38.]
+						<br>
+						[Cang Z, Mu L, Wu K, et al. (2015). <i>A topological approach for protein classification.</i> Computational and Mathematical Biophysics, 3(1)]
+						<br>
+						[Xia, K. & Wei, G. W. (2014). <i>Persistent homology analysis of protein structure, flexibility, and folding.</i> International Journal for Numerical Methods in Biomedical Engineering, 30(8), 814–844]
+						</p>
+						</li>
+						<li class="fragment" > <b>Dynamics and time series analysis</b> (Day 3).
+						<p style="font-size: 15px;">
+						[Perea, J A, Harer, J. <i>Sliding Windows and Persistence: An Application of Topological Methods to Signal Analysis.</i> Found Comput Math 15, 799–838 (2015).]
+						<br>
+						[Perea J A, <i>Topological Time Series Analysis</i>, Notices of the American Mathematical Society, vol. 66, no. 5, pp. 686-694, May 2019.]
+						<br>
+						 [Fernandez X., Borghini E., Mindlin G., Groisman P. <i>Intrinsic persistent homology via density-based metric learning</i>, 2020. arXiv:2012.07621]
+						 <br>
+						 [Fernandez X., Mateos D. <i>Topological prediction of epilepsy seizures.</i> Work in progress, 2022.]
+						</p>
+						</li>
 						</ul>
 						</span>
 
