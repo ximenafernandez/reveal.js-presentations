@@ -76,21 +76,19 @@
 
 			<div class="slides">
 
-			<section>
-					<h4>The persistent fundamental group <br>of point clouds</h3>
+				<section>
+					<h3>The persistent fundamental group <br>of point clouds</h3>
 					
 					<p style="font-size:30px;">XIMENA FERNANDEZ</p>
 					<p style="font-size:22px;">Durham University</p>
 					<p style="font-size:20px;">UK CENTRE FOR TOPOLOGICAL DATA ANALYSIS</p>
-					<p style="font-size:28px; color: #ff4040"><b>GETCO 2022</b></i></p> 
+					<p style="font-size:36px; color: #ff4040"><b>GETCO 2022</b></i></p> 
 					<br>
 					<br>
 					 <p style="font-size:22px;text-align:right;"><i>Joint work with Kevin Piterman</i></p>
+				</section>
 					
-			</section>
 
-
-			<section>
 				<section data-auto-animate>
 					<h3>Topological inference</h3>
 				</section>
@@ -180,8 +178,6 @@
 				</section>
 
 
-
-
 				<section data-auto-animate>
 					<h3> Persistent homology</h3>
 					<span style="font-size: 22px; text-align:left;">
@@ -235,7 +231,6 @@
 					
 					</span>
 				</section>
-
 
 
 				<section data-auto-animate> 
@@ -307,12 +302,7 @@
 					</span>
 				</section>
 
-			</section>
 
-
-
-
-			<section>
 				<section data-auto-animate>
 					<h3> The persistent fundamental group</h3>
 				</section>
@@ -389,9 +379,8 @@
 					</p>
 					</span>
 				</section>
-			</section>
 
-			<section>
+
 				<section data-auto-animate>
 					<h3> Discrete Morse Theory</h3>
 					<br>
@@ -430,7 +419,7 @@
 				<li> $f:K\to \mathbb{R}$ a <b>discrete Morse function</b>.
 				</li>
 				<p style = "font-size: 22px; color: grey"> For every cell $e^n$ in $K$,
-				$\#\{e^n\succ e^{n-1}: f(e^n)\leq  f(e^{n-1})\}\leq 1 \text{ and } \#\{e^n\prec e^{n+1} : f(e^n)\geq f(e^{n+1})\}\leq 1.$</p>
+				$\#\{e^n\succ e^{n-1}: f(e^n)\leq  f(e^{n-1})\} + \#\{e^n\prec e^{n+1} : f(e^n)\geq f(e^{n+1})\}\leq 1.$</p>
 				
 				</ul>
 				
@@ -744,7 +733,7 @@
 				<section data-auto-animate>
 					<h4>Morse theory for group presentations</h4>
 					<span style="font-size: 24px; text-align:left;">
-					<p>Given $K$ a <b style = "color: #ff4040">regular CW-complex</b> of dim 2 and $f\colon K\to \mathbb{R}$ a <b style = "color: #ff4040"> discrete Morse function </b> with a single critical 0-cell, we developed  an <b>algorithm</b> to compute the <b style = "color: #ff4040"> Morse presentation</b> $\mathcal{P}_{K_{\mathcal M}}$.
+					<p>Given $K$ a <b style = "color: #ff4040">regular CW-complex</b> and $f\colon K\to \mathbb{R}$ a <b style = "color: #ff4040"> discrete Morse function </b> with a single critical 0-cell, we developed  an <b>algorithm</b> to compute the <b style = "color: #ff4040"> Morse presentation</b> $\mathcal{P}_{K_{\mathcal M}}$.
 					</p>
 					<p><i class="fas fa-desktop"></i> $~O(M^2)$ with $M$ = |2-cells of $K$|</p>
 					<p > <i class="fab fa-github"> </i> <span style ="font-family:Courier New"> ximenafernandez/Finite-Topological-Spaces</span> (SAGE)
@@ -909,7 +898,7 @@
 					</span>
 				</p>
 
-					<p style="padding: 10px; border: 2px solid black;"><b style = "color: #ff4040; ">Theorem [F.2021]</b> $\mathcal Q_{K,f}$ is is the standard presentation $\mathcal P_{K_\mathcal M}$.
+					<p style="padding: 10px; border: 2px solid black;"><b style = "color: #ff4040; ">Theorem [F.2021]</b> $\mathcal Q_{K,f}$ is the standard presentation $\mathcal P_{K_\mathcal M}$.
 					</p>
 				</section>
 
@@ -925,9 +914,7 @@
 				</section>
 				-->
 				
-			</section>
 
-			<section>
 				<section data-auto-animate > <h3>The persistent fundamental group (cont.)</h3>
 					<br>
 					<br>
@@ -936,7 +923,7 @@
 
 				<section data-auto-animate>
 					<h3> The persistent fundamental group</h3>
-					<span style="font-size: 23px; text-align:left">
+					<span style="font-size: 22px; text-align:left">
 					<p>
 
 					<div class="column_50">
@@ -970,12 +957,12 @@
 
 					<ul>
 						<li><b>Metric space</b> $(\mathbb{X}_n,d)$</li>
-						<li><b>Filtration</b> (connected) \[K_1 \xrightarrow{i_1} K_2 \xrightarrow{i_2} \dots \xrightarrow{i_{N-1}} K_N\]</li>
-						<li>$f\colon K_N\to \mathbb{R}$ a <b>Morse function</b></li>
+						<li><b>Filtration</b> (connected with constant set of vertices) \[K_1 \xrightarrow{i_1} K_2 \xrightarrow{i_2} \dots \xrightarrow{i_{N-1}} K_N\]</li>
+						<li>$f\colon K_N\to \mathbb{R}$ a <b>Morse function</b> (with a single critical -cell)</li>
 						<br>
 						<li><b style = "color: #ff4040">Persistent fundamental group</b> 
 							<br>
-							We developed  an <b>algorithm</b> with complexity $O(M^2)$ with $M$ = |2-cells of $K_N$| to compute presentations of $\pi_1((K_j)_\mathcal{M})$ and homomorhisms $g_j: \pi_1((K_j)_\mathcal{M})\to\pi_1((K_{j+1})_\mathcal{M})$  for all $j$ s.t. \[~~~~~~~~~~\pi_1(K_1) \xrightarrow{(i_1)_*} \pi_1(K_2) \xrightarrow{(i_2)_*} \dots \xrightarrow{(i_{N-1})_*} \pi_1(K_N)\]
+							We developed  an <b>algorithm</b> with complexity $O(M^2)$ with $M$ = |2-cells of $K_N$| to compute presentations of $\pi_1((K_j)_\mathcal{M})$ and homomorphisms $g_j: \pi_1((K_j)_\mathcal{M})\to\pi_1((K_{j+1})_\mathcal{M})$  for all $j$ s.t. \[~~~~~~~~~~\pi_1(K_1) \xrightarrow{(i_1)_*} \pi_1(K_2) \xrightarrow{(i_2)_*} \dots \xrightarrow{(i_{N-1})_*} \pi_1(K_N)\]
 							\[~~~~~~~~~~\cong ~~~~~\circlearrowleft~~~~~\cong ~~~~~\circlearrowleft~~~~~~~~\circlearrowleft~~~~~\cong \]
 							\[~~~~~~~~~~\pi_1((K_1)_\mathcal{M})\xrightarrow{g_1}  \pi_1((K_2)_\mathcal{M}) \xrightarrow{g_2} \dots \xrightarrow{g_{N-1}}\pi_1((K_N)_\mathcal{M})\]
 						</li>
@@ -1367,7 +1354,7 @@
 					</span>
 				</section>
 
-			</section>
+
 
 				<section>
 					<h2>Thanks!</h2>
