@@ -3,10 +3,9 @@
 
 	<head>
 		<meta charset="utf-8">
-		<meta name="apple-mobile-web-app-capable" content="yes">
 
 
-		<title></title>
+		<title>The persistent fundamental group</title>
 
 		<meta name="description" content="The persistent fundamental group">
 		<meta name="author" content="Ximena Fernandez">
@@ -171,7 +170,7 @@
 						<li ><b>Metric space</b> $(\mathbb{X}_n,d)$</li>
 						<li ><b>Filtration of complexes</b> \[K_1 \xrightarrow{i_1} K_2 \xrightarrow{i_2} \dots \xrightarrow{i_{N-1}} K_N\]</li>
 						<li >Apply a <b style = "color: #ff4040">topological invariant $F$</b> \[F(K_1) \xrightarrow{(i_1)_*} F(K_2) \xrightarrow{(i_2)_*} \dots \xrightarrow{(i_{N-1})_*} F(K_N)\]</li>
-						<li >For every $i < j$, there exist  a homomorphism $f_{i,j}:F(K_i) \to F(K_j)$ and the <b style = "color: #ff4040">persistent invariant</b> is defined as  \[F^{i\rightarrow j} := \mathrm{Im}(f_{i,j})\]</li>
+						<li >For every $i < j$, there exist  a homomorphism $f_{i,j}:F(K_i) \to F(K_j)$ and the <b style = "color: #ff4040">persistent invariant</b> $i\to j$ is defined as  \[F^{i\rightarrow j} := \mathrm{Im}(f_{i,j})\]</li>
 					</ul>
 					</p>
 					</span>
@@ -186,7 +185,7 @@
 						<li ><b>Metric space</b> $(\mathbb{X}_n,d)$</li>
 						<li ><b>Filtration of complexes</b> \[K_1 \xrightarrow{i_1} K_2 \xrightarrow{i_2} \dots \xrightarrow{i_{N-1}} K_N\]</li>
 						<li >Apply <span style = "color: #ff4040">$H_d(\bullet)$</span> \[H_d(K_1) \xrightarrow{(i_1)_*} H_d(K_2) \xrightarrow{(i_2)_*} \dots \xrightarrow{(i_{N-1})_*} H_d(K_N)\]</li>
-						<li >For every $i < j$, there exist  a homomorphism $f_{i,j}:H_d(K_i) \to H_d(K_j)$ and the <b style = "color: #ff4040">persistent homology</b> is defined as  \[H_d^{i\rightarrow j} := \mathrm{Im}(f_{i,j})\]</li>
+						<li >For every $i < j$, there exist  a homomorphism $f_{i,j}:H_d(K_i) \to H_d(K_j)$ and the <b style = "color: #ff4040">persistent homology</b> $i\to j$ is defined as  \[H_d^{i\rightarrow j} := \mathrm{Im}(f_{i,j})\]</li>
 					</ul>
 					</p>
 					</span>
@@ -223,6 +222,7 @@
 						<li ><b>Filtration of complexes</b> \[K_1 \xrightarrow{i_1} K_2 \xrightarrow{i_2} \dots \xrightarrow{i_{N-1}} K_N\]</li>
 						<li > The invariant <span style = "color: #ff4040"> $F = H_d(\bullet, k)$</span> with $k$ a field induces a <b style = "color: #ff4040">$k[x]$- graded module</b>  defined as
 							\[M_d = \bigoplus_{i\geq 0} H_d(K_i)\]
+							<p  style="padding: 8px; border: 2px solid red;">We can represent $M_d$ as a set of intervals $(\alpha_s, + \infty)$ and $(\gamma_l,\gamma_l+n_l)$, also known as <b>barcode</b>.</p>
 						</li>
 						<li > The <b style = "color: #ff4040">algorithm</b> to compute the <b>interval decomposition</b> of $M_d$ reduces to the computation of homology of $K_N$ seen as a filtered complex (based on <i>matrix normal reduction</i>).</li>
 						<br>
@@ -362,13 +362,13 @@
 
 				<section data-auto-animate>
 					<h5> The persistent fundamental group</h5>
-					<span style="font-size: 22px; text-align:left;">
+					<span style="font-size: 21px; text-align:left;">
 					<p>
 					<ul>
 						<li ><b style = "color: #ff4040">Persistent group presentation</b> \[\mathcal{P}_{K_1} \xrightarrow{(i_1)_*} \mathcal{P}_{K_2} \xrightarrow{(i_2)_*} \dots \xrightarrow{(i_{N-1})_*} \mathcal{P}_{K_N}\]</li>
 
-						<p>where \[\mathcal{P}_{K_N} = \langle  x_1, x_2, \dots, x_n ~ | ~ r_1, r_2, \dots, r_m\rangle\] with $X_N = \{x_1, x_2, \dots x_n\}$ the set of the 1-cells in $K_N$ not in $T$, and $R_N = \{r_1, r_2, \dots, r_m\}$ the set of relators associated to the attaching maps of the 2-cells in $K_N$.</p>
-						<p class="fragment"> For $0\leq j \leq N$, \[\mathcal{P}_{K_j} = \langle x_{j_1}, x_{j_2}, \dots, x_{j_{n_j}} ~ | ~ r_{j_1}, r_{j_2}, \dots, r_{j_{m_j}}\rangle\] with $X_i = \{x_{j_1}, x_{ij2}, \dots, x_{j_{n_i}}\}$ the set of the 1-cells in $K_j$ not in $T$ and $R_j = \{r_{j_1}, r_{j_2}, \dots, r_{j_{m_j}}\}$  the set of relators associated to the attaching maps of the 2-cells in $K_j$.
+						<p>where \[\mathcal{P}_{K_N} = \langle  x_1, x_2, \dots, x_n ~ | ~ r_1, r_2, \dots, r_m\rangle\] with $X_N = \{x_1, x_2, \dots x_n\}$ the set of <b>generators</b> induced by the<b> 1-cells</b> in $K_N$ not in $T$, and $R_N = \{r_1, r_2, \dots, r_m\}$ the set of <b>relators</b> associated to the attaching maps of the <b>2-cells</b> in $K_N$.</p>
+						<p class="fragment"> For $0\leq j \leq N$, \[\mathcal{P}_{K_j} = \langle x_{j_1}, x_{j_2}, \dots, x_{j_{n_j}} ~ | ~ r_{j_1}, r_{j_2}, \dots, r_{j_{m_j}}\rangle\] with $X_j = \{x_{j_1}, x_{j_2}, \dots, x_{j_{n_j}}\}$ the set of the <b>1-cells</b> in $K_j$ not in $T$ and $R_j = \{r_{j_1}, r_{j_2}, \dots, r_{j_{m_j}}\}$  the set of relators associated to the attaching maps of the <b>2-cells</b> in $K_j$.
 						</p>
 						<p class="fragment"> The <b>homomorphisms</b> $(i_j)_*$ are induced by the inclusions $X_j\subseteq X_{j+1}$, $R_j\subseteq R_{j+1}$.</p>
 
@@ -385,7 +385,10 @@
 					<h3> Discrete Morse Theory</h3>
 					<br>
 					<br>
-					<p style="font-size: 20px;text-align:left;">$\bullet$ Ximena Fernandez, <i>Morse theory for group presentations</i> (2021) arXiv:1912.00115</p>
+					<p style="font-size: 20px;text-align:left;">$\bullet$ Ximena Fernandez, <i>Combinatorial methods and algorithms in low-dimensional topology and the
+					Andrews-Curtis conjecture.</i> PhD thesis, University
+					of Buenos Aires (2017)</p>
+					<p style="font-size: 20px;text-align:left;">$\bullet$ Ximena Fernandez, <i>Morse theory for group presentations</i> (2019) arXiv:1912.00115</p>
 
 				</section>
 
@@ -522,6 +525,7 @@
 				</span>
 
 				<img width="650" height = auto src='media_perspi1/collapse.png'/ class="center"> 
+				<p style="font-size: 15px;">[Kozlov, D. <i>Organized collapse: an introduction to discrete Morse theory.</i> Graduate Studies in Mathematics, 207. Amer. Math. Soc., Providence, RI, 2020.]</p>
 				</section>
 
 
@@ -538,6 +542,7 @@
 				</span>
 
 				<img width="650" height = auto src='media_perspi1/new_cell.png'/ class="center"> 
+				<p style="font-size: 15px;">[Kozlov, D. <i>Organized collapse: an introduction to discrete Morse theory.</i> Graduate Studies in Mathematics, 207. Amer. Math. Soc., Providence, RI, 2020.]</p>
 				</section>
 
 				<section data-auto-animate>
@@ -553,6 +558,7 @@
 				</span>
 
 				<img width="650" height = auto src='media_perspi1/retract.png'/ class="center"> 
+				<p style="font-size: 15px;">[Kozlov, D. <i>Organized collapse: an introduction to discrete Morse theory.</i> Graduate Studies in Mathematics, 207. Amer. Math. Soc., Providence, RI, 2020.]</p>
 				</section>
 
 				
@@ -569,6 +575,7 @@
 				</span>
 
 				<img width="650" height = auto src='media_perspi1/attaching.png'/ class="center"> 
+				<p style="font-size: 15px;">[Kozlov, D. <i>Organized collapse: an introduction to discrete Morse theory.</i> Graduate Studies in Mathematics, 207. Amer. Math. Soc., Providence, RI, 2020.]</p>
 				</section>
 
 				<section data-auto-animate>
@@ -584,6 +591,7 @@
 				</span>
 
 				<img width="650" height = auto src='media_perspi1/question.png'/ class="center"> 
+				<p style="font-size: 15px;">[Kozlov, D. <i>Organized collapse: an introduction to discrete Morse theory.</i> Graduate Studies in Mathematics, 207. Amer. Math. Soc., Providence, RI, 2020.]</p>
 				</section>
 
 				<section data-auto-animate>
@@ -599,6 +607,7 @@
 				</span>
 
 				<img width="650" height = auto src='media_perspi1/internal_collapse_he.png'/ class="center"> 
+				<p style="font-size: 15px;">[Kozlov, D. <i>Organized collapse: an introduction to discrete Morse theory.</i> Graduate Studies in Mathematics, 207. Amer. Math. Soc., Providence, RI, 2020.]</p>
 				</section>
 
 
@@ -649,7 +658,7 @@
 				<h5>Discrete Morse Theory & Whitehead deformations</h5>
 				<span style="font-size: 24px; text-align:left;"> 
 				
-				<p style="padding: 6px; border: 2px solid black;"><b style = "color: #ff4040">Theorem [F. 2021]: </b> Let $K$ be a regular CW-complex and let $f:K\to \mathbb{R}$  be discrete Morse function.
+				<p style="padding: 6px; border: 2px solid black;"><b style = "color: #ff4040">Theorem [F. 2017]: </b> Let $K$ be a regular CW-complex and let $f:K\to \mathbb{R}$  be discrete Morse function.
 				 Then, $f$ induces a  sequence of internal collapses given by a filtration of $K$ 
 				  \[ \varnothing = K_{-1} \subseteq L_0 \subseteq K_0\subseteq L_1\subseteq K_1 \dots \subseteq L_{N}\subseteq K_{N}=K\]
 				  such that $K_j\searrow L_{j}$ for all $1\leq j\leq N$ and $\displaystyle L_{j}=K_{j-1}\cup \bigcup_{i=1}^{d_j} 
@@ -878,7 +887,7 @@
 				<section data-auto-animate>
 					<h4>Morse theory for group presentations</h4>
 					<span style="font-size: 22px; text-align:left;">
-				    <p style="padding: 10px; border: 2px solid black;"><b style = "color: #ff4040; ">Definition [F.2021]</b> Let $K$ be a regular CW-complex. Let $f:K\to \mathbb{R}$ be a Morse function
+				    <p style="padding: 10px; border: 2px solid black;"><b style = "color: #ff4040; ">Definition [F.2017]</b> Let $K$ be a regular CW-complex. Let $f:K\to \mathbb{R}$ be a Morse function
 					 with only one critical cell of dimension 0. 
 					  Label $M^{(2)}=\{(x_1, e_1), \dots, (x_m, e_m)\}$ the subset of induced matched pairs of cells of dimension 1 and 2. 
 					  <br>
@@ -898,7 +907,7 @@
 					</span>
 				</p>
 
-					<p style="padding: 10px; border: 2px solid black;"><b style = "color: #ff4040; ">Theorem [F.2021]</b> $\mathcal Q_{K,f}$ is the standard presentation $\mathcal P_{K_\mathcal M}$.
+					<p style="padding: 10px; border: 2px solid black;"><b style = "color: #ff4040; ">Theorem [F.2017]</b> $\mathcal Q_{K,f}$ is the standard presentation $\mathcal P_{K_\mathcal M}$.
 					</p>
 				</section>
 
@@ -918,7 +927,7 @@
 				<section data-auto-animate > <h3>The persistent fundamental group (cont.)</h3>
 					<br>
 					<br>
-					<p style="font-size: 20px;text-align:left;">$\bullet$ Ximena Fernandez and Kevin Piterman, <i>The persistent fundamental group of point cloud</i> (2022) (In preparation)</p>
+					<p style="font-size: 20px;text-align:left;">$\bullet$ Ximena Fernandez and Kevin Piterman, <i>The persistent fundamental group of point clouds</i> (2022) (In preparation)</p>
 				</section>
 
 				<section data-auto-animate>
@@ -958,7 +967,7 @@
 					<ul>
 						<li><b>Metric space</b> $(\mathbb{X}_n,d)$</li>
 						<li><b>Filtration</b> (connected with constant set of vertices) \[K_1 \xrightarrow{i_1} K_2 \xrightarrow{i_2} \dots \xrightarrow{i_{N-1}} K_N\]</li>
-						<li>$f\colon K_N\to \mathbb{R}$ a <b>Morse function</b> (with a single critical -cell)</li>
+						<li>$f\colon K_N\to \mathbb{R}$ a <b>Morse function</b> (with a single critical 0-cell)</li>
 						<br>
 						<li><b style = "color: #ff4040">Persistent fundamental group</b> 
 							<br>
@@ -1216,7 +1225,7 @@
 					 <br>
  					Define a total ordering $\{(x_1, e_1), (x_2, e_2), \dots, (x_m, e_m)\}$ on the set $M^{(2)}$ of induced matched pairs of cells of dimension 1 and 2, such that if $\phi(e_i)\leq \phi(e_j)$ then $i\leq j$.
  					<br>
-					 Let $\mathcal Q_0, \mathcal Q_1, \dots, \mathcal Q_m$ be the family of presentations associated to $(K,f)$.
+					 Let $\mathcal Q_0, \mathcal Q_1, \dots, \mathcal Q_m$ be the family of presentations associated to $(K,f)$, with generators $X(\mathcal Q_i)$ and relators $R(\mathcal Q_i)$ for $1\leq i \leq m$.
 					 <br>
 					 <br>
 					$\bullet~~~$ Given 
@@ -1252,7 +1261,7 @@
 					defined by 
 					\[\widetilde  g_{\alpha, \alpha'}(x) := \Omega_{i(\alpha')}\circ \dots \circ \Omega_{i(\alpha)+1}\circ \Omega_{i(\alpha)}(x)\] 
 				for all $x\in X(\mathcal Q_{i(\alpha)})\cap K_\alpha$
-					induces a homomorphism $g_{\alpha, \alpha'}\colon \pi_1((K_\alpha)_{\mathcal M}) \to \pi_1((K_{\alpha'})_{\mathcal M} $.
+					induces a homomorphism $g_{\alpha, \alpha'}\colon \pi_1((K_\alpha)_{\mathcal M}) \to \pi_1((K_{\alpha'})_{\mathcal M}) $.
 					 Moreover, the following diagram  commutes
 					 \[~~~~~~~~~~\pi_1(K_{\alpha}) \xrightarrow{f_{\alpha, \alpha'}} \pi_1(K_{\alpha'})\]
 							\[~~~~~~~~~\varphi_{\alpha}\downarrow ~~~~~\circlearrowleft~~~~~\downarrow \varphi_{\alpha'}\]
