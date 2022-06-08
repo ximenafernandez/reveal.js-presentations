@@ -77,571 +77,566 @@
 					<img src='media_ts/birdsongs.gif' width="1000" height=auto/>
 				</section>
 				
-				<section>
-					<section>
-						<h2>Dynamics</h2>
-					</section>
-
-			
-
-					<section data-auto-animate>
-						<h3>Dynamical systems</h3>
-						<br>
-						<span style="font-size: 24px; text-align:left;">
-						<ul>
-							<li>
-								A <b style="color: red">  continuous dynamical system</b>
-								is a pair $$(X, \phi)$$ where $\mathcal{M}$ is a topological space and $\phi \colon \mathbb{R} \times \mathcal{X} \to X$ is a continuous map such that $\phi(0, p) = p$ and $\phi(s, \phi(𝑡, 𝑝)) = \phi(s + t, p)$ for all $p \in X$ and all $t, s \in \mathbb{R}$.
-							</li>
-							<br>
-							<li class="fragment">
-								The typical examples arising from <b style="color: red"> differential equations</b> have as state space a smooth manifold $\mathcal{M}$ and the dynamics are given by the integral curves of a smooth vector field on $X$.
-							</li>
-							<br>
-							<li class="fragment">
-								A set $A \subset X$ is called an <b style="color: red"> attractor</b> if it satisfies the following conditions: it
-								is compact, it is an invariant set (i.e. if $a \in A$
-								then $\phi(𝑡, 𝑎) \in 𝐴$ for all $𝑡 \geq 0$) and it has an open
-								basin of attraction.
-								Equivalently, there is an invariant
-								open neighborhood $𝑈 \subset \mathcal{M}$ of $𝐴$ such that
-								$\cap_{t\geq 0} \{\phi(𝑡, 𝑝) ∶ 𝑝 \in 𝑈\} = 𝐴$.
-							</li>
-						</ul>
-						</span>
-					</section>
-
-						<section data-auto-animate>
-						<h3>Dynamical systems</h3>
-						<br>
-						<span style="font-size: 24px; text-align:left;">
-						<ul>
-							<li>
-								A <b style="color: red">  continuous dynamical system</b>
-								is a pair $$(X, \phi)$$ where $\mathcal{M}$ is a topological space and $\phi \colon \mathbb{R} \times \mathcal{X} \to X$ is a continuous map such that $\phi(0, p) = p$ and $\phi(s, \phi(𝑡, 𝑝)) = \phi(s + t, p)$ for all $p \in X$ and all $t, s \in \mathbb{R}$.
-							</li>
-							<br>
-							<li>
-								The typical examples arising from <b style="color: red"> differential equations</b> have as state space a smooth manifold $\mathcal{M}$ and the dynamics are given by the integral curves of a smooth vector field on $X$.
-							</li>
-						<div class="row" style="font-size: 18px">
-					 	 		<div class="column_big" style="font-size: 18px">
-					 	 		<br>
-					 	 		<br>
-					 	 		<b>Lorenz attractor</b>
-								\begin{equation}\begin{cases}
-								\dot x = \sigma ( y - x ) , \\
-								\dot y = x(\rho-z)-y ,\\
-								\dot z = xy-\beta z \end{cases}
-								\end{equation}
-								with $(\sigma, \rho, \beta) = (10, 28, 8/3)$. 
-								</div>
-								<div class="column_big">
-								<img width="350" height = auto src='media_ts/lorenz_time_series.gif'/>
-								</div>
-						</div>
-						</ul>
-						</span>
-					</section>
-
-					<section data-auto-animate>
-						<h3>Geometry of the attractor</h3>
-						<span style="font-size: 23px; text-align:left;">
-						<ul>
-							<li>Given a topological space $X$, its <b style="color: red">homology</b> $H_k(X)$ at degree $k$ captures <b style="color: slategrey">geometric signatures</b> in $X$ of dimension $k$.</li>
-							<li> The rank of the group  $H_k(X)$ defines the <b style="color: red">$k$-th Betti number $\beta_k$</b> of $X$ and it quantifies the number of (independent) <b style="color: red">$k$-dimensional holes</b> in $X$. </li>
-							<br>
-								<ul style="font-size: 20px;" >
-								<li>$\beta_0$ = number of connected components,</li>
-								<li>$\beta_1$ = number of 1-dimensional cycles,</li>
-								<li>$\beta_2$ = number of 2-dimensional voids,
-								$\dots$</li>
-								<ul>
-						</ul>
-						<div class="row" >
-				 	 		<div class="column_45">
-							<img  width="500" class = 'fragment' height = auto src='media_epilepsy/lorenz.png'/>
-							</div>
-							<div class="column_big" >
-								<br>
-								<br>
-								<br>
-							<ul style="font-size: 23px;" class = 'fragment'>
-								<li>$\beta_0$ = 1</li>
-								<li>$\beta_1$ = 2</li>
-								<li>$\beta_2$ = 0</li>
-								<ul>
-							</div>
-						</div>
-				</section>
-
-				<section data-auto-animate>
-						<h3>Geometry of the attractor</h3>
-						<span style="font-size: 23px; text-align:left;">
-						<ul>
-							<li >Given a topological space $X$, its <b style="color: red">homology</b> $H_k(X)$ at degree $k$ captures <b style="color: slategrey">geometric signatures</b> in $X$ of dimension $k$.</li>
-							<li> The rank of the group  $H_k(X)$ defines the <b style="color: red">$k$-th Betti number $\beta_k$</b> of $X$ and it quantifies the number of (independent) <b style="color: red">$k$-dimensional holes</b>  in $X$. </li>
-							<br>
-								<ul style="font-size: 20px;">
-								<li>$\beta_0$ = number of connected components,</li>
-								<li>$\beta_1$ = number of 1-dimensional cycles,</li>
-								<li>$\beta_2$ = number of 2-dimensional voids,
-								$\dots$</li>
-								<ul>
-						</ul>
-						<div class="row" >
-				 	 		<div class="column_45">
-							<img  width="500" height = auto src='media_epilepsy/aizawa.png'/>
-							</div>
-							<div class="column_big">
-								<br>
-								<br>
-								<br>
-							<ul style="font-size: 23px;">
-								<li>$\beta_0$ = 1</li>
-								<li>$\beta_1$ = 1</li>
-								<li>$\beta_2$ = 1</li>
-								<ul>
-							</div>
-						</div>
-				</section>
-
-
-				<section data-auto-animate>
-						<h4>Geometry of a sample of the attractor</h4>
-						<span style="font-size: 23px; text-align:left;">
-						<ul>
-							<li >Given a <b style="color: slategrey">sample</b> $X_n$ of a topological space, its <b style="color: red">persistent homology</b> at degree $k$ infers <b style="color: red">geometric signatures</b> of dimension $k$ in the underlying space.</li>
-						</ul>
-						<div class="row" >
-				 	 		<div class="column_45">
-							<img  width="350" height = auto src='media_epilepsy/lorenz_pc.png'/>
-							</div>
-							<div class="column_big">
-							<br>
-							<img  width="350" height = auto src='media_epilepsy/PH_lorenz.png'/>
-							</div>
-						</div>
-				</section>
-
-				<section data-auto-animate>
-						<h4>Geometry of a sample of the attractor</h4>
-						<span style="font-size: 23px; text-align:left;">
-						<ul>
-							<li>Given a <b style="color: slategrey">sample</b> $X_n$ of a topological space, its <b style="color: red">persistent homology</b> at degree $k$ infers <b style="color: red">geometric signatures</b> of dimension $k$ in the underlying space.</li>
-						</ul>
-						<div class="row" >
-				 	 		<div class="column_45">
-							<img  width="350" height = auto src='media_epilepsy/aizawa_pc.png'/>
-							</div>
-							<div class="column_big">
-							<br>
-							<img  width="350" height = auto src='media_epilepsy/PH_aizawa.png'/>
-							</div>
-						</div>
-				</section>
-
-				</section>
 
 				<section>
-					<section data-auto-animate>
-						<h3>Time series</h3>
-					</section>
+					<h2>Dynamics</h2>
+				</section>
 
-					<section data-auto-animate>
-						<h3>Dynamical systems</h3>
-						<span style="font-size: 24px; text-align:left;">
+		
+
+				<section data-auto-animate>
+					<h3>Dynamical systems</h3>
+					<br>
+					<span style="font-size: 24px; text-align:left;">
+					<ul>
+						<li>
+							A <b style="color: red">  continuous dynamical system</b>
+							is a pair $$(X, \phi)$$ where $\mathcal{M}$ is a topological space and $\phi \colon \mathbb{R} \times \mathcal{X} \to X$ is a continuous map such that $\phi(0, p) = p$ and $\phi(s, \phi(𝑡, 𝑝)) = \phi(s + t, p)$ for all $p \in X$ and all $t, s \in \mathbb{R}$.
+						</li>
 						<br>
-						<p>In practice, we only have measurements, that are the result of an  <b style="color: red">observation function</b> $F:\mathcal{M}\to \mathbb R$  and an <b style="color: red">initial state</b> $p\in \mathcal{M}$ that produces a <b style="color: red">time series</b>
-							\begin{align}\varphi_p:\mathbb{R}&\to \mathbb{R}\\
-							t&\mapsto F(\phi(t,p))
-							\end{align}
-						</p>
-						<blockquote class="fragment" style="border: 2px solid #666; padding: 15px; background-color: #ccc; width:750px"> <b>Theorem (Takens).</b> Let $\mathcal{M}$ be a smooth, compact, Riemannian manifold. Let $\tau > 0$ be a real number and let $d ≥ 2 \mathrm{dim}(\mathcal{M})$
-						be an integer. Then, for generic $\phi \in  C^2(\mathbb{R} \times \mathcal{M}, \mathcal{M})$ and $F\in  C^2(\mathcal{M}, \mathbb{R})$ and for $\varphi_\bullet(𝑡)$ defined as above, the <b>delay map</b>
-						\begin{align}
-						\varphi~ \colon & ~~\mathcal{M} &\rightarrow & ~~\mathbb{R}^{d+1}\\
-						&~~p &\mapsto & ~~(\varphi_p(0), \varphi_p(𝜏), \varphi_p(2𝜏),\dots, \varphi_p(d\tau))
-						\end{align}
-						is an embedding (i.e., $\varphi$ is injective and its derivative has full-rank everywhere).
-						</blockquote>
+						<li class="fragment">
+							The typical examples arising from <b style="color: red"> differential equations</b> have as state space a smooth manifold $\mathcal{M}$ and the dynamics are given by the integral curves of a smooth vector field on $X$.
+						</li>
+						<br>
+						<li class="fragment">
+							A set $A \subset X$ is called an <b style="color: red"> attractor</b> if it satisfies the following conditions: it
+							is compact, it is an invariant set (i.e. if $a \in A$
+							then $\phi(𝑡, 𝑎) \in 𝐴$ for all $𝑡 \geq 0$) and it has an open
+							basin of attraction.
+							Equivalently, there is an invariant
+							open neighborhood $𝑈 \subset \mathcal{M}$ of $𝐴$ such that
+							$\cap_{t\geq 0} \{\phi(𝑡, 𝑝) ∶ 𝑝 \in 𝑈\} = 𝐴$.
+						</li>
+					</ul>
 					</span>
-					</section>
+				</section>
 
 					<section data-auto-animate>
-						<h3>Dynamical systems</h3>
+					<h3>Dynamical systems</h3>
+					<br>
+					<span style="font-size: 24px; text-align:left;">
+					<ul>
+						<li>
+							A <b style="color: red">  continuous dynamical system</b>
+							is a pair $$(X, \phi)$$ where $\mathcal{M}$ is a topological space and $\phi \colon \mathbb{R} \times \mathcal{X} \to X$ is a continuous map such that $\phi(0, p) = p$ and $\phi(s, \phi(𝑡, 𝑝)) = \phi(s + t, p)$ for all $p \in X$ and all $t, s \in \mathbb{R}$.
+						</li>
 						<br>
-						<span style="font-size: 24px; text-align:left;">
-						<li> Let $f\colon\mathbb{R} \rightarrow \mathbb{R}$ be a function, $\tau> 0$ a real number and $d > 0$ an integer. The <b style="color: red">time delay embedding</b> of $f$ with parameters $d$ and $\tau$ is the vector-valued function 
-						\begin{align}
-						X_{d,\tau}f\colon &~~\mathbb{R}\rightarrow ~~\mathbb{R}^{d+1}\\
-						&~~~t ~\mapsto ~(f(t), 𝑓(t + \tau), 𝑓(t + 2\tau), \dots, 𝑓(t + d\tau))\\
-						\end{align}
+						<li>
+							The typical examples arising from <b style="color: red"> differential equations</b> have as state space a smooth manifold $\mathcal{M}$ and the dynamics are given by the integral curves of a smooth vector field on $X$.
 						</li>
-						<li class="fragment"> Given <b style="color: red">time series data</b> $f(t) = \varphi_p(t)$ with $t\in T$ observed
-						from a potentially unknown dynamical system $(X, \phi)$, Takens’ theorem implies that (generically) the <b style="color: red">time delay embedding</b> $X_{d,\tau}f([0,T])$ provides a topological copy of $\{\phi(t, p) ∶ t \in T\} \subseteq X$. <br>In particular this method <b>reconstructs attractors</b>. 
-						</li>
-						</span>
-						<div  class="fragment" class="row" style="font-size: 18px">
-							<div class="column_big">
-							<img width="300" height = auto src='media_ts/lorenz_time_series.gif'/>
-							</div>
+					<div class="row" style="font-size: 18px">
 				 	 		<div class="column_big" style="font-size: 18px">
-				 	 		<img width="300" height = auto src='media_ts/lorenz_takens.gif'/>
+				 	 		<br>
+				 	 		<br>
+				 	 		<b>Lorenz attractor</b>
+							\begin{equation}\begin{cases}
+							\dot x = \sigma ( y - x ) , \\
+							\dot y = x(\rho-z)-y ,\\
+							\dot z = xy-\beta z \end{cases}
+							\end{equation}
+							with $(\sigma, \rho, \beta) = (10, 28, 8/3)$. 
 							</div>
-						</div>
-					
-					</section>
-
-
-					<section data-auto-animate>
-						<h3>Topology of time series</h3> 
-						<img width="800" height = auto src='media_ts/perea.png'/>
-						</span>
-
-						<p style="font-size: 15px">$\bullet$ Perea, J.A., Harer, J. <i>Sliding Windows and Persistence: An Application of Topological Methods to Signal Analysis.</i> Found Comput Math 15, 799–838 (2015).</p>
-					</section>
-
-				</section>
-
-				<section>
-					<section>
-						<h2>Applications in real data</h2>
-						<br>
-						<br>
-						<p style="font-size: 18px;text-align:left;">$\bullet$ Fernandez X., Borghini E., Mindlin G., Groisman P. <i>Intrinsic persistent homology via density-based metric learning</i>, 2020. arXiv:2012.07621</p>
-						<p style="font-size: 18px; text-align:left;">$\bullet$ Fernandez X., Mateos D. <i>Topological prediction of epilepsy seizures.</i> Work in progress, 2021.</p>
-					</section>
-
-
-					<section data-auto-animate>
-						<h3>Anomaly detection</h3>
-						<h5 class="fragment">Electrocardiogram</h5>
-						<img class="fragment" width="900" height = auto src='media_ts/ECG_signal_raw.png'/>
-						<p class="fragment" style="font-size: 15px; text-align:left;"><i>Source data:</i> PhysioNet Database  https://physionet.org/about/database/</p>
-					</section>
-
-					<section data-auto-animate>
-						<h3>Anomaly detection</h3>
-						<h5>Electrocardiogram</h5>
-						<img width="900" height = auto src='media_ts/ECG_signal_raw.png'/>
-						<img width="300" height = auto src='media_ts/ECG_embedding_raw.png'/>
-					</section>
-
-					<section data-auto-animate>
-						<h3>Anomaly detection</h3>
-						<h5>Electrocardiogram</h5>
-						<img width="900" height = auto src='media_ts/ECG_signal.png'/>
-						<img width="300" height = auto src='media_ts/ECG_embedding.png'/>
-					</section>
-
-					<section data-auto-animate>
-						<h3>Anomaly detection</h3>
-						<h5>Electrocardiogram</h5>
-						<img width="900" height = auto src='media_ts/ECG_signal.png'/>
-						<div class="row">
-						 	 <div class="column_eq">
-							<img width="300" height = auto src='media_ts/ECG_embedding.png'/>
+							<div class="column_big">
+							<img width="350" height = auto src='media_ts/lorenz_time_series.gif'/>
 							</div>
-							<div class="column_eq">
-							<img width="290" height = auto src='media_ts/PH_ECG_4000.png'/>
-							</div>
-							<div class="fragment" class="column_eq">
-							<img width="280" height = auto src='media_ts/PH_ECG_6000.png'/>
-							</div>
-						</div>
-					</section>
-
-					<section data-auto-animate>
-						<h3>Anomaly detection</h3>
-						<h5>Electrocardiogram</h5>
-						<img width="900" height = auto src='media_ts/ECG_signal.png'/>
-						<small>
-						\[t\mapsto \mathbb{dgm_1}(X_{\tau, d}f([0,t]))\]
-						</small>
-						<img width="900" height = auto src='media_ts/bottleneck_ECG.png'/>
-					</section>
-
-
-					<section data-auto-animate>
-						<h3>Change-points detection</h3>
-						<h4 class="fragment"> Birdsongs</h4>
-						<img class="fragment" width="900" height = auto src='media_ts/birdsong.png'/>
-						<p class="fragment" style="font-size: 15px; text-align:left;"><i>Source data:</i> Private experiments. Laboratory of Dynamical Systems, University of Buenos Aires.</p>
-					</section>
-
-					<section data-auto-animate>
-						<h3>Change-points detection</h3>
-						<h4> Birdsongs</h4>
-						<img width="900" height = auto src='media_ts/birdsong.png'/><img width="300" height = auto src='media_ts/canary_embedding.png'/>
-					</section>
-
-					<section data-auto-animate>
-						<h3>Change-points detection</h3>
-						<h4> Birdsongs</h4>
-						<img width="900" height = auto src='media_ts/birdsong.png'/>
-						<div class="row">
-						 	 <div class="column_big">
-							<img width="300" height = auto src='media_ts/canary_embedding.png'/>
-							</div>
-							 <div class="column_big">
-							 <img width="290" height = auto src='media_ts/PH_canary.png'/>
-							 </div>
-						</div>
-					</section>
-
-					<section data-auto-animate>
-						<h3>Change-points detection</h3>
-						<h4> Birdsongs</h4>
-						<img width="900" height = auto src='media_ts/time_series_birdsong_cuts.png'/>
-						<div class="row">
-						 	 <div class="column_Big">
-							<img width="800" height = auto src='media_ts/canary_embedding_cuts.png'/>
-							</div>
-							 <div class="column">
-							 <img width="300" height = auto src='media_ts/PH_canary.png'/>
-							 </div>
-						</div>
-					</section>
-
-					<section data-auto-animate>
-						<h3>Change-points detection</h3>
-						<h4> Birdsongs</h4>
-						<img width="900" height = auto src='media_ts/time_series_birdsong_cuts.png'/>
-						<small>
-						\[t\mapsto \mathbb{dgm_1}(X_{\tau, d}f([0,t]))\]
-						</small>
-
-						<img width="900" height = auto src='media_ts/PH_canary_peaks.png'/>
-					</section>
-
-
-					<section data-auto-animate>
-						<h3>Epilepsy</h3>
-					<span style="font-size: 22px; text-align:left;">
-					<ul>
-					 <li class = 'fragment'><b>Data: </b> Raw multichannel <b style="color: slategrey">EEG/MEG</b> recordings for different patients during <i>preictal, ictal</i> and <i>interictal</i> states.</li>
-					 </ul>
-					 <img  class = 'fragment' width="1300" height = auto class = 'fragment' src='media_epilepsy/CC_iEEG.png'/>
-					 </span>
-						<p style="font-size: 15px; text-align:left;"><i>Source data: Toronto Western Hospital, Canada.</i> </p>
-					</section>
-
-					<section data-auto-animate>
-						<h3>Epilepsy</h3>
-					<span style="font-size: 22px; text-align:left;">
-					<ul>
-					 <li><b>Data: </b> Raw multichannel <b style="color: slategrey">EEG/MEG</b> recordings for different patients during <i>preictal, ictal</i> and <i>interictal</i> states.</li>
-					 <li> <b>Goal:</b> Detect the <span style="color: red"> epileptic seizure</span>.</li>
-					 </ul>
-					 <img width="1300" height = auto src='media_epilepsy/CC_iEEG_seizure.png'/>
-					 </span>
-						<p style="font-size: 15px; text-align:left;"><i>Source data: Toronto Western Hospital, Canada.</i> </p>
-					</section>
-
-					<section data-auto-animate>
-					<h5>Topological Analysis of multichannel time series</h5>
-					<span class = 'fragment' style="font-size: 24px; text-align:left;">
-					Given $X_1, X_2, \dots X_N:[0,T]\to \mathbb{R}$ signals, we construct an <b style="color: red;">embedding</b>  in $\mathbb{R}^N$ given by $$\{(X_1(t), X_2(t), \dots, X_N(t)): t\in [0,T]\}$$
-					</span>
-					<img width="1500" height = auto  class = 'fragment' src='media_epilepsy/iEEG_embedding.png'/>
-				</section>
-
-				<section  data-auto-animate>
-					<h3>Sliding Window Embedding</h3>
-					<span style="font-size: 23px; text-align:left;">
-					<ul>
-						<li class = 'fragment'>Let $X_1, X_2, \dots X_N:[0,T]\to \mathbb{R}$ a set of signals.</li>
-						<li class = 'fragment'>Given a <b style="color: red">window</b> size $W$, we compute for every $t\in [W,T]$ the embedding of $X_1, X_2, \dots X_N:[t-W, t]\to \mathbb{R}$ in $\mathbb{R}^N$.</li>
+					</div>
 					</ul>
-					<img  class = 'fragment' width="1000" height = auto src='media_epilepsy/CC_iEEG_window.png'/>
 					</span>
 				</section>
 
-				<section  data-auto-animate>
-					<h3>Sliding Window Embedding</h3>
+				<section data-auto-animate>
+					<h3>Geometry of the attractor</h3>
 					<span style="font-size: 23px; text-align:left;">
 					<ul>
-						<li >Let $X_1, X_2, \dots X_N:[0,T]\to \mathbb{R}$ a set of signals.</li>
-						<li >Given a <b style="color: red">window</b> size $W$, we compute for every $t\in [W,T]$ the embedding of $X_1, X_2, \dots X_N:[t-W, t]\to \mathbb{R}$ in $\mathbb{R}^N$.</li>
-						<video data-autoplay src='media_epilepsy/EEG_channel_window.mp4' width="1000" height=auto> </video>
-
-						<!--<img width="1000" height = auto src='media_epilepsy/window.gif'/>-->
-
+						<li>Given a topological space $X$, its <b style="color: red">homology</b> $H_d(X)$ at degree $d$ captures <b style="color: slategrey">geometric signatures</b> in $X$ of dimension $d$.</li>
+						<li> The rank of the group  $H_d(X)$ defines the <b style="color: red">$d$-th Betti number $b_d$</b> of $X$ and it quantifies the number of (independent) <b style="color: red">$k$-dimensional holes</b> in $X$. </li>
+						<br>
+							<ul style="font-size: 20px;" >
+							<li>$b_0$ = number of connected components,</li>
+							<li>$b_1$ = number of 1-dimensional cycles,</li>
+							<li>$b_2$ = number of 2-dimensional voids,
+							$\dots$</li>
+							<ul>
 					</ul>
+					<div class="row" >
+			 	 		<div class="column_45">
+						<img  width="500" class = 'fragment' height = auto src='media_epilepsy/lorenz.png'/>
+						</div>
+						<div class="column_big" >
+							<br>
+							<br>
+							<br>
+						<ul style="font-size: 23px;" class = 'fragment'>
+							<li>$b_0$ = 1</li>
+							<li>$b_1$ = 2</li>
+							<li>$b_2$ = 0</li>
+							<ul>
+						</div>
+					</div>
+			</section>
 
+			<section data-auto-animate>
+					<h3>Geometry of the attractor</h3>
+					<span style="font-size: 23px; text-align:left;">
+					<ul>
+						<li>Given a topological space $X$, its <b style="color: red">homology</b> $H_d(X)$ at degree $d$ captures <b style="color: slategrey">geometric signatures</b> in $X$ of dimension $d$.</li>
+						<li> The rank of the group  $H_d(X)$ defines the <b style="color: red">$d$-th Betti number $b_d$</b> of $X$ and it quantifies the number of (independent) <b style="color: red">$k$-dimensional holes</b> in $X$. </li>
+						<br>
+							<ul style="font-size: 20px;">
+							<li>$b_0$ = number of connected components,</li>
+							<li>$b_1$ = number of 1-dimensional cycles,</li>
+							<li>$b_2$ = number of 2-dimensional voids,
+							$\dots$</li>
+							<ul>
+					</ul>
+					<div class="row" >
+			 	 		<div class="column_45">
+						<img  width="500" height = auto src='media_epilepsy/aizawa.png'/>
+						</div>
+						<div class="column_big">
+							<br>
+							<br>
+							<br>
+						<ul style="font-size: 23px;">
+							<li>$b_0$ = 1</li>
+							<li>$b_1$ = 1</li>
+							<li>$b_2$ = 1</li>
+							<ul>
+						</div>
+					</div>
+			</section>
+
+
+			<section data-auto-animate>
+					<h4>Geometry of a sample of the attractor</h4>
+					<span style="font-size: 23px; text-align:left;">
+					<ul>
+						<li >Given a <b style="color: slategrey">sample</b> $X_n$ of a topological space, its <b style="color: red">persistent homology</b> at degree $d$ infers <b style="color: red">geometric signatures</b> of dimension $d$ in the underlying space.</li>
+					</ul>
+					<div class="row" >
+			 	 		<div class="column_45">
+						<img  width="350" height = auto src='media_epilepsy/lorenz_pc.png'/>
+						</div>
+						<div class="column_big">
+						<br>
+						<img  width="350" height = auto src='media_epilepsy/PH_lorenz.png'/>
+						</div>
+					</div>
+			</section>
+
+			<section data-auto-animate>
+					<h4>Geometry of a sample of the attractor</h4>
+					<span style="font-size: 23px; text-align:left;">
+					<ul>
+						<li>Given a <b style="color: slategrey">sample</b> $X_n$ of a topological space, its <b style="color: red">persistent homology</b> at degree $d$ infers <b style="color: red">geometric signatures</b> of dimension $d$ in the underlying space.</li>
+					</ul>
+					<div class="row" >
+			 	 		<div class="column_45">
+						<img  width="350" height = auto src='media_epilepsy/aizawa_pc.png'/>
+						</div>
+						<div class="column_big">
+						<br>
+						<img  width="350" height = auto src='media_epilepsy/PH_aizawa.png'/>
+						</div>
+					</div>
+			</section>
+
+
+			<section data-auto-animate>
+				<h3>Time series</h3>
+			</section>
+
+			<section data-auto-animate>
+				<h3>time series</h3>
+				<span style="font-size: 24px; text-align:left;">
+				<br>
+				<p>In practice, we only have measurements, that are the result of an  <b style="color: red">observation function</b> $F:\mathcal{M}\to \mathbb R$  and an <b style="color: red">initial state</b> $p\in \mathcal{M}$ that produces a <b style="color: red">time series</b>
+					\begin{align}\varphi_p:\mathbb{R}&\to \mathbb{R}\\
+					t&\mapsto F(\phi(t,p))
+					\end{align}
+				</p>
+				<blockquote class="fragment" style="border: 2px solid #666; padding: 15px; background-color: #ccc; width:750px"> <b>Theorem (Takens).</b> Let $\mathcal{M}$ be a smooth, compact, Riemannian manifold. Let $\tau > 0$ be a real number and let $d ≥ 2 \mathrm{dim}(\mathcal{M})$
+				be an integer. Then, for generic $\phi \in  C^2(\mathbb{R} \times \mathcal{M}, \mathcal{M})$ and $F\in  C^2(\mathcal{M}, \mathbb{R})$ and for $\varphi_\bullet(𝑡)$ defined as above, the <b>delay map</b>
+				\begin{align}
+				\varphi~ \colon & ~~\mathcal{M} &\rightarrow & ~~\mathbb{R}^{d+1}\\
+				&~~p &\mapsto & ~~(\varphi_p(0), \varphi_p(𝜏), \varphi_p(2𝜏),\dots, \varphi_p(d\tau))
+				\end{align}
+				is an embedding (i.e., $\varphi$ is injective and its derivative has full-rank everywhere).
+				</blockquote>
+			</span>
+			</section>
+
+			<section data-auto-animate>
+				<h3>From tume series to topology</h3>
+				<br>
+				<span style="font-size: 24px; text-align:left;">
+				<li> Let $f\colon\mathbb{R} \rightarrow \mathbb{R}$ be a function, $\tau> 0$ a real number and $d > 0$ an integer. The <b style="color: red">time delay embedding</b> of $f$ with parameters $d$ and $\tau$ is the vector-valued function 
+				\begin{align}
+				X_{d,\tau}f\colon &~~\mathbb{R}\rightarrow ~~\mathbb{R}^{d+1}\\
+				&~~~t ~\mapsto ~(f(t), 𝑓(t + \tau), 𝑓(t + 2\tau), \dots, 𝑓(t + d\tau))\\
+				\end{align}
+				</li>
+				<li class="fragment"> Given <b style="color: red">time series data</b> $f(t) = \varphi_p(t)$ with $t\in T$ observed
+				from a potentially unknown dynamical system $(X, \phi)$, Takens’ theorem implies that (generically) the <b style="color: red">time delay embedding</b> $X_{d,\tau}f([0,T])$ provides a topological copy of $\{\phi(t, p) ∶ t \in T\} \subseteq X$. <br>In particular this method <b>reconstructs attractors</b>. 
+				</li>
 				</span>
-					
-				</section>
+				<div  class="fragment" class="row" style="font-size: 18px">
+					<div class="column_big">
+					<img width="300" height = auto src='media_ts/lorenz_time_series.gif'/>
+					</div>
+		 	 		<div class="column_big" style="font-size: 18px">
+		 	 		<img width="300" height = auto src='media_ts/lorenz_takens.gif'/>
+					</div>
+				</div>
+			
+			</section>
 
 
-				<section  data-auto-animate>
-					<h3>Sliding Window Embedding</h3>
-					<span style="font-size: 23px; text-align:left;">
-					<ul>
-						<li>Let $X_1, X_2, \dots X_N:[0,T]\to \mathbb{R}$ a set of signals.</li>
-						<li>Given a <b style="color: red">window</b> size $W$, we compute for every $t\in [W,T]$ the embedding of $X_1, X_2, \dots X_N:[t-W, t]\to \mathbb{R}$ in $\mathbb{R}^N$.</li>
-						<li> We compute the <b style="color: red"> (persistent) homology</b> of the time evolving <b style="color: red">sliding window embedding</b>.</li>
-					</ul>
-					<img  width="1200" height = auto src='media_epilepsy/PD_path_CC.png'/>
-					</span>
-				</section>
+			<section data-auto-animate>
+				<h3>Topology of time series</h3> 
+				<img width="800" height = auto src='media_ts/perea.png'/>
+				</span>
 
-				<!--
-				<section> <h4>Metric in the space of persistence diagrams</h4>
-					<span style="font-size: 23px; text-align:left;">
-					<ul>
-						<li> The <b style="color: red">Wassertein distance</b> between two diagrams $\mathrm{dgm}_1$ and $\mathrm{dgm}_2$ is
-							\[d_W(\mathrm{dgm}_1, \mathrm{dgm}_2) = \inf_{M \text{ matching}} \left(\sum_{(x,y)\in M} ||x-y||^p\right)^{1/p}\]
+				<p style="font-size: 15px">$\bullet$ Perea, J.A., Harer, J. <i>Sliding Windows and Persistence: An Application of Topological Methods to Signal Analysis.</i> Found Comput Math 15, 799–838 (2015).</p>
+			</section>
 
-						</li>
-					</ul>		
-					<img  width="350" height = auto src='media_ts/matching.png'/>
-					</span>				
-				</section>
-				-->
+			<section>
+				<h2>Applications in real data</h2>
+				<br>
+				<br>
+				<p style="font-size: 18px;text-align:left;">$\bullet$ Fernandez X., Borghini E., Mindlin G., Groisman P. <i>Intrinsic persistent homology via density-based metric learning</i>, 2020. arXiv:2012.07621</p>
+				<p style="font-size: 18px; text-align:left;">$\bullet$ Fernandez X., Mateos D. <i>Topological prediction of epilepsy seizures.</i> Work in progress, 2021.</p>
+			</section>
 
 
-				<section>
-					<h5>Real time detection of epileptic seizures <br> in EEG/MEG recordings</h5>
-					<span style="font-size: 20px; text-align:left;">
-					Multichannel signals $\to$ Sliding Window Embedding $\to$ Path of persistent diagrams $\to$ (Estimator of) 1st Derivative
-					</span>
-					<img  width="750" height = auto src='media_epilepsy/iEEG_derivative.png'/>
-				</section>
+			<section data-auto-animate>
+				<h3>Anomaly detection</h3>
+				<h5 class="fragment">Electrocardiogram</h5>
+				<img class="fragment" width="900" height = auto src='media_ts/ECG_signal_raw.png'/>
+				<p class="fragment" style="font-size: 15px; text-align:left;"><i>Source data:</i> PhysioNet Database  https://physionet.org/about/database/</p>
+			</section>
 
-				<section data-auto-animate>
-					<h5>Patient CC</h5>
-					<span style="font-size: 20px; text-align:left;">
-					<ul>
-					<li> iEEG with 9 channels</li>
-					<li> 300 seg recording (baseline and seizure) with a sampling rate 200 HZ</li>
-					</ul>
-					</span>
-					<img  width="750" height = auto src='media_epilepsy/CC_iEEG.png'/>
-				</section>
+			<section data-auto-animate>
+				<h3>Anomaly detection</h3>
+				<h5>Electrocardiogram</h5>
+				<img width="900" height = auto src='media_ts/ECG_signal_raw.png'/>
+				<img width="300" height = auto src='media_ts/ECG_embedding_raw.png'/>
+			</section>
 
-				<section data-auto-animate>
-					<h5>Patient CC</h5>
-					<span style="font-size: 20px; text-align:left;">
-					<ul>
-					<li> iEEG with 9 channels</li>
-					<li> 300 seg recording (baseline and seizure) with a sampling rate 200 HZ</li>
-					<li> Seizure starts at $t = 30000$ and ends at $t =58000$</li>
-					</ul>
-					</span>
-					<img  width="750" height = auto src='media_epilepsy/CC_iEEG_seizure.png'/>
-				</section>
+			<section data-auto-animate>
+				<h3>Anomaly detection</h3>
+				<h5>Electrocardiogram</h5>
+				<img width="900" height = auto src='media_ts/ECG_signal.png'/>
+				<img width="300" height = auto src='media_ts/ECG_embedding.png'/>
+			</section>
 
-				<section data-auto-animate>
-					<h5>Pacient CC</h5>
-					<span style="font-size: 20px; text-align:left;">
-					<ul>
-					<li> iEEG with 9 channels</li>
-					<li> 300 seg recording (baseline and seizure) with a sampling rate 200 HZ</li>
-					<li> Seizure starts at $t = 30000$ and ends at $t =58000$</li>
-					</ul>
-					</span>
-					<img  width="750" height = auto src='media_epilepsy/CC_all.png'/>
-				</section>
+			<section data-auto-animate>
+				<h3>Anomaly detection</h3>
+				<h5>Electrocardiogram</h5>
+				<img width="900" height = auto src='media_ts/ECG_signal.png'/>
+				<div class="row">
+				 	 <div class="column_eq">
+					<img width="300" height = auto src='media_ts/ECG_embedding.png'/>
+					</div>
+					<div class="column_eq">
+					<img width="290" height = auto src='media_ts/PH_ECG_4000.png'/>
+					</div>
+					<div class="fragment" class="column_eq">
+					<img width="280" height = auto src='media_ts/PH_ECG_6000.png'/>
+					</div>
+				</div>
+			</section>
 
-
-				<section data-auto-animate>
-					<h3>Analysis by channel</h3>
-					<span style="font-size: 24px; text-align:left;">
-					<ul>
-					<li class = 'fragment'> For every channel $X_i:[0,T]\colon \rightarrow \mathbb{R}$, compute the <b>dynamic induced by this observation</b>.</li>
-					<li class = 'fragment'> <b>Compare</b> the induced maps of time evolving topological changes, for the <b>different channels</b>.</li>
-					</ul>
-					</span>
-				</section>
+			<section data-auto-animate>
+				<h3>Anomaly detection</h3>
+				<h5>Electrocardiogram</h5>
+				<img width="900" height = auto src='media_ts/ECG_signal.png'/>
+				<small>
+				\[t\mapsto \mathbb{dgm_1}(X_{\tau, d}f([0,t]))\]
+				</small>
+				<img width="900" height = auto src='media_ts/bottleneck_ECG.png'/>
+			</section>
 
 
-				<!--
-				<section data-auto-animate>
-					<h3>Bonus: analysis by channel</h3>
-					<span style="font-size: 24px; text-align:left;">
-					<ul>
-					<li> For every channel $X_i:[0,T]\colon \rightarrow \mathbb{R}$, compute the<b> dynamic induced by this observation</b>.</li>
-					</ul>
+			<section data-auto-animate>
+				<h3>Change-points detection</h3>
+				<h4 class="fragment"> Birdsongs</h4>
+				<img class="fragment" width="900" height = auto src='media_ts/birdsong.png'/>
+				<p class="fragment" style="font-size: 15px; text-align:left;"><i>Source data:</i> Private experiments. Laboratory of Dynamical Systems, University of Buenos Aires.</p>
+			</section>
 
-					<p>Given a signal $X:[0,T] \to \mathbb{R}$, the <b style="color: red">delay embedding </b> in dimension $d$ and delay $\tau$ is \[\{(X(t), X(t+\tau), X(t+2\tau), \dots, X(t+(d-1)\tau)\in \mathbb{R}^d: t\in[0, T-(d-1)\tau]\}\]</p>
+			<section data-auto-animate>
+				<h3>Change-points detection</h3>
+				<h4> Birdsongs</h4>
+				<img width="900" height = auto src='media_ts/birdsong.png'/><img width="300" height = auto src='media_ts/canary_embedding.png'/>
+			</section>
 
-					<p class = 'fragment' ><b style="color: red">Takens Theorem. </b> The <i>delay embedding</i> of an observation allows to reconstruct the entire dynamics.</p>
-					</span>
+			<section data-auto-animate>
+				<h3>Change-points detection</h3>
+				<h4> Birdsongs</h4>
+				<img width="900" height = auto src='media_ts/birdsong.png'/>
+				<div class="row">
+				 	 <div class="column_big">
+					<img width="300" height = auto src='media_ts/canary_embedding.png'/>
+					</div>
+					 <div class="column_big">
+					 <img width="290" height = auto src='media_ts/PH_canary.png'/>
+					 </div>
+				</div>
+			</section>
 
-					<div class = 'fragment' class="row" style="font-size: 20px">
-						<div class="column_big">
-						<img width="400" height = auto src='media_ts/lorenz_time_series.gif'/>
-						</div>
-						<div class="column_big">
-						<img width="400" height = auto src='media_ts/lorenz_takens.gif'/>
-						</div>
+			<section data-auto-animate>
+				<h3>Change-points detection</h3>
+				<h4> Birdsongs</h4>
+				<img width="900" height = auto src='media_ts/time_series_birdsong_cuts.png'/>
+				<div class="row">
+				 	 <div class="column_Big">
+					<img width="800" height = auto src='media_ts/canary_embedding_cuts.png'/>
+					</div>
+					 <div class="column">
+					 <img width="300" height = auto src='media_ts/PH_canary.png'/>
+					 </div>
+				</div>
+			</section>
 
+			<section data-auto-animate>
+				<h3>Change-points detection</h3>
+				<h4> Birdsongs</h4>
+				<img width="900" height = auto src='media_ts/time_series_birdsong_cuts.png'/>
+				<small>
+				\[t\mapsto \mathbb{dgm_1}(X_{\tau, d}f([0,t]))\]
+				</small>
+
+				<img width="900" height = auto src='media_ts/PH_canary_peaks.png'/>
+			</section>
+
+
+			<section data-auto-animate>
+				<h3>Epilepsy</h3>
+			<span style="font-size: 22px; text-align:left;">
+			<ul>
+			 <li class = 'fragment'><b>Data: </b> Raw multichannel <b style="color: slategrey">EEG/MEG</b> recordings for different patients during <i>preictal, ictal</i> and <i>interictal</i> states.</li>
+			 </ul>
+			 <img  class = 'fragment' width="1300" height = auto class = 'fragment' src='media_epilepsy/CC_iEEG.png'/>
+			 </span>
+				<p style="font-size: 15px; text-align:left;"><i>Source data: Toronto Western Hospital, Canada.</i> </p>
+			</section>
+
+			<section data-auto-animate>
+				<h3>Epilepsy</h3>
+			<span style="font-size: 22px; text-align:left;">
+			<ul>
+			 <li><b>Data: </b> Raw multichannel <b style="color: slategrey">EEG/MEG</b> recordings for different patients during <i>preictal, ictal</i> and <i>interictal</i> states.</li>
+			 <li> <b>Goal:</b> Detect the <span style="color: red"> epileptic seizure</span>.</li>
+			 </ul>
+			 <img width="1300" height = auto src='media_epilepsy/CC_iEEG_seizure.png'/>
+			 </span>
+				<p style="font-size: 15px; text-align:left;"><i>Source data: Toronto Western Hospital, Canada.</i> </p>
+			</section>
+
+			<section data-auto-animate>
+			<h5>Topological Analysis of multichannel time series</h5>
+			<span class = 'fragment' style="font-size: 24px; text-align:left;">
+			Given $X_1, X_2, \dots X_N:[0,T]\to \mathbb{R}$ signals, we construct an <b style="color: red;">embedding</b>  in $\mathbb{R}^N$ given by $$\{(X_1(t), X_2(t), \dots, X_N(t)): t\in [0,T]\}$$
+			</span>
+			<img width="1500" height = auto  class = 'fragment' src='media_epilepsy/iEEG_embedding.png'/>
+			</section>
+
+			<section  data-auto-animate>
+				<h3>Sliding Window Embedding</h3>
+				<span style="font-size: 23px; text-align:left;">
+				<ul>
+					<li class = 'fragment'>Let $X_1, X_2, \dots X_N:[0,T]\to \mathbb{R}$ a set of signals.</li>
+					<li class = 'fragment'>Given a <b style="color: red">window</b> size $W$, we compute for every $t\in [W,T]$ the embedding of $X_1, X_2, \dots X_N:[t-W, t]\to \mathbb{R}$ in $\mathbb{R}^N$.</li>
+				</ul>
+				<img  class = 'fragment' width="1000" height = auto src='media_epilepsy/CC_iEEG_window.png'/>
+				</span>
+			</section>
+
+			<section  data-auto-animate>
+				<h3>Sliding Window Embedding</h3>
+				<span style="font-size: 23px; text-align:left;">
+				<ul>
+					<li >Let $X_1, X_2, \dots X_N:[0,T]\to \mathbb{R}$ a set of signals.</li>
+					<li >Given a <b style="color: red">window</b> size $W$, we compute for every $t\in [W,T]$ the embedding of $X_1, X_2, \dots X_N:[t-W, t]\to \mathbb{R}$ in $\mathbb{R}^N$.</li>
+					<video data-autoplay src='media_epilepsy/EEG_channel_window.mp4' width="1000" height=auto> </video>
+
+					<!--<img width="1000" height = auto src='media_epilepsy/window.gif'/>-->
+
+				</ul>
+
+			</span>
+				
+			</section>
+
+
+			<section  data-auto-animate>
+				<h3>Sliding Window Embedding</h3>
+				<span style="font-size: 23px; text-align:left;">
+				<ul>
+					<li>Let $X_1, X_2, \dots X_N:[0,T]\to \mathbb{R}$ a set of signals.</li>
+					<li>Given a <b style="color: red">window</b> size $W$, we compute for every $t\in [W,T]$ the embedding of $X_1, X_2, \dots X_N:[t-W, t]\to \mathbb{R}$ in $\mathbb{R}^N$.</li>
+					<li> We compute the <b style="color: red"> (persistent) homology</b> of the time evolving <b style="color: red">sliding window embedding</b>.</li>
+				</ul>
+				<img  width="1200" height = auto src='media_epilepsy/PD_path_CC.png'/>
+				</span>
+			</section>
+
+			<!--
+			<section> <h4>Metric in the space of persistence diagrams</h4>
+				<span style="font-size: 23px; text-align:left;">
+				<ul>
+					<li> The <b style="color: red">Wassertein distance</b> between two diagrams $\mathrm{dgm}_1$ and $\mathrm{dgm}_2$ is
+						\[d_W(\mathrm{dgm}_1, \mathrm{dgm}_2) = \inf_{M \text{ matching}} \left(\sum_{(x,y)\in M} ||x-y||^p\right)^{1/p}\]
+
+					</li>
+				</ul>		
+				<img  width="350" height = auto src='media_ts/matching.png'/>
+				</span>				
+			</section>
+			-->
+
+
+			<section>
+				<h5>Real time detection of epileptic seizures <br> in EEG/MEG recordings</h5>
+				<span style="font-size: 20px; text-align:left;">
+				Multichannel signals $\to$ Sliding Window Embedding $\to$ Path of persistent diagrams $\to$ (Estimator of) 1st Derivative
+				</span>
+				<img  width="750" height = auto src='media_epilepsy/iEEG_derivative.png'/>
+			</section>
+
+			<section data-auto-animate>
+				<h5>Patient CC</h5>
+				<span style="font-size: 20px; text-align:left;">
+				<ul>
+				<li> iEEG with 9 channels</li>
+				<li> 300 seg recording (baseline and seizure) with a sampling rate 200 HZ</li>
+				</ul>
+				</span>
+				<img  width="750" height = auto src='media_epilepsy/CC_iEEG.png'/>
+			</section>
+
+			<section data-auto-animate>
+				<h5>Patient CC</h5>
+				<span style="font-size: 20px; text-align:left;">
+				<ul>
+				<li> iEEG with 9 channels</li>
+				<li> 300 seg recording (baseline and seizure) with a sampling rate 200 HZ</li>
+				<li> Seizure starts at $t = 30000$ and ends at $t =58000$</li>
+				</ul>
+				</span>
+				<img  width="750" height = auto src='media_epilepsy/CC_iEEG_seizure.png'/>
+			</section>
+
+			<section data-auto-animate>
+				<h5>Pacient CC</h5>
+				<span style="font-size: 20px; text-align:left;">
+				<ul>
+				<li> iEEG with 9 channels</li>
+				<li> 300 seg recording (baseline and seizure) with a sampling rate 200 HZ</li>
+				<li> Seizure starts at $t = 30000$ and ends at $t =58000$</li>
+				</ul>
+				</span>
+				<img  width="750" height = auto src='media_epilepsy/CC_all.png'/>
+			</section>
+
+
+			<section data-auto-animate>
+				<h3>Analysis by channel</h3>
+				<span style="font-size: 24px; text-align:left;">
+				<ul>
+				<li class = 'fragment'> For every channel $X_i:[0,T]\colon \rightarrow \mathbb{R}$, compute the <b>dynamic induced by this observation</b>.</li>
+				<li class = 'fragment'> <b>Compare</b> the induced maps of time evolving topological changes, for the <b>different channels</b>.</li>
+				</ul>
+				</span>
+			</section>
+
+
+			<!--
+			<section data-auto-animate>
+				<h3>Bonus: analysis by channel</h3>
+				<span style="font-size: 24px; text-align:left;">
+				<ul>
+				<li> For every channel $X_i:[0,T]\colon \rightarrow \mathbb{R}$, compute the<b> dynamic induced by this observation</b>.</li>
+				</ul>
+
+				<p>Given a signal $X:[0,T] \to \mathbb{R}$, the <b style="color: red">delay embedding </b> in dimension $d$ and delay $\tau$ is \[\{(X(t), X(t+\tau), X(t+2\tau), \dots, X(t+(d-1)\tau)\in \mathbb{R}^d: t\in[0, T-(d-1)\tau]\}\]</p>
+
+				<p class = 'fragment' ><b style="color: red">Takens Theorem. </b> The <i>delay embedding</i> of an observation allows to reconstruct the entire dynamics.</p>
+				</span>
+
+				<div class = 'fragment' class="row" style="font-size: 20px">
+					<div class="column_big">
+					<img width="400" height = auto src='media_ts/lorenz_time_series.gif'/>
+					</div>
+					<div class="column_big">
+					<img width="400" height = auto src='media_ts/lorenz_takens.gif'/>
 					</div>
 
-				</section>
-				-->
+				</div>
 
-				<section data-auto-animate>
-					<h3>Analysis by channel</h3>
-					<span style="font-size: 22px; text-align:left;">
-					 Channel $\to$ Sliding Window <b>Delay</b> Embedding $\to$ Path of persistent diagrams $\to$ 1st Derivative
+			</section>
+			-->
 
-					</span>
-					<img  width="620" height = auto src='media_epilepsy/CC_all_by_channel.png'/>
+			<section data-auto-animate>
+				<h3>Analysis by channel</h3>
+				<span style="font-size: 22px; text-align:left;">
+				 Channel $\to$ Sliding Window <b>Delay</b> Embedding $\to$ Path of persistent diagrams $\to$ 1st Derivative
 
-				</section>
+				</span>
+				<img  width="620" height = auto src='media_epilepsy/CC_all_by_channel.png'/>
+
+			</section>
 
 			
 
 				
 
 
-				<section>
-					<h2 >Thanks!</h2>
-					<video data-autoplay src='media_epilepsy/EEG_channel_window.mp4' width="750" height=auto> </video>
-					<!---<img width="700" height = auto src='media_epilepsy/window.gif'/>
-					<img width="700" height = auto src='media_epilepsy/Derivative_CC.gif'/>--->
-					<video data-autoplay src='media_epilepsy/Derivative_CC.mp4' width="750" height=auto> </video>
+			<section>
+				<h2 >Thanks!</h2>
+				<video data-autoplay src='media_epilepsy/EEG_channel_window.mp4' width="750" height=auto> </video>
+				<!---<img width="700" height = auto src='media_epilepsy/window.gif'/>
+				<img width="700" height = auto src='media_epilepsy/Derivative_CC.gif'/>--->
+				<video data-autoplay src='media_epilepsy/Derivative_CC.mp4' width="750" height=auto> </video>
+			</section>
+
+
+			<!--
+				<section data-auto-animate>
+					<h4>Prediction of transitions</h4>
+					<h5 >Electroencefalogram</h5>
+					<img width="810" height = auto src='media_ts/EEG_channel143.png'/>
+					<small>
+					\[t\mapsto \mathbb{dgm_0}((f_0, \dots, f_{143})[30000,t])\]
+					</small>
+					<br>
+					<img  width="750" height = auto src='media_ts/Wasserstein_EEG.png'/>
+					<p style="font-size: 15px; text-align:left;"><i>Source data:</i> Private experiments. Institute of Applied Math of Litoral (IMAL-CONICET-UNL).</p>
 				</section>
 
 
-				<!--
-					<section data-auto-animate>
-						<h4>Prediction of transitions</h4>
-						<h5 >Electroencefalogram</h5>
-						<img width="810" height = auto src='media_ts/EEG_channel143.png'/>
-						<small>
-						\[t\mapsto \mathbb{dgm_0}((f_0, \dots, f_{143})[30000,t])\]
-						</small>
-						<br>
-						<img  width="750" height = auto src='media_ts/Wasserstein_EEG.png'/>
-						<p style="font-size: 15px; text-align:left;"><i>Source data:</i> Private experiments. Institute of Applied Math of Litoral (IMAL-CONICET-UNL).</p>
-					</section>
 
 
-
-
-					<section data-auto-animate>
-						<h4>Prediction of transitions</h4>
-						<h5 >Electroencefalogram</h5>
-						<img width="810" height = auto src='media_ts/EEG_channel143.png'/>
-						<small>
-						$W$ size of the restricted interval.
-						\[t\mapsto \mathbb{dgm_1}((f_0, \dots, f_{143})[t-W,t])\]
-						</small>
-						<br>
-						<img width="920" height = auto src='media_ts/SW_EEG_dgm1.png'/>
-						<p style="font-size: 15px; text-align:left;"><i>Source data:</i> Private experiments. Institute of Applied Math of Litoral (IMAL-CONICET-UNL).</p>
-					</section>
-
-
-				<section>
-					<h2>Thanks!</h2>
-					<img width="1000" height = auto src='media_ts/birdsong_twitter.gif'/>
+				<section data-auto-animate>
+					<h4>Prediction of transitions</h4>
+					<h5 >Electroencefalogram</h5>
+					<img width="810" height = auto src='media_ts/EEG_channel143.png'/>
+					<small>
+					$W$ size of the restricted interval.
+					\[t\mapsto \mathbb{dgm_1}((f_0, \dots, f_{143})[t-W,t])\]
+					</small>
+					<br>
+					<img width="920" height = auto src='media_ts/SW_EEG_dgm1.png'/>
+					<p style="font-size: 15px; text-align:left;"><i>Source data:</i> Private experiments. Institute of Applied Math of Litoral (IMAL-CONICET-UNL).</p>
 				</section>
-			-->
+
+
+			<section>
+				<h2>Thanks!</h2>
+				<img width="1000" height = auto src='media_ts/birdsong_twitter.gif'/>
+			</section>
+		-->
 
 
 			</div>
