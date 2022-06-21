@@ -1,0 +1,1615 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>From topological data analysis to computational brain modelling: the case studies of grid cells and epilepsy.</title>
+
+		<meta name="description" content="Brain Modelling Seminar">
+		<meta name="author" content="Ximena Fernandez">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/white.css" id="theme">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			* {
+			  box-sizing: border-box;
+			}
+
+			.column {
+			  float: left;
+			  width: 25%;
+			  padding: 10px;
+			}
+
+			.column_50 {
+			  float: left;
+			  width: 50%;
+			  padding: 10px;
+			}
+
+			.column_Big {
+			  float: left;
+			  width: 75%;
+			  padding: 10px;
+			}	
+
+			.column_33 {
+			  float: left;
+			  width: 33%;
+			  padding: 10px;
+			}	
+			 .column_60 {
+			  float: left;
+			  width: 60%;
+			  padding: 10px;
+			}
+			.column_66 {
+			  float: left;
+			  width: 66%;
+			  padding: 10px;
+			}
+			.column_20 {
+			  float: left;
+			  width: 20%;
+			  padding: 10px;
+			}	
+			.column_30 {
+			  float: left;
+			  width: 30%;
+			  padding: 10px;
+			}	
+			.column_40 {
+			  float: left;
+			  width: 40%;
+			  padding: 10px;
+			}	
+			.column_45 {
+			  float: left;
+			  width: 45%;
+			  padding: 10px;
+			}	
+			}
+
+			/* Clear floats after the columns */
+			.row:after {
+			  content: "";
+			  display: table;
+			  clear: both;
+			}
+			</style>
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+
+				<section>
+					<h4>From TDA to computational brain modelling: <br>
+						the case studies of grid cells and epilepsy</h4>
+
+
+					<p style="font-size:28px;">XIMENA FERNANDEZ</p>
+
+					<!--<p style="font-size:20px;">ximena.l.fernandez@durham.ac.uk</p>-->
+
+					<p style="font-size:24px;">Durham University <br> UK Centre for Topological Data Analysis</p>  
+
+
+					<p style="font-size:26px;"> <b>Brain Modelling Seminar</b> - Oxford University </p>
+
+					<br>
+
+					<video data-autoplay src='media_epilepsy/EEG_channel1.mp4' width="1300" height=auto> </video>
+
+				</section>
+
+
+				<section>
+					<h2>Topological Data Analysis</h2>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Topological inference</h3>
+					<span style="font-size: 22px; text-align:center;"> 
+					<p class="fragment">Let $X$ be a topological space and let $\mathbb{X}_n = \{x_1,...,x_n\}$ be a finite sample of $X$.</p>
+					<p class="fragment"><b>Q:</b> How to infer topological properties of $X$ from $\mathbb{X}_n$?</p>
+					<div class="column_50" >
+					<img  width="250" height = auto src='media_ph/sphere.png'/>
+					</div>
+					<div class="column_50"> <img  width="290" height = auto src='media_ph/sphere_sample.png'/>
+					</div>
+					</span>
+				</section>
+				
+				<section data-auto-animate>
+					<h3>Topological inference</h3>
+					<span style="font-size: 22px; text-align:center;"> 
+					<p>Let $X$ be a topological space and let $\mathbb{X}_n = \{x_1,...,x_n\}$ be a finite sample of $X$.</p>
+					<p><b>Q:</b> How to infer topological properties of $X$ from $\mathbb{X}_n$?</p>
+
+					<div class="row">
+					 	 <div class="column">
+					 	 	<p>Point cloud <br>$\mathbb{X}_n \subset \mathbb{R}^D$
+							 	<img width="400" height = auto src='media_ts/circle_resized.png'/>
+							 	</p>
+					 	 </div>
+					 	 
+						<div class="column"><p class="fragment">
+							 For $\epsilon>0$, the <b>$\epsilon$-thickening</b> of $\mathbb{X}_n$:
+							 \[\displaystyle U_\epsilon = \bigcup_{x\in \mathbb{X}_n}B_{\epsilon}(x)\]						 <img width="165" height = auto src='media_ts/balls.png'/>
+							 </p>
+						</div>
+
+						<div class="column_50">
+							 <blockquote class="fragment"  style="font-size:18px; text-align:left; border: 2px solid #666; padding: 4 px; background-color: #ccc;">
+							 <b>Theorem (Niyogi, Smale & Weinberger, 2008).</b> 
+							 Given $\mathcal{M}$ a compact submanifold of $\mathbb{R}^D$ of dimension $k$ and $\mathbb{X}_n$  a  set  of i.i.d. $n$ points  drawn according  to  the uniform  probability  measure  on $\mathcal{M}$, then $$
+							 U_\epsilon \simeq \mathcal{M}$$ with probability $>1-\delta$ if
+							 $0<\epsilon< \frac{\tau_\mathcal{M}}{2}$ and $n> \beta_1 \left(\log(\beta_2)+\log\left(\frac{1}{\delta}\right)\right)$.*
+							 <br>
+						    <p style="font-size:14 px; text-align:left; color: #737373;">
+						    *Here $\beta_1=\frac{\mathrm{vol}(\mathcal{M})}{cos^k(\theta_1) \mathrm{vol(B^k_{\epsilon/4})}}$, $\beta_2=\frac{\mathrm{vol}(\mathcal{M})}{\cos^k(\theta_2)\mathrm{vol}(B^k_{\epsilon/8})}$
+						    and $\theta_1=\arcsin\left(\frac{\epsilon}{8\tau_\mathcal M}\right),$ $\theta_2=\arcsin\left(\frac{\epsilon}{16\tau_\mathcal M}\right)$.
+							</p>
+							</blockquote>
+						</div>
+					</div>
+					</span>
+					</section>
+
+
+
+				<section data-auto-animate>
+					<h3>Topological inference</h3>
+						<span style="font-size: 22px; text-align:center;">
+						<p>Let $X$ be a topological space and let $\mathbb{X}_n = \{x_1,...,x_n\}$ be a finite sample of $X$.</p>
+						<p><b>Q:</b> How to infer topological properties of $X$ from $\mathbb{X}_n$?</p>
+
+					<span style="font-size: 22px; text-align:center;">
+					<div class="row">
+					 	<div class="column">
+					 	 	<p>Point cloud <br>$\mathbb{X}_n \subset \mathbb{R}^D$
+							 	<img width="350" height = auto src='media_ts/circle_resized.png'/>
+							 	</p>
+					 	</div>
+					 	 
+						<div class="column_50"><p >Evolving thickenings
+							<br>
+							<br>
+							<img width="350" height = auto src='media_ts/filtration_circle.gif'/>
+							</p>
+						</div>
+					</div> 
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Topological inference</h3>
+						<span style="font-size: 22px; text-align:center;">
+						<p>Let $X$ be a topological space and let $\mathbb{X}_n = \{x_1,...,x_n\}$ be a finite sample of $X$.</p>
+						<p><b>Q:</b> How to infer topological properties of $X$ from $\mathbb{X}_n$?</p>
+
+					<span style="font-size: 22px; text-align:center;">
+
+					<div class="row">
+					 	 <div class="column_20">
+					 	 	<p>Point cloud <br>$\mathbb{X}_n \subset \mathbb{R}^D$
+							 	<img width="150" height = auto src='media_ts/circle_resized.png'/>
+							 	</p>
+					 	 </div>
+							 <div class="column_30">
+ 							 <p>Evolving thickenings
+ 							 <br>
+					 		 <br>
+ 							 <img width="350" height = auto src='media_ts/filtration_circle.gif'/>
+ 							 </p>
+							 </div>
+							 <div class="column_50">
+							 	<p>Filtration of simplicial complexes
+							 		<br>
+							 		<br>
+							 		<br>
+							 		<br>
+							 	<img width="600" height = auto src='media_ph/filtration.png'/>
+							 	</p>
+							 </div>
+					</div> 
+					</span>
+				</section>
+
+
+				<section data-auto-animate>
+					<h3>Topological inference</h3>
+					<span style="font-size: 22px; text-align:center;">
+					<p>Let $X$ be a topological space and let $\mathbb{X}_n = \{x_1,...,x_n\}$ be a finite sample of $X$.</p>
+					<p><b>Q:</b> How to infer topological properties of $X$ from $\mathbb{X}_n$?</p>
+
+
+					<div class="row">
+					 	 <div class="column_20">
+					 	 	<p>Point cloud <br>$\mathbb{X}_n \subset \mathbb{R}^D$
+							 	<img width="150" height = auto src='media_ts/circle_resized.png'/>
+							 	</p>
+					 	 </div>
+							 <div class="column_50">
+							 	<p>Filtration of simplicial complexes
+							 		<br>
+							 		<br>
+							 		<br>
+							 		<br>
+							 	<img width="600" height = auto src='media_ph/filtration.png'/>
+							 	</p>
+							 </div>
+							 <div class="column"><p>Persistence diagram
+							 <br>
+							 <img width="350" height = auto src='media_ts/PD_resized.png'/>
+							 </p>
+							 </div>
+					</div> 
+					</span>
+				</section>
+
+
+				<section>
+					<h2>Topology of grid cells</h2>
+				</section>
+
+				<!--
+				<section data-auto-animate>
+					<h3>Place cells</h3>
+					<br> 
+					<video class="fragment" src="media_gridcells/place_cells.mp4" data-autoplay></video>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Place cells</h3>
+					<br> 
+					<video width="520" height=auto src="media_gridcells/10_place_cells.mp4" data-autoplay></video>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Place cells</h3>
+					<br>
+					<span style="font-size: 28px">
+					<ul>
+					<li> Cognitive representation of a specific <b>location in space</b>.</li>
+					<li class="fragment">Placed in the hippocampus.</li>
+					<li class="fragment">Discovered by John O'Keefe in 1971.<br>
+						<small> J. O'Keefe, J. Dostrovsky,
+						<i>The hippocampus as a spatial map. Preliminary evidence from unit activity in the freely-moving rat.</i>
+						<b>Brain Research</b>, Volume 34, Issue 1, 1971, Pages 171-175.</small>
+					</li>
+					<li class="fragment">Awarded with Nobel Prize in Physiology or Medicine 2014.</li>
+					</ul>
+					</span>
+
+					<br>
+
+					<img src='media_gridcells/place_cells.png' width="450" height=auto/> 
+					
+				</section>
+				-->
+
+				<section data-auto-animate>
+					<h3>Grid cells</h3>
+					<br> 
+					<div class="row">
+					 	 <div class="column_50">
+					 	 <video src="media_gridcells/grid_cells.mp4" data-autoplay></video>
+					 	 </div>
+					 	 <div class="column_50">
+					 	 <span style="font-size: 18px"> 
+						<ul>
+						<li>Part of the neural representation of the <b>spatial coordinate system. </b></li>
+						<li>Placed in the medial entorhinal cortex (mEC).</li>
+						<li>Discovered by Edvard and May-Britt Moser in 2005.
+							<br>
+							<small>T. Hafting, M. Fyhn, S, Molden, M.B. Moser, E.I. Moser. <i>Microstructure of a spatial map in the entorhinal cortex.</i> <b>Nature.</b> 2005 Aug; 436(7052) 801-806.
+							</small>
+						</li>
+						<li>Awarded with Nobel Prize in Physiology or Medicine 2014.</li>
+						</ul>
+						<img class="fragment" src='media_gridcells/grid_cell_path.jpg' width="300" height=auto/> 
+
+					 	 </div>
+					 </div>
+					
+				</section>
+
+
+				<section data-auto-animate>
+					<h3>Place cells</h3>
+					<br> 
+					<div class="row">
+					 	 <div class="column_50">
+					 	 <video src="media_gridcells/place_cells.mp4" data-autoplay></video>
+					 	 </div>
+					 	 <div class="column_50">
+					 	 <span style="font-size: 18px"> 
+							<ul>
+							<li> Cognitive representation of a specific <b>location in space</b>.</li>
+							<li>Placed in the hippocampus.</li>
+							<li>Discovered by John O'Keefe in 1971.<br>
+								<small> J. O'Keefe, J. Dostrovsky,
+								<i>The hippocampus as a spatial map. Preliminary evidence from unit activity in the freely-moving rat.</i>
+								<b>Brain Research</b>, Volume 34, Issue 1, 1971, 171-175.</small>
+							</li>
+							<li>Awarded with Nobel Prize in Physiology or Medicine 2014.</li>
+							</ul>
+							<img class="fragment" src='media_gridcells/place_cell_path.png' width="300" height=auto/> 
+					 	 </div>
+					 </div>
+					
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>A physical model for grid cells activity</h4>
+					<span style="font-size: 22px">
+						<p><a href="https://pubmed.ncbi.nlm.nih.gov/19021261/" target="_blank">The Emergence of Grid Cells: Intelligent Design or Just Adaptation?</a> <br> <span style="font-size: 22px"> Emilio Kropff and Alessandro Treves. <i>Hippocampus (2008)</i></span> </p>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>A physical model for grid cells activity</h4>
+					<span style="font-size: 22px">
+						<p><a href="https://pubmed.ncbi.nlm.nih.gov/19021261/" target="_blank">The Emergence of Grid Cells: Intelligent Design or Just Adaptation?</a> <br> <span style="font-size: 22px"> Emilio Kropff and Alessandro Treves. <i>Hippocampus (2008)</i></span> </p>
+						<p><b>Feedforward network dynamics.</b>
+						<ul>
+							<li><b>Input layer:</b> $N_{hip}$ neurons from hippocampus (<i>place cells</i>).</li>
+							<li><b>mEC layer:</b> $N_{mEC}$ neurons from mEC (<i>grid cells</i>).</li>
+							<li><b>Architecture:</b> 
+								<ul>
+									<li><i>Feed-forward</i> connections between input layer and mEC layer.</li>
+									<li> <i>Internal</i> connections between grid-cells.
+								</ul>
+							<center>
+							   		<img src='media_gridcells/neural_network.png' width="300" height=auto />
+							</center>
+							</li>
+						</ul>
+						</p>
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h4>A physical model for grid cells activity</h4>
+					<span style="font-size: 22px; text-align:left;">
+					<p>
+						The <b> total field </b> received by grid cell $i$ at time $t$ is 
+						\[h_i(t) = \sum_{j=1}^{N_{I}}W^I_{ij}(t)r_j^I(t) + \sum_{k=1}^{N_{EC}}W^{EC}_{ik}r_k^{EC}(t) \]
+						<div class="column_50">
+					 	 <img src='media_gridcells/network_small.jpeg' width="300" height=auto>
+					 	 </div>
+					 	 <div class="column_50">
+						where:
+							<span style="font-size: 18px">
+							<ul>
+						    <li>$W^I_{ij}$ is the <b>weight of the synapse</b> going from neuron $j$ in the input layer to neuron $i$ in the mEC layer.</li>
+							<li>$r_j^I(x)$ is the <b>firing rate</b> of the place cell $j$ at time $t$.</li>
+							<li>$W^{EC}_{ik}$ is the <b>recurrent excitatory connectivity</b> from neuron $k$ to neuron $i$ in the mEC layer.</li>
+							<li>$r_k^{EC}(t)$ is the <b>firing rate</b> of the grid cell $k$ at time $t$.</li>
+							</ul>
+							</span>
+						</div>
+				</p>
+				</span>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>A physical model for grid cells activity</h4>
+					<span style="font-size: 22px; text-align:left;">
+					<p>
+						The <b> total field </b> received by grid cell $i$ at time $t$ is 
+						\[h_i(t) = \sum_{j=1}^{N_{I}}W^I_{ij}(t)r_j^I(t) + \sum_{k=1}^{N_{EC}}W^{EC}_{ik}r_k^{EC}(t) \]
+						<div class="column_50">
+					 	 <img src='media_gridcells/network_small.jpeg' width="300" height=auto>
+					 	 </div>
+					 	 <div class="column_50">
+							<span style="font-size: 18px">
+							where:
+							<ul>
+						    <li>$W^I_{ij}$ is the <b>weight of the synapse</b> going from neuron $j$ in the input layer to neuron $i$ in the mEC layer.</li>
+						    <p style="color: grey">It is updated according to the <b>Hebbian learning rule</b>
+							\[W_{ij}^I(t+1) = W_{ij}^I(t) + \epsilon \left( r_j^I(t)r_i^{EC}(t)-\overline{r_j^I}(t)\overline{r_i^{EC}}(t)\right)\]
+							where $\epsilon$ is a learning parameter and $\overline{\bullet}(t)$ means the exponential moving average at time $t$.</p>
+							<li>$r_j^I(x)$ is the <b>firing rate</b> of the place cell $j$ at time $t$.</li>
+							<li>$W^{EC}_{ik}$ is the <b>recurrent excitatory connectivity</b> from neuron $k$ to neuron $i$ in the mEC layer.</li>
+							<li>$r_k^{EC}(t)$ is the <b>firing rate</b> of the grid cell $k$ at time $t$.</li>
+							</ul>
+							</span>
+						</div>
+				</p>
+				</span>
+				</section>
+
+				<section data-auto-animate>
+					<h4>A physical model for grid cells activity</h4>
+					<span style="font-size: 22px; text-align:left;">
+					<p>
+						The <b> total field </b> received by grid cell $i$ at time $t$ is 
+						\[h_i(t) = \sum_{j=1}^{N_{I}}W^I_{ij}(t)r_j^I(t) + \sum_{k=1}^{N_{EC}}W^{EC}_{ik}r_k^{EC}(t) \]
+						<div class="column_50">
+					 	 <img src='media_gridcells/network_small.jpeg' width="300" height=auto>
+					 	 </div>
+					 	 <div class="column_50">
+							<span style="font-size: 18px">
+							where:
+							<ul>
+						    <li>$W^I_{ij}$ is the <b>weight of the synapse</b> going from neuron $j$ in the input layer to neuron $i$ in the mEC layer.</li>
+							<li>$r_j^I(x)$ is the <b>firing rate</b> of the place cell $j$ at time $t$.</li>
+							<p style="color: grey">It is determined by the position of the individual in the space.</p>
+							<li>$W^{EC}_{ik}$ is the <b>recurrent excitatory connectivity</b> from neuron $k$ to neuron $i$ in the mEC layer.</li>
+							<li>$r_k^{EC}(t)$ is the <b>firing rate</b> of the grid cell $k$ at time $t$.</li>
+							</ul>
+							</span>
+						</div>
+				</p>
+				</span>
+				</section>
+
+				<section data-auto-animate>
+					<h4>A physical model for grid cells activity</h4>
+					<span style="font-size: 22px; text-align:left;">
+					<p>
+						The <b> total field </b> received by grid cell $i$ at time $t$ is 
+						\[h_i(t) = \sum_{j=1}^{N_{I}}W^I_{ij}(t)r_j^I(t) + \sum_{k=1}^{N_{EC}}W^{EC}_{ik}r_k^{EC}(t) \]
+						<div class="column_50">
+					 	 <img src='media_gridcells/network_small.jpeg' width="300" height=auto>
+					 	 </div>
+					 	 <div class="column_50">
+							<span style="font-size: 18px">
+							where:
+							<ul>
+						    <li>$W^I_{ij}$ is the <b>weight of the synapse</b> going from neuron $j$ in the input layer to neuron $i$ in the mEC layer.</li>
+							<li>$r_j^I(x)$ is the <b>firing rate</b> of the place cell $j$ at time $t$.</li>
+							<li>$W^{EC}_{ik}$ is the <b>recurrent excitatory connectivity</b> from neuron $k$ to neuron $i$ in the mEC layer.</li>
+							<p style="color: grey">It is fixed according to the architecture of the connectivity.</p>
+							<li>$r_k^{EC}(t)$ is the <b>firing rate</b> of the grid cell $k$ at time $t$.</li>
+							</ul>
+							</span>
+						</div>
+				</p>
+				</span>
+				</section>
+
+				<section data-auto-animate>
+					<h4>A physical model for grid cells activity</h4>
+					<span style="font-size: 22px; text-align:left;">
+					<p>
+						The <b> total field </b> received by grid cell $i$ at time $t$ is 
+						\[h_i(t) = \sum_{j=1}^{N_{I}}W^I_{ij}(t)r_j^I(t) + \sum_{k=1}^{N_{EC}}W^{EC}_{ik}r_k^{EC}(t) \]
+						<div class="column_50">
+					 	 <img src='media_gridcells/network_small.jpeg' width="300" height=auto>
+					 	 </div>
+					 	 <div class="column_50">
+						
+							<span style="font-size: 18px">
+							where:
+							<ul>
+						    <li>$W^I_{ij}$ is the <b>weight of the synapse</b> going from neuron $j$ in the input layer to neuron $i$ in the mEC layer.</li>
+							<li>$r_j^I(x)$ is the <b>firing rate</b> of the place cell $j$ at time $t$.</li>
+							<li>$W^{EC}_{ik}$ is the <b>recurrent excitatory connectivity</b> from neuron $k$ to neuron $i$ in the mEC layer.</li>
+							<li>$r_k^{EC}(t)$ is the <b>firing rate</b> of the grid cell $k$ at time $t$.</li>
+							<p style="color: grey; font-size: 16px"> It is updated as 
+					\[r_i^{EC} (t+1) = G\frac{|h_i^{\mathrm{act}}(t) -T|_{>0}}{{\left(|h_\bullet^{\mathrm{act}}(t)-T|_{>0}\right)}_{\mathrm{avg}}}\]
+					for a gain parameter $G$, a threshold $T$ representing <i>inhibition</i> and
+					 internal variables $h_i^{\mathrm{act}}(t)$ and $h_i^{\mathrm{inact}}(t)$  mimicking <i>adaptation</i> or <i>fatigue</i> within the neuron
+					 \begin{align*}
+					h_i^{\mathrm{act}}(t+1) &= h_i(t)-h_i^{\mathrm{inact}}(t),\\
+					h_i^{\mathrm{inact}}(t+1) &= h_i^{\mathrm{inact}} + \beta h_i^{\mathrm{act}}(t)\\
+					\end{align*}
+					for some parameter $\beta$.</p>
+							</ul>
+							</span>
+						</div>
+				</p>
+				</span>
+				</section>
+			
+
+				<section data-auto-animate>
+					<h4>Topology of the attractor</h4> 
+					<small>
+					
+					<p>
+						<a href="https://www.biorxiv.org/content/10.1101/2021.02.25.432776v1" target="_blank">Toroidal topology of population activity in grid cells (2022)</a><br>
+						<span style="font-size: 18px">
+						  Gardner R, Hermansen E, Pachitariu M, Burak Y,  N, Dunn B, Moser M B, Moser E.  <i>Nature.</i>
+						</span>
+						<br>
+						<!--<span style="font-size: 20px; color:grey; float:left"><b>Experiment:</b>
+							<i>Given an arena and a rat moving freely in the environment, they recorded simultaneously the activity of $N_{mEC}$ grid cells at each point $x$ in the arena for a period of time.
+							For a discretization of the environment in $M$ bins and average over time of the spike rate, they obtained a pointcloud of $M$ points in $\mathbb R^{N_{mEC}}$.
+							</i>
+						</span>
+						-->
+					</p>
+					<br>
+					<p class="fragment">
+					<br>
+					<video width="400" height="400" src="media_gridcells/population_experiments.mp4" data-autoplay></video>
+					</p>
+					
+					</small>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Topology of the attractor</h4>
+					<img src='media_gridcells/toroidal_population.png' /> 
+				</section>
+
+				<!--
+				<section data-auto-animate>
+					<h4>Topology of the attractor</h4>
+					<img width=auto height="620" src='media_gridcells/cup_product_argument.png' /> 
+				</section>
+
+				<section data-auto-animate>
+					<h4>Topology of the attractor</h4>
+					<img src='media_gridcells/cup_product_figure.png' /> 
+				</section>
+				-->
+
+				<section data-auto-animate>
+				<h4>Modelled grid cells</h4>
+				<span style="font-size: 20px; text-align:left">
+				<p><b>Experiment:</b>
+							<i>Given a square track and a rat moving freely in the environment, we simulated the simultaneous activity of $N_{mEC}$ grid cells at each point $x$ in the arena for a period of time.
+							For a discretization of the environment in $M$ bins and average over time of the spike rate, we obtained a point cloud of $M$ points in $\mathbb R^{N_{mEC}}$.
+							</i>
+
+				</p>
+				<div class="column_33">			
+					<img width="270" height = auto src='media_gridcells/open_field.png'/>
+				</div>
+				<div class="column_66">
+					<img width="720" height = auto src='media_gridcells/grid_cells_module.png'/>
+				</div>
+					
+					</span>	
+				</section>
+
+				<section data-auto-animate>
+					<h4 >What is the architecture of the <br> neural network of grid cells?</h4>
+					<br>
+					<p style="font-size: 24px" ><a href="https://www.biorxiv.org/content/10.1101/2022.06.13.495956v1" target="_blank">Modeled grid cells
+					aligned by a flexible attractor.</a> (2022) <br>Sabrina Benas, Ximena Fernandez and Emilio Kropff.  <i>bioRxiv 2022.06.13.495956.</i></p>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>What is the architecture of the <br> neural network of grid cells?</h4>
+					<span style="font-size: 20px;">
+					 <div class="row">
+					 	 <div class="column_33"><p>2D connectivity
+					 	 <img src='media_gridcells/connection2D_torus.png'/>
+					 	</p>
+					 	 <p  style="font-size: 15px"> 
+						 $\bullet$ Gardner R, Hermansen E, Pachitariu M, Burak Y,  N, Dunn B, Moser M B, Moser E. <i>Toroidal topology of population activity in grid cells</i> Nature. (2022)
+						 <br>
+						 $\bullet$ Guanella A, Kiper D, Verschure P. <i> A model of grid cells based on a twisted torus topology.</i> Int J Neural Syst. 2007 Aug; 17 (4):231-40. 
+					 	 </p>
+					 	 </div>
+							 <div class="column_33"><p class="fragment">1D connectivity
+							 <img width="350" height = auto src='media_gridcells/connection1D_cycle.png'/>
+							 </p>
+							 </div>
+
+							 <div class="column_33"><p class="fragment">No connectivity
+							 <br>
+							 <img width="80" height = auto src='media_gridcells/no_connectivity.png'/>
+							 </p>
+							 </div>
+					</div> 
+					</span>
+				</section>
+
+				<section data-auto-animate>
+				<h4>What is the architecture of the <br> neural network of grid cells?</h4>
+				<span style="font-size: 20px;">			
+					<b>Modelled population activity of neurons</b>
+					<div class="row">
+					 	 <div class="column_33">
+					 	 	<p >2D connectivity
+							 <img width="350" height = auto src='media_gridcells/grid_cells_2D.png'/>
+							 	</p>
+					 	 </div>
+					 	 
+							 <div class="column_33"><p class="fragment">1D connectivity
+							 <img width="350" height = auto src='media_gridcells/grid_cells_1D.png'/>
+							 </p>
+							 </div>
+
+							 <div class="column_33"><p class="fragment">No connectivity
+							 <img width="350" height = auto src='media_gridcells/grid_cells_0D.png'/>
+							 </p>
+							 </div>
+					</div> 
+					</span>	
+				</section>
+
+
+				<section data-auto-animate>
+				<h4>What is the architecture of the <br> neural network of grid cells?</h4>
+				<span style="font-size: 20px;">			
+					<b>Isomap projection of population activity</b>
+					<div class="row">
+					 	 <div class="column_33">
+					 	 	<p>2D connectivity
+							 	<img width="350" height = auto src='media_gridcells/2D_isomap.png'/>
+							 	</p>
+					 	 </div>
+					 	 
+							 <div class="column_33"><p>1D connectivity
+							 <img width="350" height = auto src='media_gridcells/1D_isomap.png'/>
+							 </p>
+							 </div>
+
+							 <div class="column_33"><p>No connectivity
+							 <img width="350" height = auto src='media_gridcells/0D_isomap.png'/>
+							 </p>
+							 </div>
+					</div> 
+					</span>	
+				</section>
+
+				<section data-auto-animate>
+					<h4>Topology of the attractor</h4> 
+					<span style="font-size:24px; text-align:left">
+					<blockquote  style="font-size:22px; text-align:left; border: 2px solid #666; padding: 4 px; background-color: #ccc;">
+							 <b>Theorem (Classification of closed surfaces).</b> 
+							Let $\mathcal M$ be a compact manifold of dimension 2 without boundary. Let $\chi = b_0-b_1 + b_2$ be the Euler characteristic of $\mathcal M$. There are two cases:
+							<ol>
+							<li>If M is orientable, then it is homeomorphic to a connected sum of 1-𝛘/2 torii. </li>
+							<li>If M is non-orientable, then it is homeomorphic to a connected sum of 2-𝛘 projective planes.</li>
+							</ol>
+					</blockquote>
+
+					<img width="400" height = auto src='media_gridcells/class_surfaces.png'/>
+
+							
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Topology of the attractor</h4> 
+					<span style="font-size:24px; text-align:left">
+					<blockquote   style="font-size:22px; text-align:left; border: 2px solid #666; padding: 4 px; background-color: #ccc;">
+							 <b>Theorem (Classification of closed surfaces).</b> 
+							Let $\mathcal M$ be a compact manifold of dimension 2 without boundary. Let $\chi = b_0-b_1 + b_2$ be the Euler characteristic of $\mathcal M$. There are two cases:
+							<ol>
+							<li>If M is orientable, then it is homeomorphic to a connected sum of 1-𝛘/2 torii. </li>
+							<li>If M is non-orientable, then it is homeomorphic to a connected sum of 2-𝛘 projective planes.</li>
+							</ol>
+							</blockquote>
+
+							<p >
+							This result provides a method to univocally determine the <b>homeomorphism type</b> of the geometric structure subjacent in data, provided it is an instance of a <b>closed surface</b>.  It is enough to compute (or infer) the following finite list of invariant properties:
+							<ul >
+							<li>the <b style="color: red">intrinsic dimension</b> (and prove that it is equal to 2);</li>
+							<li>the <b style="color: red">Euler characteristic</b> (or equivalently, the Betti numbers);</li>
+							<li><b style="color: red">orientability</b> or <b style="color: red">non-orientability</b>;</li>
+							<li>the (non)existence of <b style="color: red">singularities</b> and <b style="color: red">boundary</b>.</li>
+							</ul>
+							</p>
+					</span>
+				</section>
+
+				<section data-auto-animate> <h4>Topology of the attractor</h4>
+					<h6>Global geometry</h6>
+						<img width="700" height = auto src='media_gridcells/gc_persistent_homology.jpeg'/>
+						<span style="font-size:15px; text-align:left">
+							<p><b>a.</b> Smoothed density  and Frechet mean across simulations of persistence diagrams with coefficients in $\mathbb{Z}_2$, for 1D (top) and 2D (bottom) connectivity condition. <b>b.</b> As a. but with coefficients in $\mathbb{Z}_3$. <b>c.</b> Distribution of the difference between lifetime of consecutive generators for each simulation (ordered  from longest to shortest lifetime) for 1D (left) and 2D (right) connectivity. <b>d.</b> Pie plot and table indicating the number of simulations (out of 100 in each condition) classified according to their Betti numbers.
+							</p>
+						</span>
+
+				</section>
+
+				<section data-auto-animate> <h4>Topology of the attractor</h4>
+					<h6>Local geometry</h6>
+					<div class="column_50"> 
+						<span style="font-size:18px; text-align:left"> Local dimension</span>
+						<img width="430" height = auto src='media_gridcells/local_dim.png'/>
+						<span style="font-size:18px; text-align:left"> Local homology</span> 
+						<br>
+						<img width="280" height = auto src='media_gridcells/local_homology.png'/>
+					</div>
+					<div class="column_50">
+						<br>
+						<img width="500" height = auto src='media_gridcells/gc_local_dimension_and_local_homology.jpeg'/>
+						<span style="font-size:15px; text-align:left">
+						<p><b>a.</b> Distribution of the fraction of the population data with local dimensionality equal to 2, for every connectivity condition. <b>b.</b> Distribution of local dimensionality across physical space in representative examples of 1D and 2D conditions. <b>c.</b> Average distribution of local dimensionality for all conditions (same color code as in b.) <b>d-f.</b> As a-c  but exploring deviations of the local homology $H_1$ from a value equal to 1, the value expected away from boundary points and singularities.
+						</p>
+					</span>
+					</div>
+				</section>
+
+				<section data-auto-animate> <h4>Conclusions</h4>
+					<span style="font-size:22px; text-align:left"> 
+					<ul>
+						<li>It is possible (sometimes) to completely determine (infer) the <b>homeomorphism type</b> of a <b>point cloud</b> in high dimensions.</li>
+						<br>
+						<li> The population activity of <b>grid cells</b> (and other neurons related to spatial location) has a particular organized <b>geometry</b> that might give information of their self-connectivity in the brain.</li>
+						<br>
+						<li> TDA might provide a tool to <b>validate or select physical models</b> (of neural activity).</li>
+					</ul>
+				</span>
+				</section>
+
+				<!--
+					<section data-auto-animate>
+						<p><b>Persistent homology</b>
+							<br><small>(coefficient field $\mathbb{Z}_2$ and $\mathbb{Z}_3$)</small>
+						</p>
+
+						 <div class="row">
+						 	 <div class="column">
+						 	 	<p class="fragment">2D connectivity
+ 							 	<img width="350" height = auto src='media_gridcells/PD_2D.png'/>
+ 							 	</p>
+						 	 </div>
+						 	 
+ 							 <div class="column"><p class="fragment">1D connectivity
+ 							 <img width="350" height = auto src='media_gridcells/PD_1D.png'/>
+ 							 </p>
+ 							 </div>
+
+ 							 <div class="column"><p class="fragment">No connectivity
+ 							 <img width="350" height = auto src='media_gridcells/PD_0D.png'/>
+ 							 </p>
+ 							 </div>
+						</div> 
+					</section>
+
+					<section data-auto-animate>
+						<p><b>Persistent homology</b>
+							<br><small>Generators</small>
+
+						 <div class="row">
+						 	 <div class="column">
+						 	 	<p class="fragment">2D connectivity
+ 							 	<img width="350" height = auto src='media_gridcells/PD_2D.png'/>
+ 							 	</p>
+						 	 </div>
+						 	 
+ 							 <div class="column"><p class="fragment">1D connectivity
+ 							 <img width="350" height = auto src='media_gridcells/PD_1D.png'/>
+ 							 </p>
+ 							 </div>
+
+ 							 <div class="column"><p class="fragment">No connectivity
+ 							 <img width="350" height = auto src='media_gridcells/PD_0D.png'/>
+ 							 </p>
+ 							 </div>
+						</div> 
+					</section> 
+
+					<section data-auto-animate>
+						<p><b>Persistent homology</b>
+							<br><small>Frechet mean</small>
+
+						 <div class="row">
+						 	 <div class="column">
+						 	 	<p>2D connectivity
+ 							 	<img width="350" height = auto src='media_gridcells/mean_2D.png'/>
+ 							 	</p>
+						 	 </div>
+						 	 
+ 							 <div class="column"><p>1D connectivity
+ 							 <img width="350" height = auto src='media_gridcells/mean_1D.png'/>
+ 							 </p>
+ 							 </div>
+
+ 							 <div class="column"><p>No connectivity
+ 							 <img width="350" height = auto src='media_gridcells/mean_0D.png'/>
+ 							 </p>
+ 							 </div>
+						</div> 
+					</section>
+
+				
+					<section data-auto-animate>
+					<small>
+						 <div class="row">
+						 	 <div class="column">
+						 	 	<p>2D connectivity
+ 							 	<img width="215" height = auto src='media_gridcells/2D_H0.png'/>
+ 							 	<img width="215" height = auto src='media_gridcells/2D_H1.png'/>
+ 							 	<img width="215" height = auto src='media_gridcells/2D_H2.png'/>
+ 							 	</p>
+						 	 </div>
+						 	 
+ 							 <div class="column">
+ 							 	<p>1D connectivity
+ 							  	<img width="215" height = auto src='media_gridcells/1D_H0.png'/>
+ 							 	<img width="215" height = auto src='media_gridcells/1D_H1.png'/>
+ 							 	<img width="215" height = auto src='media_gridcells/1D_H2.png'/>
+ 								</p>
+ 							 </div>
+
+ 							 <div class="column"><p>No connectivity
+ 							  	<img width="215" height = auto src='media_gridcells/0D_H0.png'/>
+ 							 	<img width="215" height = auto src='media_gridcells/0D_H1.png'/>
+ 							 	<img width="215" height = auto src='media_gridcells/0D_H2.png'/>
+ 							 </p>
+ 							 </div>
+						</div> 
+					</small>
+					</section>
+				-->
+
+				<!--
+					<section data-auto-animate>
+						<p><b>Intrinsic dimension</b>
+							<br>
+						Local PCA</p>
+						 <div class="row">
+						 	 <div class="column"><p>2D connectivity
+						 	 <img width="400" height = auto src='media_gridcells/2D_local_dim_var.png'/>
+						 	 </p>
+						 	 </div>
+						 	 
+ 							 <div class="column"><p>1D connectivity
+ 							 <img width="400" height = auto src='media_gridcells/1D_local_dim_var.png'/>
+ 							 </p>
+ 							 </div>
+
+ 							  <div class="column"><p>No connectivity
+ 							 <img width="400" height = auto src='media_gridcells/0D_local_dim_var.png'/>
+ 							 </p>
+ 							 </div>
+						</div> 
+					</section>
+				
+				
+					<section data-auto-animate>
+						<p><b>Intrinsic dimension</b>
+							<br>
+						Local PCA</p>
+						 <div class="row">
+						 	 <div class="column"><p>2D connectivity
+						 	 <img width="400" height = auto src='media_gridcells/2D_local_dim.png'/>
+						 	 </p>
+						 	 </div>
+						 	 
+ 							 <div class="column"><p>1D connectivity
+ 							 <img width="400" height = auto src='media_gridcells/1D_local_dim.png'/>
+ 							 </p>
+ 							 </div>
+
+ 							  <div class="column"><p>No connectivity
+ 							 <img width="400" height = auto src='media_gridcells/0D_local_dim.png'/>
+ 							 </p>
+ 							 </div>
+						</div> 
+					</section>
+				
+
+
+					<section data-auto-animate>
+						<p><b>Local (persistent) homology</b></p>
+						<p><small>Compute an estimate of $H_1(B_x(r), \{x\})$ for every $x$.</small></p>
+
+						 <div class="row">
+						 	 <div class="column"><p>2D connectivity
+						 	 <img width="400" height = auto src='media_gridcells/2D_anomalies.png'/>
+						 	 </p>
+						 	 </div>
+						 	 
+ 							 <div class="column"><p>1D connectivity
+ 							 <img width="400" height = auto src='media_gridcells/1D_anomalies.png'/>
+ 							 </p>
+ 							 </div>
+
+ 							 <div class="column"><p>No connectivity
+ 							 <img width="400" height = auto src='media_gridcells/0D_anomalies.png'/>
+ 							 </p>
+ 							 </div>
+						</div> 
+						<p style="font-size: 15px">Stolz BJ, Tanner J, Harrington HA, Nanda V. <i>Geometric anomaly detection in data.</i> Proceedings of the National Academy of Sciences of the United States of America. 2020 Aug; 117(33):19664-19669</p>
+					</section>
+
+					<section>
+						<h3>From neural activity to <br> neural network architecture</h3>
+					</section>
+
+				<section data-auto-animate>						
+						<p><b>Experiment</b>
+						<small>
+						<ul>
+						<li>Simulation of the neural activity of 100 grid cells in an arena of $25\times 25$.</li>
+						<li>Point cloud of 100 points in $\mathbb{R}^{625}$.</li>
+						<li>Metric: <i>correlation</i></li>
+						</ul>
+						</p>
+						</small>
+
+						<div class="row">
+						 	 <div class="column">
+						 	 	<p class="fragment">2D connectivity
+ 							 	<img width="350" height = auto src='media_gridcells/2D_architecture.png'/>
+ 							 	</p>
+						 	 </div>
+						 	 
+ 							 <div class="column"><p class="fragment">1D connectivity
+ 							 <img width="350" height = auto src='media_gridcells/1D_architecture.png'/>
+ 							 </p>
+ 							 </div>
+
+ 							 <div class="column"><p class="fragment">No connectivity
+ 							 <img width="350" height = auto src='media_gridcells/0D_architecture.png'/>
+ 							 </p>
+ 							 </div>
+						</div> 
+					</section>
+
+					<section data-auto-animate>						
+						<p><b>Persistence diagram</b>
+						<p><small>Frechet mean and variance</small></p>
+						</p>
+
+						<div class="row">
+						 	 <div class="column">
+						 	 	<p>2D connectivity
+ 							 	<img width="350" height = auto src='media_gridcells/mean_2D_architecture.png'/>
+ 							 	</p>
+						 	 </div>
+						 	 
+ 							 <div class="column"><p>1D connectivity
+ 							 <img width="350" height = auto src='media_gridcells/mean_1D_architecture.png'/>
+ 							 </p>
+ 							 </div>
+
+ 							 <div class="column"><p>No connectivity
+ 							 <img width="350" height = auto src='media_gridcells/mean_0D_architecture.png'/>
+ 							 </p>
+ 							 </div>
+						</div> 
+					</section>
+				-->
+
+
+				<section>
+					<h3>Topological methods <br>
+						for  detection of epileptic seizures</h3>
+
+
+				</section>
+
+
+				
+				<section data-auto-animate>
+					<h4> Topological analysis of EEG/MEG recordings</h4>
+					<span style="font-size: 22px; text-align:left;">
+					<ul>
+					 <li class = 'fragment'><b>Data: </b> Raw multichannel <b style="color: slategrey">EEG/MEG</b> recordings for different patients during <i>preictal, ictal</i> and <i>interictal</i> states.</li>
+					 </ul>
+					 <img  class = 'fragment' width="1500" height = auto class = 'fragment' src='media_epilepsy/CC_iEEG.png'/>
+					 </span>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Topological analysis of EEG/MEG recordings</h4>
+					<span style="font-size: 22px; text-align:left;">
+					<ul>
+					 <li><b>Data: </b> Raw multichannel <b style="color: slategrey">EEG/MEG</b> recordings for different patients during <i>preictal, ictal</i> and <i>interictal</i> states.</li>
+					 <li> <b>Goal:</b> Detect the <span style="color: red"> epileptic seizure</span>.</li>
+					 </ul>
+					 <img width="1500" height = auto src='media_epilepsy/CC_iEEG_seizure_bis.png'/>
+					 </span>
+				</section>
+			
+
+				
+				<section data-auto-animate>
+					<h4>Topological analysis of EEG/MEG recordings</h4>
+					<span style="font-size: 24px; text-align:left;">
+					Given $X_1, X_2, \dots X_N:[0,T]\to \mathbb{R}$ signals, we construct an <b style="color: red;">embedding</b>  in $\mathbb{R}^N$ given by $$\{(X_1(t), X_2(t), \dots, X_N(t)): t\in [0,T]\}$$
+					</span>
+					<img width="1400" height = auto  src='media_epilepsy/iEEG_embedding.png'/>
+				</section>
+
+				<!--
+				<section data-auto-animate>
+					<h3>Dynamical systems</h3>
+					<br>
+					<span style="font-size: 24px; text-align:left;">
+					<p>We assume we are in the followig setting:</p>
+					<ul>
+						<li class = 'fragment'>
+							A <b style="color: red"> continuous  dynamical system</b> $(X, \phi)$, with $X$ a topological space and $\phi_t \colon X \to X$ a smooth family of evolution functions for $t \in \mathbb{R}$. 
+						</li>
+						<br>
+						<li class = 'fragment'> 
+							A set $A \subset X$  called the <b style="color: red">attractor</b>, that is the asymptotic state of the system.
+						</li>
+					</ul>
+					</span>
+				</section>
+
+				
+
+				<section data-auto-animate>
+					<h3>Dynamical systems</h3>
+					<br>
+					<span style="font-size: 24px; text-align:left;">
+					<ul>
+						<li>
+							A <b style="color: red"> continuous  dynamical system</b> $(X, \phi)$, with $X$ a topological space and $\phi_t \colon X \to X$ a smooth family of evolution functions for $t \in \mathbb{R}$. 
+						</li>
+						<br>
+						<li> 
+							A set $A \subset X$  called the <b style="color: red">attractor</b>, that is the asymptotic state of the system.
+						</li>
+						<br>
+						<li> The typical examples arising from <b style="color: red">differential equations</b> have as state space a smooth manifold $X$ and the dynamics are given by the integral curves of a smooth vector field on $X$.
+						</li>
+					<div class="row" style="font-size: 20px">
+				 	 		<div class="column_50" style="font-size: 18px">
+				 	 		<br>
+				 	 		<br>
+				 	 		<b style="color: red">Lorenz attractor</b>
+							\begin{equation}\begin{cases}
+							\dot x = \sigma ( y - x ) , \\
+							\dot y = x(\rho-z)-y ,\\
+							\dot z = xy-\beta z \end{cases}
+							\end{equation}
+							with $(\sigma, \rho, \beta) = (10, 28, 8/3)$. 
+							</div>
+							<div class="column_50">
+							<img width="450" height = auto src='media_ts/lorenz_time_series.gif'/>
+							</div>
+					</div>
+					</ul>
+					</span>
+					</section>
+
+					<section data-auto-animate>
+					<h3>Dynamical systems</h3>
+					<br>
+					<span style="font-size: 24px; text-align:left;">
+					<ul>
+						<li>
+							A <b style="color: red"> continuous  dynamical system</b> $(X, \phi)$, with $X$ is a topological space and $\phi_t \colon X \to X$ a smooth family of evolution functions for $t \in \mathbb{R}$. 
+						</li>
+						<br>
+						<li> 
+							A set $A \subset X$  called the <b style="color: red">attractor</b>, that is the asymptotic state of the system.
+						</li>
+					<div class="row">
+				 	 		<div class="column_60">
+							<video  data-autoplay  width="800" height = auto src='media_epilepsy/EEG_channel123.mp4'></video>
+							</div>
+							<div class="column_40">
+							<video  data-autoplay  width="400" height = auto src='media_epilepsy/embedding_CC.mp4'></video>
+							</div>
+					</div>
+					</ul>
+					</span>
+				</section>
+
+				<section data-auto-animate>
+						<h3>Geometry of the attractor</h3>
+						<span style="font-size: 23px; text-align:left;">
+						<ul>
+							<li class = 'fragment'>Given a topological space $X$, its <b style="color: red">homology</b> $H_k(X)$ at degree $k$ captures <b style="color: slategrey">geometric signatures</b> in $X$ of dimension $k$.</li>
+							<li class = 'fragment' > The rank of the group  $H_k(X)$ defines the <b style="color: red">$k$-th Betti number $\beta_k$</b> of $X$ and it quantifies the number of (independent) <b style="color: red">$k$-dimensional holes</b> in $X$. </li>
+							<br>
+								<ul style="font-size: 20px;" class = 'fragment'>
+								<li>$\beta_0$ = number of connected components,</li>
+								<li>$\beta_1$ = number of 1-dimensional cycles,</li>
+								<li>$\beta_2$ = number of 2-dimensional voids,
+								$\dots$</li>
+								<ul>
+						</ul>
+						<div class="row" >
+				 	 		<div class="column_45">
+							<img  width="500" class = 'fragment' height = auto src='media_epilepsy/lorenz.png'/>
+							</div>
+							<div class="column_50" >
+								<br>
+								<br>
+								<br>
+							<ul style="font-size: 23px;" class = 'fragment'>
+								<li>$\beta_0$ = 1</li>
+								<li>$\beta_1$ = 2</li>
+								<li>$\beta_2$ = 0</li>
+								<ul>
+							</div>
+						</div>
+				</section>
+
+				<section data-auto-animate>
+						<h3>Geometry of the attractor</h3>
+						<span style="font-size: 23px; text-align:left;">
+						<ul>
+							<li >Given a topological space $X$, its <b style="color: red">homology</b> $H_k(X)$ at degree $k$ captures <b style="color: slategrey">geometric signatures</b> in $X$ of dimension $k$.</li>
+							<li> The rank of the group  $H_k(X)$ defines the <b style="color: red">$k$-th Betti number $\beta_k$</b> of $M$ and it quantifies the number of (independent) <b style="color: red">$k$-dimensional holes</b>  in $M$. </li>
+							<br>
+								<ul style="font-size: 20px;">
+								<li>$\beta_0$ = number of connected components,</li>
+								<li>$\beta_1$ = number of 1-dimensional cycles,</li>
+								<li>$\beta_2$ = number of 2-dimensional voids,
+								$\dots$</li>
+								<ul>
+						</ul>
+						<div class="row" >
+				 	 		<div class="column_45">
+							<img  width="500" height = auto src='media_epilepsy/aizawa.png'/>
+							</div>
+							<div class="column_50">
+								<br>
+								<br>
+								<br>
+							<ul style="font-size: 23px;">
+								<li>$\beta_0$ = 1</li>
+								<li>$\beta_1$ = 1</li>
+								<li>$\beta_2$ = 1</li>
+								<ul>
+							</div>
+						</div>
+				</section>
+
+				<section data-auto-animate>
+						<h4>Geometry of a sample of the attractor</h4>
+						<span style="font-size: 23px; text-align:left;">
+						<ul>
+							<li >Given a <b style="color: slategrey">sample</b> $X_n$ of a topological space, its <b style="color: red">persistent homology</b> at degree $k$ infers <b style="color: slategrey">geometric signatures</b> of dimension $k$ in the underlying space.</li>
+
+						</ul>
+						<div class="row" >
+						 	 <div class="column">
+						 	 	<p >Point cloud 
+ 							 	<img width="350" height = auto src='media_ts/circle_resized.png'/>
+ 							 	</p>
+						 	 </div>
+						</div> 
+				</section>
+
+				<section data-auto-animate>
+						<h4>Geometry of a sample of the attractor</h4>
+						<span style="font-size: 23px; text-align:left;">
+						<ul>
+							<li>Given a <b style="color: slategrey">sample</b> $X_n$ of a topological space, its <b style="color: red">persistent homology</b> at degree $k$ infers <b style="color: slategrey">geometric signatures</b> of dimension $k$ in the underlying space.</li>
+							<li>The computation relies in the reconstruction of the underlying space as <b style="color: lightcoral;">union of balls</b> centered in the sample points with <b style="color: lightcoral">increasing radii</b>. </li>
+						</ul>
+						 <div class="row" >
+						 	 <div class="column">
+						 	 	<p>Point cloud 
+ 							 	<img width="360" height = auto src='media_ts/circle_resized.png'/>
+ 							 	</p>
+						 	 </div>
+ 							 <div class="column_50" style = "text-align:center;"><p>Filtration of spaces
+ 							 <img width="380" height = auto src='media_ts/filtration_circle.gif'/>
+ 							 </p>
+ 							 </div>
+						</div> 
+				</section>
+
+				<section data-auto-animate>
+						<h4>Geometry of a sample of the attractor</h4>
+						<span style="font-size: 23px; text-align:left;">
+						<ul>
+							<li >Given a <b style="color: slategrey">sample</b> $X_n$ of a topological space, its <b style="color: red">persistent homology</b> at degree $k$ infers <b style="color: red">geometric signatures</b> of dimension $k$ in the underlying space.</li>
+							<li >The computation relies in the reconstruction of the underlying space as <b style="color: red">union of balls</b> centered in the sample points with <b style="color: red">increasing radii</b>. </li>
+							<li > The <b style="color: red">persistence diagram</b> at degree $k$ has a point for each generator in $H_k$ in the filtration, the 1st coordinate represents its <b>birth</b>, the 2nd coordinate represents its <b>lifetime</b>.</li>
+						</ul>
+						<div class="row">
+						 	 <div class="column" style="font-size: 23px; text-align:center;">
+						 	 	<p>Point cloud 
+ 							 	<img width="360" height = auto src='media_ts/circle_resized.png'/>
+ 							 	</p>
+						 	 </div>
+						 	 
+ 							 <div class="column_50" style="font-size: 23px; text-align:center;"><p>Filtration of spaces
+ 							 <img width="380" height = auto src='media_ts/filtration_circle.gif'/>
+ 							 </p>
+ 							 </div>
+
+ 							 <div class="column"><p >Persistence diagram
+ 							 	<br>
+ 							 	<br>
+ 							 	<br>
+ 							 	<br>
+ 							 <img width="380" height = auto src='media_epilepsy/PD_circle.png'/>
+ 							 </p>
+ 							 </div>
+						</div> 
+				</section>
+
+				<section data-auto-animate>
+						<h4>Geometry of a sample of the attractor</h4>
+						<span style="font-size: 23px; text-align:left;">
+						<ul>
+							<li >Given a <b style="color: slategrey">sample</b> $X_n$ of a topological space, its <b style="color: red">persistent homology</b> at degree $k$ infers <b style="color: red">geometric signatures</b> of dimension $k$ in the underlying space.</li>
+							<li >The computation relies in the reconstruction of the underlying space as <b style="color: red">union of balls</b> centered in the sample points with <b style="color: red">increasing radii</b>. </li>
+							<li > The <b style="color: red">persistence diagram</b> at degree $k$ has a point for each generator in $H_k$ in the filtration, the 1st coordinate represents its <b>birth</b>, the 2nd coordinate represents its <b>lifetime</b>.</li>
+						</ul>
+						<div class="row" >
+				 	 		<div class="column_45">
+							<img  width="350" height = auto src='media_epilepsy/lorenz_pc.png'/>
+							</div>
+							<div class="column_50">
+							<br>
+							<img  width="350" height = auto src='media_epilepsy/PH_lorenz.png'/>
+							</div>
+						</div>
+				</section>
+
+				<section data-auto-animate>
+						<h4>Geometry of a sample of the attractor</h4>
+						<span style="font-size: 23px; text-align:left;">
+						<ul>
+							<li>Given a <b style="color: slategrey">sample</b> $X_n$ of a topological space, its <b style="color: red">persistent homology</b> at degree $k$ infers <b style="color: red">geometric signatures</b> of dimension $k$ in the underlying space.</li>
+							<li >The computation relies in the reconstruction of the underlying space as <b style="color: red">union of balls</b> centered in the sample points with <b style="color: red">increasing radii</b>. </li>
+							<li > The <b style="color: red">persistence diagram</b> at degree $k$ has a point for each generator in $H_k$ in the filtration, the 1st coordinate represents its <b>birth</b>, the 2nd coordinate represents its <b>lifetime</b>.</li>
+						</ul>
+						<div class="row" >
+				 	 		<div class="column_45">
+							<img  width="350" height = auto src='media_epilepsy/aizawa_pc.png'/>
+							</div>
+							<div class="column_50">
+							<br>
+							<img  width="350" height = auto src='media_epilepsy/PH_aizawa.png'/>
+							</div>
+						</div>
+				</section>
+			-->
+
+
+
+				
+				<section  data-auto-animate>
+					<h3>Sliding Window Embedding</h3>
+					<span style="font-size: 23px; text-align:left;">
+					<ul>
+						<li class = 'fragment'>Let $X_1, X_2, \dots X_N:[0,T]\to \mathbb{R}$ a set of signals.</li>
+						<li class = 'fragment'>Given a <b style="color: red">window</b> size $W$, we compute for every $t\in [W,T]$ the embedding of $X_1, X_2, \dots X_N:[t-W, t]\to \mathbb{R}$ in $\mathbb{R}^N$.</li>
+					</ul>
+					<img  class = 'fragment' width="1500" height = auto src='media_epilepsy/CC_iEEG_window.png'/>
+					</span>
+				</section>
+
+				<section  data-auto-animate>
+					<h3>Sliding Window Embedding</h3>
+					<span style="font-size: 23px; text-align:left;">
+					<ul>
+						<li >Let $X_1, X_2, \dots X_N:[0,T]\to \mathbb{R}$ a set of signals.</li>
+						<li >Given a <b style="color: red">window</b> size $W$, we compute for every $t\in [W,T]$ the embedding of $X_1, X_2, \dots X_N:[t-W, t]\to \mathbb{R}$ in $\mathbb{R}^N$.</li>
+						<video data-autoplay src='media_epilepsy/EEG_channel_window.mp4' width="1000" height=auto> </video>
+
+						<!--<img width="1000" height = auto src='media_epilepsy/window.gif'/>-->
+
+					</ul>
+
+				</span>
+					
+				</section>
+
+
+				<section  data-auto-animate>
+					<h3>Sliding Window Embedding</h3>
+					<span style="font-size: 23px; text-align:left;">
+					<ul>
+						<li>Let $X_1, X_2, \dots X_N:[0,T]\to \mathbb{R}$ a set of signals.</li>
+						<li>Given a <b style="color: red">window</b> size $W$, we compute for every $t\in [W,T]$ the embedding of $X_1, X_2, \dots X_N:[t-W, t]\to \mathbb{R}$ in $\mathbb{R}^N$.</li>
+						<li> We compute the <b style="color: red"> (persistent) homology</b> of the time evolving <b style="color: red">sliding window embedding</b>.</li>
+					</ul>
+					<img  width="1200" height = auto src='media_epilepsy/PD_path_CC.png'/>
+					</span>
+				</section>
+
+
+				<section> <h4>Metric in the space of persistence diagrams</h4>
+					<span style="font-size: 23px; text-align:left;">
+					<ul>
+						<li> The <b style="color: red">Wassertein distance</b> between two diagrams $\mathrm{dgm}_1$ and $\mathrm{dgm}_2$ is
+							\[d_W(\mathrm{dgm}_1, \mathrm{dgm}_2) = \inf_{M \text{ matching}} \left(\sum_{(x,y)\in M} ||x-y||^p\right)^{1/p}\]
+
+						</li>
+					</ul>		
+					<img  width="350" height = auto src='media_ts/matching.png'/>
+					</span>				
+				</section>
+
+
+
+
+
+				<section>
+					<h5>Topological analysis of EEG/MEG recordings</h5>
+					<span style="font-size: 20px; text-align:left;">
+					Multichannel signals $\to$ Sliding Window Embedding $\to$ Path of persistent diagrams $\to$ (Estimator of) 1st Derivative
+					</span>
+					<img  width="750" height = auto src='media_epilepsy/iEEG_derivative.png'/>
+				</section>
+
+
+
+				<section data-auto-animate>
+					
+					<h5>Patient RAO</h5>
+					<span style="font-size: 20px; text-align:left;">
+					<ul>
+					<li> MEG with 171 channels</li>
+					<li>  120 seg recording with sampling rate 625 HZ</li>
+					</ul>
+					<img  width="700" height = auto src='media_epilepsy/RAO_MEG.png'/>
+				</span>
+					
+				</section>
+
+
+				<section data-auto-animate>
+					
+					<h5>Patient RAO</h5>
+					<span style="font-size: 20px; text-align:left;">
+					<ul>
+					<li> MEG with 171 channels</li>
+					<li>  120 seg recording with sampling rate 625 HZ</li>
+					<li> Seizure starts at $t = 29375$ and ends at $t = 37500$.</li>
+					</ul>
+					<img  width="700" height = '400' src='media_epilepsy/RAO_MEG_seizure.png'/>
+				</span>
+					
+				</section>
+
+				<section data-auto-animate>
+					
+					<h5>Patient RAO</h5>
+					<span style="font-size: 20px; text-align:left;">
+					<img  width="650" height = auto src='media_epilepsy/RAO_all.png'/>
+				</span>
+					
+				</section>
+
+				<section data-auto-animate>
+					<h5>Patient MAC</h5>
+					<span style="font-size: 20px; text-align:left;">
+					<ul>
+					<li> MEG with 144 channels</li>
+					<li> 120 seg recording with sampling rate 625 HZ</li>
+					</ul>
+					</span>
+
+					<img  width="800" height = auto src='media_epilepsy/MAC_MEG.png'/>
+				</section>
+
+				<section data-auto-animate>
+					<h5>Patient MAC</h5>
+					<span style="font-size: 20px; text-align:left;">
+					<ul>
+					<li> MEG with 144 channels</li>
+					<li> 120 seg recording with sampling rate 625 HZ</li>
+					<li> Seizure starts at $t = 60000$ and ends at $t = 68125$.</li>
+					</ul>
+					</span>
+
+					<img  width="800" height = auto src='media_epilepsy/MAC_MEG_seizure.png'/>
+				</section>
+
+
+				<section data-auto-animate>
+					<h5>Patient MAC</h5>
+					<span style="font-size: 20px; text-align:left;">
+					<ul>
+					<li> MEG with 144 channels</li>
+					<li> 120 seg recording with sampling rate 625 HZ</li>
+					<li> Seizure starts at $t = 60000$ and ends at $t = 68125$.</li>
+					</ul>
+					</span>
+
+					<img  width="600" height = auto src='media_epilepsy/MAC_all.png'/>
+				</section>
+
+
+				<section data-auto-animate>
+					<h5>Patient CC</h5>
+					<span style="font-size: 20px; text-align:left;">
+					<ul>
+					<li> iEEG with 9 channels</li>
+					<li> 300 seg recording (baseline and seizure) with a sampling rate 200 HZ</li>
+					</ul>
+					</span>
+					<img  width="750" height = auto src='media_epilepsy/CC_iEEG.png'/>
+				</section>
+
+				<section data-auto-animate>
+					<h5>Pacient CC</h5>
+					<span style="font-size: 20px; text-align:left;">
+					<ul>
+					<li> iEEG with 9 channels</li>
+					<li> 300 seg recording (baseline and seizure) with a sampling rate 200 HZ</li>
+					<li> Seizure starts at $t = 32000$ and ends at $t =58000$</li>
+					</ul>
+					</span>
+					<img  width="750" height = auto src='media_epilepsy/CC_iEEG_seizure_bis.png'/>
+				</section>
+
+				<section data-auto-animate>
+					<h5>Pacient CC</h5>
+					<span style="font-size: 20px; text-align:left;">
+					<ul>
+					<li> iEEG with 9 channels</li>
+					<li> 300 seg recording (baseline and seizure) with a sampling rate 200 HZ</li>
+					<li> Seizure starts at $t = 30000$ and ends at $t =58000$</li>
+					</ul>
+					</span>
+					<img  width="750" height = auto src='media_epilepsy/CC_all.png'/>
+				</section>
+
+
+				<section data-auto-animate>
+					<h3>Analysis by channel?</h3>
+					<span style="font-size: 24px; text-align:left;">
+					<ul>
+					<li class = 'fragment'> For every channel $X_i:[0,T]\colon \rightarrow \mathbb{R}$, compute the <b>dynamic induced by this observation</b>.</li>
+					<li class = 'fragment'> <b>Compare</b> the induced maps of time evolving topological changes, for the <b>different channels</b>.</li>
+					</ul>
+					</span>
+				</section>
+
+				<section data-auto-animate>
+				<h3>From time series to topology</h3>
+				<span style="font-size: 24px; text-align:left;">
+				<br>
+				<p>In <b>practice</b>, we only have measurements that are the result of an  <b style="color: red">observation function</b> $F:X\to \mathbb R$  and an <b style="color: red">initial state</b> $x_0\in X$ that produces a <b style="color: red">time series</b>
+					\begin{align}\varphi_p:\mathbb{R}&\to \mathbb{R}\\
+					t&\mapsto F(\phi_t(x_0))
+					\end{align}
+				</p>
+				<img  width="1500" height = auto src='media_ts/x_lorenz.png'/>
+				<blockquote class="fragment" style="padding: 5 px; border: 2px solid red; font-size: 23px;">We can <b>topologically</b> reconstruct the attractor from the observation.</blockquote>
+			</span>
+			</section>
+
+			<section data-auto-animate>
+				<h3>From time series to topology</h3>
+				<span style="font-size: 24px; text-align:left;">
+				
+				<p>In <b>practice</b>, we only have measurements that are the result of an  <b style="color: red">observation function</b> $F:X\to \mathbb R$  and an <b style="color: red">initial state</b> $x_0\in X$ that produces a <b style="color: red">time series</b>
+					\begin{align}\varphi_{x_0}:\mathbb{R}&\to \mathbb{R}\\
+					t&\mapsto F(\phi_t(x_0))
+					\end{align}
+				</p>
+				<blockquote  style="border: 2px solid #666; padding: 15px; background-color: #ccc; width:750px"> <b>Theorem (Takens).</b> Let $\mathcal{M}$ be a smooth, compact, Riemannian manifold. Let $\tau > 0$ be a real number and let $d ≥ 2 \mathrm{dim}(\mathcal{M})$
+				be an integer. Then, for generic $\phi \in  C^2(\mathbb{R} \times \mathcal{M}, \mathcal{M})$ and $F\in  C^2(\mathcal{M}, \mathbb{R})$ and for $\varphi_\bullet(𝑡)$ defined as above, the <b>delay map</b>
+				\begin{align}
+				\varphi~ \colon & ~~\mathcal{M} &\rightarrow & ~~\mathbb{R}^{d+1}\\
+				&~~p &\mapsto & ~~(\varphi_p(0), \varphi_p(𝜏), \varphi_p(2𝜏),\dots, \varphi_p(d\tau))
+				\end{align}
+				is an embedding (i.e., $\varphi$ is injective and its derivative has full-rank everywhere).
+				</blockquote>
+			</span>
+			</section>
+
+			<section data-auto-animate>
+				<h3>From time series to topology</h3>
+				<br>
+				<span style="font-size: 24px; text-align:left;">
+				<li> $f\colon\mathbb{R} \rightarrow \mathbb{R}$ an <b>observation</b>,</li>
+				<li>$\tau> 0$ a real number (delay),</li> 
+				<li>$d \geq 0$ an integer (dimension).</li>
+				<blockquote class="fragment" style="padding: 5 px; border: 2px solid red; font-size: 23px;">The <b style="color: red">time delay embedding</b> of $f$ with parameters $d$ and $\tau$ is the vector-valued function 
+				\begin{align}
+				X_{d,\tau}f\colon &~~\mathbb{R}\rightarrow ~~\mathbb{R}^{d+1}\\
+				&~~~t ~\mapsto ~(f(t), 𝑓(t + \tau), 𝑓(t + 2\tau), \dots, 𝑓(t + d\tau))\\
+				\end{align}
+				</blockquote>
+				<p class="fragment"> <i class="fas fa-lightbulb"></i>
+				 Given <b style="color: red">time series data</b> $f(t) = \varphi_p(t)$ with $t\in T$ observed
+				from a potentially unknown dynamical system $(X, \phi)$, Takens’ theorem implies that (generically) the <b style="color: red">time delay embedding</b> $X_{d,\tau}f([0,T])$ provides a topological copy of $\{\phi(t, x_0) ∶ t \in T\} \subseteq X$. 
+				</p>
+				</span>			
+			</section>
+
+						<section data-auto-animate>
+				<h3>From time series to topology</h3>
+				<br>
+				<span style="font-size: 24px; text-align:left;">
+				<li> $f\colon\mathbb{R} \rightarrow \mathbb{R}$ an <b>observation</b>,</li>
+				<li>$\tau> 0$ a real number (delay),</li> 
+				<li>$d > 0$ an integer (dimension).</li>
+				<blockquote  style="padding: 5 px; border: 2px solid red; font-size: 23px;">The <b style="color: red">time delay embedding</b> of $f$ with parameters $d$ and $\tau$ is the vector-valued function 
+				\begin{align}
+				X_{d,\tau}f\colon &~~\mathbb{R}\rightarrow ~~\mathbb{R}^{d+1}\\
+				&~~~t ~\mapsto ~(f(t), 𝑓(t + \tau), 𝑓(t + 2\tau), \dots, 𝑓(t + d\tau))\\
+				\end{align}
+				</blockquote>
+				</span>
+				<div  class="row" style="font-size: 18px">
+					<div class="column_50">
+					<img width="300" height = auto src='media_ts/lorenz_time_series.gif'/>
+					</div>
+		 	 		<div class="column_50" style="font-size: 18px">
+		 	 		<img width="300" height = auto src='media_ts/lorenz_takens.gif'/>
+					</div>
+				</div>
+			
+			</section>
+
+			<!--
+			<section data-auto-animate>
+					<h3>Bonus: analysis by channel</h3>
+					<span style="font-size: 24px; text-align:left;">
+					<ul>
+					<li> For every channel $X_i:[0,T]\colon \rightarrow \mathbb{R}$, compute the<b> dynamic induced by this observation</b>.</li>
+					</ul>
+
+					<p>Given a signal $X:[0,T] \to \mathbb{R}$, the <b style="color: red">delay embedding </b> in dimension $d$ and delay $\tau$ is \[\{(X(t), X(t+\tau), X(t+2\tau), \dots, X(t+(d-1)\tau)\in \mathbb{R}^d: t\in[0, T-(d-1)\tau]\}\]</p>
+
+					<p class = 'fragment' ><b style="color: red">Takens Theorem. </b> The <i>delay embedding</i> of an observation allows to reconstruct the entire dynamics.</p>
+					</span>
+
+					<div class = 'fragment' class="row" style="font-size: 20px">
+						<div class="column_50">
+						<img width="400" height = auto src='media_ts/lorenz_time_series.gif'/>
+						</div>
+						<div class="column_50">
+						<img width="400" height = auto src='media_ts/lorenz_takens.gif'/>
+						</div>
+
+					</div>
+
+				</section>
+			-->
+
+				<section data-auto-animate>
+					<h3>Analysis by channel?</h3>
+					<span style="font-size: 22px; text-align:left;">
+					 <p style="font-size: 20px; text-align:left;"> Channel $\to$ Sliding Window $\to$ Takens Delay Embedding $\to$ Path of persistent diagrams $\to$ 1st Derivative</p>
+
+					</span>
+					<img  width="620" height = auto src='media_epilepsy/CC_all_by_channel.png'/>
+
+				</section>
+
+
+
+				<section>
+					<h2 >Thanks!</h2>
+					<video data-autoplay src='media_epilepsy/EEG_channel_window.mp4' width="750" height=auto> </video>
+					<!---<img width="700" height = auto src='media_epilepsy/window.gif'/>
+					<img width="700" height = auto src='media_epilepsy/Derivative_CC.gif'/>--->
+					<video data-autoplay src='media_epilepsy/Derivative_CC.mp4' width="750" height=auto> </video>
+				</section>
+
+
+			</div>
+
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/math/math.js"></script>
+		<script>
+			Reveal.initialize({
+				history: true,
+				transition: 'linear',
+
+				math: {
+					// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+					config: 'TeX-AMS_HTML-full',
+					TeX: {
+						Macros: {
+							R: '\\mathbb{R}',
+							set: [ '\\left\\{#1 \\; ; \\; #2\\right\\}', 2 ]
+						}
+					}
+				},
+
+				plugins: [ RevealMath ]
+			});
+		</script>
+
+	</body>
+</html>
