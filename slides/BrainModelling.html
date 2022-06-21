@@ -19,10 +19,10 @@
 			  box-sizing: border-box;
 			}
 
-			.column {
+			.column_30 {
 			  float: left;
 			  width: 25%;
-			  padding: 10px;
+			  padding: 2px;
 			}
 
 			.column_50 {
@@ -31,10 +31,10 @@
 			  padding: 10px;
 			}
 
-			.column_Big {
+			.column_70 {
 			  float: left;
-			  width: 75%;
-			  padding: 10px;
+			  width: 70%;
+			  padding: 2px;
 			}	
 
 			.column_33 {
@@ -1461,14 +1461,55 @@
 				<section data-auto-animate>
 				<h4>From single time series to topology</h4>
 				<span style="font-size: 24px; text-align:left;">
-				<br>
-				<p>In <b>practice</b>, we only have measurements that are the result of an  <b style="color: red">observation function</b> $F:X\to \mathbb R$  and an <b style="color: red">initial state</b> $x_0\in X$ that produces a <b style="color: red">time series</b>
+				<p>In <b style="color: red">theory</b>, we assume we have a <b>global continuous time dynamical system</b>
+				 $(\mathcal{M}, \phi)$ with $\mathcal{M}$ a topological space and $\phi \colon \mathbb{R} \times \mathcal{M} \to \mathcal{M}$ a continuous map such that $\phi(0, p) = p$ and $\phi(s, \phi(𝑡, 𝑝)) = \phi(s + t, p)$ for all $p \in \mathcal{M}$ and all $t, s \in \mathbb{R}$.</p>
+				
+				<div class="column_50" style="font-size: 18px">
+			 	 		\begin{equation}\begin{cases}
+							\dot x = \sigma ( y - x ) , \\
+							\dot y = x(\rho-z)-y ,\\
+							\dot z = xy-\beta z \end{cases}
+							\end{equation}
+							with $(\sigma, \rho, \beta) = (10, 28, 8/3)$. 
+				</div>
+				<div class="column_50">
+						<img  width="350" height = auto src='media_epilepsy/lorenz_notitle.png'/>
+				</div>
+				</span>
+				</section>
+
+				<section data-auto-animate>
+				<h4>From single time series to topology</h4>
+				<span style="font-size: 24px; text-align:left;">
+				<p>In <b style="color: red">theory</b>, we assume we have a <b>global continuous time dynamical system</b>
+				 $(\mathcal{M}, \phi)$ with $\mathcal{M}$ a topological space and $\phi \colon \mathbb{R} \times \mathcal{M} \to \mathcal{M}$ a continuous map such that $\phi(0, p) = p$ and $\phi(s, \phi(𝑡, 𝑝)) = \phi(s + t, p)$ for all $p \in \mathcal{M}$ and all $t, s \in \mathbb{R}$.</p>
+				<p>In <b style="color: red">practice</b>, we only have measurements that are the result of an  <b style="color: red">observation function</b> $F:X\to \mathbb R$  and an <b >initial state</b> $x_0\in X$ that produces a <b>time series</b>
 					\begin{align}\varphi_p:\mathbb{R}&\to \mathbb{R}\\
 					t&\mapsto F(\phi_t(x_0))
 					\end{align}
 				</p>
 				<img  width="1500" height = auto src='media_ts/x_lorenz.png'/>
-				<blockquote class="fragment" style="padding: 5 px; border: 2px solid red; font-size: 23px;">We can <b>topologically</b> reconstruct the attractor from the observation.</blockquote>
+			</span>
+			</section>
+
+				<section data-auto-animate>
+				<h4>From single time series to topology</h4>
+				<span style="font-size: 24px; text-align:left;">
+				<p>In <b style="color: red">theory</b>, we assume we have a <b>global continuous time dynamical system</b>
+				 $(\mathcal{M}, \phi)$ with $\mathcal{M}$ a topological space and $\phi \colon \mathbb{R} \times \mathcal{M} \to \mathcal{M}$ a continuous map such that $\phi(0, p) = p$ and $\phi(s, \phi(𝑡, 𝑝)) = \phi(s + t, p)$ for all $p \in \mathcal{M}$ and all $t, s \in \mathbb{R}$.</p>
+				<p>In <b style="color: red">practice</b>, we only have measurements that are the result of an  <b style="color: red">observation function</b> $F:X\to \mathbb R$  and an <b >initial state</b> $x_0\in X$ that produces a <b>time series</b>
+					\begin{align}\varphi_p:\mathbb{R}&\to \mathbb{R}\\
+					t&\mapsto F(\phi_t(x_0))
+					\end{align}
+				</p>
+				
+				<div class="column_70"> <img  width="1500" height = auto src='media_ts/x_lorenz.png'/>
+					<blockquote  style="padding: 3 px; border: 2px solid red; font-size: 20px;">We can <b>topologically</b> reconstruct the attractor from the observation.</blockquote>
+				</div>
+				<div class="column_30"> <img  width="900" height = auto src='media_epilepsy/lorenz_delay.png'/>
+				</div>
+				
+				
 			</span>
 			</section>
 
