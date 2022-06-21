@@ -19,7 +19,7 @@
 			  box-sizing: border-box;
 			}
 
-			.column_30 {
+			.column_25 {
 			  float: left;
 			  width: 25%;
 			  padding: 2px;
@@ -136,15 +136,15 @@
 					<p><b>Q:</b> How to infer topological properties of $X$ from $\mathbb{X}_n$?</p>
 
 					<div class="row">
-					 	 <div class="column">
+					 	 <div class="column_25">
 					 	 	<p>Point cloud <br>$\mathbb{X}_n \subset \mathbb{R}^D$
 							 	<img width="400" height = auto src='media_ts/circle_resized.png'/>
 							 	</p>
 					 	 </div>
 					 	 
-						<div class="column"><p class="fragment">
+						<div class="column_25"><p class="fragment">
 							 For $\epsilon>0$, the <b>$\epsilon$-thickening</b> of $\mathbb{X}_n$:
-							 \[\displaystyle U_\epsilon = \bigcup_{x\in \mathbb{X}_n}B_{\epsilon}(x)\]						 <img width="165" height = auto src='media_ts/balls.png'/>
+							 \[\displaystyle U_\epsilon = \bigcup_{x\in \mathbb{X}_n}B_{\epsilon}(x)\]		<img width="165" height = auto src='media_ts/balls.png'/>
 							 </p>
 						</div>
 
@@ -175,7 +175,7 @@
 
 					<span style="font-size: 22px; text-align:center;">
 					<div class="row">
-					 	<div class="column">
+					 	<div class="column_25">
 					 	 	<p>Point cloud <br>$\mathbb{X}_n \subset \mathbb{R}^D$
 							 	<img width="350" height = auto src='media_ts/circle_resized.png'/>
 							 	</p>
@@ -248,9 +248,9 @@
 							 	<img width="600" height = auto src='media_ph/filtration.png'/>
 							 	</p>
 							 </div>
-							 <div class="column"><p>Persistence diagram
-							 <br>
-							 <img width="350" height = auto src='media_ts/PD_resized.png'/>
+							 <div class="column_30"><p>Persistence diagram
+							 
+							 <img width="200" height = auto src='media_ts/PD_resized.png'/>
 							 </p>
 							 </div>
 					</div> 
@@ -517,37 +517,6 @@
 				</section>
 			
 
-				<section data-auto-animate>
-					<h4>Topology of the attractor</h4> 
-					<small>
-					
-					<p>
-						<a href="https://www.biorxiv.org/content/10.1101/2021.02.25.432776v1" target="_blank">Toroidal topology of population activity in grid cells (2022)</a><br>
-						<span style="font-size: 18px">
-						  Gardner R, Hermansen E, Pachitariu M, Burak Y,  N, Dunn B, Moser M B, Moser E.  <i>Nature.</i>
-						</span>
-						<br>
-						<!--<span style="font-size: 20px; color:grey; float:left"><b>Experiment:</b>
-							<i>Given an arena and a rat moving freely in the environment, they recorded simultaneously the activity of $N_{mEC}$ grid cells at each point $x$ in the arena for a period of time.
-							For a discretization of the environment in $M$ bins and average over time of the spike rate, they obtained a pointcloud of $M$ points in $\mathbb R^{N_{mEC}}$.
-							</i>
-						</span>
-						-->
-					</p>
-					<br>
-					<p class="fragment">
-					<br>
-					<video width="400" height="400" src="media_gridcells/population_experiments.mp4" data-autoplay></video>
-					</p>
-					
-					</small>
-				</section>
-
-				<section data-auto-animate>
-					<h4>Topology of the attractor</h4>
-					<img src='media_gridcells/toroidal_population.png' /> 
-				</section>
-
 				<!--
 				<section data-auto-animate>
 					<h4>Topology of the attractor</h4>
@@ -577,6 +546,37 @@
 				</div>
 					
 					</span>	
+				</section>
+
+				<section data-auto-animate>
+					<h4>Topology of the attractor</h4> 
+					<small>
+					
+					<p>
+						<a href="https://www.biorxiv.org/content/10.1101/2021.02.25.432776v1" target="_blank">Toroidal topology of population activity in grid cells (2022)</a><br>
+						<span style="font-size: 18px">
+						  Gardner R, Hermansen E, Pachitariu M, Burak Y,  N, Dunn B, Moser M B, Moser E.  <i>Nature.</i>
+						</span>
+						<br>
+						<!--<span style="font-size: 20px; color:grey; float:left"><b>Experiment:</b>
+							<i>Given an arena and a rat moving freely in the environment, they recorded simultaneously the activity of $N_{mEC}$ grid cells at each point $x$ in the arena for a period of time.
+							For a discretization of the environment in $M$ bins and average over time of the spike rate, they obtained a pointcloud of $M$ points in $\mathbb R^{N_{mEC}}$.
+							</i>
+						</span>
+						-->
+					</p>
+					<br>
+					<p class="fragment">
+					<br>
+					<video width="400" height="400" src="media_gridcells/population_experiments.mp4" data-autoplay></video>
+					</p>
+					
+					</small>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Topology of the attractor</h4>
+					<img src='media_gridcells/toroidal_population.png' /> 
 				</section>
 
 				<section data-auto-animate>
@@ -670,8 +670,8 @@
 							 <b>Theorem (Classification of closed surfaces).</b> 
 							Let $\mathcal M$ be a compact manifold of dimension 2 without boundary. Let $\chi = b_0-b_1 + b_2$ be the Euler characteristic of $\mathcal M$. There are two cases:
 							<ol>
-							<li>If M is orientable, then it is homeomorphic to a connected sum of 1-𝛘/2 torii. </li>
-							<li>If M is non-orientable, then it is homeomorphic to a connected sum of 2-𝛘 projective planes.</li>
+							<li>If $\mathcal M$ is orientable, then it is homeomorphic to a connected sum of $1-\chi/2$ torii. </li>
+							<li>If $\mathcal M$ is non-orientable, then it is homeomorphic to a connected sum of $2-\chi$ projective planes.</li>
 							</ol>
 					</blockquote>
 
@@ -688,8 +688,8 @@
 							 <b>Theorem (Classification of closed surfaces).</b> 
 							Let $\mathcal M$ be a compact manifold of dimension 2 without boundary. Let $\chi = b_0-b_1 + b_2$ be the Euler characteristic of $\mathcal M$. There are two cases:
 							<ol>
-							<li>If M is orientable, then it is homeomorphic to a connected sum of 1-𝛘/2 torii. </li>
-							<li>If M is non-orientable, then it is homeomorphic to a connected sum of 2-𝛘 projective planes.</li>
+							<li>If $\mathcal M$ is orientable, then it is homeomorphic to a connected sum of $1-\chi/2$ torii. </li>
+							<li>If $\mathcal M$ is non-orientable, then it is homeomorphic to a connected sum of $2-\chi$ projective planes.</li>
 							</ol>
 							</blockquote>
 
@@ -718,9 +718,9 @@
 				<section data-auto-animate> <h4>Topology of the attractor</h4>
 					<h6>Local geometry</h6>
 					<div class="column_50"> 
-						<span style="font-size:18px; text-align:left"> Local dimension</span>
+						<span style="font-size:18px; text-align:left"> <b>Local dimension</b></span>
 						<img width="430" height = auto src='media_gridcells/local_dim.png'/>
-						<span style="font-size:18px; text-align:left"> Local homology</span> 
+						<span style="font-size:18px; text-align:left"> <b>Local homology</b></span> 
 						<br>
 						<img width="280" height = auto src='media_gridcells/local_homology.png'/>
 					</div>
