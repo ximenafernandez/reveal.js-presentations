@@ -1,0 +1,1209 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Topological biomarkers for real-time detection of epileptic seizures</title>
+
+		<meta name="description" content="Oxford TDA Seminar">
+		<meta name="author" content="Ximena Fernandez">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/white.css" id="theme">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			* {
+			  box-sizing: border-box;
+			}
+
+			.column_25 {
+			  float: left;
+			  width: 25%;
+			  padding: 2px;
+			}
+
+			.column_50 {
+			  float: left;
+			  width: 50%;
+			  padding: 10px;
+			}
+
+			.column_70 {
+			  float: left;
+			  width: 70%;
+			  padding: 0px;
+			}	
+
+			.column_33 {
+			  float: left;
+			  width: 33%;
+			  padding: 10px;
+			}	
+			 .column_60 {
+			  float: left;
+			  width: 60%;
+			  padding: 0px;
+			}
+			.column_66 {
+			  float: left;
+			  width: 66%;
+			  padding: 10px;
+			}
+			.column_20 {
+			  float: left;
+			  width: 20%;
+			  padding: 10px;
+			}	
+			.column_30 {
+			  float: left;
+			  width: 30%;
+			  padding: 0px;
+			}	
+			.column_40 {
+			  float: left;
+			  width: 40%;
+			  padding: 0px;
+			}	
+			.column_45 {
+			  float: left;
+			  width: 45%;
+			  padding: 0px;
+			}	
+			.column_55 {
+			  float: left;
+			  width: 55%;
+			  padding: -10px;
+			}	
+			}
+
+			/* Clear floats after the columns */
+			.row:after {
+			  content: "";
+			  display: table;
+			  clear: both;
+			}
+			</style>
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+
+				<section>
+					<h4>Topological biomarkers for real-time detection of epileptic seizures</h4>
+
+
+					<p style="font-size:28px;">XIMENA FERNANDEZ</p>
+					<p style="font-size:24px;">Durham University</p>  
+
+					<p style="font-size:20px;">joint work with D. Mateos <i>(arXiv:2211.02523)</i></p>
+
+					<p style="font-size:15px;">follow-up work of <br><i>Intrinsic persistent homology via density-based metric learning,</i> Fernandez et.al. JMLR (2023)</p>
+
+					<!--<p style="font-size:20px;">ximena.l.fernandez@durham.ac.uk</p>-->
+
+
+					<p style="font-size:26px;color: red; margin-top: 30pt"> <b>TDA Centre Meeting</b> - Oxford University </p>
+
+					
+
+					<video data-autoplay src='media_epilepsy/EEG_channel1.mp4' width="2000" height=auto> </video>
+
+				</section>
+
+
+				<!-- https://ieeexplore.ieee.org/stamp/stamp.jsp?tp=&arnumber=1198244&tag=1-->
+
+
+				<section data-auto-animate>
+					<h2> Epilepsy</h2>
+				</section>
+
+				<section data-auto-animate>
+					<h4> Epilepsy</h4>
+					<span style="font-size: 24px; text-align:left;">
+					<p><b>Brain activity:</b>
+					<ul>
+					<li><span style="color: slategrey">interictal state</span> <br> normal (stochastic/quasi-deterministic) activity</li>
+					<!--<li> <span style="color: red">ictal state</span> <br> abnormal synchronous activity</ul>-->
+					</ul>
+					</span>
+					</p>
+
+					<div class="column_30" style="font-size: 18px">
+						<br>
+						<br>
+					<img width="350" height = auto src='media_epilepsy/brain.png'/>
+					</div>
+					<!--<div class="column_70" style="font-size: 18px">
+						<img width="460" height = auto src='media_epilepsy/EEG_CbMIT.png'/>
+					</div>-->
+
+				</section>
+
+				<section data-auto-animate>
+					<h4> Epilepsy</h4>
+					<span style="font-size: 24px; text-align:left;">
+					<p><b>Brain activity:</b>
+					<ul>
+					<li><span style="color: slategrey">interictal state</span> <br> normal (stochastic/quasi-deterministic) activity</li>
+					<li> <span style="color: red">ictal state</span> <br> abnormal synchronous activity</ul>
+					</ul>
+					</span>
+					</p>
+
+					<div class="column_30" style="font-size: 18px">
+						<br>
+						<br>
+					<img width="350" height = auto src='media_epilepsy/brain.png'/>
+					</div>
+					<div class="column_70" style="font-size: 18px">
+						<img width="500" height = 330 src='media_epilepsy/EEG_CbMIT.png'/>
+					</div>
+
+				</section>
+
+
+				
+				<section data-auto-animate>
+					<h4> The problem</h4>
+					<span style="font-size: 24px; text-align:left;">
+					<ul>
+					 <li><b>Data: </b> Raw multichannel <b style="color: slategrey">EEG/MEG/iEEG</b> recording during <i>ictal</i> and <i>interictal</i> states.</li>
+					 <br>
+					 </ul>
+					 <img width="800" height = 470 src='media_epilepsy/EEG_CbMIT_raw.png'/>
+					 </span>
+					 <p style="font-size: 12px; text-align:center; margin-top: -30px;"><i>Source: Open database CHB-MIT, Massachusetts Institute of Technology, USA.</i> </p>
+				</section>
+
+				<section data-auto-animate>
+					<h4> The problem</h4>
+					<span style="font-size: 24px; text-align:left;">
+					<ul>
+					 <li><b>Data: </b> Raw multichannel <b style="color: slategrey">EEG/MEG/iEEG</b> recording during <i>ictal</i> and <i>interictal</i> states.</li>
+					 <li> <b>Goal:</b> Detect the <span style="color: red"> epileptic seizure</span>.</li>
+					 </ul>
+					 <img width="800" height = 470  src='media_epilepsy/EEG_CbMIT.png'/>
+					 </span>
+					 <p style="font-size: 12px; text-align:center; margin-top: -30px;"> <i>Source: Open database CHB-MIT, Massachusetts Institute of Technology, USA.</i> </p>
+				</section>
+
+				<section data-auto-animate>
+					<h4> The problem</h4>
+					<span style="font-size: 24px; text-align:left;">
+					<ul>
+					 <li><b>Data: </b> Raw multichannel <b style="color: slategrey">EEG/MEG/iEEG</b> recording during <i>ictal</i> and <i>interictal</i> states.</li>
+					 <li> <b>Goal:</b> Detect the <span style="color: red"> epileptic seizure</span>.</li>
+					 </ul>
+					 <img width="800" height = 400  src='media_epilepsy/iEEG_CC_raw.png'/>
+					 </span>
+					 <p style="font-size: 12px; text-align:center; margin-top: -10px;"> <i>Source: Private recording, Toronto Western Hospital, Canada.</i> </p>
+				</section>
+
+				<section data-auto-animate>
+					<h4> The problem</h4>
+					<span style="font-size: 24px; text-align:left;">
+					<ul>
+					 <li><b>Data: </b> Raw multichannel <b style="color: slategrey">EEG/MEG/iEEG</b> recording during <i>ictal</i> and <i>interictal</i> states.</li>
+					 <li> <b>Goal:</b> Detect the <span style="color: red"> epileptic seizure</span>.</li>
+					 </ul>
+					 <img width="800" height = 400  src='media_epilepsy/iEEG_CC.png'/>
+					 </span>
+					 <p style="font-size: 12px; text-align:center; margin-top: -10px;"> <i>Source: Private recording, Toronto Western Hospital, Canada.</i> </p>
+				</section>
+
+
+				<section data-auto-animate>
+				<h4>Main challenges in seizure detection</h4>
+					<span style="font-size: 26px; text-align:left;">
+						<br>
+						<ul>	
+
+							<li> <b style="color: red">Automated detection.</b>
+							<br><i>$~~~~$Currently, diagnosis relies on <b>visual inspection</b> of physiological recordings by the doctor, added to <b>clinical symptoms.</b></i>
+							</li>
+						</ul>
+
+					</span>
+				</section>
+
+				<section data-auto-animate>
+				<h4>Main challenges in seizure detection</h4>
+					<span style="font-size: 26px; text-align:left;">
+						<br>
+						<ul>	
+
+							<li> <b style="color: red">Automated detection.</b>
+							<br><i>$~~~~$Currently, diagnosis relies on <b>visual inspection</b> of physiological recordings by the doctor, added to <b>clinical symptoms.</b></i>
+							</li>
+							<br>
+
+							<li> <b style="color: red">Universality.</b>
+							<br><i>$~~~~$The data may correspond to different <b>methods of recording</b> (MEG, EEG, iEEG), <b>numbers of sensors</b>, <b>types of epilepsy</b> and particular clinical conditions of the patients. </b></i>
+							</li>
+						</ul>
+	
+					</span>
+				</section>
+
+				<section data-auto-animate>
+				<h4>Main challenges in seizure detection</h4>
+					<span style="font-size: 26px; text-align:left;">
+						<br>
+						<ul>	
+
+							<li> <b style="color: red">Automated detection.</b>
+							<br><i>$~~~~$Currently, diagnosis relies on <b>visual inspection</b> of physiological recordings by the doctor, added to <b>clinical symptoms.</b></i>
+							</li>
+							<br>
+
+							<li> <b style="color: red">Universality.</b>
+							<br><i>$~~~~$The data may correspond to different <b>methods of recording</b> (MEG, EEG, iEEG), <b>numbers of sensors</b>, <b>types of epilepsy</b> and particular clinical conditions of the patients. </b></i>
+							</li>
+							<br>
+
+							<li> <b style="color: red">Robustness.</b>
+							<br><i>$~~~~$The dataset present <b>noise</b> and it is sensitive to other neural conditions.</i></li>
+
+						</ul>
+
+					</span>
+				</section>
+
+				<section data-auto-animate>
+				<h4>Main challenges in seizure detection</h4>
+					<span style="font-size: 26px; text-align:left;">
+						<br>
+						<ul>	
+
+							<li> <b style="color: red">Automated detection.</b>
+							<br><i>$~~~~$Currently, diagnosis relies on <b>visual inspection</b> of physiological recordings by the doctor, added to <b>clinical symptoms.</b></i>
+							</li>
+							<br>
+
+							<li> <b style="color: red">Universality.</b>
+							<br><i>$~~~~$The data may correspond to different <b>methods of recording</b> (MEG, EEG, iEEG), <b>numbers of sensors</b>, <b>types of epilepsy</b> and particular clinical conditions of the patients. </b></i>
+							</li>
+							<br>
+
+							<li> <b style="color: red">Robustness.</b>
+							<br><i>$~~~~$The dataset present <b>noise</b> and it is sensitive to other neural conditions.</i></li>
+
+							<br>
+
+							<li> <b style="color: red"> Real-time analysis.</b>
+							<br><i>$~~~~$Methods of classification of ictal/interictal states rely on <b>preprocessing</b> of the data, <b>training</b> the algorithms and <b>computational resources</b>.</i>
+							</li>
+						</ul>
+
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Signal analysis</h4>
+					<span style="font-size: 22px; text-align:left;">
+						<br>
+								<ul>
+									<li><i><b style="color: red">Short-Time Fourier
+									Transform (STFT),</i></b> an estimate of the short-term time-localized frequency content.</li>
+									<li><i><b style="color: red">Lempel-Ziv complexity (LZ),</b></i> measures how diverse are the patterns that are present in a particular signal.
+									<li><i><b style="color: red">Permutation entropy,</b></i> a robust non-linear statistical measure to quantify the complexity of a dynamical system in terms of a time series.
+									</li>
+						</ul>
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h6>Signal analysis</h6>
+						<img style = " margin-top: -8px;" width="600" height = auto  src='media_epilepsy/CHMIT_standard.png'/>
+				</section>
+
+
+				<section data-auto-animate>
+					<h6>Diagnosis and Signal analysis</h6>
+						<img style = " margin-top: -8px;" width="560" height = auto  src='media_epilepsy/CC_standard.png'>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Brain Dynamics and Epilepsy</h4>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Brain Dynamics and Epilepsy</h4>
+					<br>
+					<span style="font-size: 22px; text-align:left;">
+						<ul> 
+						<li>Let $\varphi_1, \varphi_2, \dots, \varphi_n:[0,T]\to \mathbb{R}$ be a collection of <b style="color: red">real-valued time series</b>, such as multichannel EEG/iEEG/MEG recordings.</li>
+						<br>
+					<!--<img width="800" height = 250 src='media_epilepsy/EEG_CbMIT_cropped.png'/>-->
+
+					</span>
+				</section>
+
+					<section data-auto-animate>
+					<h4>Brain Dynamics and Epilepsy</h4>
+					<br>
+					<span style="font-size: 22px; text-align:left;">
+						<ul> 
+						<li>Let $\varphi_1, \varphi_2, \dots, \varphi_n:[0,T]\to \mathbb{R}$ be a collection of <b style="color: red">real-valued time series</b>, such as multichannel EEG/iEEG/MEG recordings.</li>
+						<br>
+						<li>We assume there exist an underlying <b style="color: red">dynamical system</b> $(X, \phi)$ such that the time series $\{\varphi_i\}_{1\leq i \leq n}$ are the result of <b style="color: red">observation functions</b> $\{F_i:X\to \mathbb R\}_{1\leq i \leq n}$ <br><i style="color: slategrey">(i.e. $\varphi_i(t) = F_i(\phi(t,x))$ for some initial state $x\in X$)</i>. <!--Namely, there exist a global continuous-time  dynamical system $(X, \phi)$ (where $X$ is the phase space and $\phi \colon \mathbb{R} \times X \to X$ is the evolution function), observation maps $\{F_i:X\to \mathbb R\}_{1\leq i \leq n}$  and an initial state $x\in X$ that produce the time series
+\						begin{align*}\varphi_i:\mathbb{R}&\to \mathbb{R}\\
+							t&\mapsto F_i(\phi(t,x))
+							\end{align*}
+						for all $1\leq i \leq n$.-->
+						</li>
+					</li>
+					</ul>
+					<!--<img width="800" height = 250 src='media_epilepsy/EEG_CbMIT_cropped.png'/>-->
+
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Brain Dynamics and Epilepsy</h4>
+					<br>
+					<span style="font-size: 22px; text-align:left;">
+						<ul> 
+						<li>Let $\varphi_1, \varphi_2, \dots, \varphi_n:[0,T]\to \mathbb{R}$ be a collection of <b style="color: red">real-valued time series</b>, such as multichannel EEG/iEEG/MEG recordings.</li>
+						<br>
+						<li>We assume there exist an underlying <b style="color: red">dynamical system</b> $(X, \phi)$ such that the time series $\{\varphi_i\}_{1\leq i \leq n}$ are the result of <b style="color: red">observation functions</b> $\{F_i:X\to \mathbb R\}_{1\leq i \leq n}$ <br><i style="color: slategrey">(i.e. $\varphi_i(t) = F_i(\phi(t,x))$ for some initial state $x\in X$)</i>. <!--Namely, there exist a global continuous-time  dynamical system $(X, \phi)$ (where $X$ is the phase space and $\phi \colon \mathbb{R} \times X \to X$ is the evolution function), observation maps $\{F_i:X\to \mathbb R\}_{1\leq i \leq n}$  and an initial state $x\in X$ that produce the time series
+						\begin{align*}\varphi_i:\mathbb{R}&\to \mathbb{R}\\
+							t&\mapsto F_i(\phi(t,x))
+							\end{align*}
+						for all $1\leq i \leq n$.-->
+					</li>
+					<br>
+					<li> We analyze the underlying (unknown) dynamics by studying their <b style="color: red">attractors</b> (that is, the asymptotic states of the system).
+					</li>
+					</ul>
+					<!--<img width="800" height = 250 src='media_epilepsy/EEG_CbMIT_cropped.png'/>-->
+
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Brain Dynamics and Epilepsy</h4>
+					<span style="font-size: 22px; text-align:left;">
+						<ul> 
+						<li>Let $\varphi_1, \varphi_2, \dots, \varphi_n:[0,T]\to \mathbb{R}$ be a collection of <b style="color: red">real-valued time series</b>, such as multichannel EEG/iEEG/MEG recordings.</li>
+						<br>
+						<li>We assume there exist an underlying <b style="color: red">dynamical system</b> $(X, \phi)$ such that the time series $\{\varphi_i\}_{1\leq i \leq n}$ are the result of <b style="color: red">observation functions</b> $\{F_i:X\to \mathbb R\}_{1\leq i \leq n}$ <br><i style="color: slategrey">(i.e. $\varphi_i(t) = F_i(\phi(t,x))$ for some initial state $x\in X$)</i>. <!--Namely, there exist a global continuous-time  dynamical system $(X, \phi)$ (where $X$ is the phase space and $\phi \colon \mathbb{R} \times X \to X$ is the evolution function), observation maps $\{F_i:X\to \mathbb R\}_{1\leq i \leq n}$  and an initial state $x\in X$ that produce the time series
+\begin{align*}\varphi_i:\mathbb{R}&\to \mathbb{R}\\
+							t&\mapsto F_i(\phi(t,x))
+							\end{align*}
+for all $1\leq i \leq n$.-->
+						</li>
+						<br>
+						<li> We analyze the underlying (unknown) dynamics by studying their <b style="color: red">attractors</b> (that is, the asympttoic states of the system).
+						</li>
+					</ul>
+					
+					<div class="row">
+				 	 <div class="column_60">
+							<video  data-autoplay  width="800" height = auto src='media_epilepsy/EEG_channel123_colors.mp4'></video>
+					</div>
+					<div class="column_40">
+						<video  data-autoplay  width="400" height = auto src='media_epilepsy/embedding_CbHMIT.mp4'></video>
+					</div>
+				</div>
+
+					</span>
+				</section>
+				
+
+				<!--
+				<section data-auto-animate>
+					<h3>Dynamical systems</h3>
+					<br>
+					<span style="font-size: 24px; text-align:left;">
+					<p>We assume we are in the followig setting:</p>
+					<ul>
+						<li class = 'fragment'>
+							A <b style="color: red"> continuous  dynamical system</b> $(X, \phi)$, with $X$ a topological space and $\phi_t \colon X \to X$ a smooth family of evolution functions for $t \in \mathbb{R}$. 
+						</li>
+						<br>
+						<li class = 'fragment'> 
+							A set $A \subset X$  called the <b style="color: red">attractor</b>, that is the asymptotic state of the system.
+						</li>
+					</ul>
+					</span>
+				</section>
+
+				
+
+				<section data-auto-animate>
+					<h3>Dynamical systems</h3>
+					<br>
+					<span style="font-size: 24px; text-align:left;">
+					<ul>
+						<li>
+							A <b style="color: red"> continuous  dynamical system</b> $(X, \phi)$, with $X$ a topological space and $\phi_t \colon X \to X$ a smooth family of evolution functions for $t \in \mathbb{R}$. 
+						</li>
+						<br>
+						<li> 
+							A set $A \subset X$  called the <b style="color: red">attractor</b>, that is the asymptotic state of the system.
+						</li>
+						<br>
+						<li> The typical examples arising from <b style="color: red">differential equations</b> have as state space a smooth manifold $X$ and the dynamics are given by the integral curves of a smooth vector field on $X$.
+						</li>
+					<div class="row" style="font-size: 20px">
+				 	 		<div class="column_50" style="font-size: 18px">
+				 	 		<br>
+				 	 		<br>
+				 	 		<b style="color: red">Lorenz attractor</b>
+							\begin{equation}\begin{cases}
+							\dot x = \sigma ( y - x ) , \\
+							\dot y = x(\rho-z)-y ,\\
+							\dot z = xy-\beta z \end{cases}
+							\end{equation}
+							with $(\sigma, \rho, \beta) = (10, 28, 8/3)$. 
+							</div>
+							<div class="column_50">
+							<img width="450" height = auto src='media_ts/lorenz_time_series.gif'/>
+							</div>
+					</div>
+					</ul>
+					</span>
+					</section>
+				-->
+
+					<section data-auto-animate>
+					<h4>Brain Dynamics and Epilepsy</h4>
+					<span style="font-size: 22px; text-align:left;">
+						<ul> 
+						<li>Let $\varphi_1, \varphi_2, \dots, \varphi_n:[0,T]\to \mathbb{R}$ be a collection of <b style="color: red">real-valued time series</b>, such as multichannel EEG/iEEG/MEG recordings.</li>
+						<br>
+						<li >We assume there exist an underlying <b style="color: red">dynamical system</b> $(X, \phi)$ such that the time series $\{\varphi_i\}_{1\leq i \leq n}$ are the result of <b style="color: red">observation functions</b> $\{F_i:X\to \mathbb R\}_{1\leq i \leq n}$ <br><i style="color: slategrey">(i.e. $\varphi_i(t) = F_i(\phi(t,x))$ for some initial state $x\in X$)</i>. 
+						</li>
+						<br>
+						<li> We analyze the underlying (unknown) dynamics by studying their <b style="color: red">attractors</b> (that is, the asymptotic states of the system).
+						</li>
+					</ul>
+					<div class="row">
+				 	 		<div class="column_60">
+							<video  data-autoplay  width="800" height = auto src='media_epilepsy/iEEG_channel123_colors.mp4'></video>
+							</div>
+							<div class="column_40">
+							<video  data-autoplay  width="400" height = auto src='media_epilepsy/embedding_CC_colors.mp4'></video>
+							</div>
+					</div>
+					</ul>
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Brain Dynamics and Epilepsy</h4>
+					<span style="font-size: 22px; text-align:left;">
+						<ul> 
+						<li>Let $\varphi_1, \varphi_2, \dots, \varphi_n:[0,T]\to \mathbb{R}$ be a collection of <b style="color: red">real-valued time series</b>, such as multichannel EEG/iEEG/MEG recordings.</li>
+						<br>
+						<li >We assume there exist an underlying <b style="color: red">dynamical system</b> $(X, \phi)$ such that the time series $\{\varphi_i\}_{1\leq i \leq n}$ are the result of <b style="color: red">observation functions</b> $\{F_i:X\to \mathbb R\}_{1\leq i \leq n}$ <br><i style="color: slategrey">(i.e. $\varphi_i(t) = F_i(\phi(t,x))$ for some initial state $x\in X$)</i>. 
+					</li>
+					<br>
+					<li> We analyze the underlying (unknown) dynamics by studying their <b style="color: red">attractors</b> (that is, the asymptotic states of the system).
+					</li>
+					</ul>
+					<br>
+					<br>
+					<blockquote style="font-size:22px; text-align:left; border: 2px solid #666; padding: 4 px; ">
+					We will detect the <b style="color: red">change of dynamics</b> via the <b style="color: red">topological analysis of embeddings</b> of the signals.
+					</blockquote>
+					
+					</span>
+				</section>
+
+				<!--
+				<section data-auto-animate>
+						<h3>Geometry of the attractor</h3>
+						<span style="font-size: 23px; text-align:left;">
+						<ul>
+							<li class = 'fragment'>Given a topological space $X$, its <b style="color: red">homology</b> $H_k(X)$ at degree $k$ captures <b style="color: slategrey">geometric signatures</b> in $X$ of dimension $k$.</li>
+							<li class = 'fragment' > The rank of the group  $H_k(X)$ defines the <b style="color: red">$k$-th Betti number $\beta_k$</b> of $X$ and it quantifies the number of (independent) <b style="color: red">$k$-dimensional holes</b> in $X$. </li>
+							<br>
+								<ul style="font-size: 20px;" class = 'fragment'>
+								<li>$\beta_0$ = number of connected components,</li>
+								<li>$\beta_1$ = number of 1-dimensional cycles,</li>
+								<li>$\beta_2$ = number of 2-dimensional voids,
+								$\dots$</li>
+								<ul>
+						</ul>
+						<div class="row" >
+				 	 		<div class="column_45">
+							<img  width="500" class = 'fragment' height = auto src='media_epilepsy/lorenz.png'/>
+							</div>
+							<div class="column_50" >
+								<br>
+								<br>
+								<br>
+							<ul style="font-size: 23px;" class = 'fragment'>
+								<li>$\beta_0$ = 1</li>
+								<li>$\beta_1$ = 2</li>
+								<li>$\beta_2$ = 0</li>
+								<ul>
+							</div>
+						</div>
+				</section>
+
+				<section data-auto-animate>
+						<h3>Geometry of the attractor</h3>
+						<span style="font-size: 23px; text-align:left;">
+						<ul>
+							<li >Given a topological space $X$, its <b style="color: red">homology</b> $H_k(X)$ at degree $k$ captures <b style="color: slategrey">geometric signatures</b> in $X$ of dimension $k$.</li>
+							<li> The rank of the group  $H_k(X)$ defines the <b style="color: red">$k$-th Betti number $\beta_k$</b> of $M$ and it quantifies the number of (independent) <b style="color: red">$k$-dimensional holes</b>  in $M$. </li>
+							<br>
+								<ul style="font-size: 20px;">
+								<li>$\beta_0$ = number of connected components,</li>
+								<li>$\beta_1$ = number of 1-dimensional cycles,</li>
+								<li>$\beta_2$ = number of 2-dimensional voids,
+								$\dots$</li>
+								<ul>
+						</ul>
+						<div class="row" >
+				 	 		<div class="column_45">
+							<img  width="500" height = auto src='media_epilepsy/aizawa.png'/>
+							</div>
+							<div class="column_50">
+								<br>
+								<br>
+								<br>
+							<ul style="font-size: 23px;">
+								<li>$\beta_0$ = 1</li>
+								<li>$\beta_1$ = 1</li>
+								<li>$\beta_2$ = 1</li>
+								<ul>
+							</div>
+						</div>
+				</section>
+
+				<section data-auto-animate>
+						<h4>Geometry of a sample of the attractor</h4>
+						<span style="font-size: 23px; text-align:left;">
+						<ul>
+							<li >Given a <b style="color: slategrey">sample</b> $X_n$ of a topological space, its <b style="color: red">persistent homology</b> at degree $k$ infers <b style="color: slategrey">geometric signatures</b> of dimension $k$ in the underlying space.</li>
+
+						</ul>
+						<div class="row" >
+						 	 <div class="column">
+						 	 	<p >Point cloud 
+ 							 	<img width="350" height = auto src='media_ts/circle_resized.png'/>
+ 							 	</p>
+						 	 </div>
+						</div> 
+				</section>
+
+				<section data-auto-animate>
+						<h4>Geometry of a sample of the attractor</h4>
+						<span style="font-size: 23px; text-align:left;">
+						<ul>
+							<li>Given a <b style="color: slategrey">sample</b> $X_n$ of a topological space, its <b style="color: red">persistent homology</b> at degree $k$ infers <b style="color: slategrey">geometric signatures</b> of dimension $k$ in the underlying space.</li>
+							<li>The computation relies in the reconstruction of the underlying space as <b style="color: lightcoral;">union of balls</b> centered in the sample points with <b style="color: lightcoral">increasing radii</b>. </li>
+						</ul>
+						 <div class="row" >
+						 	 <div class="column">
+						 	 	<p>Point cloud 
+ 							 	<img width="360" height = auto src='media_ts/circle_resized.png'/>
+ 							 	</p>
+						 	 </div>
+ 							 <div class="column_50" style = "text-align:center;"><p>Filtration of spaces
+ 							 <img width="380" height = auto src='media_ts/filtration_circle.gif'/>
+ 							 </p>
+ 							 </div>
+						</div> 
+				</section>
+
+				<section data-auto-animate>
+						<h4>Geometry of a sample of the attractor</h4>
+						<span style="font-size: 23px; text-align:left;">
+						<ul>
+							<li >Given a <b style="color: slategrey">sample</b> $X_n$ of a topological space, its <b style="color: red">persistent homology</b> at degree $k$ infers <b style="color: red">geometric signatures</b> of dimension $k$ in the underlying space.</li>
+							<li >The computation relies in the reconstruction of the underlying space as <b style="color: red">union of balls</b> centered in the sample points with <b style="color: red">increasing radii</b>. </li>
+							<li > The <b style="color: red">persistence diagram</b> at degree $k$ has a point for each generator in $H_k$ in the filtration, the 1st coordinate represents its <b>birth</b>, the 2nd coordinate represents its <b>lifetime</b>.</li>
+						</ul>
+						<div class="row">
+						 	 <div class="column" style="font-size: 23px; text-align:center;">
+						 	 	<p>Point cloud 
+ 							 	<img width="360" height = auto src='media_ts/circle_resized.png'/>
+ 							 	</p>
+						 	 </div>
+						 	 
+ 							 <div class="column_50" style="font-size: 23px; text-align:center;"><p>Filtration of spaces
+ 							 <img width="380" height = auto src='media_ts/filtration_circle.gif'/>
+ 							 </p>
+ 							 </div>
+
+ 							 <div class="column"><p >Persistence diagram
+ 							 	<br>
+ 							 	<br>
+ 							 	<br>
+ 							 	<br>
+ 							 <img width="380" height = auto src='media_epilepsy/PD_circle.png'/>
+ 							 </p>
+ 							 </div>
+						</div> 
+				</section>
+
+				<section data-auto-animate>
+						<h4>Geometry of a sample of the attractor</h4>
+						<span style="font-size: 23px; text-align:left;">
+						<ul>
+							<li >Given a <b style="color: slategrey">sample</b> $X_n$ of a topological space, its <b style="color: red">persistent homology</b> at degree $k$ infers <b style="color: red">geometric signatures</b> of dimension $k$ in the underlying space.</li>
+							<li >The computation relies in the reconstruction of the underlying space as <b style="color: red">union of balls</b> centered in the sample points with <b style="color: red">increasing radii</b>. </li>
+							<li > The <b style="color: red">persistence diagram</b> at degree $k$ has a point for each generator in $H_k$ in the filtration, the 1st coordinate represents its <b>birth</b>, the 2nd coordinate represents its <b>lifetime</b>.</li>
+						</ul>
+						<div class="row" >
+				 	 		<div class="column_45">
+							<img  width="350" height = auto src='media_epilepsy/lorenz_pc.png'/>
+							</div>
+							<div class="column_50">
+							<br>
+							<img  width="350" height = auto src='media_epilepsy/PH_lorenz.png'/>
+							</div>
+						</div>
+				</section>
+
+				<section data-auto-animate>
+						<h4>Geometry of a sample of the attractor</h4>
+						<span style="font-size: 23px; text-align:left;">
+						<ul>
+							<li>Given a <b style="color: slategrey">sample</b> $X_n$ of a topological space, its <b style="color: red">persistent homology</b> at degree $k$ infers <b style="color: red">geometric signatures</b> of dimension $k$ in the underlying space.</li>
+							<li >The computation relies in the reconstruction of the underlying space as <b style="color: red">union of balls</b> centered in the sample points with <b style="color: red">increasing radii</b>. </li>
+							<li > The <b style="color: red">persistence diagram</b> at degree $k$ has a point for each generator in $H_k$ in the filtration, the 1st coordinate represents its <b>birth</b>, the 2nd coordinate represents its <b>lifetime</b>.</li>
+						</ul>
+						<div class="row" >
+				 	 		<div class="column_45">
+							<img  width="350" height = auto src='media_epilepsy/aizawa_pc.png'/>
+							</div>
+							<div class="column_50">
+							<br>
+							<img  width="350" height = auto src='media_epilepsy/PH_aizawa.png'/>
+							</div>
+						</div>
+				</section>
+				-->
+
+				<section  data-auto-animate>
+					<h4>Topological biomarkers for <br>Epilepsy detection</h4>
+				</section>
+
+				
+				<section  data-auto-animate>
+					<h4>Sliding Window Persistence</h4>
+					<span style="font-size: 23px; text-align:left;">
+					<ul>
+						<li>Let $\varphi = (\varphi_1, \varphi_2, \dots \varphi_n):[0,T]\to \mathbb{R}^n$ be a multichannel recording.$~~~~~~~~~~~~~~~~~~$$~~~~~~~~~~~~~~~~$</li>
+					</ul>
+					<img width="1500" height = auto src='media_epilepsy/CC_iEEG.png'/>
+					</span>
+				</section>
+
+
+				<section  data-auto-animate>
+					<h4>Sliding Window Persistence</h4>
+					<span style="font-size: 23px; text-align:left;">
+					<ul>
+						<li>Let $\varphi = (\varphi_1, \varphi_2, \dots \varphi_n):[0,T]\to \mathbb{R}^n$ be a multichannel recording.$~~~~~~~~~~~~~~~~~~$$~~~~~~~~~~~~~~~~$</li>
+						<li>Given a <b style="color: red">window</b> size $\omega$, we compute for every $t\in [\omega,T]$ the embedding $\mathrm{SWE}_{\varphi, \omega}(t) :=\varphi([t-\omega, t])$ in $\mathbb{R}^n$.</li>
+					</ul>
+					<img width="1500" height = auto src='media_epilepsy/CC_iEEG_window.png'/>
+					</span>
+				</section>
+
+				<section  data-auto-animate>
+					<h4>Sliding Window Persistence</h3>
+					<span style="font-size: 23px; text-align:left;">
+					<ul>
+						<li>Let $\varphi = (\varphi_1, \varphi_2, \dots \varphi_n):[0,T]\to \mathbb{R}^n$ be a multichannel
+						recording.$~~~~~~~~~~~~~~~~~~$$~~~~~~~~~~~~~~~~$</li>
+						<li>Given a <b style="color: red">window</b> size $\omega$, we compute for every $t\in [\omega,T]$ the embedding $\mathrm{SWE}_{\varphi, \omega}(t) :=\varphi([t-\omega, t])$ in $\mathbb{R}^n$.</li>
+						<li> We compute the <b style="color: red"> persistent homology</b> $\mathrm{dgm}(\mathrm{SWE}_{\varphi, \omega}(t))$ of the time evolving <b style="color: red">sliding window embedding</b>.</li>
+					</ul>
+					<img  style = " margin-top: -8px;" width="1200" height = auto src='media_epilepsy/PD_path_CC.png'/>
+					</span>
+				</section>
+
+				<!--
+				<section  data-auto-animate>
+					<h3>Sliding Window Embedding</h3>
+					<span style="font-size: 23px; text-align:left;">
+					<ul>
+						<li >Let $X_1, X_2, \dots X_N:[0,T]\to \mathbb{R}$ a set of signals.</li>
+						<li >Given a <b style="color: red">window</b> size $W$, we compute for every $t\in [W,T]$ the embedding of $X_1, X_2, \dots X_N:[t-W, t]\to \mathbb{R}$ in $\mathbb{R}^N$.</li>
+						<video data-autoplay src='media_epilepsy/EEG_channel_window.mp4' width="1000" height=auto> </video>
+
+						<img width="1000" height = auto src='media_epilepsy/window.gif'/>
+
+					</ul>
+				</span>
+				</section>
+				-->
+
+				<section  data-auto-animate>
+					<h4>Sliding Window Persistence</h4>
+					<span style="font-size: 23px; text-align:left;">
+					<ul>
+						<li>Let $\varphi = (\varphi_1, \varphi_2, \dots \varphi_n):[0,T]\to \mathbb{R}^n$ be a multichannel
+						recording.$~~~~~~~~~~~~~~~~~~$$~~~~~~~~~~~~~~~~$</li>
+						<li>Given a <b style="color: red">window</b> size $\omega$, we compute for every $t\in [\omega,T]$ the embedding $\mathrm{SWE}_{\varphi, \omega}(t) :=\varphi([t-\omega, t])$ in $\mathbb{R}^n$.</li>
+						<li> We compute the <b style="color: red"> persistent homology</b> $\mathrm{dgm}(\mathrm{SWE}_{\varphi, \omega}(t))$ of the time evolving <b style="color: red">sliding window embedding</b>.</li>
+					</ul>
+						<video data-autoplay src='media_epilepsy/EEG_channel_window.mp4' width="630" height=500> </video><video data-autoplay src='media_epilepsy/animation_PD_short.mp4' width="330" height=500> </video>
+					</span>
+				</section>
+
+				<!--
+				<section  data-auto-animate>
+					<h4>Sliding Window Embedding</h4>
+					<span style="font-size: 23px; text-align:left;">
+					<ul>
+						<li>Let $X_1, X_2, \dots X_N:[0,T]\to \mathbb{R}$ a set of signals.</li>
+						<li>Given a <b style="color: red">window</b> size $W$, we compute for every $t\in [W,T]$ the embedding of $X_1, X_2, \dots X_N:[t-W, t]\to \mathbb{R}$ in $\mathbb{R}^N$.</li>
+						<li> We compute the <b style="color: red"> (persistent) homology</b> of the time evolving <b style="color: red">sliding window embedding</b>.</li>
+					</ul>
+					<img width="500" height = auto  src='media_epilepsy/CC_iEEG.png'/> <video data-autoplay src='media_epilepsy/animation_PD.mp4' width="300" height=auto> </video>
+					</span>
+				</section>
+				-->
+
+				<section>
+					<h4  data-auto-animate >Topological biomarkers</h4>
+
+					<span style="font-size: 23px; text-align:left;">
+					<p>Given $\varphi = (\varphi_1, \varphi_2, \dots \varphi_n):[0,T]\to \mathbb{R}^n$ a multichannel recording and $\omega$ a window size.</p>
+					<blockquote  style="border: 2px solid #666; padding: 0px;">  \[\mathbb{R} ~\longrightarrow ~\mathrm{Top} ~\longrightarrow ~\mathrm{Dgm}~~~~~~~~~~~~~~~~~~~~~~~~~~~~\]
+					\[t\mapsto \mathrm{SWE}_{\varphi, \omega} (t)\mapsto \mathrm{dgm}\big(\mathrm{SWE}_{\varphi, \omega}(t) \big)=:\mathcal{D}_t\]
+				</blockquote>
+				
+					<p class="fragment">We compute the following <b><i>topological summaries</i></b>:
+						<br>
+						<ul >
+							<li class="fragment"><b style="color: red">Approximate Derivative:</b> Given a time step $\varepsilon>0$\[\dfrac{d_{W}(\mathcal{D}_t, \mathcal{D}_{t-\varepsilon})}{\varepsilon}\]</li>
+							<li class="fragment"> <b style="color: red">Total persistence:</b> \[\sum_{(x,y) \in \mathcal{D_t}} \mathrm{pers}(x,y).\]</li>
+						</ul>
+					</p>
+				</section>
+
+				<!--
+				<section>
+					<h5>Topological biomarkers</h5>
+					<p style="font-size: 22px; text-align:left;">
+					Multichannel signals $\to$ Sliding Window Embedding $\to$ Path of persistent diagrams $\to$ (Estimator of) 1st Derivative
+					</p>
+					<img  width="750" height = auto src='media_epilepsy/iEEG_derivative.png'/>
+				</section>
+				-->
+
+
+				<section  data-auto-animate>
+					<h3>Experimental results</h3>
+				</section>
+
+				<section data-auto-animate>
+					<h5>Patient 1</h5>
+					<span style="font-size: 20px; text-align:left;">
+					<ul>
+					<li> Scalp EEG with 23 sensors at frequency 256 Hz.</li>
+					<li> <i>Source:</i> <a href="https://physionet.org/content/chbmit/1.0.0/">CHB-MIT database</a> from Children’s Hospital Boston, USA.
+					</ul>
+					</span>
+					<img  width="700" height ="550" src='media_epilepsy/EEG_patient1.png'/>
+				</section>
+
+				<section data-auto-animate>
+					<h5>Patient 1</h5>
+					<img  style = "margin-top: -10px;"  width="580" height = auto src='media_epilepsy/EEG_CHMIT_all.png'/>
+				</section>
+
+				<section data-auto-animate>
+					<h5>Patient 2</h5>
+					<span style="font-size: 20px; text-align:left;">
+					<ul>
+					<li> Intracraneal EEG with 9 sensors at frequency 200 Hz.</li>
+					<li> <i>Source:</i> Clinical presurgical analysis, Toronto Western Hospital, Canada.</li>
+					</ul>
+					</span>
+					<img  width='700' height = auto src='media_epilepsy/CC_iEEG_seizure_bis.png'/>
+				</section>
+
+
+				<section data-auto-animate>
+					<h5>Patient 2</h5>
+					<img  style = "margin-top: -10px;" width=auto height = 700 src='media_epilepsy/CC_all_2.png'/>
+				</section>
+
+				<!--
+				<section data-auto-animate>
+					
+					<h5>Patient RAO</h5>
+					<span style="font-size: 20px; text-align:left;">
+					<ul>
+					<li> MEG with 171 channels</li>
+					<li>  120 sec recording with sampling rate 625 HZ</li>
+					</ul>
+					<img  width="700" height = auto src='media_epilepsy/RAO_MEG.png'/>
+				</span>
+					
+				</section>
+
+
+				<section data-auto-animate>
+					
+					<h5>Patient RAO</h5>
+					<span style="font-size: 20px; text-align:left;">
+					<ul>
+					<li> MEG with 171 channels</li>
+					<li>  120 sec recording with sampling rate 625 HZ</li>
+					<li> Seizure starts at $t = 29375$ and ends at $t = 37500$.</li>
+					</ul>
+					<img  width="700" height = '400' src='media_epilepsy/RAO_MEG_seizure.png'/>
+				</span>
+					
+				</section>
+
+				<section data-auto-animate>
+
+					<h5>Patient RAO</h5>
+					<span style="font-size: 20px; text-align:left;">
+					<img  width="650" height = auto src='media_epilepsy/RAO_all.png'/>
+				</span>
+					
+				</section>
+				-->
+
+				<section data-auto-animate>
+					<h5>Patient 3</h5>
+					<span style="font-size: 20px; text-align:left;">
+					<ul>
+					<li> MEG with 144 sensors at frequency 625 Hz</li>
+					<li> <i>Source:</i> Toronto Western Hospital, Canada.</li>
+					</ul>
+					</span>
+
+					<img  width="800" height = auto src='media_epilepsy/MAC_MEG_seizure.png'/>
+				</section>
+
+				<section data-auto-animate>
+					<h5>Patient 3</h5>
+
+					<img  style = "margin-top: -10px;" width="490" height = 300 src='media_epilepsy/MAC_MEG_seizure.png'/>
+					<img   style = "margin-top: -10px;"  width="490" height = 320 src='media_epilepsy/Patient_MAC-2.png'/>
+
+				</section>
+
+
+
+
+				<section data-auto-animate>
+					<h4>Computational implementation</h4>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Computational implementation</h4>
+					<br>
+					<span style="font-size: 26px; text-align:left;">
+					<ul>
+						<li><b style="color: red">Window size</b> $\omega$ equivalent to 1 or 2 seconds.</li>
+						<br>
+						<li><b style="color: red">Time step</b> $\varepsilon$ equivalent to 0.5 seconds.</li>
+						<br>
+						<li><b style="color: red">Execution time</b> (MacBook Pro 8-core CPU 32-core GPU 16 GB unified memory):
+							<ul>
+								<li>Persistence diagrams (Ripser) $\sim 0.25$ seconds</li>
+								<li>1-Wasserstein distance (Ripser) $\sim 0.1$ seconds</li>
+								<li>Total persistence $\sim 0.5\times 10^{-5}$ seconds.</li>
+							</ul>
+						</li>
+						<br>
+						<li>The computations can be performed in <b style="color: red">real time</b>.</li>
+					</ul>
+					</span>
+				</section>
+
+
+
+				<section data-auto-animate>
+				<h3>Global vs local seizures</h3>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Global vs local seizures</h3>
+					<br>
+					<span style="font-size: 24px; text-align:left;">
+					<ul>
+						<li> <b style="color: red">Focal seizures,</b> involve part of the cerebral hemisphere.</li>
+						<br>
+						<li> <b style="color: red">Generalized seizures,</b> involve the entire brain, usually presenting loss of consciousness. 
+						</li>
+					</ul>
+					<br>
+					<br>
+					<p  class = "fragment" > <b>Goal:</b> Compare how <span style="color: red">local vs global</span> dynamics changes over the time.
+					</p>
+					</span>
+				</section>
+
+				<!--
+				<section data-auto-animate>
+				<h4>From single time series to topology</h4>
+				<span style="font-size: 24px; text-align:left;">
+				<p>In <b style="color: red">theory</b>, we assume we have a <b>global continuous time dynamical system</b>
+				 $(\mathcal{M}, \phi)$ with $\mathcal{M}$ a topological space and $\phi \colon \mathbb{R} \times \mathcal{M} \to \mathcal{M}$ a continuous map such that $\phi(0, p) = p$ and $\phi(s, \phi(𝑡, 𝑝)) = \phi(s + t, p)$ for all $p \in \mathcal{M}$ and all $t, s \in \mathbb{R}$.</p>
+				
+				<div class="column_50" style="font-size: 18px">
+			 	 		\begin{equation}\begin{cases}
+							\dot x = \sigma ( y - x ) , \\
+							\dot y = x(\rho-z)-y ,\\
+							\dot z = xy-\beta z \end{cases}
+							\end{equation}
+							with $(\sigma, \rho, \beta) = (10, 28, 8/3)$. 
+				</div>
+				<div class="column_50">
+						<img  width="350" height = auto src='media_epilepsy/lorenz_notitle.png'/>
+				</div>
+				</span>
+				</section>
+				
+
+				<section data-auto-animate>
+				<h4>From single time series to topology</h4>
+				<span style="font-size: 24px; text-align:left;">
+				<p >In <b style="color: red">theory</b>, we assume we have a <b>global continuous time dynamical system</b>
+				 $(\mathcal{M}, \phi)$ with $\mathcal{M}$ a topological space and $\phi \colon \mathbb{R} \times \mathcal{M} \to \mathcal{M}$ a continuous map such that $\phi(0, p) = p$ and $\phi(s, \phi(𝑡, 𝑝)) = \phi(s + t, p)$ for all $p \in \mathcal{M}$ and all $t, s \in \mathbb{R}$.</p>
+				<p>In <b style="color: red">practice</b>, we only have measurements that are the result of an  <b style="color: red">observation function</b> $F:X\to \mathbb R$  and an <b >initial state</b> $x_0\in X$ that produces a <b>time series</b>
+					\begin{align}\varphi_p:\mathbb{R}&\to \mathbb{R}\\
+					t&\mapsto F(\phi_t(x_0))
+					\end{align}
+				</p>
+				<img  width="1500" height = auto src='media_ts/x_lorenz.png'/>
+				</span>
+				</section>
+				
+
+				<section data-auto-animate>
+				<h4>From single time series to topology</h4>
+				<span style="font-size: 24px; text-align:left;">
+				<p>In <b style="color: red">theory</b>, we assume we have a <b>global continuous time dynamical system</b>
+				 $(\mathcal{M}, \phi)$ with $\mathcal{M}$ a topological space and $\phi \colon \mathbb{R} \times \mathcal{M} \to \mathcal{M}$ a continuous map such that $\phi(0, p) = p$ and $\phi(s, \phi(𝑡, 𝑝)) = \phi(s + t, p)$ for all $p \in \mathcal{M}$ and all $t, s \in \mathbb{R}$.</p>
+				<p>In <b style="color: red">practice</b>, we only have measurements that are the result of an  <b style="color: red">observation function</b> $F:X\to \mathbb R$  and an <b >initial state</b> $x_0\in X$ that produces a <b>time series</b>
+					\begin{align}\varphi_p:\mathbb{R}&\to \mathbb{R}\\
+					t&\mapsto F(\phi_t(x_0))
+					\end{align}
+				</p>
+				
+				<div class="column_70"> <img  width="1500" height = auto src='media_ts/x_lorenz.png'/>
+					<blockquote  style="padding: 3 px; border: 2px solid red; font-size: 20px;">We can <b>topologically</b> reconstruct the attractor from the observation.</blockquote>
+				</div>
+				<div class="column_30"> <img  width="900" height = auto src='media_epilepsy/lorenz_delay.png'/>
+				</div>
+				</span>
+				</section>
+				-->
+
+				<!--
+				<section data-auto-animate>
+				<h3>Global vs local seizures</h3>
+				<span style="font-size: 24px; text-align:left;">
+				
+				<p>Given a <b>single channel</b>, we can still <b style="color: red">topologically</b> reconstruct the attractor of the <b>induced</b> underlying dynamics.
+				</p>
+				<blockquote  style="border: 2px solid #666; padding: 15px; background-color: #ccc; width:750px"> <b>Theorem (Takens).</b> Let $\mathcal{M}$ be a smooth, compact, Riemannian manifold. Let $\tau > 0$ be a real number and let $d ≥ 2 \mathrm{dim}(\mathcal{M})$
+				be an integer. Then, for generic $\phi \in  C^2(\mathbb{R} \times \mathcal{M}, \mathcal{M})$ and $F\in  C^2(\mathcal{M}, \mathbb{R})$ and for $\varphi_\bullet(𝑡)$ defined as above, the <b>delay map</b>
+				\begin{align}
+				\varphi~ \colon & ~~\mathcal{M} &\rightarrow & ~~\mathbb{R}^{d+1}\\
+				&~~p &\mapsto & ~~(\varphi_p(0), \varphi_p(\tau), \varphi_p(2\tau),\dots, \varphi_p(d\tau))
+				\end{align}
+				is an <b>embedding</b> (i.e., $\varphi$ is injective and its derivative has full-rank everywhere).
+				</blockquote>
+			</span>
+			</section>
+			-->
+
+			<section data-auto-animate>
+				<h3>Global vs local seizures</h3>
+				<br>
+				<span style="font-size: 24px; text-align:left;">
+				<li> $\varphi_i\colon[0,T] \rightarrow \mathbb{R}$ an <b>observation</b>,</li>
+				<li>$\tau> 0$ a real number (delay),</li> 
+				<li>$d \geq 0$ an integer (dimension).</li>
+				<blockquote style="padding: 10 px; border: 2px solid red; font-size: 22px;">The <b style="color: red">time delay embedding</b> of $\varphi_i$ with parameters $d$ and $\tau$ is the vector-valued function 
+				\begin{align}
+				X_{d,\tau}\varphi_i\colon &~[0, T-d\tau]\rightarrow ~~\mathbb{R}^{d+1}\\
+				&~~~~~~~~~~~~~~~t ~~\mapsto ~(\varphi_i(t), \varphi_i(t + \tau), \varphi_i(t + 2\tau), \dots, \varphi_i(t + d\tau))\\
+				\end{align}
+				</blockquote>
+				<p class="fragment"> <i class="fas fa-lightbulb"></i>
+				 Given a single <b style="color: red">time series data</b> $\varphi_i(t)$ observed
+				from a (potentially unknown) dynamical system $(X, \phi)$, <b style="color: red">Takens’ theorem</b> implies that (generically) the <b style="color: red">time delay embedding</b> $X_{d,\tau}\varphi_i([0,T])$ provides a topological copy of $\{\phi(t, x_0) ∶ t \in [0,T]\} \subseteq X$ for a start point $x_0\in X$. 
+				</p>
+				</span>			
+			</section>
+
+				<!--
+				<section data-auto-animate>
+				<h3>From time series to topology</h3>
+				<br>
+				<span style="font-size: 24px; text-align:left;">
+				<li> $f\colon\mathbb{R} \rightarrow \mathbb{R}$ an <b>observation</b>,</li>
+				<li>$\tau> 0$ a real number (delay),</li> 
+				<li>$d > 0$ an integer (dimension).</li>
+				<blockquote  style="padding: 5 px; border: 2px solid red; font-size: 23px;">The <b style="color: red">time delay embedding</b> of $f$ with parameters $d$ and $\tau$ is the vector-valued function 
+				\begin{align}
+				X_{d,\tau}f\colon &~~\mathbb{R}\rightarrow ~~\mathbb{R}^{d+1}\\
+				&~~~t ~\mapsto ~(f(t), 𝑓(t + \tau), 𝑓(t + 2\tau), \dots, 𝑓(t + d\tau))\\
+				\end{align}
+				</blockquote>
+				</span>
+				<div  class="row" style="font-size: 18px">
+					<div class="column_50">
+					<img width="300" height = auto src='media_ts/lorenz_time_series.gif'/>
+					</div>
+		 	 		<div class="column_50" style="font-size: 18px">
+		 	 		<img width="300" height = auto src='media_ts/lorenz_takens.gif'/>
+					</div>
+				</div>
+			
+			</section>
+			-->
+
+			<!--
+			<section data-auto-animate>
+					<h3>Bonus: analysis by channel</h3>
+					<span style="font-size: 24px; text-align:left;">
+					<ul>
+					<li> For every channel $X_i:[0,T]\colon \rightarrow \mathbb{R}$, compute the<b> dynamic induced by this observation</b>.</li>
+					</ul>
+
+					<p>Given a signal $X:[0,T] \to \mathbb{R}$, the <b style="color: red">delay embedding </b> in dimension $d$ and delay $\tau$ is \[\{(X(t), X(t+\tau), X(t+2\tau), \dots, X(t+(d-1)\tau)\in \mathbb{R}^d: t\in[0, T-(d-1)\tau]\}\]</p>
+
+					<p class = 'fragment' ><b style="color: red">Takens Theorem. </b> The <i>delay embedding</i> of an observation allows to reconstruct the entire dynamics.</p>
+					</span>
+
+					<div class = 'fragment' class="row" style="font-size: 20px">
+						<div class="column_50">
+						<img width="400" height = auto src='media_ts/lorenz_time_series.gif'/>
+						</div>
+						<div class="column_50">
+						<img width="400" height = auto src='media_ts/lorenz_takens.gif'/>
+						</div>
+
+					</div>
+
+				</section>
+			-->
+
+				<section data-auto-animate>
+					<h3>Analysis by channel</h3>
+					<br>
+					<span style="font-size: 22px; text-align:left;">
+						<span style="font-size: 23px; text-align:left;">
+					<p>Given $\varphi_i:[0,T]\to \mathbb{R}$ a <b style="color: red">single channel</b> of the recording, we construct its time delay embedding   \[X_{d,\tau}\varphi_i\colon [0, T-d\tau]\rightarrow \mathbb{R}^{d+1}\]
+					Given $\omega$ a window size, the <b style="color: red">sliding window delay embedding</b> $\mathrm{SWDE}_{\varphi_i, \omega}$ of $\varphi_i$ is the sliding window embedding of $X_{d,\tau}\varphi_i$.</p>
+					<br>
+					<blockquote  style="border: 2px solid #666; padding: 0px;">  \[[0, T-d\tau] ~\longrightarrow ~~\mathrm{Top} ~~\longrightarrow ~~\mathrm{Dgm}~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\]
+					\[~~~~~~~~~~~~~~~~~t\mapsto \mathrm{SWDE}_{\varphi_i, \omega} (t)\mapsto \mathrm{dgm}\big(\mathrm{SWDE}_{\varphi_i, \omega}(t) \big)=:\mathcal{D}_t\]</blockquote>
+					</span>
+
+				</section>
+
+				<section data-auto-animate>
+					<h3>Analysis by channel</h3>
+					<img  width='700' height = auto src='media_epilepsy/CC_iEEG_seizure_bis.png'/>
+					<img  width='840' height = auto src='media_epilepsy/CC_iEEG_by_channel_H1.png'/>
+
+				</section>
+
+				<section data-auto-animate>
+					<h3>Analysis by channel</h3>
+					<img  style = "margin-top: -10px; " width="650" height = auto src='media_epilepsy/MAC_cut.png'/>
+					<img  style = "margin-top: -10px; margin-left: 25px;" width="610" height = 140 src='media_epilepsy/Takens_MAC.png'/>
+				</section>
+
+
+				
+				<section data-auto-animate> <h3>Summary</h3>
+					
+					<span style="font-size:22px; text-align:left"> 
+
+						<br>
+						<ul>	
+							<li> <b style="color: red">Automated detection.</b>
+							<br>$~~~~$<i>It is possible to <b style="color: red">topologically</b> and <b style="color: red">computationally detect epileptic seizures</b> by means of <b>time-evolving persistent diagrams</b>.</i>
+							</li>
+							<br>
+
+							<li> <b style="color: red">Universality.</b>
+							<br><i>$~~~~$The topological biomarkers are sensitive to epileptic activity under a <b style="color: red">variety of settings</b>: different <b>methods of recording</b> (MEG, EEG, iEEG), <b>number of sensors</b> and <b>types of epilepsy</b>.</i>
+							</li>
+							<br>
+
+							<li> <b style="color: red">Robustness.</b>
+							<br><i>$~~~~$The topological summaries are (more) robust to <b style="color: red">noisy recordings</b> since they aim to capture changes in <b>homotopy type</b> of the embedding.</i></li>
+
+							<br>
+
+							<li> <b style="color: red"> Real-time analysis.</b>
+							<br><i>$~~~~$ This is a <b style="color: red">unsupervised method</b> (<b>no preprocessing or training step)</b>, which updates every $\varepsilon$ seconds (for reasonable choices of $\omega$ and $\varepsilon$) and can be computed in <b style="color: red">real time</b>.</i>
+							</li>
+						</ul>
+
+
+					<!--
+					<ul>
+						<li>It is possible to topologically <b>detect changes</b> in the global dynamics by means of <b style="color: red">time-evolving persistent diagrams</b>.
+						<br>
+						<br>
+						<li> <b style="color: red">Takens delay embedding</b> provides a tool to (topologically) infer the <b>global dynamic</b> induced by a <b>single observation</b>.</li>
+					</ul>
+				-->
+				</span>
+			
+				</section>
+			
+
+				<section>
+					<h2 >Thanks!</h2>
+					<video  style = "margin-top: -40px; " data-autoplay src='media_epilepsy/EEG_channel_window.mp4' width="749" height=auto> </video>
+					<!---<img width="700" height = auto src='media_epilepsy/window.gif'/>
+					<img width="700" height = auto src='media_epilepsy/Derivative_CC.gif'/>--->
+					<video data-autoplay src='media_epilepsy/Derivative_CC.mp4' width="749" height=auto> </video>
+				</section>
+
+
+			</div>
+
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/math/math.js"></script>
+		<script>
+			Reveal.initialize({
+				history: true,
+				transition: 'linear',
+
+				math: {
+					// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+					config: 'TeX-AMS_HTML-full',
+					TeX: {
+						Macros: {
+							R: '\\mathbb{R}',
+							set: [ '\\left\\{#1 \\; ; \\; #2\\right\\}', 2 ]
+						}
+					}
+				},
+
+				plugins: [ RevealMath ]
+			});
+		</script>
+
+	</body>
+</html>
