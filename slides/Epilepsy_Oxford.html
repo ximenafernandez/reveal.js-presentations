@@ -154,7 +154,7 @@
 					<p><b>Brain activity:</b>
 					<ul>
 					<li><span style="color: slategrey">interictal state</span> <br> normal (stochastic/quasi-deterministic) activity</li>
-					<li> <span style="color: red">ictal state</span> <br> abnormal synchronous activity</ul>
+					<li> <span style="color: red">ictal state</span> <br> abnormal <b>synchronous</b> activity</ul>
 					</ul>
 					</span>
 					</p>
@@ -312,10 +312,15 @@
 					<span style="font-size: 22px; text-align:left;">
 						<br>
 								<ul>
+
+									<li><i><b style="color: red">Amplitude.</i></b> Differences between the variable's <b>extreme values</b>.</li> 
+									<br>
 									<li><i><b style="color: red">Short-Time Fourier
-									Transform (STFT),</i></b> an estimate of the short-term time-localized frequency content.</li>
-									<li><i><b style="color: red">Lempel-Ziv complexity (LZ),</b></i> measures how diverse are the patterns that are present in a particular signal.
-									<li><i><b style="color: red">Permutation entropy,</b></i> a robust non-linear statistical measure to quantify the complexity of a dynamical system in terms of a time series.
+									Transform (STFT),</i></b> an estimate of the short-term time-localized <b>frequency</b> content.</li>
+									<br>
+									<li><i><b style="color: red">Lempel-Ziv complexity (LZ),</b></i> measures <b>diversity of the patterns</b> present in a particular signal.</li>
+									<br>
+									<li><i><b style="color: red">Permutation entropy,</b></i> a robust non-linear statistical measure to quantify the <b>complexity</b> of a dynamical system in terms of a time series.
 									</li>
 						</ul>
 					</span>
@@ -328,8 +333,8 @@
 
 
 				<section data-auto-animate>
-					<h6>Diagnosis and Signal analysis</h6>
-						<img style = " margin-top: -8px;" width="560" height = auto  src='media_epilepsy/CC_standard.png'>
+					<h6>Signal analysis</h6>
+						<img style = " margin-top: -8px;" width="540" height = auto  src='media_epilepsy/CC_standard.png'>
 				</section>
 
 
@@ -384,7 +389,7 @@
 						for all $1\leq i \leq n$.-->
 					</li>
 					<br>
-					<li> We analyze the underlying (unknown) dynamics by studying their <b style="color: red">attractors</b> (that is, the asymptotic states of the system).
+					<li> We analyze the underlying (unknown) <b>dynamics</b> by studying their <b style="color: red">attractors</b> (that is, the asymptotic states of the system).
 					</li>
 					</ul>
 					<!--<img width="800" height = 250 src='media_epilepsy/EEG_CbMIT_cropped.png'/>-->
@@ -809,23 +814,23 @@ for all $1\leq i \leq n$.-->
 				</section>
 
 				<section data-auto-animate>
-					<h5>Patient 1</h5>
+					<h5>Patient 1 (EEG)</h5>
 					<span style="font-size: 20px; text-align:left;">
 					<ul>
 					<li> Scalp EEG with 23 sensors at frequency 256 Hz.</li>
 					<li> <i>Source:</i> <a href="https://physionet.org/content/chbmit/1.0.0/">CHB-MIT database</a> from Children’s Hospital Boston, USA.
 					</ul>
 					</span>
-					<img  width="700" height ="550" src='media_epilepsy/EEG_patient1.png'/>
+					<img  width="680" height ="530" src='media_epilepsy/EEG_patient1.png'/>
 				</section>
 
 				<section data-auto-animate>
-					<h5>Patient 1</h5>
-					<img  style = "margin-top: -10px;"  width="580" height = auto src='media_epilepsy/EEG_CHMIT_all.png'/>
+					<h5>Patient 1 (EEG)</h5>
+					<img  style = "margin-top: -15px;"  width=auto height = 600 src='media_epilepsy/EEG_CHMIT.png'/>
 				</section>
 
 				<section data-auto-animate>
-					<h5>Patient 2</h5>
+					<h5>Patient 2 (iEEG)</h5>
 					<span style="font-size: 20px; text-align:left;">
 					<ul>
 					<li> Intracraneal EEG with 9 sensors at frequency 200 Hz.</li>
@@ -837,8 +842,8 @@ for all $1\leq i \leq n$.-->
 
 
 				<section data-auto-animate>
-					<h5>Patient 2</h5>
-					<img  style = "margin-top: -10px;" width=auto height = 700 src='media_epilepsy/CC_all_2.png'/>
+					<h5>Patient 2 (iEEG)</h5>
+					<img  style = "margin-top: -20px;" width=600 height = 690 src='media_epilepsy/CC_all_2.png'/>
 				</section>
 
 				<!--
@@ -881,7 +886,7 @@ for all $1\leq i \leq n$.-->
 				-->
 
 				<section data-auto-animate>
-					<h5>Patient 3</h5>
+					<h5>Patient 3 (MEG)</h5>
 					<span style="font-size: 20px; text-align:left;">
 					<ul>
 					<li> MEG with 144 sensors at frequency 625 Hz</li>
@@ -893,10 +898,10 @@ for all $1\leq i \leq n$.-->
 				</section>
 
 				<section data-auto-animate>
-					<h5>Patient 3</h5>
+					<h5>Patient 3 (MEG)</h5>
 
 					<img  style = "margin-top: -10px;" width="490" height = 300 src='media_epilepsy/MAC_MEG_seizure.png'/>
-					<img   style = "margin-top: -10px;"  width="490" height = 320 src='media_epilepsy/Patient_MAC-2.png'/>
+					<img   style = "margin-top: -20px;"  width="490" height = 320 src='media_epilepsy/Patient_MAC-2.png'/>
 
 				</section>
 
@@ -916,7 +921,7 @@ for all $1\leq i \leq n$.-->
 						<br>
 						<li><b style="color: red">Time step</b> $\varepsilon$ equivalent to 0.5 seconds.</li>
 						<br>
-						<li><b style="color: red">Execution time</b> (MacBook Pro 8-core CPU 32-core GPU 16 GB unified memory):
+						<li><b style="color: red">Execution time</b> <i>(MacBook Pro 8-core CPU 32-core GPU 16 GB unified memory)</i>:
 							<ul>
 								<li>Persistence diagrams (Ripser) $\sim 0.25$ seconds</li>
 								<li>1-Wasserstein distance (Ripser) $\sim 0.1$ seconds</li>
@@ -947,7 +952,7 @@ for all $1\leq i \leq n$.-->
 					</ul>
 					<br>
 					<br>
-					<p  class = "fragment" > <b>Goal:</b> Compare how <span style="color: red">local vs global</span> dynamics changes over the time.
+					<p  class = "fragment" > <b>Goal:</b> Topologically understand how <span style="color: red">local vs global</span> dynamics changes over the time.
 					</p>
 					</span>
 				</section>
@@ -1042,8 +1047,8 @@ for all $1\leq i \leq n$.-->
 				\end{align}
 				</blockquote>
 				<p class="fragment"> <i class="fas fa-lightbulb"></i>
-				 Given a single <b style="color: red">time series data</b> $\varphi_i(t)$ observed
-				from a (potentially unknown) dynamical system $(X, \phi)$, <b style="color: red">Takens’ theorem</b> implies that (generically) the <b style="color: red">time delay embedding</b> $X_{d,\tau}\varphi_i([0,T])$ provides a topological copy of $\{\phi(t, x_0) ∶ t \in [0,T]\} \subseteq X$ for a start point $x_0\in X$. 
+				 Given a <b style="color: red">single time series data</b> $\varphi_i(t)$ observed
+				from a (potentially unknown) <b style="color: red">dynamical system</b> $(X, \phi)$, <b style="color: red">Takens’ theorem</b> implies that (generically) the <b style="color: red">time delay embedding</b> $X_{d,\tau}\varphi_i([0,T])$ provides a topological copy of $\{\phi(t, x_0) ∶ t \in [0,T]\} \subseteq X$ for a start point $x_0\in X$. 
 				</p>
 				</span>			
 			</section>
@@ -1118,16 +1123,28 @@ for all $1\leq i \leq n$.-->
 				<section data-auto-animate>
 					<h3>Analysis by channel</h3>
 					<img  width='700' height = auto src='media_epilepsy/CC_iEEG_seizure_bis.png'/>
-					<img  width='840' height = auto src='media_epilepsy/CC_iEEG_by_channel_H1.png'/>
+					<img  style = "margin-top: -10px;" width='840' height = auto src='media_epilepsy/CC_iEEG_by_channel_H1.png'/>
+
+				</section>
+
+				<section data-auto-animate>
+					<h3>Analysis by channel</h3>
+					<img  width='700' height = auto src='media_epilepsy/CC_iEEG_seizure_bis.png'/>
+					<img  style = "margin-top: -10px;"  width='840' height = auto src='media_epilepsy/CC_iEEG_by_channel_H1_general.png'/>
 
 				</section>
 
 				<section data-auto-animate>
 					<h3>Analysis by channel</h3>
 					<img  style = "margin-top: -10px; " width="650" height = auto src='media_epilepsy/MAC_cut.png'/>
-					<img  style = "margin-top: -10px; margin-left: 25px;" width="610" height = 140 src='media_epilepsy/Takens_MAC.png'/>
+					<img  style = "margin-top: -20px; margin-left: 25px;" width="780" height = 145 src='media_epilepsy/MAC_MEG_by_channel_H1.png'/>
 				</section>
 
+				<section data-auto-animate>
+					<h3>Analysis by channel</h3>
+					<img  style = "margin-top: -10px; " width="650" height = auto src='media_epilepsy/MAC_cut.png'/>
+					<img  style = "margin-top: -20px; margin-left: 0px;" width="780" height = 145 src='media_epilepsy/MAC_MEG_by_channel_H1_general.png'/>
+				</section>
 
 				
 				<section data-auto-animate> <h3>Summary</h3>
@@ -1137,7 +1154,42 @@ for all $1\leq i \leq n$.-->
 						<br>
 						<ul>	
 							<li> <b style="color: red">Automated detection.</b>
-							<br>$~~~~$<i>It is possible to <b style="color: red">topologically</b> and <b style="color: red">computationally detect epileptic seizures</b> by means of <b>time-evolving persistent diagrams</b>.</i>
+							<br>$~~~~$<i>It is possible to <b style="color: red">topologically</b> and <b style="color: red">computationally detect epileptic seizures</b> by means of <b>time-evolving persistence diagrams</b>.</i>
+							</li>
+						</ul>
+
+				</span>
+			
+				</section>
+
+								<section data-auto-animate> <h3>Summary</h3>
+					
+					<span style="font-size:22px; text-align:left"> 
+
+						<br>
+						<ul>	
+							<li> <b style="color: red">Automated detection.</b>
+							<br>$~~~~$<i>It is possible to <b style="color: red">topologically</b> and <b style="color: red">computationally detect epileptic seizures</b> by means of <b>time-evolving persistence diagrams</b>.</i>
+							</li>
+							<br>
+
+							<li> <b style="color: red">Universality.</b>
+							<br><i>$~~~~$The topological biomarkers are sensitive to epileptic activity under a <b style="color: red">variety of settings</b>: different <b>methods of recording</b> (MEG, EEG, iEEG), <b>number of sensors</b> and <b>types of epilepsy</b>.</i>
+							</li>
+						</ul>
+
+				</span>
+			
+				</section>
+
+								<section data-auto-animate> <h3>Summary</h3>
+					
+					<span style="font-size:22px; text-align:left"> 
+
+						<br>
+						<ul>	
+							<li> <b style="color: red">Automated detection.</b>
+							<br>$~~~~$<i>It is possible to <b style="color: red">topologically</b> and <b style="color: red">computationally detect epileptic seizures</b> by means of <b>time-evolving persistence diagrams</b>.</i>
 							</li>
 							<br>
 
@@ -1147,7 +1199,32 @@ for all $1\leq i \leq n$.-->
 							<br>
 
 							<li> <b style="color: red">Robustness.</b>
-							<br><i>$~~~~$The topological summaries are (more) robust to <b style="color: red">noisy recordings</b> since they aim to capture changes in <b>homotopy type</b> of the embedding.</i></li>
+							<br><i>$~~~~$The topological summaries are (more) robust to <b style="color: red">noisy recordings</b> <b>(stability)</b>.</i></li>
+						</ul>
+
+
+				</span>
+			
+				</section>
+
+				<section data-auto-animate> <h3>Summary</h3>
+					
+					<span style="font-size:22px; text-align:left"> 
+
+						<br>
+						<ul>	
+							<li> <b style="color: red">Automated detection.</b>
+							<br>$~~~~$<i>It is possible to <b style="color: red">topologically</b> and <b style="color: red">computationally detect epileptic seizures</b> by means of <b>time-evolving persistence diagrams</b>.</i>
+							</li>
+							<br>
+
+							<li> <b style="color: red">Universality.</b>
+							<br><i>$~~~~$The topological biomarkers are sensitive to epileptic activity under a <b style="color: red">variety of settings</b>: different <b>methods of recording</b> (MEG, EEG, iEEG), <b>number of sensors</b> and <b>types of epilepsy</b>.</i>
+							</li>
+							<br>
+
+							<li> <b style="color: red">Robustness.</b>
+							<br><i>$~~~~$The topological summaries are (more) robust to <b style="color: red">noisy recordings</b> <b>(stability)</b>.</i></li>
 
 							<br>
 
@@ -1155,6 +1232,8 @@ for all $1\leq i \leq n$.-->
 							<br><i>$~~~~$ This is a <b style="color: red">unsupervised method</b> (<b>no preprocessing or training step)</b>, which updates every $\varepsilon$ seconds (for reasonable choices of $\omega$ and $\varepsilon$) and can be computed in <b style="color: red">real time</b>.</i>
 							</li>
 						</ul>
+						<br>
+						<p class="fragment"><b>Next step.</b> Explain the connection between the dynamic features of epileptic seizures and the topological biomarkers.</p>
 
 
 					<!--
