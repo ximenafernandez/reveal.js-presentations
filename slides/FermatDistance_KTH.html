@@ -989,7 +989,7 @@
 					<br>
 					<span style="font-size: 22px; text-align:left;">
 						<ul> 
-						<li>Let $\varphi = (\varphi_1, \varphi_2, \dots \varphi_n):[0,T]\to \mathbb{R}^n$ be a multichannel recording.$~~~~~~~~~~~~~~~~~~$$~~~~~~~~~~~~~~~~$$~~~~~~$</li>
+						<li>Let $\varphi = (\varphi_1, \varphi_2, \dots \varphi_n):\mathbb R\to \mathbb{R}^n$ be a multichannel recording.$~~~~~~~~~~~~~~~~~~$$~~~~~~~~~~~~~~~~$$~~~~~~$</li>
 
 					</ul>
 					<!--<img width="800" height = 250 src='media_epilepsy/EEG_CbMIT_cropped.png'/>-->
@@ -1003,7 +1003,7 @@
 					<br>
 					<span style="font-size: 22px; text-align:left;">
 						<ul> 
-						<li>Let $\varphi = (\varphi_1, \varphi_2, \dots \varphi_n):[0,T]\to \mathbb{R}^n$ be a multichannel recording.$~~~~~~~~~~~~~~~~~~$$~~~~~~~~~~~~~~~~$$~~~~~~$</li>
+						<li>Let $\varphi = (\varphi_1, \varphi_2, \dots \varphi_n):\mathbb R\to \mathbb{R}^n$ be a multichannel recording.$~~~~~~~~~~~~~~~~~~$$~~~~~~~~~~~~~~~~$$~~~~~~$</li>
 						<br>
 						<li>We assume there exist an underlying <b style="color: red">dynamical system</b> $(X, \phi)$ such that the time series $\{\varphi_i\}_{1\leq i \leq n}$ are the result of <b style="color: red">observation functions</b> $\{F_i:X\to \mathbb R\}_{1\leq i \leq n}$ <br><i style="color: slategrey">(i.e. $\varphi_i(t) = F_i(\phi(t,x))$ for some initial state $x\in X$)</i>. <!--Namely, there exist a global continuous-time  dynamical system $(X, \phi)$ (where $X$ is the phase space and $\phi \colon \mathbb{R} \times X \to X$ is the evolution function), observation maps $\{F_i:X\to \mathbb R\}_{1\leq i \leq n}$  and an initial state $x\in X$ that produce the time series
 						\begin{align*}\varphi_i:\mathbb{R}&\to \mathbb{R}\\
@@ -1021,7 +1021,7 @@
 					<br>
 					<span style="font-size: 22px; text-align:left;">
 						<ul> 
-						<li>Let $\varphi = (\varphi_1, \varphi_2, \dots \varphi_n):[0,T]\to \mathbb{R}^n$ be a multichannel recording.$~~~~~~~~~~~~~~~~~~$$~~~~~~~~~~~~~~~~$$~~~~~~$</li>
+						<li>Let $\varphi = (\varphi_1, \varphi_2, \dots \varphi_n):\mathbb R\to \mathbb{R}^n$ be a multichannel recording.$~~~~~~~~~~~~~~~~~~$$~~~~~~~~~~~~~~~~$$~~~~~~$</li>
 						<br>
 						<li>We assume there exist an underlying <b style="color: red">dynamical system</b> $(X, \phi)$ such that the time series $\{\varphi_i\}_{1\leq i \leq n}$ are the result of <b style="color: red">observation functions</b> $\{F_i:X\to \mathbb R\}_{1\leq i \leq n}$ <br><i style="color: slategrey">(i.e. $\varphi_i(t) = F_i(\phi(t,x))$ for some initial state $x\in X$)</i>. <!--Namely, there exist a global continuous-time  dynamical system $(X, \phi)$ (where $X$ is the phase space and $\phi \colon \mathbb{R} \times X \to X$ is the evolution function), observation maps $\{F_i:X\to \mathbb R\}_{1\leq i \leq n}$  and an initial state $x\in X$ that produce the time series
 						\begin{align*}\varphi_i:\mathbb{R}&\to \mathbb{R}\\
@@ -1042,7 +1042,7 @@
 					<h4>Brain Dynamics and Epilepsy</h4>
 					<span style="font-size: 22px; text-align:left;">
 						<ul> 
-						<li>Let $\varphi = (\varphi_1, \varphi_2, \dots \varphi_n):[0,T]\to \mathbb{R}^n$ be a multichannel recording.$~~~~~~~~~~~~~~~~~~$$~~~~~~~~~~~~~~~~$$~~~~~~$</li>
+						<li>Let $\varphi = (\varphi_1, \varphi_2, \dots \varphi_n):\mathbb R\to \mathbb{R}^n$ be a multichannel recording.$~~~~~~~~~~~~~~~~~~$$~~~~~~~~~~~~~~~~$$~~~~~~$</li>
 						<br>
 						<li >We assume there exist an underlying <b style="color: red">dynamical system</b> $(X, \phi)$ such that the time series $\{\varphi_i\}_{1\leq i \leq n}$ are the result of <b style="color: red">observation functions</b> $\{F_i:X\to \mathbb R\}_{1\leq i \leq n}$ <br><i style="color: slategrey">(i.e. $\varphi_i(t) = F_i(\phi(t,x))$ for some initial state $x\in X$)</i>. 
 						</li>
@@ -1069,8 +1069,8 @@
 					<h4>Topological biomarkers</h4>
 					<span style="font-size: 23px; text-align:left;">
 					<ul>
-						<li>Let $\varphi = (\varphi_1, \varphi_2, \dots \varphi_n):[0,T]\to \mathbb{R}^n$ be a multichannel recording.$~~~~~~~~~~~~~~~~~~$$~~~~~~~~~~~~~~~~$$~~~~~~$</li>
-						<li>Given a <b style="color: red">window</b> size $\omega$, we compute for every $t\in [\omega,T]$ the embedding $\mathrm{SWE}_{\varphi, \omega}(t) :=\varphi([t-\omega, t])$ in $\mathbb{R}^n$.</li>
+						<li>Let $\varphi = (\varphi_1, \varphi_2, \dots \varphi_n):\mathbb R\to \mathbb{R}^n$ be a multichannel recording.$~~~~~~~~~~~~~~~~~~$$~~~~~~~~~~~~~~~~$$~~~~~~$</li>
+						<li>Given a <b style="color: red">window</b> size $\omega$, we compute for every $t\in \mathbb R$ the embedding $\mathrm{SWE}_{\varphi, \omega}(t) :=\varphi([t-\omega, t])$ in $\mathbb{R}^n$.</li>
 					</ul>
 					<img width="1500" height = auto src='media_epilepsy/CC_iEEG_window.png'/>
 					</span>
@@ -1080,9 +1080,9 @@
 					<h4>Topological biomarkers</h3>
 					<span style="font-size: 23px; text-align:left;">
 					<ul>
-						<li>Let $\varphi = (\varphi_1, \varphi_2, \dots \varphi_n):[0,T]\to \mathbb{R}^n$ be a multichannel
+						<li>Let $\varphi = (\varphi_1, \varphi_2, \dots \varphi_n):\mathbb R\to \mathbb{R}^n$ be a multichannel
 						recording.$~~~~~~~~~~~~~~~~~~$$~~~~~~~~~~~~~~~~$$~~~~~~$</li>
-						<li>Given a <b style="color: red">window</b> size $\omega$, we compute for every $t\in [\omega,T]$ the embedding $\mathrm{SWE}_{\varphi, \omega}(t) :=\varphi([t-\omega, t])$ in $\mathbb{R}^n$.</li>
+						<li>Given a <b style="color: red">window</b> size $\omega$, we compute for every $t\in \mathbb R$ the embedding $\mathrm{SWE}_{\varphi, \omega}(t) :=\varphi([t-\omega, t])$ in $\mathbb{R}^n$.</li>
 						<li> We compute the <b style="color: red"> persistent homology</b> $\mathrm{dgm}(\mathrm{SWE}_{\varphi, \omega}(t))$ of the time evolving <b style="color: red">sliding window embedding</b>.</li>
 					</ul>
 					<img  style = " margin-top: -8px;" width="1200" height = auto src='media_epilepsy/PD_path_CC.png'/>
@@ -1109,9 +1109,9 @@
 					<h4>Topological biomarkers</h4>
 					<span style="font-size: 23px; text-align:left;">
 					<ul>
-						<li>Let $\varphi = (\varphi_1, \varphi_2, \dots \varphi_n):[0,T]\to \mathbb{R}^n$ be a multichannel
+						<li>Let $\varphi = (\varphi_1, \varphi_2, \dots \varphi_n):\mathbb R\to \mathbb{R}^n$ be a multichannel
 						recording.$~~~~~~~~~~~~~~~~~~$$~~~~~~~~~~~~~~~~$$~~~~~~$</li>
-						<li>Given a <b style="color: red">window</b> size $\omega$, we compute for every $t\in [\omega,T]$ the embedding $\mathrm{SWE}_{\varphi, \omega}(t) :=\varphi([t-\omega, t])$ in $\mathbb{R}^n$.</li>
+						<li>Given a <b style="color: red">window</b> size $\omega$, we compute for every $t\in \mathbb R$ the embedding $\mathrm{SWE}_{\varphi, \omega}(t) :=\varphi([t-\omega, t])$ in $\mathbb{R}^n$.</li>
 						<li> We compute the <b style="color: red"> persistent homology</b> $\mathrm{dgm}(\mathrm{SWE}_{\varphi, \omega}(t))$ of the time evolving <b style="color: red">sliding window embedding</b>.</li>
 					</ul>
 						<video data-autoplay src='media_epilepsy/EEG_channel_window.mp4' width="630" height=500> </video><video data-autoplay src='media_epilepsy/animation_PD_short.mp4' width="330" height=500> </video>
@@ -1122,7 +1122,7 @@
 					<h4  data-auto-animate >Topological biomarkers</h4>
 
 					<span style="font-size: 23px; text-align:left;">
-					<p>Given $\varphi = (\varphi_1, \varphi_2, \dots \varphi_n):[0,T]\to \mathbb{R}^n$ a multichannel recording and $\omega$ a window size.</p>
+					<p>Given $\varphi = (\varphi_1, \varphi_2, \dots \varphi_n):\mathbb R\to \mathbb{R}^n$ a multichannel recording and $\omega$ a window size.</p>
 					<blockquote  style="border: 2px solid #666; padding: 0px;">  \[\mathbb{R} ~\longrightarrow ~\mathrm{Top} ~\longrightarrow ~\mathrm{Dgm}~~~~~~~~~~~~~~~~~~~~~~~~~~~~\]
 					\[t\mapsto \mathrm{SWE}_{\varphi, \omega} (t)\mapsto \mathrm{dgm}\big(\mathrm{SWE}_{\varphi, \omega}(t) \big)=:\mathcal{D}_t\]
 				</blockquote>
@@ -1258,7 +1258,7 @@
 					<br>
 					<span style="font-size: 22px; text-align:left;">
 						<span style="font-size: 23px; text-align:left;">
-					<p>Given $\varphi_i:[0,T]\to \mathbb{R}$ a <b style="color: red">single channel</b> of the recording, we construct its time delay embedding  $\mathcal M_{T, D}\varphi_i$.
+					<p>Given $\varphi_i:\mathbb R\to \mathbb{R}$ a <b style="color: red">single channel</b> of the recording, we construct its time delay embedding  $\mathcal M_{T, D}\varphi_i$.
 					<br>	
 					Given $\omega$ a window size, the <b style="color: red">sliding window delay embedding</b> $\mathrm{SWDE}_{\varphi_i, \omega}$ of $\varphi_i$ is the sliding window embedding of $\mathcal M_{T, D}\varphi_i$.</p>
 					<br>
