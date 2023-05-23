@@ -68,20 +68,15 @@
 			<div class="slides">
 
 				<section>
-					<h3>Density-based Riemannian metrics  &<br> Persistent Homology</h3>
+					<h4>Intrinsic persistent homology <br>via density-based metric learning</h3>
 					<p style="font-size:30px;">XIMENA FERNANDEZ</p>
 					<p style="font-size:22px;">Durham University</p>
-					<p style="font-size:26px; color: red; margin-top: 20px">Dagstuhl Seminar</p>
-
+					<p style="font-size:20px;">Joint work with E. Borghini, G. Mindlin and P. Groisman.</p>
 					<br>
-					<br>
-					<p>
-					<span style="font-size: 19px; text-align:left;">
-						
-							 Fernandez, Borghini, Mindlin and Groisman. <i>'Intrinsic persistent homology via density-based metric learning.'</i>  <b>JMLR</b> (2023) 
-					</span>
-				</p>
-					
+					<p style="font-size:30px; color: red">London TDA Seminar</p>
+					<p style="font-size:24px;color: grey;">Queen Mary University $~\bullet~$ <i>23rd May 2023 </i></p> 
+					 
+		
 				</section>
 
 
@@ -89,7 +84,7 @@
 					<h2>Motivation</h2>
 				</section>
 
-				<!--
+				
 				<section data-auto-animate>
 				<h3>Homology inference</h3>
 				<span style="font-size: 22px; text-align:left;"> 
@@ -138,7 +133,7 @@
 
 				</span>
 				</section>
-			-->
+			
 
 				
 
@@ -658,6 +653,99 @@
 						<h3>Applications to <br>time series analysis</h3>
 					</section>
 
+					<section data-auto-animate>
+						<h4>Topological analysis of time series</h4>
+						<span style="font-size: 22px; text-align:left;">
+						<ul>
+						<li > <b>Signal:</b>
+						$\varphi:\mathbb R  \to \mathbb{R}$
+						<br>
+						<img  width="800" height = auto src='media_fermat/x_lorenz_noise.png'/></li>
+
+						<p class = 'fragment'>We assume that $\varphi$ is an <b>observation</b> of an underlying <b>dynamical system</b> $(\mathcal M, \phi)$, with $\mathcal M$ a topological space and $\phi\colon \mathbb R \times \mathcal M\to \mathcal M$ the evolution function. </p>
+						<p class = 'fragment'>That is, there exist an <b>observation function</b> $F:\mathcal M\to \mathbb R$ and an <b>initial state</b> $x_0\in \mathcal M$ such that 
+						\begin{align}\varphi = \varphi_{x_0}:\mathbb{R}&\to \mathbb{R}\\
+						t&\mapsto F(\phi_t(x_0))
+						\end{align}
+						</p>
+						</span>
+					</section>
+
+					<section data-auto-animate>
+						<h4>Topological analysis of time series</h4>
+						<span style="font-size: 22px; text-align:left;">
+						<ul>
+						<li > <b>Signal:</b>
+						$\varphi:\mathbb R  \to \mathbb{R}$
+						<br>
+						<img  width="800" height = auto src='media_fermat/x_lorenz_noise.png'/></li>
+
+
+
+						<li ><b>Delay embedding:</b> Given $T$ the <b>time delay</b> and $D$ the <b>embedding dimension</b>.
+						 \[\mathcal{M}_{T,D} = \{\big(\varphi(t), \varphi(t+T), \varphi(t+2 T) \dots, \varphi(t+(D-1)T)\big): t\in \mathbb R\}\subseteq \mathbb{R}^D\]
+						</li>
+						</ul>
+						<span class = 'fragment'>
+						<img  width="270" align='center' height = auto src='media_fermat/lorenz_embedding.png'/>
+						</span>
+					</section>
+
+					<section data-auto-animate>
+						<h4>Topological analysis of time series</h4>
+						<span style="font-size: 22px; text-align:left;">
+						<ul>
+						<li > <b>Signal:</b>
+						$\varphi:\mathbb R \to \mathbb{R}$
+						<br>
+						<img  width="600" height = auto src='media_fermat/x_lorenz_noise.png'/></li>
+
+						<li><b>Delay embedding:</b> Given $T$ the <b>time delay</b> and $D$ the <b>embedding dimension</b>.
+						 \[\mathcal{M}_{T,D} = \{\big(\varphi(t), \varphi(t+T), \varphi(t+2 T) \dots, \varphi(t+(D-1)T)\big): t\in \mathbb R\}\subseteq \mathbb{R}^D\]
+						</li>
+
+						<li> <b>Limit set: </b> Given $(\mathcal M, \phi)$ a dynamical system and $x_0\in \mathcal M$, \[\mathcal A_{x_0} = \{x\in \mathcal M: \exists t_i\to \infty \text { with } \phi_{t_i}(x_0)\to x\}.\]
+						</li>
+						<p align='center' >
+						<img  width="240" height = auto src='media_fermat/lorenz_embedding.png'/>
+						<img   width="230"  height = auto src='media_fermat/lorenz.png'/>
+						</p>
+						</ul>
+						</span>
+					</section>
+
+					<section data-auto-animate>
+						<h4>Topological analysis of time series</h4>
+						<span style="font-size: 22px; text-align:left;">
+						<ul>
+						<li > <b>Signal:</b>
+						$\varphi:\mathbb R \to \mathbb{R}$
+						<br>
+						<img  width="800" height = auto src='media_fermat/x_lorenz_noise.png'/></li>
+
+						<li><b>Delay embedding:</b> Given $T$ the <b>time delay</b> and $D$ the <b>embedding dimension</b>.
+						 \[\mathcal{M}_{T,D} (\phi) = \{\big(\varphi(t), \varphi(t+T), \varphi(t+2 T) \dots, \varphi(t+(D-1)T)\big): t\in \mathbb R\}\subseteq \mathbb{R}^D\]
+						</li>
+
+						<li> <b>Limit set: </b> Given $(\mathcal M, \phi)$ a dynamical system and $x_0\in \mathcal M$, \[\mathcal A_{x_0} = \{x\in \mathcal M: \exists t_i\to \infty \text { with } \phi_{t_i}(x_0)\to x\}.\]
+						</li>
+
+						<li> <b style= 'color:red'>Theorem (Takens).*</b> Let $\mathcal{M}$ be a smooth, compact, Riemannian manifold. Let $T> 0$ be a real number and let $D > 2 \mathrm{dim}(\mathcal{M})$
+						be an integer. Then, for generic $\phi \in  C^2(\mathbb{R} \times \mathcal{M}, \mathcal{M})$, $F\in  C^2(\mathcal{M}, \mathbb{R})$ and $x_0\in \mathcal M$,  if $\varphi_{x_0} = F(\phi_\bullet(x_0))$ is an observation of $(\mathcal M, \phi)$, then 
+						the limit set $\mathcal A_{x_0}$ is 'diffeomorphic'$^{**}$ to 
+						$\mathcal{M}_{T,D} (\varphi_{x_0})$.
+						</li>
+						</ul>
+						</span>
+						<p style="font-size: 16px; text-align:left;">
+
+						** There exists $\psi:\mathcal M\to \mathbb R^{D}$ an embedding such that $\psi|_{\mathcal A_{x_0}}: \mathcal A_{x_0}\to \mathcal{M}_{T,D} (\varphi_{x_0})$ is a bijection.
+						<br>
+						*Corollary 5, <i>Detecting strange attractors in tubulence</i>, F. Takens, 1971.
+						</p>
+						
+					</section>
+
 					
 
 					<section data-auto-animate>
@@ -717,6 +805,17 @@
 
 					<section data-auto-animate>
 						<h3>Topology of embeddings</h3>
+						<h5>Electrocardiogram</h5>
+						<img width="900" height = auto src='media_ts/ECG_signal.png'/>
+						<small>
+						\[t\mapsto \mathrm{dgm_1}(\mathrm{Rips}(\mathcal M_{T, D}\varphi|_{[0,t]}))\]
+						</small>
+						<img class="fragment" width="900" height = auto src='media_ts/bottleneck_ECG.png'/>
+					</section>
+
+
+					<section data-auto-animate>
+						<h3>Topology of embeddings</h3>
 						<h4 > Birdsongs</h4>
 						<img  width="900" height = auto src='media_ts/birdsong.png'/>
 						<p  style="font-size: 15px; text-align:left;"><i>Source data:</i> Private experiments. Laboratory of Dynamical Systems, University of Buenos Aires.</p>
@@ -756,30 +855,18 @@
 						</div>
 					</section>
 
-				<section data-auto-animate>
-					<h3>Questions</h3>
-					<br>
-					<span style="font-size: 24px;"> 
-						<ul>
-						<li><u>Results in the <b>noisy case</b></u>
-							<br>
-						<i> $\widetilde{\mathbb{X}}_n = \{\widetilde {x}_1, \widetilde {x}_2, \dots, \widetilde {x}_n\} $ such that $\widetilde{x}_i = x_i + \xi_i $ with $x_i \in \mathcal M$ and $\xi_i\in \mathbb R^D$ 'noise'.</i>
-						\[\text{Study }~~~
-    						\mathbb{P}\Big( d_B\big(\mathrm{dgm}(\mathrm{Filt}(\mathcal{M}, d_{f,q})),\mathrm{dgm}(\mathrm{Filt}(\mathbb{\widetilde{X}}_n, {\scriptstyle \frac{n^{q}}{\mu}} d_{\mathbb{X}_n,p}))\big)>\varepsilon\Big)\]
-						
-						</li>
+					<section data-auto-animate>
+						<h3>Change-points detection</h3>
+						<h4> Birdsongs</h4>
+						<img width="900" height = auto src='media_ts/time_series_birdsong_cuts.png'/>
+						<small>
+						\[t\mapsto \mathrm{dgm_1}(\mathrm{Rips}(\mathcal M_{T, D}\varphi|_{[0,t]}))\]
+						</small>
 
-						<br>
-						<span class = 'fragment'>
-						<li ><u>The parameter $p$</u></li>
-						<ul>
-						<li>Study the theoretical behaviour of the distances for different values of $p$. [McKenzie, Damelin]</li>
-						<li>'Best choice' of $p$.</li>
-						</ul>
-						</ul>
-					</span>
-					</span>
-				</section>
+						<img width="900" height = auto src='media_ts/PH_canary_peaks.png'/>
+					</section>
+
+
 
 					<section data-auto-animate>
 						<h3>References</h3>
