@@ -63,14 +63,26 @@
 				</section>
 
 
+				<section data-auto-animate>
+					<h2>The problem</h2>
+
+				    <audio  class = 'fragment'
+				        controls
+				        src="media_audioID/smells-like-teen-spirit_p1.wav">
+				    </audio>
+				    <p  class = 'fragment' style = "font-size:16px; text-align: left;">*<i>Music Obfuscator</i> by Ben Grosser (2015)</p>
+		
+		
+				</section>
+
 				
 				<section data-auto-animate>
 					<h2>The problem</h2>
 					<br>
-					<p class = 'fragment'  style="font-size:24px;">
-					Given <b>two audio recordings</b>, identify whether they correspond to the <b  style=" color: red;">same audio content</b>.
+					<p style="font-size:24px; margin-bottom: 50px; ">
+					Given <b>two audio recordings</b>, identify wheather they correspond to the <b  style=" color: red;">same audio content </b>.
 					</p>
-					<br>
+					
 				</section>
 
 				<section data-auto-animate>
@@ -119,34 +131,6 @@
 				</span>
 				</section>
 
-				<section data-auto-animate>
-					<h2>The problem</h2>
-					<p style="font-size:24px; margin-bottom: 50px; ">
-					Given <b>two audio recordings</b>, identify wheather they correspond to the <b  style=" color: red;">same audio content </b>.
-					</p>
-
-				<span style="font-size:22px;">
-					<ul>
-				    <li><b>'Smells like teen spirit'</b> by <i>Nirvana</i>:</p>
-				    <audio
-				        controls
-				        src="media_audioID/smells_like_teen_spirit.mp3">
-				    </audio>
-					</li>
-					<br>
-
-					<li class = 'fragment'><b>'Smells like teen spirit'</b> by <i>Nirvana</i> with <b style=" color: red;"> distortion*</b>:</p>
-				    <audio
-				        controls
-				        src="media_audioID/smells-like-teen-spirit_p1.wav">
-				    </audio>
-				    <p style = "font-size:16px; text-align: left;">*<i>Music Obfuscator</i> by Ben Grosser (2015)</p>
-					</li>
-				</ul>
-				</p>
-				<br>
-				
-				</section>
 
 				<section data-auto-animate>
 					<h3>Audio representation</h3>
@@ -261,7 +245,7 @@
 				<section data-auto-animate>
 					<h3>Fingerprinting audio tracks</h3>
 					<p style="font-size:28px;">Case study:
-					<span style = "color:cornflowerblue"> <img style="margin-bottom: -5px" width="25" height = auto src='media_audioID/shazam-logo.png'/> Shazam</span></p>
+					<span style = "color:cornflowerblue"> <img style="margin-bottom: -5px" width="25" height = auto src='media_audioID/shazam-logo.png'/> Shazam</span> (2003)</p>
 					
 					<audio
 				        controls
@@ -280,7 +264,7 @@
 				<section data-auto-animate>
 					<h3>Fingerprinting audio tracks</h3>
 					<p style="font-size:28px;">Case study:
-					<span style = "color:cornflowerblue"> <img style="margin-bottom: -5px" width="25" height = auto src='media_audioID/shazam-logo.png'/> Shazam</span></p>
+					<span style = "color:cornflowerblue"> <img style="margin-bottom: -5px" width="25" height = auto src='media_audioID/shazam-logo.png'/> Shazam</span> (2003)</p>
 
 
 					<ul style="font-size:22px;">
@@ -296,7 +280,7 @@
 				<section data-auto-animate>
 					<h3>Fingerprinting audio tracks</h3>
 					<p style="font-size:28px;">Case study:
-					<span style = "color:cornflowerblue"> <img style="margin-bottom: -5px" width="25" height = auto src='media_audioID/shazam-logo.png'/> Shazam</span></p>
+					<span style = "color:cornflowerblue"> <img style="margin-bottom: -5px" width="25" height = auto src='media_audioID/shazam-logo.png'/> Shazam</span> (2003)</p>
 
 					<ul style="font-size:22px;">
 						<li> <b>Fingerprint:</b> For every peak (<span style = 'color:red'>anchor point</span>) $P$ at time $t_P$ and every peak $Q$ in the <span style = 'color:red'>target zone</span> at time $t_Q$ compute $(f_P, f_Q, t_Q-t_P)$.
@@ -312,7 +296,7 @@
 				<section data-auto-animate>
 					<h3>Comparing audio tracks</h3>
 					<p style="font-size:28px;">Case study:
-					<span style = "color:cornflowerblue"> <img style="margin-bottom: -5px" width="25" height = auto src='media_audioID/shazam-logo.png'/> Shazam</span></p>
+					<span style = "color:cornflowerblue"> <img style="margin-bottom: -5px" width="25" height = auto src='media_audioID/shazam-logo.png'/> Shazam</span> (2003)</p>
 
 					<ul style="font-size:22px;">
 						<li> <b>Matching:</b>  Given two tracks, match pairs of hashes that coindide.
@@ -326,7 +310,7 @@
 					<h3>Comparing audio tracks</h3>
 
 					<p style="font-size:28px;">Case study:
-					<span style = "color:cornflowerblue"> <img style="margin-bottom: -5px" width="25" height = auto src='media_audioID/shazam-logo.png'/> Shazam</span></p>
+					<span style = "color:cornflowerblue"> <img style="margin-bottom: -5px" width="25" height = auto src='media_audioID/shazam-logo.png'/> Shazam</span> (2003)</p>
 
 					<ul style="font-size:22px;">
 						<li> <b>Scoring:</b>  Compute the histogram of $t_P-t_{P'}$ for the every paired hashes $(f_P, f_Q, t_Q-t_P)$ and $(f_{P'}, f_{Q'}, t_{Q'}-t_{P'})$ in the matching. The <b>score</b> of a matching is the size of the largest bar.
@@ -341,7 +325,7 @@
 					<h3>Comparing audio tracks</h3>
 
 					<p style="font-size:28px;">Case study:
-					<span style = "color:cornflowerblue"> <img style="margin-bottom: -5px" width="25" height = auto src='media_audioID/shazam-logo.png'/> Shazam</span></p>
+					<span style = "color:cornflowerblue"> <img style="margin-bottom: -5px" width="25" height = auto src='media_audioID/shazam-logo.png'/> Shazam</span> (2003)</p>
 
 					<ul style="font-size:22px;">
 						<li> <b>Scoring:</b>  Compute the histogram of $t_P-t_{P'}$ for the every paired hashes $(f_P, f_Q, t_Q-t_P)$ and $(f_{P'}, f_{Q'}, t_{Q'}-t_{P'})$ in the matching. The <b>score</b> of a matching is the size of the largest bar.
@@ -849,15 +833,15 @@
 					        <tbody>
 					        <tr>
 					        	<td>Smells Like Teen Spirit</td>
-					        	<td>No</td>
+					        	<td><span style = 'color:red'>No</span></td>
 					        </tr>
 					        <tr>
 								<td>Get Lucky</td>
-								<td>No</td>
+								<td><span style = 'color:red'>No</span></td>
 							</tr>
 							<tr>
 								<td>Giant Steps</td>
-								<td>No</td>
+								<td><span style = 'color:red'>No</span></td>
 
 							</tr>
 							<tr>
@@ -870,15 +854,15 @@
 							</tr>
 							<tr>
 								<td>Blue in Green</td>
-								<td>No</td>
+								<td><span style = 'color:red'>No</span></td>
 							</tr>
 							<tr>
 								<td>You’re Gonna Leave</td>
-								<td>No</td>
+								<td><span style = 'color:red'>No</span></td>
 							</tr>
 							<tr>
 								<td>Blue Ocean Floor</td>
-								<td>Yes</td>
+								<td><span style = 'color:red'>No</span></td>
 					        </tr>
 					        <tr>
 					        </tr>
@@ -964,7 +948,7 @@
 
 					<p style="font-size:26px;"><b>Spotify Database + PySOX Transformer</b> </p>
 					<ul style="font-size:24px;">
-					<li ><b style='color:green'>  <img style="margin-bottom: -5px" width="25" height = auto src='media_audioID/Spotify_icon.svg.png'/> Spotify Web API.</b> Dataset of 30 seconds preview snippets of (~135000) songs.</li>
+					<li ><b style='color:green'>  <img style="margin-bottom: -5px" width="25" height = auto src='media_audioID/Spotify_icon.svg.png'/> Spotify Web API.</b> Dataset of 30 seconds preview snippets of (~135.000) songs.</li>
 
 					<br>
 
@@ -1015,7 +999,7 @@
 
 					<br>
 
-					<li><b>Positive and negative pairs.</b> For every obfuscation type and degree, we generated a random set of 250 <i>positive pairs</i> (8500 in total).
+					<li class = 'fragment'><b>Positive and negative pairs.</b> For every obfuscation type and degree, we generated a random set of 250 <i>positive pairs</i> (8500 in total).
 					We also generated a random set of 8500 <i>negative pairs</i>.</li>
 					</ul>
 				</section>
@@ -1093,20 +1077,44 @@
 				<section data-auto-animate>
 					<h3>Future work </h3>
 					<h6 style = 'color:red'>the 1 vs N problem</h6>
+					<br>
+					<span style = 'text-align: left;'>
+					<p style="font-size:26px;padding: 6px; border: 2px solid black;">Given  an <b> audio track</b> $s$ and a <b>database</b> $\mathcal D$, <b>identify</b> an element $s'\in \mathcal D$ with the <b>same audio content</b> as $s$.
+					</p>
+				</span>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Future work </h3>
+					<h6 style = 'color:red'>the 1 vs N problem</h6>
 					<span style = 'text-align: left;'>
 					<p style="font-size:26px;padding: 6px; border: 2px solid black;">Given  an <b> audio track</b> $s$ and a <b>database</b> $\mathcal D$, <b>identify</b> an element $s'\in \mathcal D$ with the <b>same audio content</b> as $s$.
 					</p>
 					
 					<ul style="font-size:22px; margin-top: 30pt;">
-					<li >
+					<li>
+					The <b>search algorithm</b> involves the comparison of the <i>sample fingerprint</i> with the (already computed) <i>database fingerprints</i>.</li>
+				
+				</span>
+				</section>
+
+					<section data-auto-animate>
+					<h3>Future work </h3>
+					<h6 style = 'color:red'>the 1 vs N problem</h6>
+					<span style = 'text-align: left;'>
+					<p style="font-size:26px;padding: 6px; border: 2px solid black;">Given  an <b> audio track</b> $s$ and a <b>database</b> $\mathcal D$, <b>identify</b> an element $s'\in \mathcal D$ with the <b>same audio content</b> as $s$.
+					</p>
+					
+					<ul style="font-size:22px; margin-top: 30pt;">
+					<li>
 					The <b>search algorithm</b> involves the comparison of the <i>sample fingerprint</i> with the (already computed) <i>database fingerprints</i>.</li>
 					<br>
-					<li>
-					Some ideas to generalize the <i>1 vs 1 algorithm</i> to the <i>1 vs N problem</i>:</p>
+					<li >
+					Some ideas to generalize the <u>1 vs 1 algorithm</u> to the <u>1 vs N problem</u>:</p>
 					<ul style="font-size:22px;">
-						<li>Clustering of the database by content.
+						<li><i>Clustering</i> of the database by content.
 						</li>
-						<li> Subdivide every audio track from the database in blocks of $T$ seconds (e.g. 60 sec).
+						<li> <i>Subdivide every audio track</i> from the database in blocks of $T$ seconds (e.g. 60 sec).
 						</li>
 					</ul>
 					</li>
