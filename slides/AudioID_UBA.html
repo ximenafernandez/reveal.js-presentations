@@ -1,0 +1,1348 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>TOPOLOGICAL FINGERPRINTS FOR AUDIO IDENTIFICATION </title>
+
+		<meta name="description" content="TOPOLOGICAL FINGERPRINTS FOR AUDIO IDENTIFICATION">
+		<meta name="author" content="Ximena Fernandez">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/white.css" id="theme">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+		<link rel="stylesheet" href="../plugin/drawer/drawer.css" />
+		<link rel="stylesheet" href="../plugin/pointer/pointer.css" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+
+
+			* {
+			  box-sizing: border-box;
+			}
+
+			.column_25 {
+			  float: left;
+			  width: 25%;
+			  padding: 0px;
+			}
+
+			.column_75 {
+			  float: left;
+			  width: 75%;
+			  padding: 0px;
+			}
+
+			.column_50 {
+			  float: left;
+			  width: 50%;
+			  padding: 0px;
+			}
+
+			.column_33 {
+			  float: left;
+			  width: 33%;
+			  padding: 0px;
+			}
+
+		
+			/* Clear floats after the columns */
+			.row:after {
+			  content: "";
+			  display: table;
+			  clear: both;
+			}
+			</style>
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+				<section data-background-image="media_oxford/title-slide-background_white_grey.png">
+					<p style="font-size:28px; color: red;"> Coloquio Departamento de Matemática, FCEyN, UBA</p>
+					
+
+					<h3>Let it Be(tti):</h3>
+					<h5>Huellas topologicas para identificacion de audio</h5>
+					<p style="font-size:28px;">XIMENA FERNANDEZ</p>
+
+					<p style="font-size:16px;">Trabajo en colaboracion con <br>W. REISE (Paris-Saclay), M. DOMINGUEZ, M. BEGUERISSE-DIAZ (Spotify) & H. A. HARRINGTON (Oxford).</p>
+					 
+					<img width="700" height = auto src='media_audioID/melspectrogram_LIB_color.png'/>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Topological data analysis</h3>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Topological data analysis</h3>
+					<div class="column_50">
+					<img width="350" height = auto src='media_fermat/cyclo_octane.png'>
+					<p style="font-size:12px;margin-top: -14pt" >Martin et al. Topology of cyclo-octane energy landscape. J Chem Phys. 2010</p>
+					<img width="600" height = auto src='media_fermat/proteins.png'>
+					<p style="font-size:10px;margin-top: -28pt" >Barbensi et al. A topological eslection of folding Pathways from native states of knotted proteins. Symm. 2021</p>
+					</div>
+		 	 		<div class="column_50">
+		 	 		<img width="500" height = auto src='media_fermat/grid_cells2.png'>
+		 
+		 	 		<p style="font-size:12px;margin-top: -16pt" >Gardner et al. Toroidal topology of population activity in grid cells. Nature. 2022</p>
+					</div>
+
+				</section>
+
+				<section data-auto-animate>
+					<h3>Topological data analysis</h3>
+					<span style = "font-size:24px; text-align: center;">
+
+					<div class="column_33"> <b style=" color: red;"> Clustering</b>
+					<br>
+					<span style="font-size:18px;">Estimation of connected components.</span>
+					<br>
+					<br>
+						<img width="300" height = auto src='media_ph/clustering_memoli_carlsson.png'>
+						<p style="font-size:14px; margin-top:-20pt">Carlsson, Memoli. <i>Characterization, Stability and Convergence of Hierarchical Clustering Methods.</i> <b>JMLR</b> (2010)</p>
+						<br>
+
+						<img width="300" height = auto src='media_ph/clustering_chazal.png'>
+						<p style="font-size:14px; margin-top:-20pt">Chazal, Guibas, Oudot, Skraba. <i>Persistence-Based Clustering in Riemannian Manifolds.</i> <b>Journal of the ACM</b> (2011)</p>
+					</div>
+					
+					<div class="column_33"> <b style=" color: red;">Dimensionality reduction</b>
+						<span style="font-size:18px;"> Topological Projection </span>
+						<img width="300" height = auto src='media_fermat/proteins.png'>
+						<p style="font-size:14px; margin-top:-25pt">McInnes, Healy, Melville. <i>UMAP: Uniform Manifold Approximation and Projection for Dimension Reduction.</i> <b>Journal of the Open Source Software</b> (2018)</p>
+						<img width="400" height = auto src='media_ph/nba.gif'>
+						<p style="font-size:14px; margin-top:-15pt">Singh, Memoli, Carlsson. <i>Topological Methods for the Analysis of High Dimensional Data Sets and 3D Object Recognition (Mapper).</i> <b></b> (2007)</p>
+					</div>
+					<div class="column_33"> <b style=" color: red;">Homological inference</b>
+						<span style="font-size:18px;">Estimation of the number of connected components, loops, voids, etc.</span>
+						<img width="370" height = auto src='media_ph/stability1.png'>
+						<p style="font-size:14px; margin-top:-15pt">Zomorodian, Carlsson. <i>Computing Persistent Homology</i> <b>Discrete and Computational Geometry</b> (2005)
+					</div>
+					</span>
+				</section>
+
+
+				<section data-auto-animate>
+					<h3>Persistent homology</h3>
+
+					<span style = "font-size:22px; text-align: left;">
+						<p>Input dataset $X$.</p>
+				    <ul style = " margin-top: -10pt;">
+				    	<li> <b style=" color: red;">Combinatorics:</b> construct an increasing family $\{X_t\}$ of  complexes around $X$, where the indexing $t$ is a <b>scale parameter</b> in $\mathbb R\geq 0$.
+				    	</li>
+				    	<li> <b style=" color: red;">Algebraic topology:</b> compute the $d$-th <b>homology</b> vector spaces $H_d(X_t)$ for scales $t\in R_{\geq 0}$ and dimensions $d \in Z_{\geq 0}$.
+				    	<li> <b style=" color: red;">Representation theory:</b> decompose each family of vector spaces $\{H_d(X_t)\colon t \geq 0\}$ into irreducible summands, thus producing a <b>barcode</b>.
+				    	</li>
+				    </ul>
+				    <img width="600" height = auto src='media_audioID/tda.png'/>
+					<p style = "font-size:16px; text-align: right; margin-top: -45pt;">Source: Ali et.al. (2023)</p>
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Persistent homology</h3>
+					<span style = "font-size:22px; text-align: left;">
+				    <ul style = " margin-top: -10pt;">
+				    	<li> <b style=" color: red;">Statistics:</b>
+				    		<ul>
+				    			<li><b>Stability:</b> Persistence barcodes are stable with respect to perturbations of data.</li>
+				    			<img width="600" height = auto src='media_ph/stability1.png'/>
+				    		</ul>
+				    	</li>
+				    </ul>
+				   </span>
+				</section>
+								<section data-auto-animate>
+					<h3>Persistent homology</h3>
+					<span style = "font-size:22px; text-align: left;">
+				    <ul style = " margin-top: -10pt;">
+				    	<li> <b style=" color: red;">Statistics:</b>
+				    		<ul>
+				    			<li><b>Stability:</b> Persistence barcodes are stable with respect to perturbations of data.</li>
+				    			<img width="600" height = auto src='media_ph/stability2.png'/>
+				    		</ul>
+				    	</li>
+				    </ul>
+				   </span>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Persistent homology</h3>
+					<span style = "font-size:22px; text-align: left;">
+				    <ul style = " margin-top: -10pt;">
+				    	<li> <b style=" color: red;">Statistics:</b>
+				    		<ul>
+				    			<li><b>Stability:</b> Persistence barcodes are stable with respect to perturbations of data.</li>
+				    			<img width="400" height = auto src='media_ph/stability2.png'/>
+				    			<li><b>Convergence:</b> Persistence barcodes converge to a limit barcode of the underltying space as the size of the sample $X$ goes to $\infty$.</li>
+				    		</ul>
+				    	</li>
+				    </ul>
+				    
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Applications of persistence</h3>
+					<span style = "font-size:24px; text-align: center;">
+					<div class="column_50"> <b style=" color: red;">Data Analysis</b>
+						<ul>
+						<li><p style = "font-size:20px;text-align: left;">Gardner et al. <i>'Toroidal topology of population activity in grid cells'.</i> <b>Nature.</b> (2022)</p>
+						<p><img width="400" height = auto src='media_fermat/grid_cells.png'></p>
+						</li>
+						</ul>
+						
+					</div>
+					<span class = 'fragment'>
+					<div class="column_50"> <b style=" color: red;">Theory</b>
+						<ul>
+							<li>
+						<p style = "font-size:20px;text-align: left;">L. Polterovich et.al. <i>'Topological persistence in geometry and analysis'.</i>   <b>American Mathematical Society.</b> (2020)</b>
+						</p>
+					</li>
+						<li><p style = "font-size:20px;text-align: left;">E. Shelukhin. <i>'On the Hofer-Zehnder conjecture'.</i> <br> <b>Annals of Mathematics.</b> (2022)</p>
+						</li>
+					</ul>
+
+					</div>
+				</span>
+					</span>
+					</section>
+
+				<section data-auto-animate>
+					<h3>Applications of persistence</h3>
+					<span style = "font-size:24px; text-align: center;">
+					<div class="column_50"> <b style=" color: red;">Data Analysis</b>
+						<ul>
+						<li><p style = "font-size:20px;text-align: left;">Gardner et al. <i>'Toroidal topology of population activity in grid cells'.</i> <b>Nature.</b> (2022)</p>
+						</li>
+						$\dots$
+						</ul>
+						
+						<ul>
+						<li>
+		 	 			<p style = "font-size:20px;text-align: left; padding: 6px; border: 2px solid black;">Reise, Fernandez, Dominguez, Harrington, Beguerisse-Diaz. <i>'Topological fingerprints for audio identification'.</i> <b>SIAM Journal of Data Science</b> (accepted) (2023)</p></li></ul>
+						
+						
+					</div>
+					<div class="column_50"> <b style=" color: red;">Theory</b>
+						<ul>
+							<li>
+						<p style = "font-size:20px;text-align: left;">L. Polterovich et.al. <i>'Topological persistence in geometry and analysis'.</i>   <b>American Mathematical Society.</b> (2020)</b>
+						</p>
+					</li>
+						<li><p style = "font-size:20px;text-align: left;">E. Shelukhin. <i>'On the Hofer-Zehnder conjecture'.</i> <br> <b>Annals of Mathematics.</b> (2022)</p>
+						</li>
+						$\dots$
+					</ul>
+
+					</div>
+					</span>
+					</section>
+
+					<section data-auto-animate>
+					<h2>Audio Identification</h2>
+		
+					</section>
+
+				<section data-auto-animate>
+					<h2>Audio Identification</h2>
+
+					<br>
+
+					<span style="font-size:32px"> Do you recognize this song?</span>
+
+					<br>
+					<br>
+
+				    <audio 
+				        controls
+				        src="media_audioID/smells-like-teen-spirit_p1.wav">
+				    </audio>
+
+
+				    <p  style = "font-size:16px; text-align: center;">Source: <i>Music Obfuscator</i> by Ben Grosser (2015)</p>
+		
+		
+				</section>
+
+				
+				<section data-auto-animate>
+					<h2>Audio Identification</h2>
+					<br>
+					<p style="font-size:24px; margin-bottom: 50px; ">
+					Given <b>two audio recordings</b>, identify wheather they correspond to the <b  style=" color: red;">same audio content </b>.
+					</p>
+					
+				</section>
+
+				<section data-auto-animate>
+					<h2>The problem</h2>
+					<p style="font-size:24px; margin-bottom: 50px; ">
+					Given <b>two audio recordings</b>, identify wheather they correspond to the <b  style=" color: red;">same audio content </b>.
+					</p>
+					
+
+				<span style="font-size:22px;">
+					<ul>
+				    <li><b>'Morning Song'</b> by <i>Le Loup</i>:</p>
+				    <audio
+				        controls
+				        src="media_audioID/morning.wav">
+				    </audio>
+					</li>
+					<br>
+
+					<li ><b>'Morning Song'</b> by <i>Le Loup</i> with addition of <b style=" color: red;">white noise</b>:</p>
+				    <audio
+				        controls
+				        src="media_audioID/morning_noise.wav">
+				    </audio>
+					</li>
+
+					<br>
+
+
+					<li ><b>'Morning Song'</b> by <i>Le Loup</i> with change of <b style=" color: red;">tempo</b>:</p>
+				    <audio
+				        controls
+				        src="media_audioID/morning_tempo.wav">
+				    </audio>
+					</li>
+
+					<br>
+
+					<li >'<b>Morning Song'</b> by <i>Le Loup</i> with change of <b style=" color: red;">pitch</b>:</p>
+				    <audio
+				        controls
+				        src="media_audioID/morning_pitch.wav">
+				    </audio>
+					</li>
+				</ul>
+				</span>
+				</section>
+
+
+				<section data-auto-animate>
+					<h3>Audio representation</h3>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Audio representation</h3>
+					<span style="font-size:22px;">
+					<ul>
+						<li> <b>Waveform:</b> A continuous function $s\colon\lbrack 0,T\rbrack \to \mathbb{R}$.
+						<img width="800" height = auto src='media_audioID/morning_waveform.svg'/>
+						</li>
+					</ul>
+				</span>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Audio representation</h3>
+					<span style="font-size:22px;">
+					<ul>
+						<li> <b>Waveform:</b> A continuous function $s\colon\lbrack 0,T\rbrack \to \mathbb{R}$.
+						<img width="800" height = auto src='media_audioID/morning_waveform.svg'/>
+
+						<img width="800" height = auto src='media_audioID/morning_waveform_noise.svg'/>
+						</li>
+					</ul>
+				</span>
+				</section>
+
+				<!--
+				<section data-auto-animate>
+					<h2>Audio representation</h2>
+					<span style="font-size:22px;">
+					<ul>
+
+						<li > <b>(Continuous) Short-time Fourier transform:</b> Given a time value $t\in \lbrack 0,T\rbrack$ and a frequency $f\geq 0$, $S(f,t)$ represents the amplitude of the frequency component $f$ (in the local Fourier decomposition of $s$) over a window around $t$ and it is computed as  
+						\begin{equation}
+						\label{eq:stft}
+						S(f,t) = \int_{\R} s(\tau)\omega(\tau-t) \exp(-i f \tau) d\tau,
+						\end{equation}
+						where $\omega(t)$ is a <i>window function</i> (a bell-shaped function centred at zero with finite support).
+
+						</li>
+					</ul>
+				</span>
+				</section>
+
+
+				<section data-auto-animate>
+					<h2>Audio representation</h2>
+					<span style="font-size:22px;">
+					<ul>
+						<li> <b>Waveform:</b> A continuous function $s\colon\lbrack 0,T\rbrack \to \mathbb{R}$.
+						<img width="800" height = auto src='media_audioID/waveform_morning_song.svg'/>
+						</li>
+
+						<li > <b>(Discrete) Short-time Fourier transform:</b> Given equally-spaced time samples $(t_n)_{n=1}^{N}$ in $\lbrack 0,T\rbrack$ and  a  discretization of the frequency range $\{f_m\}_{m=1}^M$, the magnitude of the frequency $f_m$ 
+						 around $t_n$ 
+						 is given by
+						\begin{equation}
+						\widehat{S} (n, 
+						m) = \sum_{k=-\infty}^\infty s_k \omega_{k-n}\exp\left(-i k f_m\right),
+						\end{equation}
+						where $N_\omega$ is the size of the window and $(w_k)_{k=0}^{N_\omega-1}$ is a discrete version of a window function.
+						</li>
+					</ul>
+				</span>
+				</section>
+			-->
+
+				<section data-auto-animate>
+					<h3>Audio representation</h3>
+					<span style="font-size:22px;">
+					<ul>
+
+						<li > 
+						<b>(Discrete) Short-time Fourier transform:</b> Given equally-spaced time samples of the signal $(s_n)_{n=1}^{N}$ in $\lbrack 0,T\rbrack$ and  a  discretization of the frequency range $\{f_m\}_{m=1}^M$, the magnitude of the frequency $f_m$ 
+						 around $t_n$ 
+						 is given by
+						\[
+						\widehat{S} (n, 
+						m) = \sum_{k=-\infty}^\infty s_k \omega_{k-n}\exp\left(-i k f_m\right),
+						\]
+						where $(\omega_k)_k$ is a discrete version of a window function.
+
+
+						<img width="1200" height = auto src='media_audioID/mel_morning_0.svg'/>
+						</li>
+					</ul>
+				</span>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Audio representation</h3>
+					<span style="font-size:22px;">
+					
+
+
+						<img width="1200" height = auto src='media_audioID/morning_MEL_original.svg'/>
+						<img width="1200" height = auto src='media_audioID/morning_MEL_wN.svg'/>
+	
+					
+				</span>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Fingerprinting audio tracks</h3>
+
+
+				</section>
+
+				<section data-auto-animate>
+					<h3>Fingerprinting audio tracks</h3>
+					<p style="font-size:28px;">Case study:
+					<span style = "color:cornflowerblue"> <img style="margin-bottom: -5px" width="25" height = auto src='media_audioID/shazam-logo.png'/> Shazam</span> (2003)</p>
+					
+					<audio
+				        controls
+				        src="media_audioID/morning.wav">
+				    </audio>
+
+					<img width="800" height = auto src='media_audioID/Shazam_paper.png'/>
+
+					<!--
+					<span style="font-size:20px; text-align:left;"><b style="font-size:22px">An industrial-strength audio search algorithm,</b> <i>A. Wang.</i> ISMIR 2003.
+					</span>
+					-->
+				</section>
+
+
+				<section data-auto-animate>
+					<h3>Fingerprinting audio tracks</h3>
+					<p style="font-size:28px;">Case study:
+					<span style = "color:cornflowerblue"> <img style="margin-bottom: -5px" width="25" height = auto src='media_audioID/shazam-logo.png'/> Shazam</span> (2003)</p>
+
+
+					<ul style="font-size:22px;">
+						<li> <b>Finding peaks:</b> Identify <span style = 'color:red'> local maxima </span> in the spectrogram.
+							<br>
+							For every $n,m$, compare $\widehat{S}(n,m)$ with the average of intensities in a neighborhood $\mathcal{N}(n,m)$. <br> Identify $(n,m)$ such that $ \widehat{S}(n,m)>\sum_{(n',m')\in \mathcal{N}(n,m)} \widehat{S}(n',m')$.
+						</li>
+					</ul>
+					<img width="350" height = auto src='media_audioID/Shazam_spectrogram.png'/> <img width="350" height = auto src='media_audioID/Shazam_constellation.png'/>
+
+				</section>
+
+				<section data-auto-animate>
+					<h3>Fingerprinting audio tracks</h3>
+					<p style="font-size:28px;">Case study:
+					<span style = "color:cornflowerblue"> <img style="margin-bottom: -5px" width="25" height = auto src='media_audioID/shazam-logo.png'/> Shazam</span> (2003)</p>
+
+					<ul style="font-size:22px;">
+						<li> <b>Fingerprint:</b> For every peak (<span style = 'color:red'>anchor point</span>) $P$ at time $t_P$ and every peak $Q$ in the <span style = 'color:red'>target zone</span> at time $t_Q$ compute $(f_P, f_Q, t_Q-t_P)$.
+						</li>
+					</ul>
+					<img width="350" height = auto src='media_audioID/Shazam_anchor.png'/> <img width="350" height = auto src='media_audioID/Shazam_hash.png'/>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Comparing audio tracks</h3>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Comparing audio tracks</h3>
+					<p style="font-size:28px;">Case study:
+					<span style = "color:cornflowerblue"> <img style="margin-bottom: -5px" width="25" height = auto src='media_audioID/shazam-logo.png'/> Shazam</span> (2003)</p>
+
+					<ul style="font-size:22px;">
+						<li> <b>Matching:</b>  Given two tracks, match pairs of hashes that coindide.
+						</li>
+						<img width="400" height = auto src='media_audioID/Shazam_good_matching.png'/> <img width="400" height = auto src='media_audioID/Shazam_bad_matching.png'/>
+					</ul>
+	
+				</section>
+
+				<section data-auto-animate>
+					<h3>Comparing audio tracks</h3>
+
+					<p style="font-size:28px;">Case study:
+					<span style = "color:cornflowerblue"> <img style="margin-bottom: -5px" width="25" height = auto src='media_audioID/shazam-logo.png'/> Shazam</span> (2003)</p>
+
+					<ul style="font-size:22px;">
+						<li> <b>Scoring:</b>  Compute the histogram of <b>$t_P-t_{P'}$</b> for  every matched pair of hashes $(f_P, f_Q, t_Q-t_P)$ and $(f_{P'}, f_{Q'}, t_{Q'}-t_{P'})$. The <b>score</b> of a matching is the size of the largest bar.
+						</li>
+					</ul>
+	
+						<center><img width="650" height = auto src='media_audioID/shazam_score1.png'/> </center>
+				</section>
+
+
+				<section data-auto-animate>
+					<h3>Comparing audio tracks</h3>
+
+					<p style="font-size:28px;">Case study:
+					<span style = "color:cornflowerblue"> <img style="margin-bottom: -5px" width="25" height = auto src='media_audioID/shazam-logo.png'/> Shazam</span> (2003)</p>
+
+					<ul style="font-size:22px;">
+						<li> <b>Scoring:</b>  Compute the histogram of $t_P-t_{P'}$ for the every paired hashes $(f_P, f_Q, t_Q-t_P)$ and $(f_{P'}, f_{Q'}, t_{Q'}-t_{P'})$ in the matching. The <b>score</b> of a matching is the size of the largest bar.
+						</li>
+					</ul>
+						<center><img width="650" height = auto src='media_audioID/shazam_score2.png'/> </center>
+	
+				</section>
+
+				<section data-auto-animate>
+					<h3>Obfuscations of  Audio tracks</h3>
+					<!--<p style="font-size:28px;">
+					Audio Editing Software <b>SoX</b>
+					<br>
+				</p>-->
+
+					<ul style="font-size:26px; text-align: left;">
+						<li>Addition of noise
+						<br>
+						 <audio
+				        controls
+				        src="media_audioID/morning_noise.wav">
+				    	</audio>
+				    	<audio
+				        controls
+				        src="media_audioID/morning_pN4.mp3">
+				    	</audio>
+						</li>
+						<br>
+						<li>Reverberation
+							<br>
+						<audio
+				        controls
+				        src="media_audioID/morning_r3.mp3">
+				    	</audio>
+						</li>
+						<br>
+						<li>Low/High pass filter
+						<br>
+						<audio
+				        controls
+				        src="media_audioID/morning_l1.mp3">
+				    	</audio> <audio
+				        controls
+				        src="media_audioID/morning_h4.mp3">
+				    	</audio></li>
+				    	<br>
+						<li>Tempo shift
+						<br>
+						<audio
+				        controls
+				        src="media_audioID/morning_tempo.wav">
+				   		</audio></li>
+				   		<br>
+						<li>Pitch shift
+						<br>
+						<audio
+				        controls
+				        src="media_audioID/morning_pitch.wav">
+				    </audio></li>
+					</ul>
+					
+					<!--<img width="772" height = auto src='media_audioID/morning_waveform.svg'/>
+					<img width="1200" height = auto src='media_audioID/morning_MEL_original.svg'/>-->
+					
+
+				</section>
+
+				<section data-auto-animate>
+					<h3>Obfuscations of Audio tracks</h3>
+
+					<img style="margin-bottom: -5px" width="475" height = auto src='media_audioID/morning_MEL_original.png'/>
+					<img width="475" style="margin-bottom: -5px" height = auto src='media_audioID/morning_MEL_rev.png'/>
+					<img width="475" style="margin-bottom: -5px" height = auto src='media_audioID/morning_MEL_wN.png'/>
+					<img width="475" style="margin-bottom: -5px" height = auto src='media_audioID/morning_MEL_pN.png'/>
+					<img width="475" style="margin-bottom: -5px" height = auto src='media_audioID/morning_MEL_tem.png'/>
+					<img width="475" style="margin-bottom: -5px" height = auto src='media_audioID/morning_MEL_pitch.png'/>
+					<img width="475" style="margin-bottom: -5px" height = auto src='media_audioID/morning_MEL_low.png'/>
+					<img width="475" style="margin-bottom: -5px" height = auto src='media_audioID/morning_MEL_high.png'/>
+				</section>
+
+
+				<section data-auto-animate>
+					<h3>Audio Identification</h3>
+					<p style="font-size:28px;">Case study:
+					<span style = "color:cornflowerblue"> <img style="margin-bottom: -5px" width="25" height = auto src='media_audioID/shazam-logo.png'/> Shazam</span></p>
+					<br>
+					<ul style="font-size:22px;">
+							<li> The algorithm has <b> good performance</b> for <i style = "color:red">rigid</i> obfuscations of audio tracks, such as:
+								<ul>
+									<li>addition of noise,</li>
+									<li>highpass/lowpass filter,</li>
+									<li>reverberation.</li>
+								</ul>
+							</li>
+							<br>
+							<li class = 'fragment'>
+							The algorithm has <b >poor performance</b> for <i style = "color:red">topological</i> obfuscations of audio tracks, such as:
+							<ul>
+									<li>change of pitch,</li>
+									<li>change of tempo,</li>
+									<li> mixed distortions; e.g. <a href="https://bengrosser.com/projects/music-obfuscator/">Music Obfuscator</a>  by Ben Grosser (2015). <br>
+
+									</li>
+							</ul>
+							</li>
+							
+					</ul>
+					
+
+				</section>
+
+
+				<section data-auto-animate>
+					<h3>Topological<br> Audio Identification</h3>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Topology of spectrograms</h3>
+
+					<img width="1000" height = auto src='media_audioID/mel_morning_song.svg'/>
+
+					<img  width="900" height = 250 src='media_audioID/mel_db_normalized_surface.png'/>
+				</section>
+
+
+				<section data-auto-animate>
+					<h3>Topology of spectrograms</h3>
+					<span style="font-size:26px;">Mel-spectrograms as filtered cubical complexes</span>
+
+					<img width="750" height = auto src='media_audioID/Cubical_complex.png'/> 
+				</section>
+
+				<section data-auto-animate>
+					<h3>Topology of spectrograms</h3>
+					<span style="font-size:26px;">Mel-spectrograms as filtered cubical complexes</span>
+					<div class = "center">
+					<video data-autoplay src='media_audioID/cubical.mp4' width="320" height=auto> </video>
+				</div>
+					<br>
+
+					<!--<img width="500" height = auto src='media_audioID/image.png'/> -->
+					<img width="750" height = auto src='media_audioID/Barcode_Betti.png'/> 
+				</section>
+
+
+				<section data-auto-animate>
+					<h3>Topology of spectrograms</h3>
+
+					<audio
+				        controls
+				        src="media_audioID/track13.mp3">
+				    </audio>
+
+				   <img width="900" height = auto src='media_audioID/from_the_sea_all.png'/> 
+
+				</section>
+
+				<section data-auto-animate>
+					<h3>Topology of spectrograms</h3>
+
+					<audio
+				        controls
+				        src="media_audioID/track13.mp3">
+				    </audio>
+
+				   <img width="900" height = auto src='media_audioID/no_heroes_all.png'/> 
+
+				</section>
+
+				<!--
+				<section data-auto-animate>
+					<h3>Topology of spectrograms</h3>
+
+					<audio
+				        controls
+				        src="media_audioID/track1.mp3">
+				    </audio>
+
+				   <img width="900" height = auto src='media_audioID/track1_Barcode_Betti.png'/> 
+
+				</section>
+
+
+				<section data-auto-animate>
+					<h3>Topology of spectrograms</h3>
+
+					<audio
+				        controls
+				        src="media_audioID/track13.mp3">
+				    </audio>
+
+				   <img width="900" height = auto src='media_audioID/track13_Barcode_Betti.png'/> 
+
+				</section>
+			-->
+
+				<section data-auto-animate>
+					<h3>Topology of spectrograms</h3>
+
+
+				   <img style= 'margin-bottom: -15pt; margin-top: 0pt'; width="650" height = auto src='media_audioID/track1_Barcode_Betti.png'/> 
+
+				   <img width="650" height = auto src='media_audioID/track13_Barcode_Betti.png'/> 
+
+				</section>
+
+
+				<section data-auto-animate>
+					<h3>Topology of spectrograms</h3>
+
+
+				   <img ; width="475" height = 400 src='media_audioID/betti_obf_2.png'/> 
+
+				   <img width="475" height = 400 src='media_audioID/betti_obf_1.png'/> 
+
+				</section>
+
+				<section data-auto-animate>
+					<h3>Topological fingerprints</h3>
+				</section>
+
+
+
+				<section data-auto-animate>
+					<h3>Topological fingerprints</h3>
+
+					<p style="font-size:20px;">
+					Let $\mathcal S$ denote the mel-spectrogram of an audio track $s:[0,T]\to \mathbb{R}$. 
+				</p>
+				<img width="800" height = 200  src='media_audioID/melspectrogram_SLTS_original_window.svg'>
+
+
+					<ul>
+						<li style="font-size:20px;"><b style= 'color:red'>Local spectral decompositions:</b> Given $\omega$  a <b>window size</b> and $0<\tau<1$ an <b>overlap constant</b>, we
+							subdivide $\mathcal S$ into a set of $\tau$-overlapping windows $W_0, W_1, \dots, W_k$ of $\omega$ seconds duration.  We normalize the range of every window as
+							$\frac{W_i-\min(W_i)}{\max(W_i)-\min(W_i)}.$ Let $t_i$ be the mid-time point of $W_i$. 
+						</li>
+					</ul>
+
+					<br>
+
+					<img width=130 height =150 src='media_audioID/mel_SLTS_one_sec_window_1.png'/> 
+					<img width=130 height =150 src='media_audioID/mel_SLTS_one_sec_window_2.png'/> 
+					<img width=130 height =150 src='media_audioID/mel_SLTS_one_sec_window_3.png'/> 
+					<img width=130 height =150 src='media_audioID/mel_SLTS_one_sec_window_4.png'/> 
+					<img width=130 height =150 src='media_audioID/mel_SLTS_one_sec_window_5.png'/> 
+					<img width=130 height =150 src='media_audioID/mel_SLTS_one_sec_window_6.png'/>
+
+				</section>
+
+				<section data-auto-animate>
+					<h3>Topological fingerprints</h3>
+
+					<p style="font-size:20px;">
+					Let $\mathcal S$ denote the mel-spectrogram of an audio track $s:[0,T]\to \mathbb{R}$. 
+				</p>
+				<img width="800" height = 200  src='media_audioID/melspectrogram_SLTS_original_window.svg'>
+
+					<ul style="font-size:20px;">
+						<li ><b style= 'color:red'>Local persistence signatures:</b> For each (normalized) window $W_i$, we compute the <b>persistent homology</b> of the associated <b>upper-filtered cubical complex</b> for dimensions 0 and 1. <br>We encode the <b>persistent barcodes</b> as a family of <b>Betti curves</b> $\{\beta_{i,0}\}_{i=0}^{k}$ and $\{\beta_{i,1}\}_{i=0}^{k}$ for dimensions 0 and 1, respectively.
+						</li>
+					
+					
+					<img width="140" height = auto src='media_audioID/Betti_curve_SLTS_1.svg'/> 
+					<img width="140" height = auto src='media_audioID/Betti_curve_SLTS_2.svg'/> 
+					<img width="140" height = auto src='media_audioID/Betti_curve_SLTS_3.svg'/> 
+					<img width="140" height = auto src='media_audioID/Betti_curve_SLTS_4.svg'/> 
+					<img width="140" height = auto src='media_audioID/Betti_curve_SLTS_5.svg'/> 
+					<img width="140" height = auto src='media_audioID/Betti_curve_SLTS_6.svg'/> 
+
+				
+					</ul>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Topological fingerprints</h3>
+
+					<p style="font-size:20px;">
+					Let $\mathcal S$ denote the mel-spectrogram of an audio track $s:[0,T]\to \mathbb{R}$. 
+				</p>
+				<img width="800" height = 200  src='media_audioID/melspectrogram_SLTS_original_window.svg'>
+
+					<ul style="font-size:20px;">
+					<li><b style= 'color:red'>Fingerprint:</b> The <b>topological fingerprint</b> of the audio track $s$ with the resolution given by the parameters $\omega$ and $\tau$ is defined as the set of triples ${(t_i, \beta_{i,0}, \beta_{i,1})}_{i=0}^{k}$.
+					</li>
+					
+					
+					<img width="145" height = auto src='media_audioID/Betti_curve_SLTS_1.svg'/> 
+					<img width="145" height = auto src='media_audioID/Betti_curve_SLTS_2.svg'/> 
+					<img width="145" height = auto src='media_audioID/Betti_curve_SLTS_3.svg'/> 
+					<img width="145" height = auto src='media_audioID/Betti_curve_SLTS_4.svg'/> 
+					<img width="145" height = auto src='media_audioID/Betti_curve_SLTS_5.svg'/> 
+					<img width="145" height = auto src='media_audioID/Betti_curve_SLTS_6.svg'/> 
+
+					<p style= 'margin-top: -20pt;'>$~~~~~~~~~~~~t_0~~~~~~~~~~~~~~~~~~~~~~~t_1~~~~~~~~~~~~~~~~~~~~t_2~~~~~~~~~~~~~~~~~~~~~t_3~~~~~~~~~~~~~~~~~~~~~~t_4~~~~~~~~~~~~~~~~~~~~~t_5 \dots$</p>
+
+					
+					</ul>
+				</section>
+
+				<section data-auto-animate>
+					<h3> Comparing fingerprints</h3>
+				</section>
+
+				<section data-auto-animate>
+					<h3> Comparing fingerprints</h3>
+
+					<ul style="font-size:22px;">
+						<li>  <b style = 'color:red'>Distance:</b> Let $s$, $s'$ be two audio tracks and let  ${(t_i, \beta_{i,0}, \beta_{i,1})}_{i=0}^{k}, {(t_j', \beta'_{j,0}, \beta'_{j,1})}_{j=0}^{k'}$ be its associated fingerprints.
+						</li>
+					</ul>
+
+					<img width="475" height = auto  src='media_audioID/melspectrogram_SLTS_original_left.png'> <img width="475" height = 145  src='media_audioID/melspectrogram_SLTS_obfuscated_right.png'>
+
+					<p>
+					<img width="75" height = auto src='media_audioID/Betti_curve_SLTS_1.svg'/> 
+					<img width="75" height = auto src='media_audioID/Betti_curve_SLTS_2.svg'/> 
+					<img width="75" height = auto src='media_audioID/Betti_curve_SLTS_3.svg'/> 
+					<img width="75" height = auto src='media_audioID/Betti_curve_SLTS_4.svg'/> 
+					<img width="75" height = auto src='media_audioID/Betti_curve_SLTS_5.svg'/> 
+					$~~~~$
+					<img width="75" height = auto src='media_audioID/Betti_curve_SLTS_obf_1.svg'/> 
+					<img width="75" height = auto src='media_audioID/Betti_curve_SLTS_obf_2.svg'/> 
+					<img width="75" height = auto src='media_audioID/Betti_curve_SLTS_obf_3.svg'/> 
+					<img width="75" height = auto src='media_audioID/Betti_curve_SLTS_obf_4.svg'/> 
+					<img width="75" height = auto src='media_audioID/Betti_curve_SLTS_obf_5.svg'/> 
+					</p>
+
+					<p style="font-size:15px; text-align: left; margin-top: -30pt;">$~~~~~~~~~~~~~~~~t_0~~~~~~~~~~~~~~~~t_1~~~~~~~~~~~~~~~~t_2~~~~~~~~~~~~~~~t_3~~~~~~~~~~~~~~~t_4~~\dots~~~~~~~~~~~~~~~~~~t'_0~~~~~~~~~~~~~~~~t'_1~~~~~~~~~~~~~~~~t'_2~~~~~~~~~~~~~~~~t'_3~~~~~~~~~~~~~~~t'_4~~\dots$</p>
+					
+					</ul>
+				</span>
+					
+				</section>
+
+				<section data-auto-animate>
+					<h3> Comparing fingerprints</h3>
+
+					<ul style="font-size:22px;">
+						<li>  <b style = 'color:red'>Distance:</b> Let $s$, $s'$ be two audio tracks and let  ${(t_i, \beta_{i,0}, \beta_{i,1})}_{i=0}^{k}, {(t_j', \beta'_{j,0}, \beta'_{j,1})}_{j=0}^{k'}$ be its associated fingerprints.
+						</li>
+						<p>For every homological dimension $d=0,1$, the <b>$d$-Betti distance matrix</b> $M_d$ between $s$ and $s'$ is defined as
+						\[
+						(M_d)_{i,j} = \Vert \beta_{i,d} - \beta'_{j,d} \Vert_{L^1}.
+						\]
+						</p>
+						<span class = 'fragment'>
+						<p style= 'text-align:left' >
+							We summarize the <b>distance</b> between every pair of windows $W_i$ and $W_j'$ as
+						\[
+						C_{i,j} = \lambda (M_0)_{i,j} + (1-\lambda) (M_1)_{i,j} 
+						\]
+						for a parameter $0\leq \lambda\leq 1$.
+						</p>
+						<p style= 'text-align:center;margin-top:-40pt'> <img width="320" height = auto src='media_audioID/Cost_Matrix_SLTS.svg'/> </p>
+					</span>
+					</ul>
+				</span>
+					
+				</section>
+
+				<section data-auto-animate>
+					<h3> Comparing fingerprints</h3>
+
+					<ul style="font-size:22px;">
+						<li><b style = 'color:red'>Matching:</b> We compare $s$ and $s'$ via a <b>minimum-cost matching</b>  in $C$.</li>
+
+						<p style= 'text-align:center'> <img width="320" height = auto src='media_audioID/Cost_Matrix_SLTS.svg'/> </p>
+					
+
+					</ul>
+
+				</section>
+
+				<section data-auto-animate>
+					<h3> Comparing fingerprints</h3>
+
+					<ul style="font-size:22px;">
+						<li><b style = 'color:red'>Matching:</b> We compare $s$ and $s'$ via a <b>minimum-cost matching</b>  in $C$.</li>
+
+						<p style= 'text-align:center'> <img width="320" height = auto src='media_audioID/Matching_Matrix_SLTS.svg'/> </p>
+					
+
+					</ul>
+
+				</section>
+
+
+
+
+
+				<section data-auto-animate>
+					<h3> Comparing fingerprints</h3>
+
+					<ul style="font-size:22px;">
+						<ul style="font-size:22px;">
+					
+
+						
+						<li><b style = 'color:red'>Scoring:</b> We quantify the degree of <b>temporal-order preservation</b> in the matching as follows. Suppose $k < k'$. Let $P = \{(t_{1}, t'_{j_1}), \dots, (t_{i}, t'_{j_k})\}$ be the set of mid-points of matched windows, with $t_1< t_2< \dots< t_k$.
+						
+						</li>
+	
+					</ul>
+					<p style='text-align: center; margin-top: -10pt'><img width="350" height = auto src='media_audioID/matching_times_SLTS_P.svg' class="center"/></p>
+				</section>
+
+				<section data-auto-animate>
+					<h3> Comparing fingerprints</h3>
+
+					<ul style="font-size:22px;">
+						<ul style="font-size:22px;">
+						
+						
+						<li><b style = 'color:red'>Scoring:</b> We quantify the degree of <b>temporal-order preservation</b> in the matching as follows. Suppose $k < k'$. Let $P = \{(t_{1}, t'_{j_1}), \dots, (t_{i}, t'_{j_k})\}$ be the set of mid-points of matched windows, with $t_1< t_2< \dots< t_k$.
+						
+						</li>
+						<p>For $m\geq 1$, compute $\bar t'_{j_i} = \mathrm{median} \{t_{j_{i-m}},\dots, t_{j_{i-1}}, t_{j_i}, t_{j_{i+1}}, \dots, t_{j_{i+m}}\}$, the <i>moving median</i> at $t_{j_i}$. Consider $\bar P=\{( t_{i}, \bar t_{j_i}'): i =1,\dots,k\}$. 
+						</p>
+						
+					</ul>
+					<p style='text-align: center;'><img width="350" height = auto src='media_audioID/matching_times_SLTS_P_bar.svg' class="center"/></p>
+				</section>
+
+				<section data-auto-animate>
+					<h3> Comparing fingerprints</h3>
+
+					<ul style="font-size:22px;">
+						<ul style="font-size:22px;">
+				
+
+						
+						<li><b style = 'color:red'>Scoring:</b> We quantify the degree of <b>temporal-order preservation</b> in the matching as follows. Suppose $k < k'$. Let $P = \{(t_{1}, t'_{j_1}), \dots, (t_{i}, t'_{j_k})\}$ be the set of mid-points of matched windows, with $t_1< t_2< \dots< t_k$.
+						
+						</li>
+						<p>For $m\geq 1$, compute $\bar t'_{j_i} = \mathrm{median} \{t_{j_{i-m}}, t_{j_{i-m+1}}, \dots, t_{j_{i-1}}, t_{j_i}\}$, the <i>moving median</i> at $t_{j_i}$. Consider $\bar P=\{( t_{i}, \bar t_{j_i}'): i =1,\dots,k\}$. 
+						</p>
+						<p > We assess the functional <b>increasing dependency </b> of the points in $P$ as 
+						\[
+						\rho_{\bar P} = \mathrm{Pearson}\{(t_i), (\bar{t}'_{j_i})\}.
+						\]
+						</p>
+					</ul>
+					<p style='text-align: center; margin-top: -30pt;' > <img width="350" height = auto src='media_audioID/matching_times_SLTS_correlation.svg' class="center"/>
+
+					
+					
+					</p>
+				</section>
+				<section data-auto-animate>
+					<h3> Comparing fingerprints</h3>
+
+					<ul style="font-size:22px;">
+						<ul style="font-size:22px;">
+				
+
+						
+						<li><b style = 'color:red'>Scoring:</b> We quantify the degree of <b>temporal-order preservation</b> in the matching as follows. Suppose $k < k'$. Let $P = \{(t_{1}, t'_{j_1}), \dots, (t_{i}, t'_{j_k})\}$ be the set of mid-points of matched windows, with $t_1< t_2< \dots< t_k$.
+						
+						</li>
+						<p>For $m\geq 1$, compute $\bar t'_{j_i} = \mathrm{median} \{t_{j_{i-m}}, t_{j_{i-m+1}}, \dots, t_{j_{i-1}}, t_{j_i}\}$, the <i>moving median</i> at $t_{j_i}$. Consider $\bar P=\{( t_{i}, \bar t_{j_i}'): i =1,\dots,k\}$. 
+						</p>
+						<p > We assess the functional <b>increasing dependency </b> of the points in $P$ as 
+						\[
+						\rho_{\bar P} = \mathrm{Pearson}\{(t_i), (\bar{t}'_{j_i})\}.
+						\]
+						</p>
+					</ul>
+					<p style='text-align: center; margin-top: -30pt;' > <img width="350" height = auto src='media_audioID/matching_times_SLTS_correlation.svg' class="center"/>
+
+					<img width="350" height = auto src='media_audioID/matching_times_negative_correlation.svg' class="center"/>
+					
+					</p>
+				</section>
+
+
+				<section data-auto-animate>
+					<h2>Experimental Results</h2>
+				</section>
+
+
+
+							<section data-auto-animate>
+					<h2>Experimental Results</h2>
+					<p style="font-size:26px;"><i><b>Music Obfuscator</b></i> by Ben Grosser</p>
+					<table style="font-size:22px;">
+					    	<thead><tr>
+					            <th>Song</th>
+					            <th>Shazam (60 sec)</th>
+					        </tr></thead>
+					        </tr></thead>
+					        <tbody>
+					        <tr>
+					        	<td>Smells Like Teen Spirit</td>
+					        	<td><span style = 'color:red'>No</span></td>
+					        </tr>
+					        <tr>
+								<td>Get Lucky</td>
+								<td><span style = 'color:red'>No</span></td>
+							</tr>
+							<tr>
+								<td>Giant Steps</td>
+								<td><span style = 'color:red'>No</span></td>
+
+							</tr>
+							<tr>
+								<td>Stairway to Heaven</td>
+								<td>Yes</td>
+							</tr>
+							<tr>
+								<td>Headlines</td>
+								<td>Yes</td>
+							</tr>
+							<tr>
+								<td>Blue in Green</td>
+								<td><span style = 'color:red'>No</span></td>
+							</tr>
+							<tr>
+								<td>You’re Gonna Leave</td>
+								<td><span style = 'color:red'>No</span></td>
+							</tr>
+							<tr>
+								<td>Blue Ocean Floor</td>
+								<td><span style = 'color:red'>No</span></td>
+					        </tr>
+					        <tr>
+					        </tr>
+							</tbody>
+						    </table>
+				</section>
+
+
+				<section data-auto-animate>
+					<h2>Experimental Results</h2>
+					<p style="font-size:26px;"><i><b>Music Obfuscator</b></i> by Ben Grosser</p>
+					<table style="font-size:22px;">
+					    	<thead><tr>
+					            <th>Song</th>
+					            <th>Shazam (60 sec)</th>
+					            <th>Correlation (60-30 sec)</th>
+					            </tr></thead>
+					        </tr></thead>
+					        <tbody>
+					        <tr>
+					        	<td>Smells Like Teen Spirit</td>
+					        	<td><span style = 'color:red'>No</span></td>
+					        	<td><b>0.83208</b><!--14226776198--></td>
+					        	
+					        </tr>
+					        <tr>
+								<td>Get Lucky</td>
+								<td><span style = 'color:red'>No</span></td>
+								<td><b>0.99906</b><!--91203743751--></td>
+							</tr>
+							<tr>
+								<td>Giant Steps</td>
+								<td><span style = 'color:red'>No</span></td>
+								<td><b>0.83904</b><!--37785150638--></td>
+							</tr>
+							<tr>
+								<td>Stairway to Heaven</td>
+								<td>Yes</td>
+								<td><b>0.88533</b><!--52573717076--></td>
+								
+							</tr>
+							<tr>
+								<td>Headlines</td>
+								<td>Yes</td>
+								<td><b>0.91173</b><!--43295029914--></td>
+								
+							</tr>
+							<tr>
+								<td>Blue in Green</td>
+								<td><span style = 'color:red'>No</span></td>
+								<td><b>0.89276</b><!--64263785734--></td>
+							</tr>
+							<tr>
+								<td>You’re Gonna Leave</td>
+								<td><span style = 'color:red'>No</span></td>
+								<td>0.71766<!--04631763022--></td>
+							</tr>
+							<tr>
+								<td>Blue Ocean Floor</td>
+								<td>Yes</td>
+								<td>0.51332<!--5640724315--></td>
+					        </tr>
+					        <tr>
+					        </tr>
+							</tbody>
+						    </table>
+				</section>
+
+				
+
+				<section data-auto-animate>
+					<h2>Experimental Results</h2>
+
+					<p style="font-size:26px;"><b>Spotify Database + PySOX Transformer</b> </p>
+					<ul style="font-size:24px;">
+					<li ><b style='color:green'>  <img style="margin-bottom: -5px" width="25" height = auto src='media_audioID/Spotify_icon.svg.png'/> Spotify Web API.</b> Dataset of 30 seconds preview snippets of (~135.000) songs.</li>
+
+					<br>
+
+					<li><b>PySOX Transformer.</b> Every audio
+					track has been then manipulated according to seven types of obfuscations in a range
+					of different degrees of magnitude.</li>
+
+					<table style="font-size:16px; margin-top: 10pt;">
+					    	<thead><tr>
+					            <th>Obfuscation type</th>
+					            <th>Degree</th>
+					        </tr></thead>
+					        </tr></thead>
+					        <tbody>
+					          <tr>
+					        	<td>Low Pass Filter</td>
+					        	<td>200, 400, 800, 1600, 2000</td>
+					        </tr>
+					        <tr>
+					        	<td>High Pass Filter</td>
+					        	<td>50, 100, 200, 400, 800, 1200</td>
+					        </tr>
+					        <tr>
+					        	<td>White Noise</td>
+					        	<td>0.05, 0.10, 1.20, 0.40</td>
+					        </tr>
+					        <tr>
+								<td>Pink Noise</td>
+								<td>0.05, 0.10, 1.20, 0.40</td>
+							</tr>
+							<tr>
+								<td>Reverberation</td>
+								<td>25, 50, 75, 100</td>
+
+							</tr>
+							<tr>
+								<td>Tempo</td>
+								<td>0.50, 0.80, 1.1 1.2, 1.50, 2.00</td>
+							</tr>
+							<tr>
+								<td>Pitch</td>
+								<td>-8, -4, -2, -1, 1, 2, 4, 8</td>
+							</tr>
+					        <tr>
+					        </tr>
+							</tbody>
+						    </table>
+
+					<br>
+
+					<li class = 'fragment'><b>Positive and negative pairs.</b> For every obfuscation type and degree, we generated a random set of 1000 <i>positive pairs</i> (36000 in total).
+					We also generated a random set of 36000 <i>negative pairs</i>.</li>
+					</ul>
+				</section>
+
+
+				<section data-auto-animate>
+					<h5>Experimental Results</h5>
+					<img width="450" style = "margin-top: -10pt" height = auto src='media_audioID/results.png' class="center"/>
+				</section>
+
+				<!--
+				<section data-auto-animate>
+					<h3>Experimental Results</h3>
+					<p style="font-size:26px;">  <img style="margin-bottom: -5px" width="25" height = auto src='media_audioID/Spotify_icon.svg.png'/> <b>Spotify Database + PySOX Transformer</b> </p>
+
+					<div class="row">			
+					<div class="column_33">
+					<table border="1" style = 'font-size: 16px'>
+					<thead>
+					<tr><th>obfuscation type</th><th>degree</th><th>Shazam</th><th>Top. Audio ID</th></tr>
+					</thead>
+					<tbody>
+					<tr><td><b style = "color:cornflowerblue">highpass</b></td>
+					<td>50</td><td><b>1.000</b></td><td><b>0.998</b></td></tr>
+					<tr><td></td><td>100</td><td><b>1.000</b></td><td>0.810</td></tr>
+					<tr><td></td><td>200</td><td><b>1.000</b></td><td>0.400</td></tr>
+					<tr><td></td><td>400</td><td><b>1.000</b></td><td>0.154</td></tr>
+					<tr><td></td><td>800</td><td><b>1.000</b></td><td>0.043</td></tr>
+					<tr><td>lowpass</td><td>200</td><td>0.998</td><td>0.597</td></tr>
+					<tr><td></td><td>400</td><td><b>1.000</b></td><td>0.867</td></tr>
+					<tr><td></td><td>800</td><td><b>1.000</b></td><td><b>0.955</b></td></tr>
+					<tr><td></td><td>1600</td><td><b>1.000</b></td><td><b>0.996</b></td></tr>
+					<tr><td></td><td>2000</td><td><b>1.000</b></td><td><b>0.9994</b></td></tr>
+					</tbody>
+					</table>
+					</div>
+					<div class="column_33">
+					<table border="1" style = 'font-size: 16px'>
+					<thead>
+					<tr><th>obfuscation type</th><th>degree</th><th>accuracy</th></tr>
+					</thead>
+					<tbody>
+					<tr><td>pinknoise</td><td>0.05</td><td><b>1.000</b></td></tr>
+					<tr><td></td><td>0.10</td><td><b>0.964</b></td></tr>
+					<tr><td></td><td>0.20</td><td><b>0.872</b></td></tr>
+					<tr><td></td><td>0.40</td><td>0.668</td></tr>
+					<tr><td>whitenoise</td><td>0.05</td><td><b>0.984</b></td></tr>
+					<tr><td></td><td>0.10</td><td><b>0.964</b></td></tr>
+					<tr><td></td><td>0.20</td><td><b>0.804</b></td></tr>
+					<tr><td></td><td>0.40</td><td>0.416</td></tr>
+					<tr><td>reverb</td><td>25</td><td><b>0.996</b></td></tr>
+					<tr><td></td><td>50</td><td><b>0.956</b></td></tr>
+					<tr><td></td><td>75</td><td><b>0.736</b></td></tr>
+					<tr><td></td><td>100</td><td>0.208</td></tr>
+					</tbody>
+					</table>
+					</div>
+					<div class="column_33">
+					<table border="1" style = 'font-size: 16px'>
+					<thead>
+					<tr><th>obfuscation type</th><th>degree</th><th>accuracy</th></tr>
+					</thead>
+					<tbody>
+					<tr><td><b style = 'color:red'>tempo</b></td><td>0.50</td><td>0.128</td></tr>
+					<tr><td></td><td>0.80</td><td><b>0.732</b></td></tr>
+					<tr><td></td><td>1.05</td><td><b>0.932</b></td></tr>
+					<tr><td></td><td>1.20</td><td><b>0.924</b></td></tr>
+					<tr><td></td><td>1.50</td><td><b>0.892</b></td></tr>
+					<tr><td></td><td>2.00</td><td><b>0.976</b></td></tr>
+					<tr><td><b style = 'color:red'>pitch</td><td>-4.00</td><td><b>0.724</b></td></tr>
+					<tr><td></td><td>-2.00</td><td><b>0.936</b></td></tr>
+					<tr><td></td><td>2.00</td><td><b>0.936</b></td></tr>
+					<tr><td></td><td>4.00</td><td><b>0.836</b></td></tr>
+					<tr><td></td><td>8.00</td><td>0.472</td></tr>
+					</tbody>
+					</table>
+					</div>
+				</div>
+			-->
+
+
+
+
+
+				<section data-auto-animate>
+					<h3>Future work </h3>
+					<h6 style = 'color:red'>the 1 vs N problem</h6>
+					<br>
+					<span style = 'text-align: left;'>
+					<p style="font-size:26px;padding: 6px; border: 2px solid black;">Given  an <b> audio track</b> $s$ and a <b>database</b> $\mathcal D$, <b>identify</b> an element $s'\in \mathcal D$ with the <b>same audio content</b> as $s$.
+					</p>
+				</span>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Future work </h3>
+					<h6 style = 'color:red'>the 1 vs N problem</h6>
+					<span style = 'text-align: left;'>
+					<p style="font-size:26px;padding: 6px; border: 2px solid black;">Given  an <b> audio track</b> $s$ and a <b>database</b> $\mathcal D$, <b>identify</b> an element $s'\in \mathcal D$ with the <b>same audio content</b> as $s$.
+					</p>
+					
+					<ul style="font-size:22px; margin-top: 30pt;">
+					<li>
+					The <b>search algorithm</b> involves the comparison of the <i>sample fingerprint</i> with the (already computed) <i>database fingerprints</i>.</li>
+				
+				</span>
+				</section>
+
+					<section data-auto-animate>
+					<h3>Future work </h3>
+					<h6 style = 'color:red'>the 1 vs N problem</h6>
+					<span style = 'text-align: left;'>
+					<p style="font-size:26px;padding: 6px; border: 2px solid black;">Given  an <b> audio track</b> $s$ and a <b>database</b> $\mathcal D$, <b>identify</b> an element $s'\in \mathcal D$ with the <b>same audio content</b> as $s$.
+					</p>
+					
+					<ul style="font-size:22px; margin-top: 30pt;">
+					<li>
+					The <b>search algorithm</b> involves the comparison of the <i>sample fingerprint</i> with the (already computed) <i>database fingerprints</i>.</li>
+					<br>
+					<li >
+					Some ideas to generalize the <u>1 vs 1 algorithm</u> to the <u>1 vs N problem</u>:</p>
+					<ul style="font-size:22px;">
+						<li><i>Clustering</i> of the database by content.
+						</li>
+						<li> <i>Subdivide every audio track</i> from the database in blocks of $T$ seconds (e.g. 60 sec).
+						</li>
+					</ul>
+					</li>
+				</span>
+				</section>
+
+				
+
+				<section>
+					<h3>References</h3>
+					<div class="column_75" style="font-size:22px;">
+					<ul>
+					<li>
+					<p >W. Reise, X. Fernandez, M. Dominguez, H.A. Harrington, M. Beguerisse-Diaz. <i>Topological fingerprints for audio identification</i> (2023) <b>SIAM Journal of Data Science</b> (accepted) arXiv:2309.03516
+					</p>
+					<img width="700" height = auto src='media_audioID/melspectrogram_LIB_color.png'/>
+					</li>
+					</ul>
+					</div>
+					<div class="column_25">
+					<img width="200" height = auto src='media_audioID/qr_paper.png' class="center"/>
+					</div>
+				
+					<br>
+					<br>
+
+					<!--<img class = 'fragment' style = "margin-top: -50pt;" width="350" heighcst = auto src='media_audioID/tda_photo.png' class="center"/>-->
+					<p><h3 class = 'fragment' style = 'color:red'>Thanks!</h3></p>
+				</section>
+
+
+			</div>
+
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/math/math.js"></script>
+		<script>
+		Reveal.initialize({ plugins: [ RevealMath.KaTeX ] });
+		</script>
+
+	</body>
+</html>

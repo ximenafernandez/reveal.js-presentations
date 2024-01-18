@@ -14,8 +14,6 @@
 		<link rel="stylesheet" href="../dist/reveal.css">
 		<link rel="stylesheet" href="../dist/theme/white.css" id="theme">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
-		<link rel="stylesheet" href="../plugin/drawer/drawer.css" />
-		<link rel="stylesheet" href="../plugin/pointer/pointer.css" />
 
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<style>
@@ -1255,13 +1253,6 @@
 history: true,
 				transition: 'linear',
 
-				drawer: {
-				    toggleDrawKey: "d", // (optional) key to enable drawing, default "d"
-				    toggleBoardKey: "t", // (optional) key to show drawing board, default "t"
-				    colors: ["#ff4040", "#000000", "#336699", "#778899"], // (optional) list of colors available (hex color codes)
-				    color: "ff4040", // (optional) color of a cursor, first color from `codes` is a default
-				    pathSize: 2, // (optional) path size in px, default 4
-				},
 
 				math: {
 					// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
@@ -1274,15 +1265,8 @@ history: true,
 					}
 				},
 
-				pointer: {
-				    key: "q", // key to enable pointer, default "q", not case-sensitive
-				    color: "red", // color of a cursor, default "red" any valid CSS color
-				    pointerSize: 10, // pointer size in px, default 12
-				    alwaysVisible: false, // should pointer mode be always visible? default "false"
-				    tailLength: 10, // NOT IMPLEMENTED YET!!! how long the "tail" should be? default 10
-				 },
 
-				plugins: [ RevealMath, RevealDrawer, RevealPointer ]
+				plugins: [ RevealMath]
 			});
 		</script>
 
