@@ -1,0 +1,1257 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+		<title></title>
+
+		<meta name="description" content="Lecturer UCL Interview">
+		<meta name="author" content="Ximena Fernandez">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/white.css" id="theme">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+		<link rel="stylesheet" href="../plugin/drawer/drawer.css" />
+		<link rel="stylesheet" href="../plugin/pointer/pointer.css" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			* {
+			  box-sizing: border-box;
+			}
+
+			.column_25 {
+			  float: left;
+			  width: 25%;
+			  padding: 0px;
+			}
+
+			.column_10 {
+			  float: left;
+			  width: 10%;
+			  padding: 10px;
+			}
+			.column_5 {
+			  float: left;
+			  width: 5 %;
+			  padding: 10px;
+			}
+
+
+			.column_15 {
+			  float: left;
+			  width: 15%;
+			  padding: 0px;
+			}
+			.column_50 {
+			  float: left;
+			  width: 50%;
+			  padding: 0px;
+			}
+
+			.column_70 {
+			  float: left;
+			  width: 70%;
+			  padding: 0px;
+			}	
+
+
+			.column_35 {
+			  float: left;
+			  width: 35%;
+			  padding: 0px;
+			}	
+
+			.column_33 {
+			  float: left;
+			  width: 33%;
+			  padding: 10px;
+			}	
+			 .column_60 {
+			  float: left;
+			  width: 60%;
+			  padding: 10px;
+			}
+			.column_66 {
+			  float: left;
+			  width: 66%;
+			  padding: 10px;
+			}
+			.column_20 {
+			  float: left;
+			  width: 20%;
+			  padding: 10px;
+			}	
+			.column_30 {
+			  float: left;
+			  width: 30%;
+			  padding: 0px;
+			}	
+			.column_40 {
+			  float: left;
+			  width: 40%;
+			  padding: 10px;
+			}	
+			.column_45 {
+			  float: left;
+			  width: 45%;
+			  padding: 10px;
+			}	
+			}
+
+			/* Clear floats after the columns */
+			.row:after {
+			  content: "";
+			  display: table;
+			  clear: both;
+			}
+			</style>
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+
+				<section data-background-image="media_oxford/title-slide-white.png">
+					
+					
+					<h4 style="margin-top:130pt"> Computational topology for data analysis</h4>
+					
+					<p style="font-size:32px; color: red;">XIMENA FERNANDEZ</p>
+
+				
+						<div class="row">
+					 	 <div class="column_25" >
+						<img  style="margin-top:50pt" width="190" height = auto src='media_ph/circle0.png'/>
+					 	</div>
+						 <div class="column_50">
+						 <img style="margin-top:-60pt" width="900" height = auto src='media_ts/filtration_circle.gif'/>
+						 </div>
+						  <div class="column_25">
+						  <img  style="margin-top:50pt" width="210" height = auto src='media_ts/PD_square.png'/>
+						</div>
+					</div> 
+					
+				</section>
+
+			
+				<section data-auto-animate>
+					<img  width=5000 height = auto src='media_research/triangle_1.png'/>
+					<p class="fragment" style="margin-top:-200pt;color:red; font-size: 21pt">TOPOLOGICAL DATA ANALYSIS</p>
+				</section>
+
+
+
+				<!----------------Persistent Homology--------------------->
+				<section data-auto-animate>
+					<h4>Topological Data Analysis</h4>
+
+					<span style="font-size: 30px; text-align:center;"> 
+					 <span style="color:red"> DATA</span> <br>$\mathbb{X}_n \subset \mathbb{R}^D$
+					 <br>
+					<img  width="350" height = auto src='media_ph/circle0.png'/>
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Topological Data Analysis</h4>
+					<span style="font-size: 24px; text-align:left;"> 
+
+					<p style="padding: 6px; border: 2px solid black;" class="fragment">Let $X$ be a <b>topological space</b> and let $\mathbb{X}_n = \{x_1,...,x_n\}$ be a finite <b>sample</b> of $X$.<br>
+					<b style="color:red">Inference problem:</b> How to estimate <b>topological properties</b> of $X$ from $\mathbb{X}_n$?</p></span>
+					<span style="font-size: 30px; text-align:center;"> 
+					<div class="column_50" >
+					 <span style="color:red"> DATA</span> <br>$\mathbb{X}_n \subset \mathbb{R}^D$
+					 <br>
+					<img  width="350" height = auto src='media_ph/circle0.png'/>
+					</div>
+
+					<div class="column_50" >
+						<span style="color:red"> UNDERLYING SPACE</span> <br>$X$
+					 <br>
+					<img  width="340" height = auto src='media_ph/circle.png'/>
+				</div>
+					</span>
+				</section>
+
+				
+				
+				<section data-auto-animate>
+					<h4>Topological Data Analysis</h4>
+					<span style="font-size: 24px; text-align:left;"> 
+
+					<p style="padding: 6px; border: 2px solid black;">Let $X$ be a <b>topological space</b> and let $\mathbb{X}_n = \{x_1,...,x_n\}$ be a finite <b>sample</b> of $X$.<br>
+					<b style="color:red">Inference problem:</b> How to estimate <b>topological properties</b> of $X$ from $\mathbb{X}_n$?</p></span>
+
+					<span style="font-size: 25px; text-align:center;"> 
+						<div class="column_50" >
+						 <span style="color:red"> DATA</span> <br>$\mathbb{X}_n \subset \mathbb{R}^D$
+						 <br>
+						<img  style="margin-top: 60pt;" width="300" height = auto src='media_ph/circle0.png'/>
+						</div>
+						<div class="column_50">
+							 For $\epsilon>0$, the <b>$\epsilon$-thickening</b> of $\mathbb{X}_n$:
+							 \[\displaystyle U_\epsilon = \bigcup_{x\in \mathbb{X}_n}B_{\epsilon}(x)\]		
+							 <img style="margin-top: -20pt;" width="300" height = auto src='media_ts/balls.png'/>
+							 
+						</div>
+					</span>
+					</section>
+
+
+
+				<section data-auto-animate>
+					<h4>Topological Data Analysis</h4>
+					<span style="font-size: 24px; text-align:left;"> 
+
+					<p style="padding: 6px; border: 2px solid black;">Let $X$ be a <b>topological space</b> and let $\mathbb{X}_n = \{x_1,...,x_n\}$ be a finite <b>sample</b> of $X$.<br>
+					<b style="color:red">Inference problem:</b> How to estimate <b>topological properties</b> of $X$ from $\mathbb{X}_n$?</p></span>
+
+					<span style="font-size: 25px; text-align:center;">
+					 	<div class="column_30">
+						<span style="color:red"> DATA</span> <br>$\mathbb{X}_n \subset \mathbb{R}^D$
+						 <br>
+						<img  style="margin-top: 70pt;" width="300" height = auto src='media_ph/circle0.png'/>
+					 	</div>
+					 	 
+						<div class="column_70"><p style="font-size: 18pt">$\text{Evolving thickenings}$
+							<br>
+							<img style="margin-top:-55pt" width="700" height = auto src='media_ts/filtration_circle.gif'/>
+							</p>
+						</div>
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Topological Data Analysis</h4>
+					<span style="font-size: 24px; text-align:left;"> 
+
+					<p style="padding: 6px; border: 2px solid black;">Let $X$ be a <b>topological space</b> and let $\mathbb{X}_n = \{x_1,...,x_n\}$ be a finite <b>sample</b> of $X$.<br>
+					<b style="color:red">Inference problem:</b> How to estimate <b>topological properties</b> of $X$ from $\mathbb{X}_n$?</p></span>
+
+					<span style="font-size: 22px; text-align:center;">
+
+					<div class="row">
+					 	 <div class="column_15">
+						<span style="color:red"> DATA</span> <br>$\mathbb{X}_n \subset \mathbb{R}^D$
+						 <br>
+						<img  style="margin-top: 70pt;" width="300" height = auto src='media_ph/circle0.png'/>
+					 	</div>
+						<div class="column_35"><p >$\text{Evolving thickenings}$
+							<br>
+							<img  width="700" height = auto src='media_ts/filtration_circle.gif'/>
+							</p>
+						</div>
+						 <div class="column_50">
+						 	<p>$\text{Sequence of combinatorial spaces}$
+						 	<img style="margin-top:90pt" width="700" height = auto src='media_ph/filtration.png'/>
+						 	$\epsilon = 0 ~~~~~~~\epsilon = 0.7 ~~~~~~~\epsilon = 1 ~~~~~~~\epsilon = 2$
+						 	</p>
+						 </div>
+					</div> 
+					</span>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Topological Data Analysis</h4>
+					<span style="font-size: 24px; text-align:left;"> 
+
+					<p style="padding: 6px; border: 2px solid black;">Let $X$ be a <b>topological space</b> and let $\mathbb{X}_n = \{x_1,...,x_n\}$ be a finite <b>sample</b> of $X$.<br>
+					<b style="color:red">Inference problem:</b> How to estimate <b>topological properties</b> of $X$ from $\mathbb{X}_n$?</p></span>
+
+					<span style="font-size: 22px; text-align:center;">
+					<div class="row">
+					 	 <div class="column_20">
+						<span style="color:red"> DATA</span> <br>$\mathbb{X}_n \subset \mathbb{R}^D$
+						 <br>
+						<img  style="margin-top: 100pt;" width="200" height = auto src='media_ph/circle0.png'/>
+					 	</div>
+						 <div class="column_50">
+						 	<p>$\text{Sequence of combinatorial spaces}$
+						 	<img  width="700" height = auto src='media_ts/filtration_circle.gif'/>
+						 	</p>
+						 </div>
+						 <div class="column_30"><p><span style="color:red">$\text{Persistent Homology}$</span>
+							 <img style="margin-top:-10pt" width="250" height = auto src='media_ts/PD_resized.png'/>
+							 </p>
+							 </div>
+					</div> 
+
+					</span>
+				</section>
+
+
+				<section data-auto-animate>
+				<h2>APPLICATIONS</h2>
+				</section>
+
+				<!-------------------Grid cells----------------------->
+			
+				<section data-auto-animate>
+				<h5>1. Topological Methods in Neuroscience</h5>
+
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Neural connectivity of grid cells</b></p>
+					<span style="font-size: 20px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					S. Benas*, <b>X. Fernandez*</b>,  E. Kropff. <u>Modeled grid cells aligned by a flexible attractor</u>. <b>eLife</b> 12:RP89851 (2023)</p>
+					</span>
+				</section>
+
+
+				<section data-auto-animate>
+				<h5>1. Topological Methods in Neuroscience</h5>
+
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Neural connectivity of grid cells</b></p>
+					<span style="font-size: 20px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					S. Benas*, <b>X. Fernandez*</b>,  E. Kropff. <u>Modeled grid cells aligned by a flexible attractor</u>. <b>eLife</b> 12:RP89851 (2023)</p>
+					</span>
+
+					<span style="font-size:15pt">
+					<div class="column_25">CONNECTIVITY
+					<br>
+					<img  src='media_gridcells/connectivity.png'  width="300" height=auto></img>
+					</div>  
+					<div class="column_50"> NEURAL ACTIVITY<img style="margin-top:40pt" src='media_gridcells/spikes.png' width="450" height=auto>
+					</div>
+					<div class="column_25"> ATTRACTOR in phase space<img style="margin-top:40pt" src='media_gridcells/attractor.png' width="300" height=auto>
+					</div>
+					</span>
+
+					<br>
+					<br>
+					<br>
+					<br>
+	
+					<span style="font-size: 20px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					<b style="color:red">Problem:</b> What is the <b>connection</b> between the topology of the <b>network</b> and the topology of the <b>attractor</b>?</p>
+
+					<p class = "fragment"><b style="color:red">Conjecture:</b> They should <b>coincide</b>.
+					</p>
+					</span>
+				</section>
+
+				
+				<section data-auto-animate>
+					<h5>1. Topological Methods in Neuroscience</h5>
+
+				<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Neural connectivity of grid cells</b></p>
+					<span style="font-size: 20px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					S. Benas*, <b>X. Fernandez*</b>,  E. Kropff. <u>Modeled grid cells aligned by a flexible attractor</u>. <b>eLife</b> 12:RP89851 (2023)</p>
+					</span>
+
+					
+
+					<p style="font-size: 24px;"><u>CASE STUDY:</u> <b>Grid cells</b></p>
+
+					<span style="font-size: 20px; text-align:left;"> 
+
+					<span class = "fragment">
+					<div class="column_30">
+					
+					<b><i>Physical model</i></b> <br><span style="font-size:10pt">[Kropff & Treves. <b>Hippocampus</b> (2008)]</span>
+					
+					<span>			
+					<img src='media_gridcells/network_small.jpeg' width="230" height=auto>
+					</span>
+					<br>
+
+					<span style="font-size: 15px;">The <b> total field </b> received by the grid cell $i$ at time $t$ is <br> $$h_i(t) = \sum_{j=1}^{N_{I}}W^I_{ij}(t)r_j^I(t) + \sum_{k=1}^{N_{EC}}W^{EC}_{ik}r_k^{EC}(t) $$</span>
+					</div>
+					</span>
+
+					
+					<div  class="column_40" style="margin-top:-10pt">
+					<b><i>Experimental data</i></b> 
+					<br>
+					<span style="font-size:10pt">[Moser & Moser et.al <b>Nature</b> (2005)]</span>
+					<br>
+					<video style="margin-top:20pt" width="440" src="media_gridcells/grid_cells.mp4" data-autoplay></video>
+
+
+					 <!--<img style="padding: 5px; margin-top: -30pt;" src='media_gridcells/firing_rate_small.png' width="350" height=auto>-->
+					</div>
+				
+
+					<span class = "fragment">
+					<div class="column_30">
+						<b><i>Attractor topology</i>: Torus!</b>
+						<br>
+						<span style="font-size:10pt; text-align: left;" >[Gardner et.al. <b>Nature</b> (2022)]</span>
+						<img style="padding: 10pt;" src='media_gridcells/torus.png' width="400" height=auto>
+					</div>
+				</span>
+				
+					</span>
+				</section>
+			
+
+
+				<section data-auto-animate>
+					<h5>1. Topological Methods in Neuroscience</h5>
+
+				<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Neural connectivity of grid cells</b></p>
+					<span style="font-size: 20px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					S. Benas*, <b>X. Fernandez*</b>,  E. Kropff. <u>Modeled grid cells aligned by a flexible attractor</u>. <b>eLife</b> 12:RP89851 (2023)</p>
+					</span>
+
+
+
+					<span style="font-size: 20px; text-align:left;"> 
+
+					<div class="column_25">
+					<p>
+						<b><i>Network connectivity</i></b>
+						<br>
+						<p style="color:red">Over 1000 simulations <br>of 100 neurons with different connectivity patterns.</p>
+						
+						<img src='media_gridcells/ring_network.png' width="230" height=auto>
+					</p>
+					</div>
+					<div class="column_5">
+						$~$
+					</div>
+					<div class="column_40">
+					<p style="margin-top:7pt">
+						<b><i>Physical model</i></b> <br><span style="font-size:10pt">[Kropff & Treves. <i>Hippocampus</i> (2008)]</span>
+					</p>
+					<span style="margin: 40pt;">			
+					<img src='media_gridcells/network_small.jpeg' width="230" height=auto>
+					</span>
+					<br>
+
+					<span style="font-size: 16px;">The <b> total field </b> received by the grid cell $i$ at time $t$ is <br> $$h_i(t) = \sum_{j=1}^{N_{I}}W^I_{ij}(t)r_j^I(t) + \sum_{k=1}^{N_{EC}}W^{EC}_{ik}r_k^{EC}(t) $$</span>
+				
+					</div>
+
+					<div class="column_30">
+
+					</div>
+	
+
+					</span>
+				</section>
+			<section data-auto-animate>
+					<h5>1. Topological Methods in Neuroscience</h5>
+
+				<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Neural connectivity of grid cells</b></p>
+					<span style="font-size: 20px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					S. Benas*, <b>X. Fernandez*</b>,  E. Kropff. <u>Modeled grid cells aligned by a flexible attractor</u>. <b>eLife</b> 12:RP89851 (2023)</p>
+					</span>
+
+
+
+					<span style="font-size: 20px; text-align:left;"> 
+
+					<div class="column_25">
+					<p>
+						<b><i>Network connectivity</i></b>
+						<br>
+						<p style="color:red">Over 1000 simulations<br> of 100 neurons with different connectivity patterns.</p>
+						
+						<img src='media_gridcells/ring_network.png' width="230" height=auto>
+					</p>
+					</div>
+					<div class="column_5">
+					</div>
+					<div class="column_40">
+					<p style="margin-top:7pt">
+						<b><i>Physical model</i></b> <br><span style="font-size:10pt">[Kropff & Treves. <i>Hippocampus</i> (2008)]</span>
+					</p>
+					<span style="margin: 40pt;">			
+					<img src='media_gridcells/network_small.jpeg' width="230" height=auto>
+					</span>
+					<br>
+
+					<span style="font-size: 16px;">The <b> total field </b> received by the grid cell $i$ at time $t$ is <br> $$h_i(t) = \sum_{j=1}^{N_{I}}W^I_{ij}(t)r_j^I(t) + \sum_{k=1}^{N_{EC}}W^{EC}_{ik}r_k^{EC}(t) $$</span>
+				
+					</div>
+
+					<div class="column_30">
+					<p>
+						<b><i>Attractor topology</i>: Torus</b>
+				
+						<br>
+						<video style="margin-top: 10pt;" data-autoplay src='media_gridcells/population_experiments.mp4' width="268" height=auto> </video>
+					</p>
+					<span style="font-size: 19px; ">
+					Using <b style="color:red"> persistent homology</b> tools:
+					<ul style="margin: -2pt">
+						<li><b>Homology:</b> <br><span style="font-size: 10pt">$\mathrm{rk}(H_0) = 1, \mathrm{rk}(H_1)=2, \mathrm{rk}(H_2)= 1$</span>
+						</li>
+						<li> <b>Local dimension:</b> 2
+						</li>
+						<li> <b>No singularities nor boundary.</b>
+						</li>
+					</ul>
+				</span>
+					</div>
+	
+
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h5>1. Topological Methods in Neuroscience</h5>
+
+				<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Neural connectivity of grid cells</b></p>
+					<span style="font-size: 20px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					S. Benas*, <b>X. Fernandez*</b>,  E. Kropff. <u>Modeled grid cells aligned by a flexible attractor</u>. <b>eLife</b> 12:RP89851 (2023)</p>
+					</span>
+
+
+
+					<span style="font-size: 20px; text-align:left;"> 
+
+					<div class="column_25">
+					<p>
+						<b><i>Network connectivity</i></b>
+						<br>
+						
+						<p style="padding: 6px; border: 2px solid black;"><b style="color:red">Negative answer to the conjecture</b></p>
+						
+						<img src='media_gridcells/ring_network.png' width="230" height=auto>
+					</p>
+					</div>
+					<div class="column_5">
+					</div>
+					<div class="column_40">
+					<p style="margin-top:7pt">
+						<b><i>Physical model</i></b> <br><span style="font-size:10pt">[Kropff & Treves. <i>Hippocampus</i> (2008)]</span>
+					</p>
+					<span style="margin: 40pt;">			
+					<img src='media_gridcells/network_small.jpeg' width="230" height=auto>
+					</span>
+					<br>
+
+					<span style="font-size: 16px;">The <b> total field </b> received by the grid cell $i$ at time $t$ is <br> $$h_i(t) = \sum_{j=1}^{N_{I}}W^I_{ij}(t)r_j^I(t) + \sum_{k=1}^{N_{EC}}W^{EC}_{ik}r_k^{EC}(t) $$</span>
+				
+					</div>
+
+					<div class="column_30">
+					<p>
+						<b><i>Attractor topology</i>: Torus</b>
+						<br>
+						<video style="margin-top: 10pt;" data-autoplay src='media_gridcells/population_experiments.mp4' width="268" height=auto> </video>
+					</p>
+					<span style="font-size: 19px; ">
+					Using <b style="color:red"> persistent homology</b> tools:
+					<ul style="margin: -2pt">
+						<li><b>Homology:</b> <br><span style="font-size: 10pt">$\mathrm{rk}(H_0) = 1, \mathrm{rk}(H_1)=2, \mathrm{rk}(H_2)= 1$</span>
+						</li>
+						<li> <b>Local dimension:</b> 2
+						</li>
+						<li> <b>No singularities nor boundary.</b>
+						</li>
+					</ul>
+				</span>
+					</div>
+
+					</span>
+				</section>
+
+				<!-------------------Epilepsy----------------------->
+
+				
+				<section  data-auto-animate>
+					<h5>2. Topological Methods in Biomedicine</h5>
+
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Epileptic seizure detection</b></p>
+
+					<span style="font-size: 20px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					<b>X. Fernandez</b>,  D. Mateos. <u>Topological biomarkers for real-time epileptic  seizures</u>. Preprint. (2022)</p>
+					</span>
+				</section>
+
+				<section  data-auto-animate>
+					<h5>2. Topological Methods in Biomedicine</h5>
+
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Epileptic seizure detection</b></p>
+
+					<span style="font-size: 20px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					<b>X. Fernandez</b>,  D. Mateos. <u>Topological biomarkers for real-time epileptic  seizures</u>. Preprint. (2022)</p>
+					</span>
+					<img  style="margin-top: -10pt;" width="800" height = auto src='media_epilepsy/CC_iEEG.png'/>
+	
+					<span style="font-size: 19px; text-align:left;"> 
+
+					<p style="padding: 6px; margin-top: -10pt; border: 2px solid black;"><b style="color:red">Problem:</b> Given a <b>physiological recording</b> of the brain activity, algorithmically <b>detect in real time</b> epileptic seizures.</p></span>
+				</section>
+			
+
+				<section data-auto-animate>
+					<h5>2. Topological Methods in Biomedicine</h5>
+
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Epileptic seizure detection</b></p>
+
+
+					<span style="font-size: 20px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					<b>X. Fernandez</b>,  D. Mateos. <u>Topological biomarkers for real-time epileptic  seizures</u>. Preprint. (2022)</p>
+					</span>
+
+					<span style="font-size: 19px; text-align:left;">
+					<ul>
+						<li >Let $\varphi_1, \varphi_2, \dots \varphi_N:[0,T]\to \mathbb{R}$ a set of <b style="color: red">signals</b> (EEG, MEG, etc.)</li>
+						<li>Given a <b>window</b> size <b style="color: red">$W$</b>, compute  the <b style="color: red">sliding window embedding</b> for every instant of time $t_0$ <span style="font-size:14pt">$$\big\{\big(\varphi_1(t), \varphi_2(t), \dots, \varphi_N(t)\big):t\in [t_0-W, t_0]\big\}\subseteq \mathbb{R}^N.$$</span></li>
+						<video style="margin-top:-48pt" data-autoplay src='media_epilepsy/EEG_channel_window.mp4' width="1000" height=auto> </video>
+
+						<!--<img width="1000" height = auto src='media_epilepsy/window.gif'/>-->
+
+						</ul>
+					</span>
+				</section>
+
+
+
+				<section  data-auto-animate>
+					<h5>2. Topological Methods in Biomedicine</h5>
+
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Epileptic seizure detection</b></p>
+					<span style="font-size: 20px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					<b>X. Fernandez</b>,  D. Mateos. <u>Topological biomarkers for real-time epileptic  seizures</u>. Preprint. (2022)</p>
+					</span>
+					<span style="font-size: 19px; text-align:left;">
+					<ul>
+					<li >Let $\varphi_1, \varphi_2, \dots \varphi_N:[0,T]\to \mathbb{R}$ a set of <b style="color: red">signals</b> (EEG, MEG, etc.)</li>
+						<li>Given a <b>window</b> size <b style="color: red">$W$</b>, compute  the <b style="color: red">sliding window embedding</b>  <span style="font-size:12pt">$\Big\{\big(\varphi_1(t), \dots, \varphi_N(t)\big): t\in [t_0-W, t_0]\Big\}\subseteq \mathbb R^N$</span></li>
+						<li> Compute the <b style="color: red"> persistent homology</b> of the time evolving point clouds.</li>
+					</ul>
+					<!--<img width="500" height = auto  src='media_epilepsy/CC_iEEG.png'/> -->
+					<div class="column_70">
+					<video style="margin-top: -5pt;" data-autoplay src='media_epilepsy/EEG_channel_window.mp4' width="700" height=auto> </video>
+				</div>
+				<div class="column_30">
+					<video style="margin-top: 15pt;" data-autoplay src='media_epilepsy/animation_PD_short.mp4' width="300" height=auto> </video>
+					</span>
+				</div>
+				</section>
+
+				<section  data-auto-animate>
+				<h5>2. Topological Methods in Biomedicine</h5>
+
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Epileptic seizure detection</b></p>
+					<span style="font-size: 20px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					<b>X. Fernandez</b>,  D. Mateos. <u>Topological biomarkers for real-time epileptic  seizures</u>. Preprint. (2022)</p>
+					</span>
+					<span style="font-size: 19px; text-align:left;">
+					<ul>
+					<li >Let $\varphi_1, \varphi_2, \dots \varphi_N:[0,T]\to \mathbb{R}$ a set of <b style="color: red">signals</b> (EEG, MEG, etc.)</li>
+						<li>Given a <b>window</b> size <b style="color: red">$W$</b>, compute  the <b style="color: red">sliding window embedding</b>  <span style="font-size:12pt">$\Big\{\big(\varphi_1(t), \dots, \varphi_N(t)\big):t\in [t_0-W, t_0]\Big\}\subseteq \mathbb R^N$</span></li>
+						<li> Compute the <b style="color: red"> persistent homology</b> of the time evolving point clouds.</li>
+
+						<li>
+						Estimate the <b style="color: red">derivative</b> of the path of persistence diagrams.
+						</li>
+					</ul>
+				<img style="margin-top:-3pt" width="600" height = auto src='media_epilepsy/iEEG_derivative.png'/>
+
+					</span>
+				</section>
+
+				<section  data-auto-animate>
+				<h5>2. Topological Methods in Biomedicine</h5>
+
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Epileptic seizure detection</b></p>
+					<span style="font-size: 20px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					<b>X. Fernandez</b>,  D. Mateos. <u>Topological biomarkers for real-time epileptic  seizures</u>. Preprint. (2022)</p>
+					</span>
+					<span style="font-size: 19px; text-align:left;">
+					<ul>
+					<li >Let $\varphi_1, \varphi_2, \dots \varphi_N:[0,T]\to \mathbb{R}$ a set of <b style="color: red">signals</b> (EEG, MEG, etc.)</li>
+						<li>Given a <b>window</b> size <b style="color: red">$W$</b>, compute  the <b style="color: red">sliding window embedding</b>  <span style="font-size:12pt">$\Big\{\big(\varphi_1(t), \dots, \varphi_N(t)\big):t\in [t_0-W, t_0]\Big\}\subseteq \mathbb R^N$</span></li>
+						<li> Compute the <b style="color: red"> persistent homology</b> of the time evolving point clouds.</li>
+
+						<li>
+						Estimate the <b style="color: red">derivative</b> of the path of persistence diagrams.
+						</li>
+					</ul>
+				<img  style="margin-top:-5pt" width="600" height = auto src='media_epilepsy/CC_all.png'/>
+
+					</span>
+				</section>
+
+				<section  data-auto-animate>
+				<h5>2. Topological Methods in Biomedicine</h5>
+
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Epileptic seizure detection</b></p>
+					<span style="font-size: 20px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					<b>X. Fernandez</b>,  D. Mateos. <u>Topological biomarkers for real-time epileptic  seizures</u>. Preprint. (2022)</p>
+					</span>
+					<span style="font-size:10pt ;margin-top: -10pt;"> EEG (CH-MIT Database)</span>
+					<br>
+				<img  style="margin-top:-10pt" width="600" height = auto src='media_epilepsy/EEG_CHMIT_derivative.png'/>
+
+					</span>
+				</section>
+
+
+
+
+
+				<!----------------Audio ID--------------------->
+				<section data-auto-animate>
+					<h5>3. Topological Methods in Audio ID</h5>
+				<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Research collaboration with Spotify</b></p>
+
+					<span style="font-size: 20px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					W. Reise, <b>X. Fernandez</b>,  M. Dominguez, H.A. Harrington, M. Beguerisse-Diaz. <u>Topological fingerprints for audio identification</u>. <b>SIAM Journal on Mathematics of Data Science</b> (2024, accepted)</p>
+					</span>
+
+				</section>
+
+				<section data-auto-animate>
+					<h5>3. Topological Methods in Audio ID</h5>
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Research collaboration with Spotify</b></p>
+
+					<span style="font-size: 20px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					W. Reise, <b>X. Fernandez</b>,  M. Dominguez, H.A. Harrington, M. Beguerisse-Diaz. <u>Topological fingerprints for audio identification</u>. <b>SIAM Journal on Mathematics of Data Science</b> (2024, accepted)</p>
+					</span>
+					<br>
+
+					<audio 
+				        controls
+				        src="media_audioID/smells_like_teen_spirit.mp3">
+				    </audio> $~~~~~~~~~~$
+				    <audio
+				        controls
+				        src="media_audioID/smells-like-teen-spirit_p1.wav">
+				    </audio>
+
+					<img width="450" height = auto src='media_audioID/waveform_SLTS_original.png'>
+					<img width="450" height = auto src='media_audioID/waveform_SLTS_obfuscated.png'/>
+
+					<p style="font-size:22px; margin-bottom: 50px; padding: 6px; border: 2px solid black;">
+					<b style="color:red">Problem:</b> Given <b>two audio tracks</b>, identify whether they correspond to the <b  style=" color: red;">same audio content. </b>
+					</p>
+					
+				</section>
+
+				<section data-auto-animate>
+					<h5>3. Topological Methods in Audio ID</h5>
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Research collaboration with Spotify</b></p>
+
+					<span style="font-size: 20px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					W. Reise, <b>X. Fernandez</b>,  M. Dominguez, H.A. Harrington, M. Beguerisse-Diaz. <u>Topological fingerprints for audio identification</u>. <b>SIAM Journal on Mathematics of Data Science</b> (2024, accepted)</p>
+					</span>
+					<br>
+
+					<img style="margin-top:-20pt" width="700" height = auto src='media_audioID/waveform_morning_song.svg'/>
+
+					$~~~~~~~~~~~$<img style="margin-top:-20pt"  width="875" height = auto src='media_audioID/mel_morning_song.svg'/>
+
+
+				</section>
+
+								<section data-auto-animate>
+					<h5>3. Topological Methods in Audio ID</h5>
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Research collaboration with Spotify</b></p>
+
+					<span style="font-size: 20px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					W. Reise, <b>X. Fernandez</b>,  M. Dominguez, H.A. Harrington, M. Beguerisse-Diaz. <u>Topological fingerprints for audio identification</u>. <b>SIAM Journal on Mathematics of Data Science</b> (2024, accepted)</p>
+					</span>
+					<br>
+
+					$~~~~~~~$<img style="margin-top:-80pt"  width="875" height = auto src='media_audioID/mel_morning_song.svg'/>
+
+					<img  style="margin-top:-30pt"  width="800" height = 250 src='media_audioID/mel_db_normalized_surface.png'/>
+					
+				</section>
+
+				<section data-auto-animate>
+				<h5>3. Topological Methods in Audio ID</h5>
+				<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Research collaboration with Spotify</b></p>
+				<span style="font-size: 20px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					W. Reise, <b>X. Fernandez</b>,  M. Dominguez, H.A. Harrington, M. Beguerisse-Diaz. <u>Topological fingerprints for audio identification</u>. <b>SIAM Journal on Mathematics of Data Science</b> (2024, accepted)</p>
+					</span>
+					<img width="750" height = auto src='media_audioID/image_pixels.png'/> 
+
+					<img style="margin-top: -20pt;" width="750" height = auto src='media_audioID/Cubical_filtration.png'/> 
+				</section>
+
+				<section data-auto-animate>
+				<h5>3. Topological Methods in Audio ID</h5>
+				<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Research collaboration with Spotify</b></p>
+				<span style="font-size: 20px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					W. Reise, <b>X. Fernandez</b>,  M. Dominguez, H.A. Harrington, M. Beguerisse-Diaz. <u>Topological fingerprints for audio identification</u>. <b>SIAM Journal on Mathematics of Data Science</b> (2024, accepted)</p>
+					</span>
+					<div class = "center">
+					<img src='media_audioID/image_pixels.png' width="650" height=auto> </img> <img width="300" height = auto src='media_audioID/Betti.png'/> 
+				</div>
+
+					<img style="margin-top:-5pt" width="750" height = auto src='media_audioID/Cubical_filtration.png'/> 
+				</section>
+				
+
+
+				<section data-auto-animate>
+				<h5>3. Topological Methods in Audio ID</h5>
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Research collaboration with Spotify</b></p>
+
+					<span style="font-size: 20px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					W. Reise, <b>X. Fernandez</b>,  M. Dominguez, H.A. Harrington, M. Beguerisse-Diaz. <u>Topological fingerprints for audio identification</u>. <b>SIAM Journal on Mathematics of Data Science</b> (2024, accepted)</p>
+					</span>
+
+					<span style="font-size: 20px; text-align:left;">
+ 					Given $s$  an audio track, we associate <b>topological fingerprints</b>  via <b style="color:red">local Betti curves</b>.
+ 					</span>
+
+
+					<p style='margin-top: -20pt;'>
+					<img width="475" height = auto  src='media_audioID/melspectrogram_SLTS_original_left.png'> <img width="475" height = 145  src='media_audioID/melspectrogram_SLTS_obfuscated_right.png'>
+					</p>
+					
+					<p style='margin-top: -45pt;'>$~$
+					<img width=68 height =75 src='media_audioID/mel_SLTS_one_sec_window_1.png'/>$~$
+					<img width=69 height =75 src='media_audioID/mel_SLTS_one_sec_window_2.png'/>$~$
+					<img width=68 height =75 src='media_audioID/mel_SLTS_one_sec_window_3.png'/>$~$
+					<img width=69 height =75 src='media_audioID/mel_SLTS_one_sec_window_4.png'/> $~$
+					<img width=68 height =75 src='media_audioID/mel_SLTS_one_sec_window_5.png'/> 
+					$~~$
+					<img width=68 height =75 src='media_audioID/mel_SLTS_one_sec_window_1.png'/> $~$
+					<img width=69 height =75 src='media_audioID/mel_SLTS_one_sec_window_2.png'/> $~$
+					<img width=68 height =75 src='media_audioID/mel_SLTS_one_sec_window_3.png'/> $~$
+					<img width=69 height =75 src='media_audioID/mel_SLTS_one_sec_window_4.png'/> $~$
+					<img width=68 height =75 src='media_audioID/mel_SLTS_one_sec_window_5.png'/> 
+					</p>
+				
+
+					<p style='margin-top: -45pt;'>
+					<img width="85" height = auto src='media_audioID/Betti_curve_SLTS_1.svg'/> 
+					<img width="85" height = auto src='media_audioID/Betti_curve_SLTS_2.svg'/> 
+					<img width="85" height = auto src='media_audioID/Betti_curve_SLTS_3.svg'/> 
+					<img width="85" height = auto src='media_audioID/Betti_curve_SLTS_4.svg'/> 
+					<img width="85" height = auto src='media_audioID/Betti_curve_SLTS_5.svg'/> 
+					$~$
+					<img width="85" height = auto src='media_audioID/Betti_curve_SLTS_obf_1.svg'/> 
+					<img width="85" height = auto src='media_audioID/Betti_curve_SLTS_obf_2.svg'/> 
+					<img width="85" height = auto src='media_audioID/Betti_curve_SLTS_obf_3.svg'/> 
+					<img width="85" height = auto src='media_audioID/Betti_curve_SLTS_obf_4.svg'/> 
+					<img width="85" height = auto src='media_audioID/Betti_curve_SLTS_obf_5.svg'/> 
+					</p>
+
+					<p style="font-size:15px; text-align: left; margin-top: -35pt;">$~~~~~~~~~~~t_0~~~~~~~~~~~~~~~~~t_1~~~~~~~~~~~~~~~~~~t_2~~~~~~~~~~~~~~~~~t_3~~~~~~~~~~~~~~~~~t_4~~\dots~~~~~~~~~~~~~~~~t'_0~~~~~~~~~~~~~~~~~t'_1~~~~~~~~~~~~~~~~~t'_2~~~~~~~~~~~~~~~~t'_3~~~~~~~~~~~~~~~~t'_4~~\dots$</p>
+					</ul>
+
+					<p class="fragment" style="font-size: 16pt; padding: 6px; border: 2px solid black;"><b>Correlation:</b> <i>'Smells like teen spirit'</i>. (30sec-30sec): <b style="color:red">0.9896</b>, (60sec-30sec): <b style="color:red">0.8320</b></p>
+				</span>
+					
+				</section>
+
+
+				<section data-auto-animate>
+				<h5>3. Topological Methods in Audio ID</h5>
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Research collaboration with Spotify</b></p>
+
+					<span style="font-size: 20px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					W. Reise, <b>X. Fernandez</b>,  M. Dominguez, H.A. Harrington, M. Beguerisse-Diaz. <u>Topological fingerprints for audio identification</u>. <b>SIAM Journal on Mathematics of Data Science</b> (2024, accepted)</p>
+					</span>
+					<div class="row">
+					<div class="column_50">
+						<b class="fragment" style="font-size:18pt">Rigid distortions </b>
+					<img style="margin-top: -3pt" width="500" height = auto src='media_audioID/resultados_1.png' class="center"/>
+					</div>
+					<div class="column_50">
+						<b class="fragment" style="font-size:18pt">Topological distortions</b>
+					<img style="margin-top: -3pt" width="500" height = auto src='media_audioID/resultados_2.png' class="center"/>
+					</div>
+				</div>
+				</section>
+
+				<!------------------------------------->
+				<section data-auto-animate>
+					<h2>Theoretical challenges</h2>
+				</section>
+
+				<!----------------Fermat--------------------->
+
+				<section data-auto-animate>
+					<h5>4. Density-based topological inference</h5>
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Fermat principle in Riemmanian geometry</b></p>
+
+					<span style="font-size: 20px; text-align:left;"> 
+					<p style="padding: 6px; border: 2px solid black;">
+					<b>X. Fernandez</b>, E. Borghini, G. Mindlin, P. Groisman. <u>Intrinsic persistent-homology via density-based metric learning'.</u> <b>Journal of Machine Learning Research.</b> 24 (2023) 1-42.</p>
+					</span>
+
+	
+
+					</section>
+
+
+				<section data-auto-animate>
+					<h5>4. Density-based topological inference</h5>
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Fermat principle in Riemmanian geometry</b></p>
+
+					<span style="font-size: 20px; text-align:left;"> 
+					<p style="padding: 6px; border: 2px solid black;">
+					<b>X. Fernandez</b>, E. Borghini, G. Mindlin, P. Groisman. <u>Intrinsic persistent-homology via density-based metric learning'.</u> <b>Journal of Machine Learning Research.</b> 24 (2023) 1-42.</p>
+					</span>
+
+					<div class="row">
+					 	 <div class="column_50">
+					
+						<img  style="margin-top: -10pt;" width="250" height = auto src='media_fermat/eyeglasses_2.png'/>
+						</div>
+						<div  class="column_50">
+						
+						<img style="margin-top: -10pt;" width="230" height = "150" src='media_fermat/normal_eyeglasses.png'/>
+						</div>
+					</div>
+
+					<span>$~$</span>
+
+					<div class="row">
+						<div  class="column_50">
+						<img style="margin-top: -50pt;" width="240" height = auto src='media_fermat/PH_euclidean_eyeglasses_sample.png'/>
+						</div>
+						<div  class="column_50">
+						<img style="margin-top: -50pt;" width="230" height = auto src='media_fermat/PH_k=5_eyeglasses.png'/>
+						</div>
+					</div>
+
+					<p>$~$</p>
+
+					<p style="font-size:22px; padding: 6px; border: 2px solid black; margin-top: -60pt;">
+					<b style="color:red">Problem:</b> Persistent homology is <b>not robust</b> in general to <b>noise</b> and <b>outliers</b>.
+					</p>
+
+					</section>
+
+
+
+				<section data-auto-animate>
+					<h5>4. Density-based topological inference</h5>
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Fermat principle in Riemmanian geometry</b></p>
+
+					<span style="font-size: 20px; text-align:left;"> 
+					<p style="padding: 6px; border: 2px solid black;">
+					<b>X. Fernandez</b>, E. Borghini, G. Mindlin, P. Groisman. <u>Intrinsic persistent-homology via density-based metric learning'.</u> <b>Journal of Machine Learning Research.</b> 24 (2023) 1-42.</p>
+					</span>
+
+					<span style="font-size: 20px; text-align:left;"> 
+					<p>Let $\mathbb{X}_n = \{x_1,...,x_n\}\subseteq \mathbb{R}^D$ <b>data points.</b></p>
+
+					<p style = "color: red"><b>Assume that:</b>
+					<ul style="margin-top:-20pt">
+					<li > $\mathbb{X}_n$ is a sample of a compact <b>Riemannian manifold</b> $\mathcal M$ of dimension $d$.
+					</li>
+					<li> The points are sampled according to a <b>density</b> $f\colon \mathcal M\to \mathbb R$.
+					</li>
+					</ul>
+					</p>
+
+					<p ><b style = "color: red">Goal:</b> Infer $'H_\bullet(\mathcal M, f)'$
+					</p>
+
+					<div  class="row" style="font-size: 18px">
+						<div class="column_50">
+						<img width="550" height = auto src='media_fermat/sample.png'/>
+						</div>
+			 	 		<div class="column_50" style="font-size: 18px">
+			 	 		<img width="550" height = auto src='media_fermat/manifold_density_only.png'/>
+
+						</div>
+					</div>
+					</span>
+					</section>
+
+
+					<section data-auto-animate>
+						<h5>4. Density-based topological inference</h5>
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Fermat principle in Riemmanian geometry</b></p>
+
+					<span style="font-size: 20px; text-align:left;"> 
+					<p style="padding: 6px; border: 2px solid black;">
+					<b>X. Fernandez</b>, E. Borghini, G. Mindlin, P. Groisman. <u>Intrinsic persistent-homology via density-based metric learning'.</u> <b>Journal of Machine Learning Research.</b> 24 (2023) 1-42.</p>
+					</span>
+						<span style="font-size: 18px; text-align:left;">
+
+						<div class="row">
+						 	<div class="column_45"><p style="color:red; font-size: 24px; text-align:center; "><b>UNDERLYING SPACE</b></p>
+							<p>$\mathcal M \subseteq \mathbb{R}^D$ <b>manifold</b>,  $f:\mathcal{M}\to \mathbb{R}_{>0}$ <b>density</b>.</p>
+
+							
+							<p>For $q>0$,   <b style="color: red; ">deformed Riemannian distance</b> in $\mathcal{M}$
+							\[
+							d_{f,q}(x,y) = \inf_{\gamma:x\sim y} \int_{\gamma}\frac{1}{f(\gamma_t)^{q}}||\dot \gamma_t||dt. \]
+							</p>
+							<br>
+							<img width="500" height = auto src='media_fermat/manifold.png'/>
+							</div>
+							<div class="column_10">
+							</div>
+
+							<div class="column_45">
+								<p style="color:red; text-align:center;font-size: 24px; "><b>DATA</b></p>
+								<p> $\mathbb{X}_n = \{x_1,...,x_n\}\subseteq \mathbb{R}^D$ <b>sample</b>.</p>
+								<p>For $p> 1$,
+								<b style="color: red">Fermat distance</b> in \mathbb{X}_n
+								\[
+								d_{\mathbb{X}_n, p}(x,y) = \inf_{\gamma:x\sim y} \sum_{i=0}^{r}|x_{i+1}-x_i|^{p}.
+								\]
+								
+								</p>
+								<img width="500" height = auto src='media_fermat/manifold_sample_path.png'/>
+							</div>
+						</div>
+						</span>
+
+					</section>
+
+
+					
+					<section data-auto-animate>
+						<h5>4. Density-based topological inference</h5>
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Fermat principle in Riemmanian geometry</b></p>
+
+					<span style="font-size: 20px; text-align:left;"> 
+					<p style="padding: 6px; border: 2px solid black;">
+					<b>X. Fernandez</b>, E. Borghini, G. Mindlin, P. Groisman. <u>Intrinsic persistent-homology via density-based metric learning'.</u> <b>Journal of Machine Learning Research.</b> 24 (2023) 1-42.</p>
+					</span>
+						<p style="color: red; font-size: 22px; text-align:left"><b>Theorem (F., Borghini, Mindlin, Groisman)</b></p>
+						<p style=" font-size: 22px">\[\big(\mathbb{X}_n, C(n,p,d) d_{\mathbb{X}_n,p}\big)\xrightarrow[n\to \infty]{GH}\big(\mathcal{M}, d_{f,q}\big) ~~~ \text{ for } q = (p-1)/d\]</p>
+
+										<span class="fragment" style="font-size: 21px; text-align:left;">
+						<p style = "color: grey"> Let $\mathcal{M}$ be a closed smooth $d$-dimensional <b>Riemannian manifold</b> embedded in $\mathbb{R}^D$. Let $\mathbb X_n\subseteq \mathcal{M}$
+						be  a  set  of  $n$ independent <b>sample</b> points with common smooth <b>density</b> $f:\mathcal{M}\to \mathbb{R}_{>0}$.
+						</p>
+						<p style = "color: grey"> Given $p>1$ and $q=(p-1)/d$, there exists a constant $\mu = \mu(p,d)$ such that for every $\lambda \in \big((p-1)/pd, 1/d\big)$ and $\varepsilon>0$ there exist $\theta>0$ satisfying
+						\[
+						    \mathbb{P}\left( d_{GH}\left(\big(\mathcal{M}, d_{f,q}\big), \big(\mathbb{X}_n, {\scriptstyle \frac{n^{q}}{\mu}} d_{\mathbb{X}_n, p}\big)\right) > \varepsilon \right) \leq \exp{\left(-\theta n^{(1 - \lambda d) /(d+2p)}\right)}
+						\]
+						for $n$ large enough.
+						</p>
+						<span>
+					</section>
+
+					<section data-auto-animate>
+						<h5>4. Density-based topological inference</h5>
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Fermat principle in Riemmanian geometry</b></p>
+
+					<span style="font-size: 20px; text-align:left;"> 
+					<p style="padding: 6px; border: 2px solid black;">
+					<b>X. Fernandez</b>, E. Borghini, G. Mindlin, P. Groisman. <u>Intrinsic persistent-homology via density-based metric learning'.</u> <b>Journal of Machine Learning Research.</b> 24 (2023) 1-42.</p>
+					</span>
+						<p style="color: red; font-size: 22px; text-align:left"><b>Theorem (F., Borghini, Mindlin, Groisman)</b></p>
+						<p style=" font-size: 22px">\[\big(\mathbb{X}_n, C(n,p,d) d_{\mathbb{X}_n,p}\big)\xrightarrow[n\to \infty]{GH}\big(\mathcal{M}, d_{f,q}\big) ~~~ \text{ for } q = (p-1)/d\]</p>
+
+					
+					<div class="row" >
+						 	 <div class="column_50">
+							<img width="240" height = auto src='media_fermat/eyeglasses_2.png'/>
+							</div>
+							<div  class="column_50">
+							<img width="250" height = "150" src='media_fermat/normal_eyeglasses.png'/>
+							</div>
+					</div>
+
+					<br>
+
+					<div class="row" >
+					<div class="column_33">
+							<img style="margin-top:-30pt" width="410" height = auto src='media_fermat/normal_eyeglasses_p=1.5.png'/>
+							</div>
+							<div  class="column_33">
+							<img style="margin-top:-30pt" width="330" height = auto src='media_fermat/normal_eyeglasses_p=2.0.png'/>
+							</div>
+							<div  class="column_33">
+							<img style="margin-top:-30pt" width="330" height = auto src='media_fermat/normal_eyeglasses_p=3.0.png'/>
+							</div>
+					</div>
+					
+					</section>
+
+
+					<section data-auto-animate>
+						<h5>4. Density-based topological inference</h5>
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Fermat principle in Riemmanian geometry</b></p>
+
+					<span style="font-size: 20px; text-align:left;"> 
+					<p style="padding: 6px; border: 2px solid black;">
+					<b>X. Fernandez</b>, E. Borghini, G. Mindlin, P. Groisman. <u>Intrinsic persistent-homology via density-based metric learning'.</u> <b>Journal of Machine Learning Research.</b> 24 (2023) 1-42.</p>
+					</span>
+						<p style="color: red; font-size: 22px; text-align:left"><b>Theorem (F., Borghini, Mindlin, Groisman)</b></p>
+						<p style=" font-size: 22px">\[\big(\mathbb{X}_n, C(n,p,d) d_{\mathbb{X}_n,p}\big)\xrightarrow[n\to \infty]{GH}\big(\mathcal{M}, d_{f,q}\big) ~~~ \text{ for } q = (p-1)/d\]</p>
+						<div class="row">
+						 	 <div class="column_50">
+							<img width="240" height = auto src='media_fermat/eyeglasses_2.png'/>
+							</div>
+							<div  class="column_50">
+							<img width="250" height = "150" src='media_fermat/normal_eyeglasses.png'/>
+							</div>
+						</div>
+
+						<br>
+
+						<div class="row">
+						 	 <div style = "margin-top: -40pt" class="column_33">
+							<img width="195" height = auto src='media_fermat/eyeglasses_p25_H1.png'/>
+							</div>
+							<div  style = "margin-top: -40pt" class="column_33">
+							<img width="200" height = auto src='media_fermat/eyeglasses_p3_H1.png'/>
+							</div>
+							<div  style = "margin-top: -40pt" class="column_33">
+							<img width="210" height = auto src='media_fermat/eyeglasses_p35_H1.png'/>
+							</div>
+						</div>
+					</section>
+
+
+
+				<!----------------Fundamental group--------------------->
+
+				<section data-auto-animate>
+				<h5>5. Project: Persistence beyond homology</h5>
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">New topological invariants of data</b></p>
+
+					<span style="font-size: 20px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					<i>Related to:</i> <b>X. Fernandez.</b> <u>Morse theory for group presentations.</u> <b>Transactions of the AMS.</b> (2023, to appear) </p>
+					</span>
+
+				</section>
+
+				<section data-auto-animate>
+				<h5>5. Project: Persistence beyond homology</h5>
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">New topological invariants of data</b></p>
+
+					<span style="font-size: 20px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					<i>Related to:</i> <b>X. Fernandez.</b> <u>Morse theory for group presentations.</u> <b>Transactions of the AMS.</b> (2023, to appear) </p>
+					</span>
+
+					<br>
+
+					<span style="font-size:16pt">
+				
+						 	 <div class="column_50">
+						 	 <b>Classification of knotted proteins.</b>
+						 	 <br>
+							<img width="400" height = auto src='media_perspi1/proteins.jpg'/>
+							</div>
+							<div class="column_50">
+							<b>Classification of chaotic attractors.</b>
+							<br>
+							<br>
+							<img width="220" height = 180 src='media_perspi1/lorenz.png'/>$~~~$<img width="220" height = 180 src='media_perspi1/chua.png'/>
+
+							<br>
+
+							<p style="font-size:10pt">Lorenz attractor$~~~~~~~~~~~~~~~~~~~~~~~~~~$Chua attractor</p>
+							</div>
+					</span>
+
+				
+					
+					<p style="margin-top: -20pt;">$~$</p>
+					
+					<p style="font-size:24px; padding: 6px; border: 2px solid black;margin-top: -20pt;">
+					<b style="color:red; ">Problem:</b>   Homology may <b>fall short</b> in capturing topological aspects of data.
+					</p>
+				
+	
+
+				</section>
+
+				<section data-auto-animate>
+				<h5>5. Project: Persistence beyond homology</h5>
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">New topological invariants of data</b></p>
+
+					<span style="font-size: 20px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					<i>Related to:</i> <b>X. Fernandez.</b> <u>Morse theory for group presentations.</u> <b>Transactions of the AMS.</b> (2023, to appear) </p>
+					</span>
+
+							
+					<span style="font-size: 22px; text-align:left;">
+					<div class="column_50">
+					
+							<b style="color:red">Fundamental group of point clouds</b>
+							<ul>
+								<li> <b>Efficient  presentations</b> of presentations of $\pi_1(K)$.
+								</li>
+								<li> <b>Persistent</b> fundamental group.
+								</li>
+								<li> <b>Software</b> in GAP.
+								</li>
+							</ul>
+						
+					<br>
+					<br>
+					<br>
+						
+							<b style="color:red">Persistent knot invariants</b>
+							<ul>
+							<li> Fundamental group of the complement: $\pi_1(S^3\smallsetminus K)$
+							</li>
+							<li> Alexander polynomial.
+							</li>
+							</ul>
+
+				</div>
+				<div class="column_50">
+					<ul><b style="color:red">Applications </b>
+						 	 <li>Classification of <b>knotted proteins.</b></li>
+						 	
+							<img width="300" height = auto src='media_perspi1/proteins.jpg'/>
+							<li>
+							Classification of <b>chaotic attractors.</b></li>
+							
+							<img width="110" height = 100 src='media_perspi1/lorenz.png'/>$~~~~~~~~$<img width="110" height = 100 src='media_perspi1/chua.png'/>
+
+							<p style="font-size:10pt; margin-top: -20pt;">$~~$ Lorenz attractor$~~~~~~~~~~~~~~~~~~~$Chua attractor</p>
+							
+					</div>
+				
+				</span>
+				</section>
+
+
+				<section data-auto-animate>
+
+					<img  width=1500 height = auto src='media_research/triangle_filled.png'/>
+				</section>
+
+
+
+			</div>
+
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/math/math.js"></script>
+		<script>
+		Reveal.initialize({ plugins: [ RevealMath.KaTeX ] });
+		</script>
+
+	</body>
+</html>
