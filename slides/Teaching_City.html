@@ -1,0 +1,617 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+		<title></title>
+
+		<meta name="description" content="Lecturer City Interview">
+		<meta name="author" content="Ximena Fernandez">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/white.css" id="theme">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+		<link rel="stylesheet" href="../plugin/drawer/drawer.css" />
+		<link rel="stylesheet" href="../plugin/pointer/pointer.css" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			* {
+			  box-sizing: border-box;
+			}
+
+			.column_25 {
+			  float: left;
+			  width: 25%;
+			  padding: 0px;
+			}
+
+			.column_10 {
+			  float: left;
+			  width: 10%;
+			  padding: 10px;
+			}
+			.column_5 {
+			  float: left;
+			  width: 5 %;
+			  padding: 10px;
+			}
+
+
+			.column_15 {
+			  float: left;
+			  width: 15%;
+			  padding: 0px;
+			}
+			.column_50 {
+			  float: left;
+			  width: 50%;
+			  padding: 0px;
+			}
+
+			.column_70 {
+			  float: left;
+			  width: 70%;
+			  padding: 0px;
+			}	
+
+
+			.column_35 {
+			  float: left;
+			  width: 35%;
+			  padding: 0px;
+			}	
+
+			.column_33 {
+			  float: left;
+			  width: 33%;
+			  padding: 10px;
+			}	
+			 .column_60 {
+			  float: left;
+			  width: 60%;
+			  padding: 10px;
+			}
+			.column_66 {
+			  float: left;
+			  width: 66%;
+			  padding: 10px;
+			}
+			.column_20 {
+			  float: left;
+			  width: 20%;
+			  padding: 10px;
+			}	
+			.column_30 {
+			  float: left;
+			  width: 30%;
+			  padding: 0px;
+			}	
+			.column_40 {
+			  float: left;
+			  width: 40%;
+			  padding: 10px;
+			}	
+			.column_45 {
+			  float: left;
+			  width: 45%;
+			  padding: 10px;
+			}	
+			}
+
+			/* Clear floats after the columns */
+			.row:after {
+			  content: "";
+			  display: table;
+			  clear: both;
+			}
+			</style>
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+
+				<section>
+					
+					<img style="position: right;" width="300" height = auto src="media_research/city-university-london-logo.png">
+
+					
+
+					<h2 style="margin-top:130pt"> Techniques for data science</h2>
+					
+					
+
+					<p style="font-size:35px; color: red;">XIMENA FERNANDEZ</p>
+
+					
+					
+				<!--
+						<div class="row">
+					 	 <div class="column_25" >
+						<img  style="margin-top:50pt" width="190" height = auto src='media_ph/circle0.png'/>
+					 	</div>
+						 <div class="column_50">
+						 <img style="margin-top:-60pt" width="900" height = auto src='media_ts/filtration_circle.gif'/>
+						 </div>
+						  <div class="column_25">
+						  <img  style="margin-top:50pt" width="210" height = auto src='media_ts/PD_square.png'/>
+						</div>
+					</div> 
+				-->
+					
+				</section>
+
+			
+				<section data-auto-animate>
+					<h4>Techniques for data science</h4>
+
+					<span style="font-size: 28px; text-align:center;"> 
+
+
+					 <b style="padding: 10px; border: 2px solid black;">How to transform data into mathematical information?</b>
+
+					 <br>
+					 <br>
+					 <span class="fragment"; style="color:red; font-size: 30px;"> Learning Outcomes</span> 
+					 <br>
+					 <br>
+
+					<ul>
+
+					<li class="fragment"><b style="color:red">Goal 1:</b> Understand the methods and algorithms for tasks in <b>data science</b> via its <b>mathematical foundations</b>.</li>
+					<br>
+					<li class="fragment"><b style="color:red">Goal 2:</b> Exposure to <b>practical examples</b> drawn from a wide range of topics including social network analysis, finance, image processing, biology, engineering, etc.</li>
+
+					</ul>
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Techniques for data science</h4>
+
+					<span style="font-size: 28px; text-align:center;"> 
+					 <span style="color:red; font-size: 30px;"> General Prerequisites</span> 
+					 <br>
+					 <br>
+					<ul>
+						<li> Linear Algebra
+						</li>
+						<li> Calculus
+						</li>
+						<li> Probability and Statistics
+						</li>
+						<li> Programming
+						</li>
+					</ul>
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Techniques for data science</h4>
+
+					<span style="font-size: 28px; text-align:left;"> 
+					 <span style="color:red; font-size: 30px;"> Course Synopsis</span> 
+					 <br>
+					 
+					 <div class="column_66">
+					<ul> <li><b>Statistical Learning</b>
+							<ul>
+							<li>Exploratory Data Analysis
+							</li>
+							<li>Statistical Models and Function Aproximation
+							</ul>
+						</li>
+
+						<br>
+
+						<li><b>Geometric Learning</b>
+							<ul>
+							<li>Clustering
+							</li>
+							<li>Dimensionality Reduction
+							</li>
+							<li>Topological Data Analysis
+							</li>
+							</ul>
+						</li>
+
+						<br>
+
+						<li><b>Artificial Inteligence</b>
+							<ul>
+							<li>AI Pipeline: Train, Test, Predict
+							</li>
+							<li> Machine Learning
+							</li>
+							<li> Deep learning
+							</li>
+							</ul>
+						</li>
+					</div>
+					<div class="column_33">
+						<img style="margin-top: -20px;" width="200" height = auto src="media_ds/linear_regression.png">
+						<img style="margin-top: -10px;" width="180" height = auto src="media_ds/clusters.png">
+						<img width="270" height = auto src="media_ds/network.svg">
+					</div>
+
+					</span>
+				</section>
+
+
+				
+
+
+				<section data-auto-animate>
+				<h4>Techniques for data science</h4>
+				<span style="color:red; font-size: 30px";> 1. Statistical Learning</span> 
+				<br>
+				<span style="font-size:23px; text-align:left">
+
+					<b style="font-size:28px;">Learning from data as a <u>probabilistic</u> problem</b>
+
+					<br>
+					<span style="padding: 6px; border: 2px solid black;">
+					$X$ random variable (unknown).
+					$X_1, X_2, \dots, X_n$ i.i.d. samples from $X$ (data).
+					</span>
+					<br>
+					<br>
+
+					<div class="column_50" >
+
+					<b style="color:red">Exploratory data analysis and statistics</b>
+					<ul>
+						<li>Visualization and plots.</li>
+						<li>Estimation of statistics of $X$ from $X_1, \dots, X_n$.</li>
+						<img width="250" height = auto src='media_ds/jordan.jpeg' class="center"/>
+					</ul>
+					
+					</div>
+
+					<div class="column_50" >
+						$~$
+					</div>
+
+				</span>
+				</section>
+
+				<section data-auto-animate>
+				<h4>Techniques for data science</h4>
+				<span style="color:red; font-size: 30px";> 1. Statistical Learning</span> 
+				<br>
+				<span style="font-size:23px; text-align:left">
+
+					<b style="font-size:28px;">Learning from data as a <u>probabilistic</u> problem</b>
+
+					<br>
+					<p style="padding: 6px; border: 2px solid black;text-align: center;">
+					$(X,y)$ random variable (unknown).<br>
+					$(X_1, y_1), (X_2, y_2), \dots, (X_n, y_n)$ i.i.d. samples from $(X,y)$ (labelled data).
+					</p>
+
+					<div class="column_50" >
+
+					<b style="color:red">Exploratory data analysis and statistics</b>
+					<ul>
+						<li>Visualization and plots.</li>
+						<li>Estimation of statistics of $X$ from $X_1, \dots, X_n$.</li>
+						<img width="250" height = auto src='media_ds/jordan.jpeg' class="center"/>
+					</ul>
+					
+					</div>
+
+					<div class="column_50" >
+						<b style="color:red;">Statistical models and function approximation</b>
+
+						<b>Goal:</b> Find $h$  that maximizes $$P(h(X_i)=y_i: 1\leq i \leq n)$$.
+						<br>
+						<ul><li>Linear regression</li>
+							<li>Polynomial regression</li> 
+							<li>Logistic regression.</li>
+							<li>Relationship with Maximum Likelihood Estimation and  Least Squares Estimation</li>
+						</ul>
+					</div>
+
+				</span>
+				</section>
+
+
+
+				<section data-auto-animate>
+					<h4>Techniques for data science</h4>
+					<span style="color:red; font-size: 30px";> 
+					2. Geometric Learning</span> 
+					<br>
+					<b style="font-size:28px">Learning from the <u>shape</u> of data.</b>
+					
+					<br>
+					<span style="font-size: 22px; text-align:left;">
+					<p style="padding: 6px; border: 2px solid black;text-align: center;">
+					$X$ a geometric space (unknown).
+					$X_1, X_2, \dots, X_n$ sample points from $X$.<br>
+					The idea is to understand geometric aspects of $X$ from $X_1, X_2, \dots, X_n$.
+					</p>
+
+					<div class="column_33" >
+						<b style="color:red">Clustering</b>
+						<br>
+						<i style="font-size: 20px;color: grey;">Connected components.</i>
+						<br>
+						<li>Partitioning and $k$-means</li>
+						<li> Distances and hierarchical clustering</li>
+						<li> Density-based methods</li>
+
+						<img width="200" height = auto src='media_ds/clusters.png' class="center"/>
+						
+					</div>
+					<span class="fragment">
+					<div class="column_33">
+						<b style="color:red">Dimensionality Reduction</b>
+						<br>
+						<i style="font-size: 19px;color: grey;">$p:X\to \mathbb{R}^n$ ($n$ 'small') such that $p(X)$ preserves properties of $X$.</i>
+						<br>
+						<li> PCA
+						</li>
+						<li> Multidim. Scaling Proj.
+						</li>
+						<li> UMAP
+						</li>
+						<li> ISOMAP
+						</li>
+						<li> Manifolds and local dim.
+						</li>
+						<img width="350" height = auto src='media_fermat/isomap.png' class="center"/>
+					</div>
+				</span>
+				<span class="fragment">
+					<div class="column_33" >
+						<b style="color:red">Topological Data Analysis</b>
+						<br>
+						<i style="font-size: 20px;color: grey;">Higher dimensional topological features (e.g. holes).</i>
+						<br>
+						 <li>Geometric reconstructions from data</li>
+							<li>Persistent Homology</li>
+							<li>Geometric Anomalies</li>
+							<br>
+						<img width="350" height = auto src='media_ph/filtration_2.png' class="center"/>
+					</div>
+				</span>
+				</span>
+
+				</section>
+
+				
+
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>Techniques for data science</h4>
+					<span style="color:red; font-size: 30px";> 3. Artificial Intelligence </span>
+					<br>
+					<span style="font-size: 28px;">
+					<b>Learning as an <u>optimization</u> problem.</b>
+					<br>
+					<img width="400" height = auto src='media_ds/TP.png' class="center"/>
+					<img width="400" height = auto src='media_ds/ML.png' class="center"/>
+					
+				</span>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Techniques for data science</h4>
+					<span style="color:red; font-size: 30px";> 3. Artificial Intelligence </span>
+					<br>
+					<span style="font-size: 28px;">
+					<b>Learning as an <u>optimization</u> problem.</b>
+					<br>
+					
+					<img style="margin-left: 100px; margin-top:20px" width="400" height = auto src='media_ds/ML.png' class="left"/> 
+					<img  style="margin-left: 50px"; width="350" height = auto src='media_ds/Gradient_descent.png' class="left"/> 
+				</span>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Techniques for data science</h4>
+					<span style="color:red; font-size: 30px";> 3. Artificial Intelligence </span>
+					<br>
+					<span style="font-size: 28px;">
+					<b>Learning as an <u>optimization</u> problem.</b>
+					<br>
+					<img width="700" height = auto src='media_ds/ML_TP.png' class="center"/>
+				</span>
+				</section>
+				
+				<section data-auto-animate>
+					<h4>Techniques for data science</h4>
+					<span style="color:red; font-size: 30px";> 3. Artificial Intelligence </span>
+					<br>
+					<span style="font-size: 28px;">
+					<b>Learning as an <u>optimization</u> problem.</b>
+					<br>
+					<img width="700" height = auto src='media_ds/Train_Test.png' class="center"/>
+				</span>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Techniques for data science</h4>
+					<span style="color:red; font-size: 30px";> 3. Artificial Intelligence </span>
+					<br>
+					<span style="font-size: 28px;">
+					<b>Learning as an <u>optimization</u> problem.</b>
+					<br>
+				</span>
+
+				<span style="font-size: 22px;">
+					<div class="column_33" >
+						<b style="color:red">Basic workflow</b>
+						<ul>
+						<li>Train, test</li>
+						<li><u>Model selection</u></li>
+						<li>Gradient descent and training</li>
+						<li>Evaluation</li>
+					<br>
+					<img  width="350" height = auto src='media_ds/Gradient_descent.png' class="left"/> 
+					</ul>
+					</div>
+					<span class="fragment">
+					<div class="column_33" >
+						<b style="color:red">Machine Learning</b>
+						<ul>
+						<li>Naive Bayes classifier</li>
+						<li>Support Vector Machines</li>
+						<li>Decision Trees</li>
+						<li>Ensemble Methods</li>
+						<br>
+						<br>
+						<img width="350" height = auto src="media_ds/decision_tree.png">
+
+						<img src="">
+					</ul>
+					</div>
+				</span>
+				<span class="fragment">
+					<div class="column_33" >
+						<b style="color:red">Deep Learning</b>
+						<ul> <li>Neural networks</li>
+							<li>Back propagation and training</li>
+							<li>Arquitectures: Multilayer Perceptrons, CNN, RNN Transformers.</li>
+						</ul>
+
+					<img width="350" height = auto src="media_ds/network.svg">
+					</div>
+				</span>
+				</span>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Techniques for data science</h4>
+
+					
+					 <span style="color:red; font-size: 30px";> References</span> 
+					 <br>
+					 <br>
+					 <span style="font-size: 26px; text-align:left;"> 
+					<ul>
+						<li> <b style="color:red">Slides</b> and <b style="color:red">notes</b> available.
+						</li>
+						<br>
+						<li> <b>Data Science for Mathematicians</b>, by N. Carter.
+						</li>
+						<li> <b>Mathematics of Data Science</b>, by A. Bandeira, A. Singer, T. Strohmer.
+						</li>
+						<li> <b>An Introduction to Statistical Learning</b>, by James, Witten, Hastie, and Tibshirani.
+						</li>
+						<!--<li> Ten Lectures and Forty-Two Open Problems in the Mathematics of Data Science, by Afonso S. Bandeira.
+						</li>-->
+						<li>
+						<b>Lecture Notes for Mathematics of Machine Learning</b>, by A. Bandeira and N. Zhivotovskiy. ETH Zurich.</li>
+						<li><b>The Elements of Statistical Learning</b>, by Hastie, Tibshirani, and Friedman.
+						</li>
+						<li> <b>Pattern Recognition and Machine Learning Book</b>, by C. Bishop.
+						</li>
+						<li> <b>Probabilistic Machine Learning: An Introduction</b>, by K. Murphy.
+						</li>
+					</ul>
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Techniques for data science</h4>
+
+					<span style="font-size: 28px; text-align:center;"> 
+					 <span style="color:red; font-size: 30px;"> Format of the lectures</span> 
+					 <br>
+					 <br>
+					<ul>
+						<li> <b>Theory</b>.
+						</li>
+						<li> <b>Coding</b> Demostrations (<i>Google Collab Notebooks</i>).
+						</li>
+						<li> <b>Interactive</b> live <b>polls/exercises</b> (<i>Google Forms, Itempool</i>).
+						</li>
+						<li> <b>Homework</b> (<i>exercises/further reading</i>).
+						</li>
+						<li> (Tutorials).
+						</li>
+						<li> <b>Office hours</b> (<i>for further questions/support</i>).
+						</li>
+					</ul>
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Techniques for data science</h4>
+					<span style="font-size: 28px; text-align:center;"> 
+					 <span style="color:red; font-size: 30px";> Assesment</span> 
+					 <br>
+					 <br>
+					<ul>
+						<li> Problem Sheets.
+						</li>
+						<li> Final Project.
+						</li>
+					</ul>
+					<br>
+					<br>
+					
+					<span style="font-size:28px; text-align:left">
+					<ul><u>Examples of final projects:</u>
+					<br>
+					
+					<li> Classification of EEG in patients with epilepsy.
+					</li>
+					<li> Topological analysis of Hamiltonian fluids.
+					</li>
+					<li> Prediction of crashes in financial time series.
+					</li>
+					<li> Classification of proteins (Protein Data Bank).
+					</li>
+
+				</ul>
+					</span>
+					</span>
+				</section>
+
+
+
+
+				<section data-auto-animate>
+					<h4>Teaching philosophy </h4>
+					<br>
+					<span style="font-size:30px">
+					<ul>
+						<li>Motivation and Intuition</li>
+						<li>Active Learning</li>
+						<li>Collaborative Learning</li>
+						<li>Utilizing Technology</li>
+						<li>Approachability</li>
+						<li>Excellence</li>
+					</ul>
+					</span>
+					
+				</section>
+
+
+
+			</div>
+
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/math/math.js"></script>
+		<script>
+		Reveal.initialize({ plugins: [ RevealMath.KaTeX ] });
+		</script>
+
+	</body>
+</html>

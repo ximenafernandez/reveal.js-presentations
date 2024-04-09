@@ -102,23 +102,39 @@
 
 					<br>
 
-					<span style="font-size:32px"> Do you recognize this song?</span>
+					<span style="font-size:32px"> Do you recognize these songs?</span>
 
 					<br>
 					<br>
+					<div class="column">
+				  <audio 
+				        controls
+				        src="media_audioID/smells_like_teen_spirit.mp3">
+				    </audio> 
 
-				    <audio 
+				    <p  style = "font-size:16px; text-align: center;">Source: <i>Spotify</i></p>
+				</div>
+				<div class="column">
+				    <audio
 				        controls
 				        src="media_audioID/smells-like-teen-spirit_p1.wav">
 				    </audio>
 
+				       <p  style = "font-size:16px; text-align: center;">Source: <i><a href="https://bengrosser.com/projects/music-obfuscator/">Music Obfuscator</a></i> by Ben Grosser (2015)</p>
+				</div>
 
-				    <p  style = "font-size:16px; text-align: center;">Source: <i>Music Obfuscator</i> by Ben Grosser (2015)</p>
+
+<br>
+$~$
+					<p class= "fragment" style="font-size:24px; margin-bottom: 50px; padding: 6px; border: 2px solid black;">
+					 Given <b>two audio recordings</b>, identify wheather they correspond to the <b  style=" color: red;">same audio content </b>.
+					</p>
+				  
 		
 		
 				</section>
 
-				
+				<!--
 				<section data-auto-animate>
 					<h2>The problem</h2>
 					<br>
@@ -173,6 +189,7 @@
 				</ul>
 				</span>
 				</section>
+			-->
 
 
 				<section data-auto-animate>
@@ -290,10 +307,11 @@
 					<p style="font-size:28px;">Case study:
 					<span style = "color:cornflowerblue"> <img style="margin-bottom: -5px" width="25" height = auto src='media_audioID/shazam-logo.png'/> Shazam</span> (2003)</p>
 					
-					<audio
+					<!--<audio
 				        controls
 				        src="media_audioID/morning.wav">
 				    </audio>
+				-->
 
 					<img width="800" height = auto src='media_audioID/Shazam_paper.png'/>
 
@@ -320,6 +338,7 @@
 
 				</section>
 
+				<!--
 				<section data-auto-animate>
 					<h3>Fingerprinting audio tracks</h3>
 					<p style="font-size:28px;">Case study:
@@ -331,10 +350,9 @@
 					</ul>
 					<img width="350" height = auto src='media_audioID/Shazam_anchor.png'/> <img width="350" height = auto src='media_audioID/Shazam_hash.png'/>
 				</section>
+			-->
 
-				<section data-auto-animate>
-					<h3>Comparing audio tracks</h3>
-				</section>
+			
 
 				<section data-auto-animate>
 					<h3>Comparing audio tracks</h3>
@@ -348,6 +366,7 @@
 					</ul>
 	
 				</section>
+				
 
 				<section data-auto-animate>
 					<h3>Comparing audio tracks</h3>
@@ -355,28 +374,20 @@
 					<p style="font-size:28px;">Case study:
 					<span style = "color:cornflowerblue"> <img style="margin-bottom: -5px" width="25" height = auto src='media_audioID/shazam-logo.png'/> Shazam</span> (2003)</p>
 
+
 					<ul style="font-size:22px;">
-						<li> <b>Scoring:</b>  Compute the histogram of <b>$t_P-t_{P'}$</b> for  every matched pair of hashes $(f_P, f_Q, t_Q-t_P)$ and $(f_{P'}, f_{Q'}, t_{Q'}-t_{P'})$. The <b>score</b> of a matching is the size of the largest bar.
+						<li> <b>Scoring:</b>  Compute the histogram of time difference for  every matched pair of hashes. The <b>score</b> of a matching is the size of the largest bar.
 						</li>
 					</ul>
 	
-						<center><img width="650" height = auto src='media_audioID/shazam_score1.png'/> </center>
+						<center><img width="600" height = 200 src='media_audioID/shazam_score1.png'/> </center>
+
+						<center><img width="600" height = 200 src='media_audioID/shazam_score2.png'/> </center>
+
 				</section>
 
 
-				<section data-auto-animate>
-					<h3>Comparing audio tracks</h3>
-
-					<p style="font-size:28px;">Case study:
-					<span style = "color:cornflowerblue"> <img style="margin-bottom: -5px" width="25" height = auto src='media_audioID/shazam-logo.png'/> Shazam</span> (2003)</p>
-
-					<ul style="font-size:22px;">
-						<li> <b>Scoring:</b>  Compute the histogram of $t_P-t_{P'}$ for the every paired hashes $(f_P, f_Q, t_Q-t_P)$ and $(f_{P'}, f_{Q'}, t_{Q'}-t_{P'})$ in the matching. The <b>score</b> of a matching is the size of the largest bar.
-						</li>
-					</ul>
-						<center><img width="650" height = auto src='media_audioID/shazam_score2.png'/> </center>
-	
-				</section>
+			
 
 				<section data-auto-animate>
 					<h3>Obfuscations of  Audio tracks</h3>
@@ -385,7 +396,15 @@
 					<br>
 				</p>-->
 
-					<ul style="font-size:26px; text-align: left;">
+					<ul style="font-size:24px; text-align: left;">
+						<li>Original track
+							<br>
+							<audio
+				        controls
+				        src="media_audioID/morning.wav">
+				    </audio>
+						</li>
+
 						<li>Addition of noise
 						<br>
 						 <audio
@@ -397,7 +416,7 @@
 				        src="media_audioID/morning_pN4.mp3">
 				    	</audio>
 						</li>
-						<br>
+						
 						<li>Reverberation
 							<br>
 						<audio
@@ -405,7 +424,7 @@
 				        src="media_audioID/morning_r3.mp3">
 				    	</audio>
 						</li>
-						<br>
+						
 						<li>Low/High pass filter
 						<br>
 						<audio
@@ -415,14 +434,14 @@
 				        controls
 				        src="media_audioID/morning_h4.mp3">
 				    	</audio></li>
-				    	<br>
+				    	
 						<li>Tempo shift
 						<br>
 						<audio
 				        controls
 				        src="media_audioID/morning_tempo.wav">
 				   		</audio></li>
-				   		<br>
+				   		
 						<li>Pitch shift
 						<br>
 						<audio
@@ -854,7 +873,7 @@
 
 							<section data-auto-animate>
 					<h2>Experimental Results</h2>
-					<p style="font-size:26px;"><i><b>Music Obfuscator</b></i> by Ben Grosser</p>
+					<p style="font-size:26px;"><i><b><a href="https://bengrosser.com/projects/music-obfuscator/">Music Obfuscator</a></b></i> by Ben Grosser</p>
 					<table style="font-size:22px;">
 					    	<thead><tr>
 					            <th>Song</th>
@@ -1169,7 +1188,7 @@
 						<span style="font-size:22px;">
 					<ul>
 					<li>
-					<p >W. Reise, X. Fernandez, M. Dominguez, H.A. Harrington, M. Beguerisse-Diaz. <i>Topological fingerprints for audio identification</i> (2023) <b>SIAM Journal on Mathematics of Data Science </b>(accepted).
+					<p >W. Reise, X. Fernandez, M. Dominguez, H.A. Harrington, M. Beguerisse-Diaz. <i>Topological fingerprints for audio identification</i> (2024) <b>SIAM Journal on Mathematics of Data Science </b>(accepted).
 					</p>
 					</li>
 					</ul>

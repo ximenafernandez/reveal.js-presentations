@@ -1,0 +1,935 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+		<title></title>
+
+		<meta name="description" content="Lecturer City Interview">
+		<meta name="author" content="Ximena Fernandez">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/white.css" id="theme">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+		<link rel="stylesheet" href="../plugin/drawer/drawer.css" />
+		<link rel="stylesheet" href="../plugin/pointer/pointer.css" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			* {
+			  box-sizing: border-box;
+			}
+
+			.column_25 {
+			  float: left;
+			  width: 25%;
+			  padding: 0px;
+			}
+
+			.column_10 {
+			  float: left;
+			  width: 10%;
+			  padding: 10px;
+			}
+			.column_5 {
+			  float: left;
+			  width: 5 %;
+			  padding: 10px;
+			}
+
+
+			.column_15 {
+			  float: left;
+			  width: 15%;
+			  padding: 0px;
+			}
+			.column_50 {
+			  float: left;
+			  width: 50%;
+			  padding: 0px;
+			}
+
+			.column_70 {
+			  float: left;
+			  width: 70%;
+			  padding: 0px;
+			}	
+
+
+			.column_35 {
+			  float: left;
+			  width: 35%;
+			  padding: 0px;
+			}	
+
+			.column_33 {
+			  float: left;
+			  width: 33%;
+			  padding: 10px;
+			}	
+			 .column_60 {
+			  float: left;
+			  width: 60%;
+			  padding: 10px;
+			}
+			.column_66 {
+			  float: left;
+			  width: 66%;
+			  padding: 10px;
+			}
+			.column_20 {
+			  float: left;
+			  width: 20%;
+			  padding: 10px;
+			}	
+			.column_30 {
+			  float: left;
+			  width: 30%;
+			  padding: 0px;
+			}	
+			.column_40 {
+			  float: left;
+			  width: 40%;
+			  padding: 10px;
+			}	
+			.column_45 {
+			  float: left;
+			  width: 45%;
+			  padding: 10px;
+			}	
+			}
+
+			/* Clear floats after the columns */
+			.row:after {
+			  content: "";
+			  display: table;
+			  clear: both;
+			}
+			</style>
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+
+				<section data-background-image="media_oxford/title-slide-white.png">
+					
+					
+					<h4 style="margin-top:130pt"> Computational topology for <br>data analysis and models</h4>
+					
+					<p style="font-size:32px; color: red;">XIMENA FERNANDEZ</p>
+
+				
+						<div class="row">
+					 	 <div class="column_25" >
+						<img  style="margin-top:50pt" width="190" height = auto src='media_ph/circle0.png'/>
+					 	</div>
+						 <div class="column_50">
+						 <img style="margin-top:-60pt" width="900" height = auto src='media_ts/filtration_circle.gif'/>
+						 </div>
+						  <div class="column_25">
+						  <img  style="margin-top:50pt" width="210" height = auto src='media_ts/PD_square.png'/>
+						</div>
+					</div> 
+					
+				</section>
+
+			
+				<section data-auto-animate>
+					<img  width=5000 height = auto src='media_research/triangle_1.png'/>
+					<p class="fragment" style="margin-top:-200pt;color:red; font-size: 21pt">TOPOLOGICAL DATA ANALYSIS</p>
+				</section>
+
+
+
+				<!----------------Persistent Homology--------------------->
+				<section data-auto-animate>
+					<h4>Topological Data Analysis</h4>
+
+					<span style="font-size: 30px; text-align:center;"> 
+					 <span style="color:red"> DATA</span> <br>$\mathbb{X}_n \subset \mathbb{R}^D$
+					 <br>
+					<img  width="350" height = auto src='media_ph/circle0.png'/>
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Topological Data Analysis</h4>
+					<span style="font-size: 24px; text-align:left;"> 
+
+					<p style="padding: 6px; border: 2px solid black;" class="fragment">Let $X$ be a <b>topological space</b> and let $\mathbb{X}_n = \{x_1,...,x_n\}$ be a finite <b>sample</b> of $X$.<br>
+					<b style="color:red">Inference problem:</b> How to estimate <b>topological properties</b> of $X$ from $\mathbb{X}_n$?</p></span>
+					<span style="font-size: 30px; text-align:center;"> 
+					<div class="column_50" >
+					 <span style="color:red"> DATA</span> <br>$\mathbb{X}_n \subset \mathbb{R}^D$
+					 <br>
+					<img  width="350" height = auto src='media_ph/circle0.png'/>
+					</div>
+
+					<div class="column_50" >
+						<span style="color:red"> UNDERLYING SPACE</span> <br>$X$
+					 <br>
+					<img  width="340" height = auto src='media_ph/circle.png'/>
+				</div>
+					</span>
+				</section>
+
+				
+				<!--
+				<section data-auto-animate>
+					<h4>Topological Data Analysis</h4>
+					<span style="font-size: 24px; text-align:left;"> 
+
+					<p style="padding: 6px; border: 2px solid black;">Let $X$ be a <b>topological space</b> and let $\mathbb{X}_n = \{x_1,...,x_n\}$ be a finite <b>sample</b> of $X$.<br>
+					<b style="color:red">Inference problem:</b> How to estimate <b>topological properties</b> of $X$ from $\mathbb{X}_n$?</p></span>
+
+					<span style="font-size: 25px; text-align:center;"> 
+						<div class="column_50" >
+						 <span style="color:red"> DATA</span> <br>$\mathbb{X}_n \subset \mathbb{R}^D$
+						 <br>
+						<img  style="margin-top: 80pt;" width="300" height = auto src='media_ph/circle0.png'/>
+						</div>
+						<div class="column_50">
+							<span style="color:red"> ESTIMATOR</span> <br>
+							 For $\epsilon>0$, the <b>$\epsilon$-thickening</b> of $\mathbb{X}_n$:
+							 \[\displaystyle U_\epsilon = \bigcup_{x\in \mathbb{X}_n}B_{\epsilon}(x)\]		
+							 <img style="margin-top: -20pt;" width="300" height = auto src='media_ts/balls.png'/>
+							 
+						</div>
+					</span>
+					</section>
+				-->
+
+
+
+				<section data-auto-animate>
+					<h4>Topological Data Analysis</h4>
+					<span style="font-size: 24px; text-align:left;"> 
+
+					<p style="padding: 6px; border: 2px solid black;">Let $X$ be a <b>topological space</b> and let $\mathbb{X}_n = \{x_1,...,x_n\}$ be a finite <b>sample</b> of $X$.<br>
+					<b style="color:red">Inference problem:</b> How to estimate <b>topological properties</b> of $X$ from $\mathbb{X}_n$?</p></span>
+
+					<span style="font-size: 25px; text-align:center;">
+					 	<div class="column_30">
+						<span style="color:red"> DATA</span> <br>$\mathbb{X}_n \subset \mathbb{R}^D$
+						 <br>
+						<img  style="margin-top: 70pt;" width="300" height = auto src='media_ph/circle0.png'/>
+					 	</div>
+					 	 
+						<div class="column_70"><p style="font-size: 18pt">$\text{Evolving reconstructions}$
+							<br>
+							<img style="margin-top:-55pt" width="700" height = auto src='media_ts/filtration_circle.gif'/>
+							</p>
+						</div>
+					</span>
+				</section>
+
+
+
+
+				<section data-auto-animate>
+					<h4>Topological Data Analysis</h4>
+					<span style="font-size: 24px; text-align:left;"> 
+
+					<p style="padding: 6px; border: 2px solid black;">Let $X$ be a <b>topological space</b> and let $\mathbb{X}_n = \{x_1,...,x_n\}$ be a finite <b>sample</b> of $X$.<br>
+					<b style="color:red">Inference problem:</b> How to estimate <b>topological properties</b> of $X$ from $\mathbb{X}_n$?</p></span>
+
+					<span style="font-size: 22px; text-align:center;">
+					<div class="row">
+					 	 <div class="column_20">
+						<span style="color:red"> DATA</span> <br>$\mathbb{X}_n \subset \mathbb{R}^D$
+						 <br>
+						<img  style="margin-top: 100pt;" width="200" height = auto src='media_ph/circle0.png'/>
+					 	</div>
+						 <div class="column_50">
+						 	<p>$\text{Evolving reconstructions}$
+						 	<img  width="700" height = auto src='media_ts/filtration_circle.gif'/>
+						 	</p>
+						 </div>
+						 <div class="column_30"><p><span style="color:red">$\text{Persistent Homology}$</span><br> $\text{(holes)}$
+							 <img style="margin-top:-10pt" width="250" height = auto src='media_ts/PD_resized.png'/>
+							 </p>
+							 </div>
+					</div> 
+
+					</span>
+				</section>
+
+
+				<section data-auto-animate>
+				<h3>MAIN CHALLENGES IN TDA</h3>
+				</section>
+
+
+				<section data-auto-animate>
+				<h3>MAIN CHALLENGES IN TDA</h3>
+
+				<ul style='font-size: 20pt;'>
+				<li> Real world <span style = 'color: red'>applications </span></li>
+				<br>
+				<li> <span style = 'color: red'>Theoretical guaranties</span> of the estimation</li>
+				<br>
+				<li> <span style = 'color: red'>New</span> topological <span style = 'color: red'>invariants</span> from data</li>
+				</ul>
+				</section>
+
+				<section data-auto-animate>
+				<h3>Applications</h5>
+
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Neuroscience: grid cells</b></p>
+
+					<span style="font-size: 22px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					 <b style="color:red">Main result:</b>  Establish  <b>connections</b> between the topology of the <b>network</b> and the topology of the <b>attractor</b> for <b>grid cells.</b></p>
+					</span>
+
+				
+
+					<span style="font-size:15pt">
+					<div class="column_25">CONNECTIVITY
+					<br>
+					<img  src='media_gridcells/connectivity.png'  width="300" height=auto></img>
+					</div>  
+					<div class="column_50"> NEURAL ACTIVITY<img style="margin-top:40pt" src='media_gridcells/spikes.png' width="450" height=auto>
+					</div>
+					<div class="column_25"> ATTRACTOR in phase space<img style="margin-top:40pt" src='media_gridcells/attractor.png' width="300" height=auto>
+					</div>
+					</span>
+
+					<br>
+					<br>
+					<br>
+					<br>
+					<span style="font-size: 20px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					S. Benas*, <b>X. Fernandez*</b>,  E. Kropff. <u>Modeled grid cells aligned by a flexible attractor</u>. <b>eLife</b> 12:RP89851 (2023)</p>
+					</span>
+	
+					
+				</section>
+
+			
+				<!-------------------Epilepsy----------------------->
+
+			
+
+				<section  data-auto-animate>
+				<h3>Applications</h3>
+
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Biomedicine: epilepsy</b></p>
+
+					<span style="font-size: 20px; text-align:left;"> 
+
+					<p style="padding: 6px; margin-top: -10pt; border: 2px solid black;"><b style="color:red">Main result:</b> Given a <b>physiological recording</b> of the brain activity, topologically <b>detect in real time</b> epileptic seizures with an <b>algorithm</b>.</p></span>
+
+					<img   style="margin-top:-5px" width="500" height = auto src='media_epilepsy/EEG_CHMIT_derivative.png'/>
+					<br>
+					<span style="font-size: 20px; text-align:left;padding: 6px; border: 2px solid black; "> 
+					<b>X. Fernandez</b>,  D. Mateos. <u>Topological biomarkers for real-time epileptic  seizures</u>. Preprint. (2022)
+					</span>
+				</section>
+			
+				<!--
+				<section data-auto-animate>
+					<h5>2. Topological Methods in Biomedicine</h5>
+
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Epileptic seizure detection</b></p>
+
+
+					<span style="font-size: 20px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					<b>X. Fernandez</b>,  D. Mateos. <u>Topological biomarkers for real-time epileptic  seizures</u>. Preprint. (2022)</p>
+					</span>
+
+					<span style="font-size: 19px; text-align:left;">
+					<ul>
+						<li >Let $\varphi_1, \varphi_2, \dots \varphi_N:[0,T]\to \mathbb{R}$ a set of <b style="color: red">signals</b> (EEG, MEG, etc.)</li>
+						<li>Given a <b>window</b> size <b style="color: red">$W$</b>, compute  the <b style="color: red">sliding window embedding</b> for every instant of time $t_0$ <span style="font-size:14pt">$$\big\{\big(\varphi_1(t), \varphi_2(t), \dots, \varphi_N(t)\big):t\in [t_0-W, t_0]\big\}\subseteq \mathbb{R}^N.$$</span></li>
+						<video style="margin-top:-48pt" data-autoplay src='media_epilepsy/EEG_channel_window.mp4' width="1000" height=auto> </video>
+
+						
+
+						</ul>
+					</span>
+				</section>
+
+
+
+				<section  data-auto-animate>
+					<h5>2. Topological Methods in Biomedicine</h5>
+
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Epileptic seizure detection</b></p>
+					<span style="font-size: 20px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					<b>X. Fernandez</b>,  D. Mateos. <u>Topological biomarkers for real-time epileptic  seizures</u>. Preprint. (2022)</p>
+					</span>
+					<span style="font-size: 19px; text-align:left;">
+					<ul>
+					<li >Let $\varphi_1, \varphi_2, \dots \varphi_N:[0,T]\to \mathbb{R}$ a set of <b style="color: red">signals</b> (EEG, MEG, etc.)</li>
+						<li>Given a <b>window</b> size <b style="color: red">$W$</b>, compute  the <b style="color: red">sliding window embedding</b>  <span style="font-size:12pt">$\Big\{\big(\varphi_1(t), \dots, \varphi_N(t)\big): t\in [t_0-W, t_0]\Big\}\subseteq \mathbb R^N$</span></li>
+						<li> Compute the <b style="color: red"> persistent homology</b> of the time evolving point clouds.</li>
+					</ul>
+					
+					<div class="column_70">
+					<video style="margin-top: -5pt;" data-autoplay src='media_epilepsy/EEG_channel_window.mp4' width="700" height=auto> </video>
+				</div>
+				<div class="column_30">
+					<video style="margin-top: 15pt;" data-autoplay src='media_epilepsy/animation_PD_short.mp4' width="300" height=auto> </video>
+					</span>
+				</div>
+				</section>
+
+				<section  data-auto-animate>
+				<h5>2. Topological Methods in Biomedicine</h5>
+
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Epileptic seizure detection</b></p>
+					<span style="font-size: 20px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					<b>X. Fernandez</b>,  D. Mateos. <u>Topological biomarkers for real-time epileptic  seizures</u>. Preprint. (2022)</p>
+					</span>
+					<span style="font-size: 19px; text-align:left;">
+					<ul>
+					<li >Let $\varphi_1, \varphi_2, \dots \varphi_N:[0,T]\to \mathbb{R}$ a set of <b style="color: red">signals</b> (EEG, MEG, etc.)</li>
+						<li>Given a <b>window</b> size <b style="color: red">$W$</b>, compute  the <b style="color: red">sliding window embedding</b>  <span style="font-size:12pt">$\Big\{\big(\varphi_1(t), \dots, \varphi_N(t)\big):t\in [t_0-W, t_0]\Big\}\subseteq \mathbb R^N$</span></li>
+						<li> Compute the <b style="color: red"> persistent homology</b> of the time evolving point clouds.</li>
+
+						<li>
+						Estimate the <b style="color: red">derivative</b> of the path of persistence diagrams.
+						</li>
+					</ul>
+				<img style="margin-top:-3pt" width="600" height = auto src='media_epilepsy/iEEG_derivative.png'/>
+
+					</span>
+				</section>
+
+				<section  data-auto-animate>
+				<h5>2. Topological Methods in Biomedicine</h5>
+
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Epileptic seizure detection</b></p>
+					<span style="font-size: 20px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					<b>X. Fernandez</b>,  D. Mateos. <u>Topological biomarkers for real-time epileptic  seizures</u>. Preprint. (2022)</p>
+					</span>
+					<span style="font-size: 19px; text-align:left;">
+					<ul>
+					<li >Let $\varphi_1, \varphi_2, \dots \varphi_N:[0,T]\to \mathbb{R}$ a set of <b style="color: red">signals</b> (EEG, MEG, etc.)</li>
+						<li>Given a <b>window</b> size <b style="color: red">$W$</b>, compute  the <b style="color: red">sliding window embedding</b>  <span style="font-size:12pt">$\Big\{\big(\varphi_1(t), \dots, \varphi_N(t)\big):t\in [t_0-W, t_0]\Big\}\subseteq \mathbb R^N$</span></li>
+						<li> Compute the <b style="color: red"> persistent homology</b> of the time evolving point clouds.</li>
+
+						<li>
+						Estimate the <b style="color: red">derivative</b> of the path of persistence diagrams.
+						</li>
+					</ul>
+				<img  style="margin-top:-5pt" width="600" height = auto src='media_epilepsy/CC_all.png'/>
+
+					</span>
+				</section>
+
+				<section  data-auto-animate>
+				<h5>2. Topological Methods in Biomedicine</h5>
+
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Epileptic seizure detection</b></p>
+					<span style="font-size: 20px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					<b>X. Fernandez</b>,  D. Mateos. <u>Topological biomarkers for real-time epileptic  seizures</u>. Preprint. (2022)</p>
+					</span>
+					<span style="font-size:10pt ;margin-top: -10pt;"> EEG (CH-MIT Database)</span>
+					<br>
+				<img  style="margin-top:-10pt" width="600" height = auto src='media_epilepsy/EEG_CHMIT_derivative.png'/>
+
+					</span>
+				</section>
+			-->
+
+
+
+
+
+				<!----------------Audio ID--------------------->
+				<section data-auto-animate>
+					<h3>Applications</h3>
+				<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Audio ID: collab. Spotify</b></p>
+
+					<p style="font-size:20px; margin-bottom: 50px; padding: 6px; border: 2px solid black;">
+					<b style="color:red">Main result:</b> Given <b>two audio tracks</b>, identify whether they correspond to  <b  style=" color: red;">topologically similar audio content. </b>
+					</p>
+
+	
+					<p style='margin-top: -45pt;margin-left: -20px;'>
+					<img  width="605" height = auto  src='media_audioID/melspectrogram_SLTS_original_left.png'> 
+					</p>
+					
+					<p style='margin-top: -50pt;'>$~$
+					<img width=90 height =90 src='media_audioID/mel_SLTS_one_sec_window_1.png'/>$~$
+					<img width=90 height =90 src='media_audioID/mel_SLTS_one_sec_window_2.png'/>$~$
+					<img width=90 height =90 src='media_audioID/mel_SLTS_one_sec_window_3.png'/>$~$
+					<img width=90 height =90 src='media_audioID/mel_SLTS_one_sec_window_4.png'/> $~$
+					<img width=90 height =90 src='media_audioID/mel_SLTS_one_sec_window_5.png'/> 
+					
+						<p style='margin-top: -50pt;'>
+					<img width="105" height = auto src='media_audioID/Betti_curve_SLTS_1.svg'/> 
+					<img width="105" height = auto src='media_audioID/Betti_curve_SLTS_2.svg'/> 
+					<img width="105" height = auto src='media_audioID/Betti_curve_SLTS_3.svg'/> 
+					<img width="105" height = auto src='media_audioID/Betti_curve_SLTS_4.svg'/> 
+					<img width="105" height = auto src='media_audioID/Betti_curve_SLTS_5.svg'/> 
+					</p>
+
+					<span style="font-size: 17px; text-align:left; margin-top: -20px;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					W. Reise, <b>X. Fernandez</b>,  M. Dominguez, H.A. Harrington, M. Beguerisse-Diaz. <u>Topological fingerprints for audio identification</u>. <b>SIAM Journal on Mathematics of Data Science</b> (2024, accepted)</p>
+					</span>
+					
+				</section>
+
+				
+
+				
+
+				<!----------------Fermat--------------------->
+
+				<section data-auto-animate>
+					<h4>Theoretical guaranties</h4>
+					<p style = "margin-top: -15pt" ><b style="color: red; #ff4040;font-size: 28px;">Density-based Riemannian geometry on data</b></p>
+
+					<p style="font-size:20px; padding: 6px; border: 2px solid black; ">
+					<b style="color:red">Main result:</b> Persistent homology is <b>not robust</b> in general to <b>noise</b> and <b>outliers</b>.
+					</p>
+
+
+
+					<div class="row">
+					 	 <div  class="column_50">
+						<img width="300" height = "auto" src='media_fermat/normal_eyeglasses.png'/>
+					</div>
+					<div  class="column_50">
+						<p style="font-size:14px; text-align: left;">Let $\mathbb{X}_n = \{x_1,...,x_n\}\subseteq \mathbb{R}^D$ be a finite sample.</p>
+						<p style="font-size:14px; text-align: left;">For $p> 1$,
+						the <b style="color: red;">Fermat distance</b> between $x,y\in \mathbb{R}^D$ is defined by
+						\[
+						d_{\mathbb{X}_n, p}(x,y) = \inf_{\gamma} \sum_{i=0}^{r}|x_{i+1}-x_i|^{p}
+						\]
+						over all paths $\gamma=(x_0,  \dots, x_{r+1})$ of finite length with $x_0=x$, $x_{r+1} = y$ and $\{x_1, x_2, \dots, x_{r}\}\subseteq \mathbb{X}_n$.
+						</p>
+						
+					</div>
+
+					<span style="margin-top:-20px">$~$</span>
+
+					<div class="row">
+						<div  class="column_50">
+						<img style="margin-top: -50pt;" width="235" height = auto src='media_fermat/PH_euclidean_eyeglasses.png'/>
+						</div>
+						<div  class="column_50">
+						<img style="margin-top: -50pt;" width="245" height = auto src='media_fermat/eyeglasses_p3_H1.png'/>
+						</div>
+					</div>
+
+					<span style="margin-top:-40px">$~~~~$</span>
+
+					<span style="font-size: 13px; text-align:left;margin-top:-40px"> 
+					<p style="padding: 6px; border: 2px solid black; margin-top:-80px">
+					<b>X. Fernandez</b>, E. Borghini, G. Mindlin, P. Groisman. <u>Intrinsic persistent-homology via density-based metric learning'.</u> <b>Journal of Machine Learning Research.</b> 24 (2023) 1-42.</p>
+					</span>
+
+
+					</section>
+
+
+					<!--
+
+				<section data-auto-animate>
+					<h5>4. Density-based topological inference</h5>
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Fermat principle in Riemmanian geometry</b></p>
+
+					<span style="font-size: 20px; text-align:left;"> 
+					<p style="padding: 6px; border: 2px solid black;">
+					<b>X. Fernandez</b>, E. Borghini, G. Mindlin, P. Groisman. <u>Intrinsic persistent-homology via density-based metric learning'.</u> <b>Journal of Machine Learning Research.</b> 24 (2023) 1-42.</p>
+					</span>
+
+					<span style="font-size: 20px; text-align:left;"> 
+					<p>Let $\mathbb{X}_n = \{x_1,...,x_n\}\subseteq \mathbb{R}^D$ <b>data points.</b></p>
+
+					<p style = "color: red"><b>Assume that:</b>
+					<ul style="margin-top:-20pt">
+					<li > $\mathbb{X}_n$ is a sample of a compact <b>Riemannian manifold</b> $\mathcal M$ of dimension $d$.
+					</li>
+					<li> The points are sampled according to a <b>density</b> $f\colon \mathcal M\to \mathbb R$.
+					</li>
+					</ul>
+					</p>
+
+					<p ><b style = "color: red">Goal:</b> Infer $'H_\bullet(\mathcal M, f)'$
+					</p>
+
+					<div  class="row" style="font-size: 18px">
+						<div class="column_50">
+						<img width="550" height = auto src='media_fermat/sample.png'/>
+						</div>
+			 	 		<div class="column_50" style="font-size: 18px">
+			 	 		<img width="550" height = auto src='media_fermat/manifold_density_only.png'/>
+
+						</div>
+					</div>
+					</span>
+					</section>
+
+
+					<section data-auto-animate>
+						<h5>4. Density-based topological inference</h5>
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Fermat principle in Riemmanian geometry</b></p>
+
+					<span style="font-size: 20px; text-align:left;"> 
+					<p style="padding: 6px; border: 2px solid black;">
+					<b>X. Fernandez</b>, E. Borghini, G. Mindlin, P. Groisman. <u>Intrinsic persistent-homology via density-based metric learning'.</u> <b>Journal of Machine Learning Research.</b> 24 (2023) 1-42.</p>
+					</span>
+						<span style="font-size: 18px; text-align:left;">
+
+						<div class="row">
+						 	<div class="column_45"><p style="color:red; font-size: 24px; text-align:center; "><b>UNDERLYING SPACE</b></p>
+							<p>$\mathcal M \subseteq \mathbb{R}^D$ <b>manifold</b>,  $f:\mathcal{M}\to \mathbb{R}_{>0}$ <b>density</b>.</p>
+
+							
+							<p>For $q>0$,   <b style="color: red; ">deformed Riemannian distance</b> in $\mathcal{M}$
+							\[
+							d_{f,q}(x,y) = \inf_{\gamma:x\sim y} \int_{\gamma}\frac{1}{f(\gamma_t)^{q}}||\dot \gamma_t||dt. \]
+							</p>
+							<br>
+							<img width="500" height = auto src='media_fermat/manifold.png'/>
+							</div>
+							<div class="column_10">
+							</div>
+
+							<div class="column_45">
+								<p style="color:red; text-align:center;font-size: 24px; "><b>DATA</b></p>
+								<p> $\mathbb{X}_n = \{x_1,...,x_n\}\subseteq \mathbb{R}^D$ <b>sample</b>.</p>
+								<p>For $p> 1$,
+								<b style="color: red">Fermat distance</b> in $\mathbb{X}_n$
+								\[
+								d_{\mathbb{X}_n, p}(x,y) = \inf_{\gamma:x\sim y} \sum_{i=0}^{r}|x_{i+1}-x_i|^{p}.
+								\]
+								
+								</p>
+								<img width="500" height = auto src='media_fermat/manifold_sample_path.png'/>
+							</div>
+						</div>
+						</span>
+
+					</section>
+
+
+					
+					<section data-auto-animate>
+						<h5>4. Density-based topological inference</h5>
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Fermat principle in Riemmanian geometry</b></p>
+
+					<span style="font-size: 20px; text-align:left;"> 
+					<p style="padding: 6px; border: 2px solid black;">
+					<b>X. Fernandez</b>, E. Borghini, G. Mindlin, P. Groisman. <u>Intrinsic persistent-homology via density-based metric learning'.</u> <b>Journal of Machine Learning Research.</b> 24 (2023) 1-42.</p>
+					</span>
+						<p style="color: red; font-size: 22px; text-align:left"><b>Theorem (F., Borghini, Mindlin, Groisman)</b></p>
+						<p style=" font-size: 22px">\[\big(\mathbb{X}_n, C(n,p,d) d_{\mathbb{X}_n,p}\big)\xrightarrow[n\to \infty]{GH}\big(\mathcal{M}, d_{f,q}\big) ~~~ \text{ for } q = (p-1)/d\]</p>
+
+										<span class="fragment" style="font-size: 21px; text-align:left;">
+						<p style = "color: grey"> Let $\mathcal{M}$ be a closed smooth $d$-dimensional <b>Riemannian manifold</b> embedded in $\mathbb{R}^D$. Let $\mathbb X_n\subseteq \mathcal{M}$
+						be  a  set  of  $n$ independent <b>sample</b> points with common smooth <b>density</b> $f:\mathcal{M}\to \mathbb{R}_{>0}$.
+						</p>
+						<p style = "color: grey"> Given $p>1$ and $q=(p-1)/d$, there exists a constant $\mu = \mu(p,d)$ such that for every $\lambda \in \big((p-1)/pd, 1/d\big)$ and $\varepsilon>0$ there exist $\theta>0$ satisfying
+						\[
+						    \mathbb{P}\left( d_{GH}\left(\big(\mathcal{M}, d_{f,q}\big), \big(\mathbb{X}_n, {\scriptstyle \frac{n^{q}}{\mu}} d_{\mathbb{X}_n, p}\big)\right) > \varepsilon \right) \leq \exp{\left(-\theta n^{(1 - \lambda d) /(d+2p)}\right)}
+						\]
+						for $n$ large enough.
+						</p>
+						<span>
+					</section>
+
+					<section data-auto-animate>
+						<h5>4. Density-based topological inference</h5>
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Fermat principle in Riemmanian geometry</b></p>
+
+					<span style="font-size: 20px; text-align:left;"> 
+					<p style="padding: 6px; border: 2px solid black;">
+					<b>X. Fernandez</b>, E. Borghini, G. Mindlin, P. Groisman. <u>Intrinsic persistent-homology via density-based metric learning'.</u> <b>Journal of Machine Learning Research.</b> 24 (2023) 1-42.</p>
+					</span>
+						<p style="color: red; font-size: 22px; text-align:left"><b>Theorem (F., Borghini, Mindlin, Groisman)</b></p>
+						<p style=" font-size: 22px">\[\big(\mathbb{X}_n, C(n,p,d) d_{\mathbb{X}_n,p}\big)\xrightarrow[n\to \infty]{GH}\big(\mathcal{M}, d_{f,q}\big) ~~~ \text{ for } q = (p-1)/d\]</p>
+
+					
+					<div class="row" >
+						 	 <div class="column_50">
+							<img width="240" height = auto src='media_fermat/eyeglasses_2.png'/>
+							</div>
+							<div  class="column_50">
+							<img width="250" height = "150" src='media_fermat/normal_eyeglasses.png'/>
+							</div>
+					</div>
+
+					<br>
+
+					<div class="row" >
+					<div class="column_33">
+							<img style="margin-top:-30pt" width="410" height = auto src='media_fermat/normal_eyeglasses_p=1.5.png'/>
+							</div>
+							<div  class="column_33">
+							<img style="margin-top:-30pt" width="330" height = auto src='media_fermat/normal_eyeglasses_p=2.0.png'/>
+							</div>
+							<div  class="column_33">
+							<img style="margin-top:-30pt" width="330" height = auto src='media_fermat/normal_eyeglasses_p=3.0.png'/>
+							</div>
+					</div>
+					
+					</section>
+
+
+					<section data-auto-animate>
+						<h5>4. Density-based topological inference</h5>
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Fermat principle in Riemmanian geometry</b></p>
+
+					<span style="font-size: 20px; text-align:left;"> 
+					<p style="padding: 6px; border: 2px solid black;">
+					<b>X. Fernandez</b>, E. Borghini, G. Mindlin, P. Groisman. <u>Intrinsic persistent-homology via density-based metric learning'.</u> <b>Journal of Machine Learning Research.</b> 24 (2023) 1-42.</p>
+					</span>
+						<p style="color: red; font-size: 22px; text-align:left"><b>Theorem (F., Borghini, Mindlin, Groisman)</b></p>
+						<p style=" font-size: 22px">\[\big(\mathbb{X}_n, C(n,p,d) d_{\mathbb{X}_n,p}\big)\xrightarrow[n\to \infty]{GH}\big(\mathcal{M}, d_{f,q}\big) ~~~ \text{ for } q = (p-1)/d\]</p>
+						<div class="row">
+						 	 <div class="column_50">
+							<img width="240" height = auto src='media_fermat/eyeglasses_2.png'/>
+							</div>
+							<div  class="column_50">
+							<img width="250" height = "150" src='media_fermat/normal_eyeglasses.png'/>
+							</div>
+						</div>
+
+						<br>
+
+						<div class="row">
+						 	 <div style = "margin-top: -40pt" class="column_33">
+							<img width="195" height = auto src='media_fermat/eyeglasses_p25_H1.png'/>
+							</div>
+							<div  style = "margin-top: -40pt" class="column_33">
+							<img width="200" height = auto src='media_fermat/eyeglasses_p3_H1.png'/>
+							</div>
+							<div  style = "margin-top: -40pt" class="column_33">
+							<img width="210" height = auto src='media_fermat/eyeglasses_p35_H1.png'/>
+							</div>
+						</div>
+					</section>
+				-->
+
+
+
+				<!------------------------------------->
+				<section data-auto-animate>
+					<h2>FUTURE DIRECTIONS</h2>
+					<span style='font-size: 22pt;'>Collaboration with the <b style= 'color:red'>Applied Mathematics Group</b></span>
+
+					<br>
+					<br>
+
+					<img width="300" height = auto src="media_research/city-university-london-logo.png">
+				</section>
+
+
+				<section data-auto-animate>
+					<h3>Applications</h3>
+				<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Network science: Kuramoto models</b></p>
+
+				
+				<span style = "font-size: 20pt;">
+				<ul>
+				<li><b>Work in progress</b> <span style="font-size: 20px;">(with H. Schenck, H. A. Harrington and M. Stillman)</span>: Topology and algebraic geometry of homogeneous Kuramoto systems.</li>
+
+				<br>
+
+				<li><b style="color:red">Project:</b> Synchronization on Kuramoto systems in <b>geometric graphs</b>.</li>
+
+				<br>
+
+				<li><b style="color:red">Conjecture:</b> The Kuramoto model on random geometric graphs over spaces with <b> non-trivial homology does <u>not</u> synchronize.</b></li>
+				</ul>
+				</span>
+
+				<br>
+				<video width="500" height = auto  src="media_research/metronomes.mp4" data-autoplay></video>
+				<img style="margin-left:30px"  width="300" height = auto  src="media_research/oscillators.jpg" />
+
+				</section>
+
+
+
+				<section data-auto-animate>
+					<h3>Applications</h3>
+				<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Fluid dynamics</b></p>
+				<br>
+				<span style = "font-size: 20pt; text-align: left;">
+					<ul>
+				<li><b style="color:red">Project:</b> Topology aspects of flow dynamics </li>
+				<br>
+				
+				<b>Case study:</b> Driven double gyre.
+				</ul>
+
+				<video width="600" height = auto  src="media_research/animation_double_gyre.mp4" data-autoplay></video>
+
+				</span>
+				</section>
+
+								
+				<section data-auto-animate>
+					<h3>Applications</h3>
+				<p style = "margin-top: -10pt; margin-bottom: -10px;" ><b style="color: red; #ff4040;font-size: 28px;">Fluid dynamics</b></p>
+				<span style='font-size: 18pt;'>Collaboration with the <b style= 'color:red'>Mathematical Physics Group</b></span>
+				<br>
+				<br>
+				<div class="column_60">
+				<span style = "font-size: 16pt; text-align: left;">
+					<ul>
+				<li><b style="color:red">Project:</b> Topological aspects of fluid dynamics</li>
+				
+				<b>Case study:</b> Driven double gyre.
+				</ul>
+				</div>
+				<div class="column_40">
+				<video  style="margin-top: -45px;" width="300" height = auto  src="media_research/animation_double_gyre.mp4" data-autoplay></video>
+				</div>
+
+				<img style="margin-top: -10px;" width="800" height = auto src='media_research/double_gyre_trajectories.png'/>
+
+				<img style="margin-top: -45px;" width="800" height = auto src='media_research/double_gyre_attractors.png'/>
+				</span>
+				</section>
+
+				<!----------------Fundamental group--------------------->
+
+				<section data-auto-animate>
+				<h4>New topological invariants of data</h4>
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Persistence beyond homology</b></p>
+
+				<p style="font-size:24px; padding: 6px; border: 2px solid black;margin-top: -5pt;">
+					<b style="color:red; ">Project:</b>  Theory and practice for estimation of the <b>fundamental group</b> of point clouds.
+					</p>
+				
+					
+
+					<br>
+
+					<span style="font-size:16pt">
+				
+						 	 <div class="column_50">
+						 	 <b>Classification of knotted proteins.</b>
+						 	 <br>
+							<img width="400" height = auto src='media_perspi1/proteins.jpg'/>
+							</div>
+							<div class="column_50">
+							<b>Classification of chaotic attractors.</b>
+							<br>
+							<br>
+							<img width="220" height = 180 src='media_perspi1/lorenz.png'/>$~~~$<img width="220" height = 180 src='media_perspi1/chua.png'/>
+
+							<br>
+
+							<p style="font-size:10pt">Lorenz attractor$~~~~~~~~~~~~~~~~~~~~~~~~~~$Chua attractor</p>
+							</div>
+					</span>
+
+					<p style="margin-top: -30pt;">$~$</p>
+
+				    <span style="font-size: 20px; text-align:left;margin-top: -30pt;"> 
+					<p style="padding: 6px; border: 2px solid black;margin-top: -30pt;">
+					<i>Related to:</i> <b>X. Fernandez.</b> <u>Morse theory for group presentations.</u> <b>Transactions of the AMS.</b> (2024, to appear) </p>
+					</span>
+				
+					
+					
+					
+					<!--
+					<p style="font-size:24px; padding: 6px; border: 2px solid black;margin-top: -20pt;">
+					<b style="color:red; ">Problem:</b>   Homology may <b>fall short</b> in capturing topological aspects of data.
+					</p>-->
+
+				
+				</section>
+
+				<!--
+
+				<section data-auto-animate>
+				<h5>5. Project: Persistence beyond homology</h5>
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">New topological invariants of data</b></p>
+
+					<span style="font-size: 20px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					<i>Related to:</i> <b>X. Fernandez.</b> <u>Morse theory for group presentations.</u> <b>Transactions of the AMS.</b> (2023, to appear) </p>
+					</span>
+
+							
+					<span style="font-size: 22px; text-align:left;">
+					<div class="column_50">
+					
+							<b style="color:red">Fundamental group of point clouds</b>
+							<ul>
+								<li> <b>Efficient  presentations</b> of presentations of $\pi_1(K)$.
+								</li>
+								<li> <b>Persistent</b> fundamental group.
+								</li>
+								<li> <b>Software</b> in GAP.
+								</li>
+							</ul>
+						
+					<br>
+					<br>
+					<br>
+						
+							<b style="color:red">Persistent knot invariants</b>
+							<ul>
+							<li> Fundamental group of the complement: $\pi_1(S^3\smallsetminus K)$
+							</li>
+							<li> Alexander polynomial.
+							</li>
+							</ul>
+
+				</div>
+				<div class="column_50">
+					<ul><b style="color:red">Applications </b>
+						 	 <li>Classification of <b>knotted proteins.</b></li>
+						 	
+							<img width="300" height = auto src='media_perspi1/proteins.jpg'/>
+							<li>
+							Classification of <b>chaotic attractors.</b></li>
+							
+							<img width="110" height = 100 src='media_perspi1/lorenz.png'/>$~~~~~~~~$<img width="110" height = 100 src='media_perspi1/chua.png'/>
+
+							<p style="font-size:10pt; margin-top: -20pt;">$~~$ Lorenz attractor$~~~~~~~~~~~~~~~~~~~$Chua attractor</p>
+							
+					</div>
+				
+				</span>
+				</section>
+
+
+
+				<section data-auto-animate>
+
+					<img  width=1500 height = auto src='media_research/research_triangle_2.png'/>
+				</section>
+				-->
+
+
+			</div>
+
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/math/math.js"></script>
+		<script>
+		Reveal.initialize({ plugins: [ RevealMath.KaTeX ] });
+		</script>
+
+	</body>
+</html>
