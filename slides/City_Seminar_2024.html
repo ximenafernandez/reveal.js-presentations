@@ -589,11 +589,11 @@
 
 					</section>
 
-					<!--
+					
 
 					<section data-auto-animate>
 						<h4>Density-based geometry</h4>
-					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Fermat principle in Riemmanian geometry</b></p>
+					<!--<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Fermat principle in Riemmanian geometry</b></p>-->
 
 					
 						<p style="color: red; font-size: 22px; text-align:left"><b>Theorem (F., Borghini, Mindlin, Groisman)</b></p>
@@ -626,7 +626,7 @@
 					</span>
 
 					</section>
-				-->
+				
 
 
 					<section data-auto-animate>
@@ -757,8 +757,8 @@
 							<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Anomaly detection in ECG</b></p>
 						<img width="900" height = auto src='media_ts/ECG_signal.png'/>
 						<small style="margin-top: -20pt;">
-						\[t\mapsto \mathrm{diag}_t\]
-						<b style="font-size:16pt">Approximate Derivative</b>
+						\[t\mapsto \mathrm{dgm}_t\]
+						<span style="font-size:16pt"><b >Approximate Derivative:</b> $\frac{d_B(\mathrm{dgm}_t, \mathrm{dgm}_{t'})}{|t'-t|}$</span>
 						</small>
 						<img class="fragment" width="900" height = auto src='media_ts/bottleneck_ECG.png'/>
 					</section>
@@ -811,7 +811,7 @@
 						<img width="900" height = auto src='media_ts/time_series_birdsong_cuts.png'/>
 
 
-						<span style="font-size:16pt">\[t\mapsto \mathrm{diag}_t\]
+						<span style="font-size:16pt">\[t\mapsto \mathrm{dgm}_t\]
 						<b>Approximate Derivative</b></span>
 						<img width="900" height = auto src='media_ts/PH_canary_peaks.png'/>
 					</section>
@@ -1082,7 +1082,7 @@
 					<img width="85" height = auto src='media_audioID/Betti_curve_SLTS_obf_5.svg'/> 
 					</p>
 
-					<p style="font-size:16px; text-align: left; margin-top: -35pt;">$~~~~~~~~~~~t_0~~~~~~~~~~~~~~~~~t_1~~~~~~~~~~~~~~~~~~t_2~~~~~~~~~~~~~~~~~t_3~~~~~~~~~~~~~~~~~t_4~~~~~~\dots~~~~~~~~~~~~~t'_0~~~~~~~~~~~~~~~~~t'_1~~~~~~~~~~~~~~~~~t'_2~~~~~~~~~~~~~~~~t'_3~~~~~~~~~~~~~~~~t'_4~~\dots$</p>
+					<p style="font-size:16.5px; text-align: left; margin-top: -35pt;">$~~~~~~~~~~~t_0~~~~~~~~~~~~~~~~~t_1~~~~~~~~~~~~~~~~~~t_2~~~~~~~~~~~~~~~~~t_3~~~~~~~~~~~~~~~~~t_4~~~~~~\dots~~~~~~~~~~~t'_0~~~~~~~~~~~~~~~~~t'_1~~~~~~~~~~~~~~~~~t'_2~~~~~~~~~~~~~~~~t'_3~~~~~~~~~~~~~~~~t'_4~~\dots$</p>
 					</ul>
 
 					<p class="fragment" style="font-size: 16pt; padding: 6px; border: 2px solid black;"><b>Correlation:</b> <i>'Smells like teen spirit'</i>. (30sec-30sec): <b style="color:red">0.9896</b></p>
@@ -1487,10 +1487,14 @@
 				<video  width="550" height = auto  src="media_research/animation_double_gyre.mp4" data-autoplay></video>
 				
 				<br>
-
-				<img width="450" height = auto src='media_research/highres.png'/> $~~$
-
-				<img  width="450" height = auto src='media_research/longest_bar_grid_highres.png'/>
+				<div class="column_50">
+					<b style="font-size: 15pt">Time delay embeddings</b>
+				<img style="margin-top:-5pt" width="450" height = auto src='media_research/highres.png'/>
+				</div>
+				<div class="column_50">
+					<b style="font-size: 15pt">Length of longest bar</b>
+				<img  style="margin-top:-5pt" width="450" height = auto src='media_research/longest_bar_grid_highres.png'/>
+				</div>
 				</span>
 				</section>
 
