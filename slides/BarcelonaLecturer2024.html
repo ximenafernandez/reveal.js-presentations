@@ -1,0 +1,803 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+		<title></title>
+
+		<meta name="description" content="Universitat de Barcelona Lecturer Interview">
+		<meta name="author" content="Ximena Fernandez">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/white.css" id="theme">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+		<link rel="stylesheet" href="../plugin/drawer/drawer.css" />
+		<link rel="stylesheet" href="../plugin/pointer/pointer.css" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			.border-right {
+			    border-right: 1px solid black;
+			}
+			.border-left {
+			    border-left: 1px solid black;
+			}
+
+			* {
+			  box-sizing: border-box;
+			}
+
+			.column_25 {
+			  float: left;
+			  width: 25%;
+			  padding: 2px;
+			}
+
+			.column_10 {
+			  float: left;
+			  width: 10%;
+			  padding: 2px;
+			}
+
+			.column_50 {
+			  float: left;
+			  width: 50%;
+			  padding: 10px;
+			}
+
+			.column_70 {
+			  float: left;
+			  width: 70%;
+			  padding: 2px;
+			}	
+
+			.column_33 {
+			  float: left;
+			  width: 33%;
+			  padding: 10px;
+			}	
+			 .column_60 {
+			  float: left;
+			  width: 60%;
+			  padding: 10px;
+			}
+			.column_66 {
+			  float: left;
+			  width: 66%;
+			  padding: 10px;
+			}
+			.column_20 {
+			  float: left;
+			  width: 20%;
+			  padding: 10px;
+			}	
+			.column_30 {
+			  float: left;
+			  width: 30%;
+			  padding: 10px;
+			}	
+			.column_40 {
+			  float: left;
+			  width: 40%;
+			  padding: 10px;
+			}	
+			.column_45 {
+			  float: left;
+			  width: 45%;
+			  padding: 10px;
+			}	
+			}
+
+			/* Clear floats after the columns */
+			.row:after {
+			  content: "";
+			  display: table;
+			  clear: both;
+			}
+			</style>
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+
+				<section data-background-image="media_oxford/title-slide-background_white_empty.png">
+					<h4 style="margin-left: -54pt">Geometric Inference & Combinatorial Topology <br>for<br> Data & Modeling</h4>
+
+					<br>
+
+					<p style="font-size:36px; color: red; margin-left: -54pt">XIMENA FERNANDEZ</p>
+				
+
+
+				</section>
+
+				
+
+				<section data-auto-animate>
+					<img  width=5000 height = auto src='media_research/triangle_research.png'/>
+					<p class="fragment" style="margin-top:-230pt;color:red; font-size: 21pt">COMBINATORIAL HOMOTOPY THEORY</p>
+					<p class="fragment" style="color:red; font-size: 21pt">GEOMETRIC INFERENCE</p>
+					<p class="fragment" style="color:red; font-size: 21pt">TOPOLOGICAL DATA ANALYSIS</p>
+				</section>
+
+
+				<section data-auto-animate>
+					<h5>1. Combinatorial methods in low-dimensional topology </h5>
+					<p style = "margin-top: -10pt"><b style="color: red; #ff4040;font-size: 32px;">The Andrews-Curtis Conjecture</b></p>
+					<span style="font-size: 22px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black; "><i>Based on:</i><br>
+					X. Fernandez. 'Morse theory for group presentations', <b>Trans. Amer. Math. Soc. </b> 377 (2024), 2495-2523.</p>
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h5>1. Combinatorial methods in low-dimensional topology </h5>
+					<p style = "margin-top: -10pt"><b style="color: red; #ff4040;font-size: 32px;">The Andrews-Curtis Conjecture</b></p>
+					
+
+					<span style="font-size: 22px; text-align:left;">
+					<p><b><span style = "color: red">Conjecture</span> [Andrews & Curtis, 1965].</b>
+
+					Any finite <b>balanced</b> presentation $\mathcal{P}=\langle x_1,\dots,x_n | r_1,\dots,r_n\rangle$ of the <b>trivial group</b>
+					can be transformed into the <b>empty presentation</b> $\langle ~|~\rangle$ by a 
+					finite sequence of the following <b>operations</b>:
+					<ol>
+					<li> $r_i \leadsto r_i^{-1}$</li>
+					<li> $r_i \leadsto r_i r_j$ for some $j \neq i$</li>
+					<li> $r_i \leadsto wr_i w^{-1}$ for some $w$ in the free group $F(x_1, x_2, \dots, x_n)$</li>
+					<li> add a  generator $x_{n+1}$ and a relator $r_{n+1}:=x_{n+1}$, or the inverse of this operation.</li>
+					</ol>
+					</p>
+					</span>
+					<span class="fragment" style="font-size: 22px; text-align:left;"> <p><b style = "color: red">Potential counterexamples.</b>
+					<ul>
+					<li> $\mathcal{P}=\langle x, y~|~ xyx = yxy,~ x^n = y^{n+1}\rangle,~n\geq 2$ <b>[Akbulut & Kirby, 1985]</b></li>
+					<li>$\mathcal{P} = \langle x,y~|~x^{-1}y^n x = y^{n+1}, ~x = y^{-1}xyx^{-1}\rangle,~n\geq 2$  <b>[Miller & Schupp, 1999]</b></li>
+					<li>$\mathcal{P}=\langle x,y~| ~x=[x^m,y^n], y=[y^p,x^q]\rangle ,~n,m,p,q\in \mathbb{Z}$ <b>[Gordon, 1984]</b></li>
+					<li>$\dots$</li>
+					</ul>
+					</p>
+					</span>
+				</section>
+
+			<section data-auto-animate>
+					<h5>1. Combinatorial methods in low-dimensional topology </h5>
+					<p style = "margin-top: -10pt"><b style="color: red; #ff4040;font-size: 32px;">The Andrews-Curtis Conjecture</b></p>
+					
+
+					<span style="font-size: 22px; text-align:left;">
+					<p><b><span style = "color: red">Equivalent conjecture</span> [Whitehead, 50'].</b> <br>Any <b>contractible</b> simplicial complex of <b>dimension 2</b> can be <b>3-deformed</b> to a <b>point</b>.
+					</p>
+					</span>
+
+					<div  class="row" style="font-size: 20px; text-align:center;">
+					<div class="column_45">
+						<h4>CW-complexes of dim 2 </h4>
+						<p>$K_{\mathcal{P}}$</p>
+						<img style="margin-top:-10pt"  width="150" height = auto src='media_perspi1/CW_presentation.png'/>
+						<p style="margin-top:-4pt" >contractible complexes</p>
+						<p>3-deformations</p>
+						<img style="margin-top:-20pt" src="media_perspi1/collapse.png">
+					</div>
+					<div class="column_10">
+						$\leftrightarrow$
+
+
+						<p style="margin-top:165pt">$\longleftrightarrow$</p>
+						
+						$\longleftrightarrow$
+
+
+					</div>
+		 	 		<div class="column_45">
+		 	 			<h4>Group presentations</h4>
+		 	 			<p> $\mathcal{P}= \langle x,y ~|~xyx^{-1}y^{-1}\rangle $</p>
+		 	 			<p  style="margin-top:124pt">balanced presentations of the trivial group</p>
+		 	 			<p>AC-transformations</p>
+					</div>
+					</div>
+
+				</section>
+
+				<section data-auto-animate>
+					<h5>1. Combinatorial methods in low-dimensional topology </h5>
+					<p style = "margin-top: -10pt"><b style="color: red; #ff4040;font-size: 32px;">Discrete Morse Theory</b></p>
+					
+
+					<span class="fragment" style="font-size: 22px; text-align:left;"> <p><b style = "color: red">Theorem</b> <b>[Forman, 1995]</b> Let $K$ be a regular CW-complex  and let $f:K\to \mathbb{R}$  be discrete Morse function.
+				 	Then, $K$ is <b>homotopy equivalent</b> to a  CW-complex $\tilde K$ with a cell for every critical cell of $f$.
+					</p>
+					</span>
+					<img class="fragment"  width="650" height = auto src='media_perspi1/thm_morse.png'/ class="center"> <img class="fragment" width="250" height = auto src='media_perspi1/CW_decomposition.png'/ class="center"> 		
+				
+					</span>
+
+				</section>
+
+				<section data-auto-animate>
+					<h5>1. Combinatorial methods in low-dimensional topology </h5>
+					<p style = "margin-top: -10pt"><b style="color: red; #ff4040;font-size: 32px;">Discrete Morse Theory</b></p>
+					
+
+
+					
+					<span style="font-size: 22px; text-align:left;"> <p><b style = "color: red">Theorem</b> <b>[F., 2024]</b>  Let $K$ be a regular CW-complex of <b>dim $2$</b> and let $f:K\to \mathbb{R}$  be discrete Morse function.
+				 	Then, $K$ <b>3-deforms</b> to a <i>constructible</i> CW-complex $\tilde K$ with a cell for every critical cell of $f$.
+					</p>
+					<img width="650" height = auto src='media_perspi1/whitehead_morse.png'/ class="center"> 
+
+					</span>
+
+				</section>
+
+				<section data-auto-animate>
+					<h5>1. Combinatorial methods in low-dimensional topology </h5>
+					<p style = "margin-top: -10pt"><b style="color: red; #ff4040;font-size: 32px;">The Andrews-Curtis Conjecture</b></p>
+					
+					<span  style="font-size: 20px; text-align:left;">
+					<p>Given $\mathcal P$ a <b style = "color: #ff4040">group presentation</b> and $f\colon K_{\mathcal P}\to \mathbb{R}$ a <b style = "color: #ff4040"> discrete Morse function</b> with a single critical 0-cell, we developed an <b>algorithm</b> to compute the <b style = "color: #ff4040"> Morse presentation</b> $\mathcal{P}_{\tilde K_{\mathcal P}}$, which satisfies $\mathcal{P}_{\tilde K_{\mathcal P}}\sim_{AC} \mathcal P$.
+					</p>
+
+					<div  class="row" style="font-size: 20px; text-align:center;">
+					<div class="column_45">
+						<h4>CW-complexes of dim 2 </h4>
+						<p>$K_{\mathcal{P}} + f\colon K\to \mathbb{R}$</p>
+						<p>$\nearrow\searrow^3 $</p>
+						<p>$\tilde K_{\mathcal P}$</p>
+						
+					</div>
+					<div style="margin-top:5pt" class="column_10">
+						$\leftrightarrow$
+						<br>
+						<br>
+						$\longleftarrow$
+						<br>
+						<br>
+						<br>
+						
+						$\longrightarrow$
+
+					</div>
+		 	 		<div class="column_45">
+		 	 			<h4>Group presentations</h4>
+		 	 			<p> $\mathcal{P}$</p>
+		 	 			<p>$\sim_{AC}$</p>
+		 	 			<p>$P_{\tilde K_{\mathcal P}}$</p>
+					</div>
+
+					<span style="text-align: left;">
+					<p> <i class="fab fa-github"> </i> Package<span style ="font-family:Courier New">  Finite-Topological-Spaces</a></span> (Sage Math)
+					<p > <i class="fab fa-github"></i> Package <span style ="font-family:Courier New"> Posets</span> (GAP) <span style = "font-size: 15px; color: grey"> (joint with K. Piterman & I. Sadofschi Costa).</span>
+					</p>
+					</span>
+
+					
+					</span>
+
+
+				</section>
+
+
+				<section data-auto-animate>
+					<h5>1. Combinatorial methods in low-dimensional topology </h5>
+					<p style = "margin-top: -10pt"><b style="color: red; #ff4040;font-size: 32px;">The Andrews-Curtis Conjecture</b></p>
+					
+					<span  style="font-size: 20px; text-align:left;">
+					<p>Given $\mathcal P$ a <b style = "color: #ff4040">group presentation</b> and $f\colon K_{\mathcal P}\to \mathbb{R}$ a <b style = "color: #ff4040"> discrete Morse function</b> with a single critical 0-cell, we developed an <b>algorithm</b> to compute the <b style = "color: #ff4040"> Morse presentation</b> $\mathcal{P}_{\tilde K_{\mathcal P}}$, which satisfies $\mathcal{P}_{\tilde K_{\mathcal P}}\sim_{AC} \mathcal P$.
+					</p>
+
+					<div  class="row" style="font-size: 20px; text-align:center;">
+					<div class="column_45">
+						<h4>CW-complexes of dim 2 </h4>
+						<p>$K_{\mathcal{P}} + f\colon K\to \mathbb{R}$</p>
+						<p>$\nearrow\searrow^3 $</p>
+						<p>$\tilde K_{\mathcal P}$</p>
+						
+					</div>
+					<div style="margin-top:5pt" class="column_10">
+						$\leftrightarrow$
+						<br>
+						<br>
+						$\longleftarrow$
+						<br>
+						<br>
+						<br>
+						
+						$\longrightarrow$
+
+					</div>
+		 	 		<div class="column_45">
+		 	 			<h4>Group presentations</h4>
+		 	 			<p> $\mathcal{P}$</p>
+		 	 			<p>$\sim_{AC}$</p>
+		 	 			<p>$P_{\tilde K_{\mathcal P}}$</p>
+					</div>
+					
+					<br>
+
+					<p style="text-align:left"><b style = "color: red">Theorem [F., 2024]</b> 
+					The following <b>potential counterexamples satisfy the Andrews-Curtis conjecture</b>:
+				    <br>
+				    $\bullet ~~\mathcal{P}=\langle x, y~|~ xyx = yxy,~ x^2 = y^{3}\rangle$*  [Akbulut & Kirby, 1985]
+				    <br>
+				    $\bullet ~~\mathcal{P}= \langle x,y~|~x^{-1}y^3 x = y^{4}, ~x = y^{-1}xyx^{-1}\rangle$  [Miller & Schupp, 1999]
+				    <br>
+				    $\bullet ~~\mathcal{P}=\langle x,y~| ~x=[x^{-1},y^{-1}], y=[y^{-1},x^q]\rangle, \forall q \in \mathbb{N}$ [Gordon, 1984]
+				    <br>
+				    <br>
+				    <span style="font-size: 14px; color: grey;">* First proved by Miasnikov in 2003 using genetic algorithms.</span>
+					</p>
+					
+					
+					</span>
+
+
+				</section>
+
+
+				<section data-auto-animate>
+					<h5>2. Density-based geometric inference</h5>
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 32px;">Fermat distance</b></p>
+
+					<span style="font-size: 22px; text-align:left;"> 
+					<p style="padding: 6px; border: 2px solid black;"><i>Based on:</i><br>
+					<b>X. Fernandez</b>, E. Borghini, G. Mindlin, P. Groisman. 'Intrinsic persistent-homology via density-based metric learning'. <b>Journal of Machine Learning Research.</b> 24 (2023) 1-42.</p>
+					</span>
+					</section>
+
+				<section data-auto-animate>
+					<h5>2. Density-based geometric inference</h5>
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 32px;">Fermat distance</b></p>
+
+
+					<span style="font-size: 20px; text-align:left;"> 
+					<p>Let $\mathbb{X}_n = \{x_1,...,x_n\}\subseteq \mathbb{R}^D$ be a <b>finite sample</b>.</p>
+
+					<p style = "color: red"><b>Assume that:</b>
+					<ul>
+					<li > $\mathbb{X}_n$ is a sample of a compact <b>Riemannian manifold</b> $\mathcal M$ of dimension $d$.
+					</li>
+					<li> The points are sampled according to a <b>density</b> $f\colon \mathcal M\to \mathbb R$.
+					</li>
+					</ul>
+					</p>
+
+					<p ><b style = "color: red">Goal:</b> Infer $'H_\bullet(\mathcal M, f)'$ from $\mathbb X_n$.
+					</p>
+
+					<div  class="row" style="font-size: 18px">
+						<div class="column_50">
+						<img width="550" height = auto src='media_fermat/sample.png'/>
+						</div>
+			 	 		<div class="column_50" style="font-size: 18px">
+			 	 		<img width="550" height = auto src='media_fermat/manifold_density_only.png'/>
+
+						</div>
+					</div>
+
+					</span>
+					</section>
+
+<!--
+					<section data-auto-animate>
+						<h5>Density-based geometry</h5>
+						<span style="font-size: 18px; text-align:left;">
+
+						<div class="row">
+						 	<div class="column_45">
+							<p>Let $\mathcal M \subseteq \mathbb{R}^D$ be a manifold  and let $f:\mathcal{M}\to \mathbb{R}_{>0}$ be a smooth <b>density</b>.</p>
+
+							
+							<p>For $q>0$, the  <b style="color: red">deformed Riemannian distance</b> in $\mathcal{M}$ is
+							\[
+							d_{f,q}(x,y) = \inf_{\gamma} \int_{\gamma}\frac{1}{f(\gamma)^{q}} \]
+							over all $\gamma:I\to \mathcal{M}$ with $\gamma(0) = x$ and $\gamma(1)=y$.
+							</p>
+							<br>
+							<img width="500" height = auto src='media_fermat/manifold.png'/>
+							</div>
+							<div class="column_10">
+							</div>
+
+							<div class="column_45">
+								<p>Let $\mathbb{X}_n = \{x_1,...,x_n\}\subseteq \mathbb{R}^D$ be a finite sample.</p>
+								<p>For $p> 1$,
+								the <b style="color: red">Fermat distance</b> between $x,y\in \mathbb{R}^D$ is defined by
+								\[
+								d_{\mathbb{X}_n, p}(x,y) = \inf_{\gamma} \sum_{i=0}^{r}|x_{i+1}-x_i|^{p}
+								\]
+								over all paths $\gamma=(x_0,  \dots, x_{r+1})$ of finite length $r$  with $x_0=x$, $x_{r+1} = y$ and $\{x_1, x_2, \dots, x_{r}\}\subseteq \mathbb{X}_n$, $\forall r\in \mathbb{N}$.
+								</p>
+								<img width="500" height = auto src='media_fermat/manifold_sample_path.png'/>
+							</div>
+						</div>
+						</span>
+
+					</section>
+				-->
+
+
+			<section data-auto-animate>
+				<h4>Density-based geometry</h4>
+					<!--<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Fermat principle in Riemmanian geometry</b></p>-->
+
+						<span style="font-size: 18px; text-align:left;">
+						<div class="row">
+						 	<div class="column_45"><p style="color:red; font-size: 24px; text-align:center; "><b>UNDERLYING SPACE</b></p>
+							<p>$\mathcal M \subseteq \mathbb{R}^D$ <b>manifold</b>,  $f:\mathcal{M}\to \mathbb{R}_{>0}$ <b>density</b>.</p>
+
+							
+							<p>For $q>0$,   <b style="color: red; ">deformed Riemannian distance *</b> in $\mathcal{M}$
+							\[
+							d_{f,q}(x,y) = \inf_{\gamma:x\sim y} \int_{\gamma}\frac{1}{f(\gamma_t)^{q}}||\dot \gamma_t||dt. \]
+							</p>
+							<br>
+							<img width="500" height = auto src='media_fermat/manifold.png'/>
+							<p style="color: grey; font-size: 16px;" >* Here, if $g$ is the inherited Riemannian tensor, then <br> $d_{f,q}$ is the Riemannian distance induced by $g_q= f^{-2q} g$.</p>
+							</div>
+							<div class="column_10">
+							</div>
+
+							
+						</div>
+						</span>
+				</section>
+
+
+
+				<section data-auto-animate>
+				<h4>Density-based geometry</h4>
+					<!--<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Fermat principle in Riemmanian geometry</b></p>-->
+
+						<span style="font-size: 18px; text-align:left;">
+						<div class="row">
+						 	<div class="column_45"><p style="color:red; font-size: 24px; text-align:center; "><b>UNDERLYING SPACE</b></p>
+							<p>$\mathcal M \subseteq \mathbb{R}^D$ <b>manifold</b>,  $f:\mathcal{M}\to \mathbb{R}_{>0}$ <b>density</b>.</p>
+
+							
+							<p>For $q>0$,   <b style="color: red; ">deformed Riemannian distance *</b> in $\mathcal{M}$
+							\[
+							d_{f,q}(x,y) = \inf_{\gamma:x\sim y} \int_{\gamma}\frac{1}{f(\gamma_t)^{q}}||\dot \gamma_t||dt. \]
+							</p>
+							<br>
+							<img width="500" height = auto src='media_fermat/manifold.png'/>
+							<p style="color: grey; font-size: 16px;" >* Here, if $g$ is the inherited Riemannian tensor, then <br> $d_{f,q}$ is the Riemannian distance induced by $g_q= f^{-2q} g$.</p>
+							</div>
+							<div class="column_10">
+							</div>
+
+							<div class="column_45">
+								<p style="color:red; text-align:center;font-size: 24px; "><b>DATA</b></p>
+								<p> $\mathbb{X}_n = \{x_1,...,x_n\}\subseteq \mathbb{R}^D$ <b>sample</b>.</p>
+								<p>For $p> 1$,
+								<b style="color: red">Fermat distance</b> in $\mathbb{X}_n$
+								\[
+								d_{\mathbb{X}_n, p}(x,y) = \inf_{\gamma:x\sim y} \sum_{i=0}^{r}|x_{i+1}-x_i|^{p}.
+								\]
+								
+								</p>
+								<br>
+								<img width="500" height = auto src='media_fermat/manifold_sample_path.png'/>
+								<br>
+								<i class="fab fa-python"></i> <b style="color: red">Python library</b> <span style ="font-family:Courier New">
+							 fermat</span>
+							</div>
+						</div>
+						</span>
+					<!--
+					$~$
+					<span style="font-size: 16px; text-align:left; margin-top:-50pt"> 
+					<p style="padding: 6px; border: 2px solid black;">
+					<b>X. Fernandez</b>, E. Borghini, G. Mindlin, P. Groisman. <u>'Intrinsic persistent-homology via density-based metric learning'.</u> <b>Journal of Machine Learning Research.</b> 24 (2023) 1-42.</p>
+					</span>
+					-->
+
+					</section>
+
+
+
+					<section data-auto-animate>
+						<h5>Convergence results</h5>
+						<span style="font-size: 22px; text-align:left;">
+						<p style="color: red; font-size: 26px"><b>Theorem (F., Borghini, Mindlin, Groisman)</b></p>
+						<p style="padding: 6px; border: 2px solid black; font-size: 22px">\[\big(\mathbb{X}_n, C(n,p,d) d_{\mathbb{X}_n,p}\big)\xrightarrow[n\to \infty]{GH}\big(\mathcal{M}, d_{f,q}\big) ~~~ \text{ for } q = (p-1)/d\]</p>
+						</span>
+						<img width="300" height = auto src='media_fermat/manifold_sample_path.png'/>$~~~~~~~$<img width="300" height = auto src='media_fermat/manifold.png'/>
+						
+					</section>
+
+					<section data-auto-animate>
+						<h5>Convergence results</h5>
+						<span style="font-size: 22px; text-align:left;">
+						<p style="color: red; font-size: 26px"><b>Theorem (F., Borghini, Mindlin, Groisman)</b></p>
+						<p style="padding: 6px; border: 2px solid black; font-size: 22px">\[\big(\mathbb{X}_n, C(n,p,d) d_{\mathbb{X}_n,p}\big)\xrightarrow[n\to \infty]{GH}\big(\mathcal{M}, d_{f,q}\big) ~~~ \text{ for } q = (p-1)/d\]</p>
+						</span>
+						
+						<span style="font-size: 21px; text-align:left;">
+						<p style = "color: grey"> Let $\mathcal{M}$ be a closed smooth $d$-dimensional <b>Riemannian manifold</b> embedded in $\mathbb{R}^D$. Let $\mathbb X_n\subseteq \mathcal{M}$
+						be  a  set  of  $n$ independent <b>sample</b> points with common smooth <b>density</b> $f:\mathcal{M}\to \mathbb{R}_{>0}$.
+						</p>
+						<p style = "color: grey"> Given $p>1$ and $q=(p-1)/d$, there exists a constant $\mu = \mu(p,d)$ such that for every $\lambda \in \big((p-1)/pd, 1/d\big)$ and $\varepsilon>0$ there exist $\theta>0$ satisfying
+						\[
+						    \mathbb{P}\left( d_{GH}\left(\big(\mathcal{M}, d_{f,q}\big), \big(\mathbb{X}_n, {\scriptstyle \frac{n^{q}}{\mu}} d_{\mathbb{X}_n, p}\big)\right) > \varepsilon \right) \leq \exp{\left(-\theta n^{(1 - \lambda d) /(d+2p)}\right)}
+						\]
+						for $n$ large enough.
+						</p>
+						<span>
+						
+					</section>
+
+					<section data-auto-animate>
+						<h5>Fermat distance</h5>
+						<br> 
+						<div class="row">
+						 	 <div class="column_50">
+							<img width="275" height = auto src='media_fermat/eyeglasses_2.png'/>
+							</div>
+							<div  class="column_50">
+							<img width="290" height = "170" src='media_fermat/normal_eyeglasses.png'/>
+							</div>
+						</div>
+						<div class="row">
+						 	 <div class="column_33">
+							<img width="290" height = auto src='media_fermat/normal_eyeglasses_p=1.5.png'/>
+							</div>
+							<div  class="column_33">
+							<img width="350" height = auto src='media_fermat/normal_eyeglasses_p=2.0.png'/>
+							</div>
+							<div  class="column_33">
+							<img width="350" height = auto src='media_fermat/normal_eyeglasses_p=3.0.png'/>
+							</div>
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<h5>Persistent homology</h5>
+
+						<p style="font-size:16pt"> INPUT: Metric space $(\mathbb{X}_n, d_{\mathbb{X}_n})$ $\leadsto$ OUTPUT: Persistence diagram $\mathrm{dgm}(\mathbb{X}_n, d_{\mathbb{X}_n})$</p>
+						<div class="row">
+					 	 <div class="column_20">
+						
+						<img  style="margin-top: 130pt;" width="200" height = auto src='media_ph/circle0.png'/>
+					 	</div>
+						 <div class="column_50">
+						 	
+						 	<img  width="700" height = auto src='media_ts/filtration_circle.gif'/>
+						 	
+						 </div>
+						 <div class="column_30"><p>
+							 <img style="margin-top:-10pt" width="250" height = auto src='media_ts/PD_resized.png'/>
+							 </p>
+							 </div>
+					</div> 
+	
+
+
+					</section>
+
+
+					<section data-auto-animate>
+						<h5>Persistent homology</h5>
+
+						<p style="font-size:16pt"> INPUT: Metric space $(\mathbb{X}_n, d_{\mathbb{X}_n})$ $\leadsto$ OUTPUT: Persistence diagram $\mathrm{dgm}(\mathbb{X}_n, d_{\mathbb{X}_n})$</p>
+
+						<br>
+	
+
+	
+						<div class="row" >
+							<div  class="column_33">
+							<img width="280" height = "170" src='media_fermat/normal_eyeglasses.png'/>
+							</div>
+						 	 <div class="column_33">
+							<img style="margin-top:-15pt" width="220" height = auto src='media_fermat/PH_euclidean_eyeglasses.png'/>
+							</div>
+							<div  class="column_33">
+							<img style="margin-top:-15pt" width="220" height = auto src='media_fermat/PH_k=5_eyeglasses.png'/>
+							</div>
+
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<h5>Persistent homology</h5>
+					
+					<span  style="font-size: 22px; text-align:left;">
+						<p style="color: red; font-size: 26px"><b>Corollary (F., Borghini, Mindlin, Groisman)</b></p>
+						<p style="padding: 6px; border: 2px solid black; font-size: 22px">\[\mathrm{dgm}(\mathbb{X}_n, {C(n,p,d)} d_{\mathbb{X}_n,p})\xrightarrow[n\to \infty]{B}\mathrm{dgm}(\mathcal{M}, d_{f,q}) ~~~ \text{ for } q = (p-1)/d\]</p>
+						</span>
+
+					<img width="280" height = "170" src='media_fermat/normal_eyeglasses.png'/> <img width="280" height = "170" src='media_fermat/normal_eyeglasses_p=3.0.png'/>
+	
+						<div class="row" >
+						 	 <div class="column_33">
+							<img style="margin-top:-15pt" width="220" height = auto src='media_fermat/PH_euclidean_eyeglasses.png'/>
+							</div>
+							<div  class="column_33">
+							<img style="margin-top:-15pt" width="220" height = auto src='media_fermat/PH_k=5_eyeglasses.png'/>
+							</div>
+							<div  class="column_33">
+							<img style="margin-top:-12pt" width="220" height = auto src='media_fermat/eyeglasses_p3_H1.png'/>
+							</div>
+						</div>
+					</section>
+
+					
+				<section data-auto-animate>
+					<h5>3. Topological data analysis</h5>
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 30px;">Audio ID</b></p><b style="color: red;;font-size: 24px;">Research collaboration with Spotify</b>
+
+					<span style="font-size: 22px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;"><i>Based on:</i><br>
+					W. Reise, <b>X. Fernandez</b>,  M. Dominguez, H.A. Harrington, M. Beguerisse-Diaz. 'Topological fingerprints for Audio Identification'. <b>SIAM Journal of Data Science.</b> Vol. 6, Iss. 3 (2024).</p>
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h5>3. Topological data analysis</h5>
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 30px;">Audio ID</b></p>
+
+					<p style="font-size:24px; margin-bottom: 50px; ">
+					Given <b>two audio tracks</b>, identify whether they correspond to the <b  style=" color: red;">same audio content </b>.
+					</p>
+
+					<img width="450" height = auto src='media_audioID/morning_waveform.svg'>
+					<img width="450" height = auto src='media_audioID/morning_waveform_noise.svg'/>
+					
+				</section>
+
+					<section data-auto-animate>
+					<h5>3. Topological data analysis</h5>
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 30px;">Audio ID</b></p>
+
+					<img width="550" height = auto src='media_audioID/morning_waveform.svg'>
+
+					<img style="margin-left:80pt; margin-top:-20pt" width="700" height = auto src='media_audioID/mel_morning_song.svg'/>
+
+					<img  style="margin-left:50pt; margin-top:-20pt"  width="650" height = "200" src='media_audioID/mel_db_normalized_surface.png'/>
+					
+				</section>
+
+				<section data-auto-animate>
+				<h5>3. Topological data analysis</h5>
+				<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 30px;">Audio ID</b></p>
+				<div class="column_66"> 
+					
+					<img src='media_audioID/image_pixels.png' width="750" height=auto> </img> 
+				
+					<img style="margin-top:-5pt;" width="650" height = auto src='media_audioID/Cubical_filtration.png'/>
+					</div>
+				<div class="column_33"> 
+					<p style="font-size:12pt; text-align: center;margin-top:150pt;"><b>Betti curve</b></p>
+					<img  width="300" height = auto src='media_audioID/Betti.png'/> 
+				</div>
+				</section>
+
+				<section data-auto-animate>
+					<h5>3. Topological data analysis</h5>
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 30px;">Audio ID</b></p>
+
+
+					<p style='margin-top: -10pt;'>
+					<img width="475" height = auto  src='media_audioID/melspectrogram_SLTS_original_left.png'> <img width="475" height = 145  src='media_audioID/melspectrogram_SLTS_obfuscated_right.png'>
+					</p>
+
+					<p style='margin-top: -40pt;'>
+					<img width="85" height = auto src='media_audioID/Betti_curve_SLTS_1.svg'/> 
+					<img width="85" height = auto src='media_audioID/Betti_curve_SLTS_2.svg'/> 
+					<img width="85" height = auto src='media_audioID/Betti_curve_SLTS_3.svg'/> 
+					<img width="85" height = auto src='media_audioID/Betti_curve_SLTS_4.svg'/> 
+					<img width="85" height = auto src='media_audioID/Betti_curve_SLTS_5.svg'/> 
+					$~$
+					<img width="85" height = auto src='media_audioID/Betti_curve_SLTS_obf_1.svg'/> 
+					<img width="85" height = auto src='media_audioID/Betti_curve_SLTS_obf_2.svg'/> 
+					<img width="85" height = auto src='media_audioID/Betti_curve_SLTS_obf_3.svg'/> 
+					<img width="85" height = auto src='media_audioID/Betti_curve_SLTS_obf_4.svg'/> 
+					<img width="85" height = auto src='media_audioID/Betti_curve_SLTS_obf_5.svg'/> 
+					</p>
+
+					<p style="font-size:15px; text-align: left; margin-top: -30pt;">$~~~~~~~~~~~t_0~~~~~~~~~~~~~~~~~t_1~~~~~~~~~~~~~~~~~~t_2~~~~~~~~~~~~~~~~~t_3~~~~~~~~~~~~~~~~~t_4~~\dots~~~~~~~~~~~~~~~~t'_0~~~~~~~~~~~~~~~~~t'_1~~~~~~~~~~~~~~~~~t'_2~~~~~~~~~~~~~~~~t'_3~~~~~~~~~~~~~~~~t'_4~~\dots$</p>
+					</ul>
+					<div class="column_50"><img style="margin-top:-20pt" width="280" height = auto src='media_audioID/matching_times_SLTS_P_bar.svg' class="center"/></div><div class="column_50"><p style="font-size: 15pt; text-align:left"><b>Pearson correlation:</b> 0.98</p></div>
+				
+					
+				</section>
+
+
+				<section data-auto-animate>
+					<h5>3. Topological data analysis</h5>
+					<p style = "margin-top: -10pt" ><b style="color: #ff4040; #ff4040;font-size: 30px;">Audio ID</b></p>
+					<img style="margin-top: -3pt; margin-bottom: -10pt;" width="400" height = auto src='media_audioID/table_results_all.png' class="center"/>
+					<div class="row">
+					<div class="column_50">
+						<b style="font-size:16pt">Rigid distortions </b>
+					<img style="margin-top: -5pt" width="500" height = auto src='media_audioID/resultados_1.png' class="center"/>
+					</div>
+					<div class="column_50">
+						<b style="font-size:16pt">Topological distortions</b>
+					<img style="margin-top: -5pt" width="500" height = auto src='media_audioID/resultados_2.png' class="center"/>
+
+					</div>
+				</div>
+				</section>
+
+
+
+				<section data-auto-animate>
+					<h3>Current projects</h3>
+				<span style="font-size:22pt">	
+				<div class="column_33 fragment">
+					
+					<p  style="color:red; font-size: 18pt">1. COMPUTATIONAL DISCRETE MORSE THEORY</p>
+					<p style="font-size: 14pt; margin-top: -10pt;"> with V. Nanda (Oxford)</p>
+				
+
+					<p style="font-size: 16pt; margin-top:10pt";> $K + f:K\to \mathbb{R} \leadsto \tilde K$</p>
+					<ul style="font-size:16pt ">
+					<li>Criteria for <b>regularity</b> of Morse CW-complex $\tilde K$ (homeomorphisms as attaching maps).</li>
+					<br>
+					<li><b>Algorithmic</b> description of $\tilde K$ for all dimensions.</li>
+					</ul>
+					<img width="200" height = auto src="media_perspi1/flow_morse.png">
+				</div>
+
+				<div class="column_33 border-right border-left fragment">
+					<p  style="color:red; font-size: 18pt">2. KURAMOTO MODELS OVER GEOMETRIC GRAPHS & HODGE THEORY</p>
+
+					<p style="font-size: 14pt; margin-top: -10pt;">with P. Groisman (Buenos Aires)</p>
+					<p style="font-size: 13pt;"><u><b>Kuramoto model</b></u> <br>$
+					\frac{d\theta_i}{dt} = \omega_i + \sum_{j=1}^{N} \omega_{ij}\sin(\theta_j - \theta_i)$</p>
+					<ul style="font-size:16pt ">
+					<li><b>Hodge Theory</b> for solutions of  <b>Kuramoto model</b> over geometric graphs from <b>manifolds</b>.</li>
+					</ul>
+					<img width="200" height = auto src="media_research/oscillators.jpg">
+
+				</div>
+		
+	
+
+				<div class="column_33 fragment">
+					<p  style="color:red; font-size: 18pt">3. PERSISTENCE BEYOND HOMOLOGY</p>
+					
+					<ul style="font-size:16pt ">
+					<li>Persistent fundamental group.</li>
+					<br>
+					<li>Persistent knot invariants.</li>
+					</ul>
+					<img width="300" height = auto src="media_perspi1/proteins.jpg">
+				</div>
+			</span>
+
+				</section>
+
+
+							<section data-auto-animate>
+					<img  width=5000 height = auto src='media_research/triangle_research.png'/>
+					<p  style="margin-top:-230pt;color:red; font-size: 21pt">COMBINATORIAL HOMOTOPY THEORY</p>
+					<p  style="color:red; font-size: 21pt">GEOMETRIC INFERENCE</p>
+					<p  style="color:red; font-size: 21pt">TOPOLOGICAL DATA ANALYSIS</p>
+					<p class="fragment" style="color:red; font-size: 30pt; text-align: right;margin-top: 80pt;">THANKS!</p>
+				</section>
+
+		
+			</div>
+
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/math/math.js"></script>
+		<script>
+		Reveal.initialize({ plugins: [ RevealMath.KaTeX ] });
+		</script>
+
+	</body>
+</html>
