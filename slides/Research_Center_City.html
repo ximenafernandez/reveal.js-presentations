@@ -1,0 +1,428 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+		<title></title>
+
+		<meta name="description" content="City Research Centre">
+		<meta name="author" content="Ximena Fernandez">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/white.css" id="theme">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+		<link rel="stylesheet" href="../plugin/drawer/drawer.css" />
+		<link rel="stylesheet" href="../plugin/pointer/pointer.css" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			* {
+			  box-sizing: border-box;
+			}
+
+			.column_25 {
+			  float: left;
+			  width: 25%;
+			  padding: 0px;
+			}
+
+			.column_10 {
+			  float: left;
+			  width: 10%;
+			  padding: 10px;
+			}
+			.column_5 {
+			  float: left;
+			  width: 5 %;
+			  padding: 10px;
+			}
+
+
+			.column_15 {
+			  float: left;
+			  width: 15%;
+			  padding: 0px;
+			}
+			.column_50 {
+			  float: left;
+			  width: 50%;
+			  padding: 0px;
+			}
+
+			.column_70 {
+			  float: left;
+			  width: 70%;
+			  padding: 0px;
+			}	
+
+
+			.column_35 {
+			  float: left;
+			  width: 35%;
+			  padding: 0px;
+			}	
+
+			.column_33 {
+			  float: left;
+			  width: 33%;
+			  padding: 10px;
+			}	
+			 .column_60 {
+			  float: left;
+			  width: 60%;
+			  padding: 10px;
+			}
+			.column_66 {
+			  float: left;
+			  width: 66%;
+			  padding: 10px;
+			}
+			.column_20 {
+			  float: left;
+			  width: 20%;
+			  padding: 10px;
+			}	
+			.column_30 {
+			  float: left;
+			  width: 30%;
+			  padding: 0px;
+			}	
+			.column_40 {
+			  float: left;
+			  width: 40%;
+			  padding: 10px;
+			}	
+			.column_45 {
+			  float: left;
+			  width: 45%;
+			  padding: 10px;
+			}	
+			}
+
+			/* Clear floats after the columns */
+			.row:after {
+			  content: "";
+			  display: table;
+			  clear: both;
+			}
+			</style>
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+
+				<section>
+					
+					<img  style="align-content: right;margin-top: -50pt;" width="200" height = auto src='media_city/logo_city.png'/>
+
+					<h4> Geometry and Topology in Data Science</h4>
+					
+					<p style="font-size:32px; color: red;">XIMENA FERNANDEZ</p>
+					<br>
+
+					<p style="font-size:36px;"> Research Centre for Mathematics Innovation</p>
+					
+				</section>
+
+			
+				<section data-auto-animate>
+					<img  width=5000 height = auto src='media_research/triangle_1.png'/>
+					<p style="margin-top:-200pt;color:red; font-size: 24pt"><b>TOPOLOGICAL DATA ANALYSIS</b></p>
+				</section>
+
+
+
+				<!------------------Takens------------------------->
+
+
+					<section data-auto-animate>
+						<h5>1. Topological methods in time series Analysis</h5>
+							<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Pattern detection in birdsongs</b></p>
+						<img width="900" height = auto src='media_ts/birdsong.png'/>
+
+						<div class="column_50"><img width="300" height = auto src='media_ts/canary_embedding.png'/> </div> <div class="column_50"><p style="font-size: 14pt; text-align:left"><b>Delay embedding:</b>
+						<br>
+						 Given $T$ the <b>time delay</b> and $D$ the <b>embedding dimension</b>,
+						 \[\{\big(\varphi(t), \varphi(t+T), \varphi(t+2 T) \dots, \varphi(t+(D-1)T)\big): t\in \mathbb R\}\subseteq \mathbb{R}^D\]</p></div> 
+
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						<br>
+						 <p style="font-size: 10pt;">
+					<b>X. Fernandez</b>, E. Borghini, G. Mindlin, P. Groisman. <u>'Intrinsic persistent-homology via density-based metric learning'.</u> <b>Journal of Machine Learning Research.</b> 24 (2023) 1-42.</p>
+						
+					</section>
+
+					<section data-auto-animate>
+						<h5>1. Topological methods in time series Analysis</h5>
+							<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Pattern detection in birdsongs</b></p>
+						<img width="900" height = auto src='media_ts/birdsong.png'/>
+						<div class="row">
+						 	 <div class="column_50">
+							<img width="300" height = auto src='media_ts/canary_embedding.png'/>
+							</div>
+							 <div class="column_50">
+							 <img width="290" height = auto src='media_ts/PH_canary.png'/>
+							 </div>
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<h5>1. Topological methods in time series Analysis</h5>
+							<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Pattern detection in birdsongs</b></p>
+						<img width="900" height = auto src='media_ts/time_series_birdsong_cuts.png'/>
+						<div class="row">
+						 	 <div class="column_70">
+							<img width="1000" height = auto src='media_ts/canary_embedding_cuts.png'/>
+							</div>
+							 <div class="column_30">
+							 <img width="200" height = auto src='media_ts/PH_canary.png'/>
+							 </div>
+						</div>
+					</section>
+
+				
+					<section data-auto-animate>
+						<h4>1. Topological methods in time series Analysis</h4>
+							<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Anomaly detection en ECG</b></p>
+						<img width="900" height = auto src='media_ts/ECG_signal_raw.png'/>
+
+						<img width="300" height = auto src='media_ts/ECG_embedding_raw.png'/>
+					</section>
+
+					<section data-auto-animate>
+						<h4>1. Topological methods in time series Analysis</h4>
+							<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Anomaly detection in ECG</b></p>
+						<img width="900" height = auto src='media_ts/ECG_signal.png'/>
+
+						<img width="300" height = auto src='media_ts/ECG_embedding.png'/>
+					</section>
+
+					<section data-auto-animate>
+					<h4>1. Topological methods in time series Analysis</h4>
+							<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Anomaly detection in ECG</b></p>
+						<img width="900" height = auto src='media_ts/ECG_signal.png'/>
+						
+						<div class="row">
+						 	 <div class="column_33">
+							<img width="300" height = auto src='media_ts/ECG_embedding.png'/>
+							</div>
+							<div class="column_66" style="margin-top:-30pt; margin-bottom: -10pt;">
+								<b style="font-size: 16pt; color:red; text-align: right;margin-top: -50pt;">Persistent Homology</b><br>
+							<img width="280" height = auto src='media_fermat/PH_ECG_4000.png'/><img  style = "margin-top: 23pt", width="280" height = auto src='media_fermat/PH_ECG_6000.png'/>
+							</div>
+					
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<h5>1. Topological methods in time series Analysis</h5>
+							<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Anomaly detection in ECG</b></p>
+						<img width="900" height = auto src='media_ts/ECG_signal.png'/>
+						<small style="margin-top: -20pt;">
+						<span style="font-size:16pt"><b >Approximate Derivative</b></span>
+						</small>
+						<img width="900" height = auto src='media_ts/bottleneck_ECG.png'/>
+					</section>
+
+
+
+
+
+			
+				<!-------------------Epilepsy----------------------->
+
+				
+				<section data-auto-animate>
+					<h4>2. Topological Methods in Biomedicine</h4>
+
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Epileptic seizure detection</b></p>
+
+					<span style="font-size: 20px; text-align:left;"> 
+
+					<p style="padding: 6px; margin-top: -10pt; border: 2px solid black;"> <b style="color:red">Goal:</b>  Given a <b>physiological recording</b> of the brain activity, algorithmically <b>detect in real time</b> epileptic seizures.</p></span>
+
+						<img src='media_epilepsy/brain_EEG.png' width="1000" height=auto> </img>
+
+					<span style="font-size: 16px; text-align:right;margin-top: -20pt;"> 
+					 <p >
+					<b>X. Fernandez</b>,  D. Mateos. <u>Topological biomarkers for real-time epileptic  seizures</u>. Preprint. (2024)</p>
+					</span>
+
+						</ul>
+					</span>
+				</section>
+
+
+				<section  data-auto-animate>
+					<h4>2. Topological Methods in Biomedicine</h4>
+
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Epileptic seizure detection</b></p>
+					<span style="font-size: 20px; text-align:left;"> 
+					<p style="padding: 6px; margin-top: -10pt; border: 2px solid black;">  <b style="color:red">Goal:</b>  Given a <b>physiological recording</b> of the brain activity, algorithmically <b>detect in real time</b> epileptic seizures.</p></span>
+					</span>
+					<span style="font-size: 19px; text-align:left;">
+					<ul>
+					<li >Let $\varphi_1, \varphi_2, \dots \varphi_N:[0,T]\to \mathbb{R}$ a set of <b style="color: red">signals</b> (EEG, MEG, etc.)</li>
+						<li>Given a <b>window</b> size <b style="color: red">$W$</b>, compute  the <b style="color: red">sliding window embedding</b>  <span style="font-size:12pt">$\Big\{\big(\varphi_1(t), \dots, \varphi_N(t)\big): t\in [t_0-W, t_0]\Big\}\subseteq \mathbb R^N$</span></li>
+						<li> Compute the <b style="color: red"> persistent homology</b> of the time evolving point clouds.</li>
+						<li>
+						Estimate the <b style="color: red">derivative</b> of the path of persistence diagrams.
+						</li>
+
+					</ul>
+					
+					<div class="column_70">
+						<p style="text-align: center"><b style="color:red;">EEG</b></p>
+					<video style="margin-top: -20pt;" data-autoplay src='media_epilepsy/EEG_channel_window.mp4' width="700" height=auto> </video>
+				</div>
+				<div class="column_30">
+					<p style="text-align: center"><b style="color:red;">Persistent Homology</b></p>
+					<video style="margin-top: 15pt;" data-autoplay src='media_epilepsy/animation_PD_short.mp4' width="300" height=auto> </video>
+					</span>
+				</div>
+				</section>
+
+			
+
+
+				<section  data-auto-animate>
+				<h4>2. Topological Methods in Biomedicine</h4>
+
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Epileptic seizure detection</b></p>
+				<br>
+				<p style="text-align: center; margin-top: -30pt; font-size: 16pt;">Topological Biomarkers</p>
+				<img  style="margin-top:-5pt" width="445" height = 365 src='media_epilepsy/CC_all.png'/> <img  style="margin-top:-10pt" width="445" height = 350 src='media_epilepsy/EEG_CHMIT_derivative.png'/>
+
+					<span style="font-size: 16px; text-align:right;margin-top: -20pt;"> 
+					 <p>
+					<b>X. Fernandez</b>,  D. Mateos. <u>Topological biomarkers for real-time epileptic  seizures</u>. Preprint. (2024)</p>
+					</span>
+
+				</section>
+
+
+
+
+				<!----------------Audio ID--------------------->
+
+
+				<section data-auto-animate>
+					<h5>3. Topological Methods in Audio ID</h5>
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Research collaboration with Spotify</b></p>
+
+					<p style="font-size:22px; margin-bottom: 50px; padding: 6px; border: 2px solid black;">
+					<b style="color:red">Goal:</b> Given <b>two audio tracks</b>, identify whether they correspond to the <b  style=" color: red;">same audio content. </b>
+					</p>
+
+
+
+					<img width="450" height = auto src='media_audioID/waveform_SLTS_original.png'>
+					<img width="450" height = auto src='media_audioID/waveform_SLTS_obfuscated.png'/>
+
+					<span style="font-size: 16px; text-align:left;"> 
+					 <p>
+					W. Reise, <b>X. Fernandez</b>,  M. Dominguez, H.A. Harrington, M. Beguerisse-Diaz. <u>Topological fingerprints for audio identification</u>. <b>SIAM Journal on Mathematics of Data Science</b> (2024)</p>
+					</span>
+					
+				</section>
+
+
+
+				<section data-auto-animate>
+				<h5>3. Topological Methods in Audio ID</h5>
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Research collaboration with Spotify</b></p>
+
+					<span style="font-size: 20px; text-align:left;">
+ 					Given $s$  an audio track, we associate <b>topological fingerprints</b>  via <b style="color:red">local Betti curves</b>.
+ 					</span>
+
+
+ 					<img width="450" height = auto src='media_audioID/waveform_SLTS_original.png'>
+					<img width="450" height = auto src='media_audioID/waveform_SLTS_obfuscated.png'/>
+
+
+
+					<p style='margin-top: -20pt;'>
+					<img width="475" height = auto  src='media_audioID/melspectrogram_SLTS_original_left.png'> <img width="475" height = 145  src='media_audioID/melspectrogram_SLTS_obfuscated_right.png'>
+					</p>
+					
+					<p style='margin-top: -45pt;'>$~$
+					<img width=68 height =75 src='media_audioID/mel_SLTS_one_sec_window_1.png'/>$~$
+					<img width=69 height =75 src='media_audioID/mel_SLTS_one_sec_window_2.png'/>$~$
+					<img width=68 height =75 src='media_audioID/mel_SLTS_one_sec_window_3.png'/>$~$
+					<img width=69 height =75 src='media_audioID/mel_SLTS_one_sec_window_4.png'/> $~$
+					<img width=68 height =75 src='media_audioID/mel_SLTS_one_sec_window_5.png'/> 
+					$~~$
+					<img width=68 height =75 src='media_audioID/mel_SLTS_one_sec_window_1.png'/> $~$
+					<img width=69 height =75 src='media_audioID/mel_SLTS_one_sec_window_2.png'/> $~$
+					<img width=68 height =75 src='media_audioID/mel_SLTS_one_sec_window_3.png'/> $~$
+					<img width=69 height =75 src='media_audioID/mel_SLTS_one_sec_window_4.png'/> $~$
+					<img width=68 height =75 src='media_audioID/mel_SLTS_one_sec_window_5.png'/> 
+					</p>
+				
+
+					<p style='margin-top: -45pt;'>
+					<img width="85" height = auto src='media_audioID/Betti_curve_SLTS_1.svg'/> 
+					<img width="85" height = auto src='media_audioID/Betti_curve_SLTS_2.svg'/> 
+					<img width="85" height = auto src='media_audioID/Betti_curve_SLTS_3.svg'/> 
+					<img width="85" height = auto src='media_audioID/Betti_curve_SLTS_4.svg'/> 
+					<img width="85" height = auto src='media_audioID/Betti_curve_SLTS_5.svg'/> 
+					$~$
+					<img width="85" height = auto src='media_audioID/Betti_curve_SLTS_obf_1.svg'/> 
+					<img width="85" height = auto src='media_audioID/Betti_curve_SLTS_obf_2.svg'/> 
+					<img width="85" height = auto src='media_audioID/Betti_curve_SLTS_obf_3.svg'/> 
+					<img width="85" height = auto src='media_audioID/Betti_curve_SLTS_obf_4.svg'/> 
+					<img width="85" height = auto src='media_audioID/Betti_curve_SLTS_obf_5.svg'/> 
+					</p>
+
+				</span>
+					
+				</section>
+
+
+				<section data-auto-animate>
+				<h5>3. Topological Methods in Audio ID</h5>
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">Research collaboration with Spotify</b></p>
+
+					<span style="font-size: 20px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					W. Reise, <b>X. Fernandez</b>,  M. Dominguez, H.A. Harrington, M. Beguerisse-Diaz. <u>Topological fingerprints for audio identification</u>. <b>SIAM Journal on Mathematics of Data Science</b> (2024, accepted)</p>
+					</span>
+					<div class="row">
+					<div class="column_50">
+						<b style="font-size:18pt">Rigid distortions </b>
+					<img style="margin-top: -3pt" width="500" height = auto src='media_audioID/resultados_1.png' class="center"/>
+					</div>
+					<div class="column_50">
+						<b style="font-size:18pt">Topological distortions</b>
+					<img style="margin-top: -3pt" width="500" height = auto src='media_audioID/resultados_2.png' class="center"/>
+					</div>
+				</div>
+				</section>
+
+
+			</div>
+
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/math/math.js"></script>
+		<script>
+		Reveal.initialize({ plugins: [ RevealMath.KaTeX ] });
+		</script>
+
+	</body>
+</html>
