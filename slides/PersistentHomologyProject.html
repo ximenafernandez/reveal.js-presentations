@@ -1,0 +1,980 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Persistent Homology</title>
+
+		<meta name="description" content="Presentation on Persistent Homology">
+		<meta name="author" content="Ximena Fernandez">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/white.css" id="theme">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			* {
+			  box-sizing: border-box;
+			}
+
+			.column {
+			  float: left;
+			  width: 25%;
+			  padding: 10px;
+			}
+
+			.column_20 {
+			  float: left;
+			  width: 20%;
+			  padding: 10px;
+			}
+
+			.column_big {
+			  float: left;
+			  width: 50%;
+			  padding: 10px;
+			}
+
+			.column_Big {
+			  float: left;
+			  width: 75%;
+			  padding: 10px;
+			}	
+			.column_33 {
+			  float: left;
+			  width: 33%;
+			  padding: 10px;
+			}	
+			.column_30{
+			  float: left;
+			  width: 30%;
+			  padding: 10px;
+			}	
+			.column_40 {
+			  float: left;
+			  width: 40%;
+			  padding: 10px;
+			}	
+			.column_60 {
+			  float: left;
+			  width: 60%;
+			  padding: 10px;
+			}	
+			.column_66 {
+			  float: left;
+			  width: 66%;
+			  padding: 10px;
+			}	
+			}
+
+			/* Clear floats after the columns */
+			.row:after {
+			  content: "";
+			  display: table;
+			  clear: both;
+			}
+			</style>
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+				<section>
+					<img  style="align-content: right;margin-top: -20pt;" width="200" height = auto src='media_city/logo_city.png'/>
+
+					<br>
+					<h3>Persistent Homology </h3>
+					<p style="font-size:28px;">XIMENA FERNANDEZ</p>
+
+					<p style="font-size:25px;">Project Module 2025 </p> 
+					<img width="325" height = auto src='media_ts/filtration_circle.gif'/>
+				</section>
+
+
+		
+
+				<section data-auto-animate>
+					<img  width=5000 height = auto src='media_research/triangle_1.png'/>
+					<p style="margin-top:-200pt;color:red; font-size: 21pt">PERSISTENT HOMOLOGY</p>
+				</section>
+				
+
+
+
+				<section data-auto-animate>
+					<h2>Topological data analysis</h2>
+					<br>
+					<p class="fragment" style="font-size:28px;"><b style="color: #fe6e61;"></b> Study of <b>data sets</b> with techniques coming from <i>algebra</i> and <i>topology</i>.</p>
+				</section>
+
+
+
+
+				<section data-auto-animate>
+					<h2>Topology</h2>
+				</section>
+
+				<section data-auto-animate>
+					<h2>Topology</h2>
+					<span style="font-size: 28px; text-align:center;">
+					The goal of topology is to <i>classify</i> spaces depending on its <i>shape</i>.
+					</span>
+					<br>
+					<br>
+					<img width="300" height = auto src='media_ph/torus-donut.gif'/>
+				</section>
+
+
+				<section data-auto-animate>
+					<h2>Topology</h2>
+					<span style="font-size: 28px; text-align:center;">
+					The goal of topology is to <i>classify</i> spaces depending on its <i>shape</i>.
+					</span>
+					<br>
+					<img width="700" height = auto src='media_ph/topology.png'/>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Betti numbers</h3>
+					<p style="font-size: 28px; text-align:left;">
+					The $d^{th}$ <b>Betti number</b> counts the number of 'independent' $d$-dimensional holes.
+					</p>
+					<img width="700" height = auto src='media_ph/homology_betti.png'/>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Betti numbers</h3>
+					<p style="font-size: 28px; text-align:left;">
+					The $d^{th}$ <b>Betti number</b> counts the number of 'independent' $d$-dimensional holes.
+					</p>
+					<img width="700" height = auto src='media_ph/combinatorial_betti.png'/>
+				</section>
+
+
+				<section data-auto-animate>
+					<h3>Combinatorial Topology</h3>
+					<br>
+					<span style="font-size: 28px; text-align:left;">
+						<ul>
+					<li class="fragment"> Encodes <b style="color: #fe6e61;">topological spaces</b> combinatorially for computational purposes.</li>
+					<br>
+					<li class="fragment"> Encodes <b style="color: #fe6e61;">topological features</b> in terms of  mathematical quantities that are invariant to homotopy equivalences and easy to compute.</li>
+						</ul>
+					</span>
+				</section>
+
+
+				<section data-auto-animate>
+					<h3>Simplicial Complexes</h3>
+					<p style="font-size: 24px; text-align:left;">
+					Simplicial complexes are combinatorial objects built of small convex bricks called <b>simplices</b>.
+					</p>
+					<img width="800" height = auto src='media_ph/simplices.png'/>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Simplicial Complexes</h3>
+					<p style="font-size: 24px; text-align:left;">
+					Simplicial complexes are combinatorial objects built of small convex bricks called <b>simplices</b>.
+					</p>
+					<img  width="600" height = auto src='media_ph/simplicial_complex.png'/>
+				</section>
+
+
+
+				<section data-auto-animate>
+					<h3>Simplicial Complexes</h3>
+					<span style="font-size: 24px; text-align:left;">
+					<p>Simplicial complexes can be <b>stored</b> as a list of non-empty subsets of its vertices.</p>
+					
+					<div class="column_big">
+					<img width="300" height = auto src='media_ph/abstract_simplicial_complex.png'/>
+					</div>
+					<div class="column_big">
+						<br>
+						<br>
+						$K = \{\{a\}, \{b\}, \{c\}, \{a, b\}, \{b, c\}, \{a, c\}\}$
+
+						\[
+						\begin{array}{cccc}
+						&ab&bc&ac\\
+						\end{array}\\
+						  \begin{array}{c}
+						  a\\b\\c \end{array}
+						  \left(\begin{array}{@{}c@{}c@{}c@{}}
+						    1 & 0 & 1 \\
+						    1 & 1 & 0 \\
+						    0 & 1 & 1 \\
+						  \end{array}\right)
+						\]
+					
+												
+						</div>
+					</span>
+				</section>
+
+				<!--
+				<section data-auto-animate>
+					<h3>Simplicial Complexes</h3>
+					<span style="font-size: 24px; text-align:left;">
+					<p>Simplicial complexes can be <b>stored</b> as a list of non-empty subsets of its vertices.</p>
+
+					<p>An <b style="color: #fe6e61">abstract simplicial</b> complex $K$  is non-empty family of sets $S$ such as:
+					<ul>
+					<li>$\{v\}\in S$ forall $v\in K$.</li>
+					<li>If $\sigma \in S$ and $\tau \subset \sigma$, then $\tau \in K$.</li>
+					</ul>
+					</p>
+					<div class="column_big">
+					<img width="300" height = auto src='media_ph/abstract_simplicial_complex.png'/>
+					</div>
+					<div class="column_big">
+						<br>
+						<br>
+						$K = \{\{a\}, \{b\}, \{c\}, \{a, b\}, \{b, c\}, \{a, c\}\}$
+
+						\[
+						\begin{array}{cccc}
+						&ab&bc&ac\\
+						\end{array}\\
+						  \begin{array}{c}
+						  a\\b\\c \end{array}
+						  \left(\begin{array}{@{}c@{}c@{}c@{}}
+						    1 & 0 & 1 \\
+						    1 & 1 & 0 \\
+						    0 & 1 & 1 \\
+						  \end{array}\right)
+						\]
+					
+												
+						</div>
+					</span>
+				</section>
+			-->
+
+				<section data-auto-animate>
+					<h3>Homology</h3>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Homology</h3>
+					<span style="font-size: 24px; text-align:left;">
+					<ul>
+					<li> The <b style="color: #fe6e61">homology group</b> $H_d$ characterizes the $d$-dimensional holes in a topological space.</li>
+					<li>The $d$-th <b style="color: #fe6e61">Betti number</b> $b_d$ is the rank of the group $H_d$.</li>
+					</ul>
+					<img width="500" height = auto src='media_ph/combinatorial_betti.png'/>
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Homology</h3>
+					<span style="font-size: 26px; text-align:left;">
+					<p ><b>Q:</b> How to algorithmically compute homology of simplicial complexes?</p></span>
+					<img class="fragment"  width="500" height = auto src='media_ph/cycle.png'/>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Homology</h3>
+					<span style="font-size: 26px; text-align:left;">
+					<p ><b>Q:</b> How to algorithmically compute homology of simplicial complexes?</p>
+					<div class="row">
+				 	 <div class="column_40">
+				 	 	<img  width="500" height = auto src='media_ph/cycle_labeled.png'/>
+				 	 </div>
+				 	 
+					<div class="column_60" style="font-size: 20px; text-align:left;">
+					<ul>
+					<p>$\bullet$ <b>Chain</b></p>
+					<p>$C = [v_0,v_1]+[v_1,v_2]+[v_2,v_3]+[v_3,v_4]+[v_4,v_5]+[v_5,v_0]$ </p>
+					</div> 
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Homology</h3>
+					<span style="font-size: 26px; text-align:left;">
+					<p ><b>Q:</b> How to algorithmically compute homology of simplicial complexes?</p>
+					<div class="row">
+				 	 <div class="column_40">
+				 	 	<img  width="500" height = auto src='media_ph/cycle_labeled.png'/>
+				 	 </div>
+				 	 
+					<div class="column_60" style="font-size: 20px; text-align:left;">
+					<ul>
+					<p>$\bullet$ <b>Chain</b></p>
+					<p>$C = [v_0,v_1]+[v_1,v_2]+[v_2,v_3]+[v_3,v_4]+[v_4,v_5]+[v_5,v_0]$ </p>
+					<p> $\bullet$ <b>Cycle</b></p>
+					<p>$\partial C = [v_1]-[v_0]+[v_2]-[v_1]+[v_3]-[v_2]+[v_4]-[v_3]+[v_5]\\-[v_4]+[v_0]-[v_5] = 0$</p>
+					</div> 
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Homology</h3>
+					<span style="font-size: 26px; text-align:left;">
+					<p ><b>Q:</b> How to algorithmically compute homology of simplicial complexes?</p>
+					<div class="row">
+				 	 <div class="column_40">
+				 	 	<img  width="400" height = auto src='media_ph/non_boundary.png'/>
+				 	 </div>
+				 	 
+					<div class="column_60" style="font-size: 20px; text-align:left;">
+					<ul>
+					<p>$\bullet$ <b>Chain</b></p>
+					<p>$C = [v_0,v_1]+[v_1,v_2]+[v_2,v_3]+[v_3,v_4]+[v_4,v_5]+[v_5,v_0]$ </p>
+					<p> $\bullet$ <b>Cycle</b></p>
+					<p>$\partial C = [v_1]-[v_0]+[v_2]-[v_1]+[v_3]-[v_2]+[v_4]-[v_3]+[v_5] \\ -[v_4]+[v_0]-[v_5] = 0$</p>
+					<p> $\bullet$ <b>Non boundary</b></p> 
+					</div> 
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Homology</h3>
+					<span style="font-size: 26px; text-align:left;">
+					<p ><b>Q:</b> How to algorithmically compute homology of simplicial complexes?</p>
+					<div class="row">
+				 	 <div class="column_33">
+				 	 	<img  width="400" height = auto src='media_ph/cycle_labeled.png'/>
+				 	 </div>
+				 	 
+					<div class="column_66" style="font-size: 20px; text-align:left;">
+					<ul>
+					<li>A <b>$d$-chain</b> is a formal sum of $d$-simplices.</li>
+					<p style="color: #fe6e61; font-size: 17px">$C = [v_0,v_1]+[v_1,v_2]+[v_2,v_3]+[v_3,v_4]+[v_4,v_5]+[v_5,v_0]$ </p>
+					<li><p>The <b>boundary</b> of a $d$-simplex is the alternate chain made of its $(d − 1)$-simplices.</p><p> This operation extents linearly to chains of $d$-simplices.</p></li>
+					<p>$\partial_d[v_1,\dots,v_{d+1}] = \sum_{i=1}^{d+1}(-1)^i[v_1,\dots,v_{i−1},v_{i+1},\dots,v_{d+1}]$</p>
+					<li>A <b>$d$-cycle</b> is a $d$-chain $C$ s.t. $\partial C = 0$.</li>
+					<p style="color: #fe6e61; font-size: 17px">$\partial C = [v_1]-[v_0]+[v_2]-[v_1]+[v_3]-[v_2]+[v_4]-[v_3]+[v_5]-[v_4]+[v_0]-[v_5] = 0$</p>
+					<li>A $d$-cycle is a <b>boundary</b> if there  exist a $(d+1)$-chain $C'$ such that $\partial (C') = C$.</li>
+					<li><b>Homology</b> in degree $d$ is the quotient of <b>cycles</b> over <b>boundaries</b>.
+					\[H_d = \frac{Z_d}{B_d}\]
+					</li>
+					</ul>
+
+					</div> 
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Homology</h3>
+					<span style="font-size: 26px; text-align:left;">
+					<p ><b>Q:</b> How to algorithmically compute homology of simplicial complexes?</p>
+					<p>An element in $H_d$ is the equivalent class of a cycle modulo boundaries</p>
+					\[C\simeq C' \Leftrightarrow C+C'\in \mathrm{Im} \partial\]
+					<div class="row">
+				 	 <div class="column_big">
+				 	 	<img  width="300" height = auto src='media_ph/cycle_labeled.png'/>
+				 	 </div>
+				 	 
+					<div class="column_big" style="font-size: 20px; text-align:left;">
+					<img  width="300" height = auto src='media_ph/equiv_cycles.png'/>
+					</div> 
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Homology</h3>
+					<span style="font-size: 26px; text-align:left;">
+					<p ><b>Q:</b> How to algorithmically compute homology of simplicial complexes?</p>
+					<p><b>Algorithm</b>
+						<ol style="font-size: 20px; text-align:left;">
+						<li> Calculate <b>boundary operator matrices</b>.</li>
+						<li> Bring each matrix into <b>Smith normal form </b>(similar to Gaussian elimination).</li>
+						<li> The $d^{th}$ Betti number $b_d$ is computed as <b>rank $Z_d$ - rank $B_d$</b>, where
+						<ul>
+							<li>rank $Z_d$ is the number of zero columns of the boundary matrix of $\partial_d$,</li>
+							<li>rank $B_d$ is the number of non-zero rows of the boundary matrix of $\partial_{d+1}$.</li>
+							</ul></li>
+					</li>
+					</ol>
+					<div class="column_big"><img  width="300" height = auto src='media_ph/cycle.png'/></div> <div class="column_big">
+						<br>
+						<br>
+						$b_0 = 1$
+						<br>
+						$b_1 = 1$ 
+						<br>
+						$b_2 = 0$</div>
+					</span>
+				</section>
+
+
+				<section data-auto-animate>
+					<h2>Topological inference</h2>
+					<span style="font-size: 24px; text-align:center;"> 
+					<p class="fragment">Let $X$ be a topological space and let $\mathbb{X}_n = \{x_1,...,x_n\}$ be a finite sample of $X$.</p>
+					<p class="fragment"><b>Q:</b> How to infer topological properties of $X$ from $\mathbb{X}_n$?</p>
+					<div class="column_big" >
+					<img  width="280" height = auto src='media_ph/sphere.png'/>
+					</div>
+					<div class="column_big"> <img  width="320" height = auto src='media_ph/sphere_sample.png'/>
+					</div>
+					</span>
+				</section>
+
+
+			<!--
+				<section>
+					<h3>Persistent homology</h3>
+					<br>
+					<br>
+					<p style="font-size: 18px;text-align:left;">$\bullet$ Boissonnat, J.-D., Chazal, F., Yvinec, M. <i>Geometric and Topological Inference.</i> (2018).
+					</p>
+					<p style="font-size: 18px;text-align:left;">$\bullet$ Otter, N., Porter, M.A., Tillmann, U. et al. <i>A roadmap for the computation of persistent homology.</i> EPJ Data Sci. 6, 17 (2017).</p>
+					<p style="font-size: 18px;text-align:left;">$\bullet$ Edelsbrunner, H., Harer, J. <i>Persistent Homology - a Survey.</i> (2000)</p>
+				</section>
+			-->
+
+			<!--
+				<section data-auto-animate>
+				<h2>Topological inference</h2>
+				<span style="font-size: 24px; text-align:center;"> 
+					<p >Let $X$ be a topological space and let $\mathbb{X}_n = \{x_1,...,x_n\}$ be a finite sample of $X$.</p>
+					<p ><b>Q:</b> How to infer topological properties of $X$ from $\mathbb{X}_n$?</p>
+
+				<div class="row">
+				 	 <div class="column">
+				 	 	<p>Point cloud <br>$\mathbb{X}_n \subset \mathbb{R}^D$
+						 	<img width="400" height = auto src='media_ts/circle_resized.png'/>
+						 	</p>
+				 	 </div>
+				 	 
+					<div class="column"><p class="fragment">
+						 For $\epsilon>0$, the <b>$\epsilon$-thickening</b> of $\mathbb{X}_n$ is
+						 \[\displaystyle U_\epsilon = \bigcup_{x\in \mathbb{X}_n}B_{\epsilon}(x)\]						 
+						 <img width="165" height = auto src='media_ts/balls.png'/>
+						 </p>
+					</div>
+
+					<div class="column_big">
+						 <blockquote class="fragment"  style="font-size:16px; text-align:left; border: 3px solid #666; padding: 6 px; background-color: #ccc;">
+						 <b>Theorem (Niyogi, Smale & Weinberger, 2008).</b> 
+						 Given $\mathcal{M}$ a compact submanifold of $\mathbb{R}^D$ of dimension $k$ and $\mathbb{X}_n$  a  set  of i.i.d. $n$ points  drawn according  to  the uniform  probability  measure  on $\mathcal{M}$, then $$
+						 U_\epsilon \simeq \mathcal{M}$$ with probability $>1-\delta$ if
+						 $0<\epsilon< \frac{\tau_\mathcal{M}}{2}$ and $n> \beta_1 \left(\log(\beta_2)+\log\left(\frac{1}{\delta}\right)\right)$.*
+						 <br>
+					    <p style="font-size:12 px; text-align:left; color: #737373;">
+					    *Here $\beta_1=\frac{\mathrm{vol}(\mathcal{M})}{cos^k(\theta_1) \mathrm{vol(B^k_{\epsilon/4})}}$, $\beta_2=\frac{\mathrm{vol}(\mathcal{M})}{\cos^k(\theta_2)\mathrm{vol}(B^k_{\epsilon/8})}$
+					    and $\theta_1=\arcsin\left(\frac{\epsilon}{8\tau_\mathcal M}\right),$ $\theta_2=\arcsin\left(\frac{\epsilon}{16\tau_\mathcal M}\right)$.
+						</p>
+						</blockquote>
+					</div>
+
+				</div>
+				</span>
+				</section>
+				-->
+
+
+				<section data-auto-animate>
+					<h2>Persistence</h2>
+					<span style="font-size: 22px; text-align:center;">
+					<div class="row">
+					 	 <div class="column">
+					 	 	<p>Point cloud 
+							 	<img width="350" height = auto src='media_ts/circle_resized.png'/>
+							 	</p>
+					 	 </div>
+
+					</div> 
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h2>Persistence</h2>
+					<span style="font-size: 22px; text-align:center;">
+					<div class="row">
+					 	 <div class="column">
+					 	 	<p>Point cloud 
+							 	<img width="350" height = auto src='media_ts/circle_resized.png'/>
+							 	</p>
+					 	 </div>
+					 	 
+							 <div class="column_big"><p >Evolving thickenings
+							 <img width="350" height = auto src='media_ts/filtration_circle.gif'/>
+							 </p>
+							 </div>
+					</div> 
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h2>Persistence</h2>
+					<span style="font-size: 22px; text-align:center;">
+
+					<div class="row">
+					 	 <div class="column_20">
+					 	 	<p>Point cloud 
+							 	<img width="150" height = auto src='media_ts/circle_resized.png'/>
+							 	</p>
+					 	 </div>
+							 <div class="column_30">
+ 							 <p>Evolving thickenings
+ 							 <img width="350" height = auto src='media_ts/filtration_circle.gif'/>
+ 							 </p>
+							 </div>
+							 <div class="column_big">
+							 	<p>Filtration of simplicial complexes
+							 		<br>
+							 		<br>
+							 		<br>
+							 	<img width="600" height = auto src='media_ph/filtration.png'/>
+							 	</p>
+							 </div>
+					</div> 
+					</span>
+				</section>
+
+
+
+
+
+				<section data-auto-animate>
+					<h4>From point clouds to (filtered) complexes</h4>
+					<span style="font-size: 21px; text-align:left;">
+
+					 <p>Let $(\mathbb{X}_n, d)$ be a finite set of points with a metric.</p>
+					 <p> Given a <b>parameter</b> $\epsilon>0$, the <b style="color: #fe6e61">Vietoris-Rips complex</b> $V_{\epsilon}$ is defined as
+					 	\[V_{\epsilon}(\mathbb{X}_n) := \{\sigma \subseteq \mathbb{X}_n\colon \forall u,v\in \sigma, d(u,v)\leq \epsilon\}\]
+					 <p>Equivalently, $V_\epsilon$ contains all simplices whose <i>diameter</i> is less than or equal to $\epsilon$.</p>
+
+					 <img width="800" height = auto src='media_ph/rips.png'/>
+					 <br>
+					 <p style="font-size: 10px;text-align:right;">Image from: Bastian Rieck. Topological Data Analysis for Machine Learning.</p>
+					</span>
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>From point clouds to (filtered) complexes</h4>
+					<span style="font-size: 18px; text-align:left;">
+
+					 <p>Let $(\mathbb{X}_n, d)$ be a finite set of points wiht a metric.</p>
+					 <p> Given a <b>parameter</b> $\epsilon>0$, the <b style="color: #fe6e61">Vietoris-Rips complex</b> $V_{\epsilon}$ is defined as
+					 	\[V_{\epsilon}(\mathbb{X}_n) := \{\sigma \subseteq \mathbb{X}_n\colon \forall u,v\in \sigma, d(u,v)\leq \epsilon\}\]
+					 <p>Equivalently, $V_\epsilon$ contains all simplices whose <i>diameter</i> is less than or equal to $\epsilon$.</p>
+					 <blockquote style="padding: 1px; border: 2px solid coral;"><b>Idea:</b> Track the evolution of the homology of $V_\epsilon$ as the value of $\epsilon$ increases.</blockquote>
+
+					 <img width="700" height = auto src='media_ph/evolution_rips.png'/>
+					 <br>
+					 <p style="font-size: 10px;text-align:right;">Image from: Bastian Rieck. Topological Data Analysis for Machine Learning.</p>
+					</span>
+
+				</section>
+
+
+			<!--
+				<section data-auto-animate>
+					<h4>From point clouds to complexes</h4>
+					<br> 
+					<span style="font-size: 22px; text-align:left;">
+
+					
+					<p><b>
+					- <span style="color: #e67300"> $\check{\mathrm{C}}$ech filtration:</span></b>
+					For every $\varepsilon>0$, let $~\mathcal{U}_{\varepsilon} = \{B(x_i, \varepsilon)\}_{x_i\in \mathbb{X}_n}$ be a collection of open sets. Define
+					\[\check C_{\varepsilon} = \mathcal{N}(\mathcal{U}_{\varepsilon})\]
+					</p>
+					<p class="fragment"><b>
+					- <span style="color: #e67300">Vietoris Rips filtration:</span></b>
+					Let $\Delta_n$ be the $(n-1)$-simplex with vertices in $\mathbb{X}_n$. Define
+					$$V_{\varepsilon} = \{\sigma  \in \Delta_n: \mathrm{diam}(\sigma)<\varepsilon\}$$
+				    </p>
+					<img class="fragment" width="350" height = auto src='media_ts/cech_rips.png'/>
+
+					</span>
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>From point clouds to filtered complexes</h4>
+					<br> 
+					<span style="font-size: 22px; text-align:left;">
+					<ul> 
+					 <li class="fragment">A <b>filtered simplicial complex</b> $K_\bullet$ is a sequence of nested simplicial complexes \[K_0 \hookrightarrow K_1 \hookrightarrow K_2 \hookrightarrow \dots K_s = K\]
+					 </li>
+					</ul>
+					<br>
+					<img class="fragment" width="550" height = auto src='media_ts/filtration.png'/>
+					</span>
+				</section>
+
+
+
+				<section data-auto-animate>
+					<h4>From point clouds to filtered complexes</h4>
+					<br> 
+					<span style="font-size: 22px; text-align:left;">
+					<ul> 
+					 <li>A <b>filtered simplicial complex</b> $K_\bullet$ is a sequence of nested simplicial complexes \[K_0 \hookrightarrow K_1 \hookrightarrow K_2 \hookrightarrow \dots K_s = K\]
+					 </li>
+					</ul>
+					
+					<p><b>
+					- <span style="color: #e67300"> $\check{\mathrm{C}}$ech filtration:</span></b>
+					For every $\varepsilon>0$, let $~\mathcal{U}_{\varepsilon} = \{B(x_i, \varepsilon)\}_{x_i\in \mathbb{X}_n}$ be a collection of open sets. Define
+					\[\check C_{\varepsilon} = \mathcal{N}(\mathcal{U}_{\varepsilon})\]
+					</p>
+					<p class="fragment"><b>
+					- <span style="color: #e67300">Vietoris Rips filtration:</span></b>
+					Let $\Delta_n$ be the $(n-1)$-simplex with vertices in $\mathbb{X}_n$. Define
+					$$V_{\varepsilon} = \{\sigma  \in \Delta_n: \mathrm{diam}(\sigma)<\varepsilon\}$$
+				    </p>
+					<img class="fragment" width="350" height = auto src='media_ts/cech_rips.png'/>
+
+					</span>
+
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>From point clouds to filtered complexes</h4>
+					<br> 
+					<span style="font-size: 22px; text-align:left;">
+					<ul> 
+					 <li>A <b>filtered simplicial complex</b> $K_\bullet$ is a sequence of nested simplicial complexes \[K_0 \hookrightarrow K_1 \hookrightarrow K_2 \hookrightarrow \dots K_s = K\]
+					 </li>
+					</ul>
+					
+					<p><b>
+					- <span style="color: #e67300"> $\check{\mathrm{C}}$ech filtration:</span></b>
+					For every $\varepsilon>0$, let $~\mathcal{U}_{\varepsilon} = \{B(x_i, \varepsilon)\}_{x_i\in \mathbb{X}_n}$ be a collection of open sets. Define
+					\[\check C_{\varepsilon} = \mathcal{N}(\mathcal{U}_{\varepsilon})\]
+					</p>
+					<p><b>
+					- <span style="color: #e67300">Vietoris Rips filtration:</span></b>
+					Let $\Delta_n$ be the $(n-1)$-simplex with vertices in $\mathbb{X}_n$. Define
+					$$V_{\varepsilon} = \{\sigma  \in \Delta_n: \mathrm{diam}(\sigma)<\varepsilon\}$$
+				    </p>
+				    <br>
+					<blockquote style="padding: 2px; border: 2px solid coral;"> \[\check C_{\varepsilon}\subseteq V_\varepsilon \subseteq \check C_{2\varepsilon}, ~~\forall \varepsilon>0\]</blockquote>
+					</span>
+
+				</section>
+			-->
+
+				<section data-auto-animate>
+					<h3>Persistent homology</h3>
+					<span style="font-size: 22px">
+					<ul>
+					<li class="fragment">A <b style="color: #fe6e61">filtration of simplicial complexes</b> is a sequence of nested simplicial complexes \[K_0 \hookrightarrow K_1 \hookrightarrow K_2 \hookrightarrow \dots \hookrightarrow K_s \]
+					 </li>
+					<li class="fragment"> A filtration $\{K_i\}$ of simplicial complexes induces a sequence of <b style="color: #fe6e61"> homology groups</b> $\{H_d(K_i)\}$ along with homomorphisms $f_d^{i,j}:H_d(K_i) \to H_d(K_j)$ induced by $K_i\subseteq K_j$ every time $i\leq j$
+						\[H_d(K_0) \rightarrow H_d(K_1) \rightarrow H_d(K_2) \rightarrow \dots \rightarrow H_d(K_s) .\]
+
+					</li>
+					<li class="fragment"> Given $i\leq j$, the <b style="color: #fe6e61">persistent homology group</b> $H_d^{i,j}$ is defined as 
+						\[H_d^{i,j} :=\frac{Z_d(K_i)}{B_d(K_j)\cap Z_d(K_i)}\]
+					i.e., all the homology classes of $K_i$ that are still present in $K_j$.
+					</li>
+					<!--
+					<blockquote class="fragment" style="border: 2px solid #666; padding: 2px; background-color: #ccc;"> <b>Theorem (Zomorodian, Carlsson, 2005).</b> For every degree $j\geq 0$, there is a decomposition
+					$$M_j = 
+					\left( \bigoplus_{s=1}^n \Sigma^{\alpha_s} k[x]\right) \oplus \left(\bigoplus_{l=1}^m \Sigma^{\gamma_l}k[x]/x^{n_l}k[x]\right)$$
+					where $\alpha_s, \gamma_j\in \mathbb{Z}$, $n_l< n_{l+1}$ y  $\Sigma^{\alpha}$ denotes an $\alpha$-shift in the degree.</blockquote>
+					<p class="fragment" style="padding: 8px; border: 2px solid coral;">We can represent $M_j$ as a set of intervals $(\alpha_s, + \infty)$ and $(\gamma_l,\gamma_l+n_l)$, also known as <b>barcode</b>.</p>
+					-->
+					<br>
+					<li class="fragment"><b>Persistent homology classes.</b>
+						<ul>
+						<li><i style="color: #fe6e61">Birth</i> in $K_i$: $C\in H_d(K_i)$, but $C\notin H_d^{i−1,i}$</li>
+						<li><i style="color: #fe6e61">Death</i> in $K_j$: once $C$ is created in $K_i$, $C\in H_d^{i, j-1}$ but $C\notin H_d^{i, j}$ </li>
+						</ul>
+					</li>
+					</ul>
+					</span>
+
+				</section>
+
+				<section data-auto-animate>
+					<h3>Persistent homology</h3>
+					<span style="font-size: 22px">
+					<ul>
+					<li><b>Persistent homology classes.</b>
+						<ul>
+						<li><i style="color: #fe6e61">Birth</i> in $K_i$: $C\in H_d(K_i)$, but $C\notin H_d^{i−1,i}$</li>
+						<li><i style="color: #fe6e61">Death</i> in $K_j$: once $C$ is created in $K_i$, $C\in H_d^{i, j-1}$ but $C\notin H_d^{i, j}$ </li>
+						</ul>
+					</li>
+					<br>
+					<li> The birth and death of homology classes determine a <b>barcode</b> decomposition.
+					</li>
+					</ul>
+					</span>
+					<img width="830" height = auto src='media_ph/evolution_rips.png'/>
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>Computation of persistent homology</h4>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Computation of persistent homology</h4>
+					<span style="font-size: 26px">
+						<ul>
+						<li><i style="color: #fe6e61">Algorithm.</i> <br>
+							As a consecuence of the Structure Theorem, the computation of <b>persistent homology</b> reduces to the algorithm for computation of regular <b>homology</b>.
+							<br>
+							<p style="font-size: 18px"> [Zomorodian, A.; Carlsson, G.. Computing persistent homology. Discrete Comput. Geom. 33 (2005), no. 2, 249--274.]</p>
+						</li>
+						<br>
+						<li> <i style="color: #fe6e61">Software.</i>  <br>
+						There are open access implementations to compute persistent homology in  
+						<ul>
+						<li> R,</li>
+						<li> Julia,</li> 
+						<li>C++,</li>
+						<li> Matlab and</li> 
+						<li><b>Python.</b></li>
+						</ul>
+						<br>
+						There is also a <a href="https://live.ripser.org"> browser version </a> of the software <b>Ripser</b>.</li>
+						</ul>
+					</span>
+
+				</section>
+
+				<section data-auto-animate>
+					<h3>Applications of <br> persistent homology</h3>
+				</section>
+
+			<!--
+				<section data-auto-animate>
+					<h3>Persistent homology</h3>
+					<br>
+					<img width="600" height = auto src='media_ts/barcode.gif'/>
+				</section>
+			-->
+
+			<!--
+				<section data-auto-animate>
+					<h4>Barcodes & Persistence diagrams</h4>
+					<br>
+					<img width="900" height = auto src='media_ts/PDvsBarcode.png'/>
+				</section>
+			-->
+
+
+				<!--
+				<section data-auto-animate>
+					<h4>Persistence diagrams as a metric space</h4>
+					<span style="font-size: 22px; text-align:left;">
+					<p>Given two persistence diagrams $\mathrm{dgm_1}$ and $\mathrm{dgm_2}$, define is <b style="color: #fe6e61">bottleneck distance</b> by
+					$$d_b(\mathrm{dgm_1},\mathrm{dgm_2}) = \inf_{M} \sup_{(x,y)\in M} ||x-y||_{\infty}$$
+					where the infimum is over all matchings $M\subseteq \mathrm{dgm_1}\times \mathrm{dgm_2}$. Here, the points in the diagonal are considered part of both diagrams.</p>
+
+					<br>
+					<img width="250" height = auto src='media_ts/bottleneck.png'/>
+					</span>
+
+				</section>
+
+				<section data-auto-animate>
+					<h3>Stability</h3>
+					<br> 
+					<span style="font-size: 20px">
+					<blockquote class="fragment" style="border: 2px solid #666; padding: 2px; background-color: #ccc;"> <b>Theorem (Cohen-Steiner, Edelsbrunner, Harer, 2007).</b> For any two precompact metric spaces $(X, d_X)$ and $(Y, d_Y)$,
+					\[
+					d_b\Big(\mathrm{dgm}\big(\mathrm{Filt}(X, d_{X})\big),\mathrm{dgm}\big(\mathrm{Filt}(Y, d_{Y})\big)\Big)\leq 2 d_{GH}\big((X,d_{X}),(Y,d_{Y})\big).
+					\]
+					</blockquote>
+					</span>
+					<img class="fragment" width="450" height = auto src='media_ts/stability.gif'/>
+				</section>
+				-->
+
+
+
+				<section data-auto-animate>
+					<h4>Neuroscience</h4>
+					
+					<br>
+					<video src="media_gridcells/grid_cells.mp4" data-autoplay></video>
+
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Neuroscience</h4>
+					<p style="font-size:16px; text-align: left;">Gardner, R.J., Hermansen, E., Pachitariu, M. et al. <i>Toroidal topology of population activity in grid cells.</i> <b>Nature</b> 602, 123–128 (2022)</p>
+					<p style="font-size:16px; text-align:left">Curto, Carina. What can topology tell us about the neural code? <b>Bull. Amer. Math. Soc.</b> (N.S.) 54 (2017), no. 1, 63--78</p>
+
+					<img width="700" height = auto src='media_gridcells/figure_toroidal.png'/>
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>Time series analysis</h4>
+					<p style="font-size: 14px;">
+					[Perea, J A, Harer, J. <i>Sliding Windows and Persistence: An Application of Topological Methods to Signal Analysis.</i> Found Comput Math 15, 799–838 (2015).]
+					<br>
+					[Perea J A, <i>Topological Time Series Analysis</i>, Notices of the American Mathematical Society, vol. 66, no. 5, pp. 686-694, May 2019.]
+					<br>
+					 [Fernandez X., Borghini E., Mindlin G., Groisman P. <i>Intrinsic persistent homology via density-based metric learning</i>, 2024. JMLR]
+					 <br>
+					 [Fernandez X., Mateos D. <i>Topology of epilepsy seizures.</i> (2025) Scientific Reports.]
+					<br>
+					<img width="800" height = auto src='media_ph/time-series.jpg'/>
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>Time series analysis</h4>
+					<p style="font-size: 14px;">
+					
+					 [Gidea, M.,  Katz, Y.,
+					Topological data analysis of financial time series: Landscapes of crashes,
+					Physica A: Statistical Mechanics and its Applications,491, 820-834 (2018)]
+					</p>
+					
+					<img width="800" height = auto src='media_ph/finance.png'/>
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>Biology</h4>
+					<p style="font-size: 14px;">
+					Kovacev-Nikolic V, Bubenik P, Nikolić D, Heo G. (2016) <i>Using persistent homology and dynamical distances to analyze protein binding.</i> <b>Stat Appl Genet Mol Biol.</b>
+					<br>
+					Cang Z, Mu L, Wu K, et al. (2015). <i>A topological approach for protein classification.</i> <b>Computational and Mathematical Biophysics.</b>
+					<br>
+					Xia, K. & Wei, G. W. (2014). <i>Persistent homology analysis of protein structure, flexibility, and folding.</i> <b>Int. Journal for Numerical Methods in Biomedical Engineering.</b>
+					</p>
+
+					<img width="450" height = auto src='media_ph/protein.gif'/>
+					
+
+				</section>
+
+								<section data-auto-animate>
+					<h4>Biology</h4>
+					<p style="font-size: 14px;">
+					Kovacev-Nikolic V, Bubenik P, Nikolić D, Heo G. (2016) <i>Using persistent homology and dynamical distances to analyze protein binding.</i> <b>Stat Appl Genet Mol Biol.</b>
+					<br>
+					Cang Z, Mu L, Wu K, et al. (2015). <i>A topological approach for protein classification.</i> <b>Computational and Mathematical Biophysics.</b>
+					<br>
+					Xia, K. & Wei, G. W. (2014). <i>Persistent homology analysis of protein structure, flexibility, and folding.</i> <b>Int. Journal for Numerical Methods in Biomedical Engineering.</b>
+					</p>
+					<img width=600" height = auto src='media_ph/proteins 2.png'/>
+					<br>
+					<span class="fragment"><img width="320" height = auto src='media_ph/alpha.jpg'/> <img style="margin-left: 60pt;" width="320" height = auto src='media_ph/beta.jpg'/></span>
+					
+
+				</section>
+
+
+
+				<section data-auto-animate> <h3>  Take-home messages</h3>
+					
+				</section>
+
+				<section data-auto-animate> <h3>  Take-home messages</h3>
+					<span style="font-size: 22px">
+					<ul>
+						<li> Topological spaces can be encoded combinatorially as <b style="color: #fe6e61;">simplicial complexes.</b></li>
+						<li> <b style="color: #fe6e61;">Homology groups</b> characterise holes in topological spaces.</li>
+						<li> The computation of homology groups boils down to <b style="color: #fe6e61;">linear algebra</b>.</li>
+
+					</ul>
+				</span>
+				</section>
+
+				<section data-auto-animate> <h3>  Take-home messages</h3>
+					<span style="font-size: 22px">
+					<ul>
+						<li> Topological spaces can be encoded combinatorially as <b>simplicial complexes.</b></li>
+						<li> <b>Homology groups</b> characterise holes in topological spaces.</li>
+						<li> The computation of homology groups boils down to <b>linear algebra</b>.</li>
+						<br>
+						<li> <b style="color: #fe6e61;">Point clouds</b> can be converted in <b style="color: #fe6e61"> filtrations of simplicial complexes</b>.</li>
+						<li> <b style="color: #fe6e61;">Persistent homology</b> is the multi-scale equivalent of homology.</li>
+						<li> The computation of persistent homology also boils down to <b style="color: #fe6e61;">linear algebra</b>.</li>
+
+					</ul>
+				</span>
+				</section>
+
+				<section data-auto-animate> <h3>  Take-home messages</h3>
+					<span style="font-size: 22px">
+					<ul>
+						<li> Topological spaces can be encoded combinatorially as <b>simplicial complexes.</b></li>
+						<li> <b>Homology groups</b> characterise holes in topological spaces.</li>
+						<li> The computation of homology groups boils down to <b>linear algebra</b>.</li>
+						<br>
+						<li> <b>Point clouds</b> can be converted in <b> filtrations of simplicial complexes</b>.</li>
+						<li> <b >Persistent homology</b> is the multi-scale equivalent of homology.</li>
+						<li> The computation of persistent homology also boils down to <b>linear algebra</b>.</li>
+						<br>
+						<li> <b style="color: #fe6e61;">Data sets</b> can be viewed as samples of an (unknown) <b style="color: #fe6e61;">topological space</b>.</li>
+						<li> Persistent homology classes capture <b style="color: #fe6e61;">topological features</b> in data.</li>
+
+					</ul>
+				</span>
+				</section>
+
+				<section> <h3>  Goals</h3>
+					<br>
+					<span style="font-size: 26px">
+					<ul>
+					<li>  Understand the <b  style="color:red">survey articles</b>: 
+					<ul>
+						<li> <i>Topology and data</i>, G. Carlsson.</li>
+						<li> <i>Barcodes</i>, R. Ghrist.</li>
+					</ul>
+					</li>
+					<br>
+					
+					<li>  Implement <b style="color:red">code in Python</b> to study examples of point clouds.  </li>
+					<br>
+					<li>  Analyze <b  style="color:red">real datasets</b> using persistemt homology.</li>
+					</span>
+					
+				</section>
+
+
+				<section>
+					<br>
+					<h2>See you!</h2>
+					<img width="450" height = auto src='media_ts/filtration_circle.gif'/>
+
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/math/math.js"></script>
+		<script>
+			Reveal.initialize({
+				history: true,
+				transition: 'linear',
+
+				math: {
+					// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+					config: 'TeX-AMS_HTML-full',
+					TeX: {
+						Macros: {
+							R: '\\mathbb{R}',
+							set: [ '\\left\\{#1 \\; ; \\; #2\\right\\}', 2 ]
+						}
+					}
+				},
+
+				plugins: [ RevealMath ]
+			});
+		</script>
+
+	</body>
+</html>

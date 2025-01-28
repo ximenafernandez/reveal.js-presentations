@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Manifold learning and dimensionality reduction of data</title>
+
+		<meta name="description" content="Presentation on Persistent Homology">
+		<meta name="author" content="Ximena Fernandez">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/white.css" id="theme">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			* {
+			  box-sizing: border-box;
+			}
+
+			.column {
+			  float: left;
+			  width: 25%;
+			  padding: 10px;
+			}
+
+			.column_20 {
+			  float: left;
+			  width: 20%;
+			  padding: 10px;
+			}
+
+			.column_big {
+			  float: left;
+			  width: 50%;
+			  padding: 10px;
+			}
+
+			.column_Big {
+			  float: left;
+			  width: 75%;
+			  padding: 10px;
+			}	
+			.column_33 {
+			  float: left;
+			  width: 33%;
+			  padding: 10px;
+			}	
+			.column_30{
+			  float: left;
+			  width: 30%;
+			  padding: 10px;
+			}	
+			.column_40 {
+			  float: left;
+			  width: 40%;
+			  padding: 10px;
+			}	
+			.column_60 {
+			  float: left;
+			  width: 60%;
+			  padding: 10px;
+			}	
+			.column_66 {
+			  float: left;
+			  width: 66%;
+			  padding: 10px;
+			}	
+			}
+
+			/* Clear floats after the columns */
+			.row:after {
+			  content: "";
+			  display: table;
+			  clear: both;
+			}
+			</style>
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+				<section>
+					<img  style="align-content: right;margin-top: -20pt;" width="200" height = auto src='media_city/logo_city.png'/>
+
+					<br>
+					<h3>Manifold learning and dimensionality reduction of data </h3>
+					<p style="font-size:28px;">XIMENA FERNANDEZ</p>
+
+					<p style="font-size:25px;">Project Module 2025 </p> 
+					<img width="250" height = auto src='media_dr/swiss-roll-graph.png'/>
+				</section>
+
+				
+				<!--https://www.stats.ox.ac.uk/~cucuring/MathCDT.htm-->
+
+
+				<section data-auto-animate>
+					<h2>Dimensionality reduction</h2>
+					<br>
+					<p class="fragment" style="font-size:28px;"><b style="color: #fe6e61;"></b> Find a  <b style="color:red">projection</b> of data in $\mathbb{R}^N$ to a smaller dimensional space $\mathbb{R}^n$ ($n< < N$) while <b style="color:red">preserving some  features</b> from the original data.
+				</section>
+
+				<section data-auto-animate>
+					<h2>Dimensionality reduction</h2>
+
+					<img width="800" height = auto src='media_dr/DR_examples.png'/>
+				</section>
+
+				<section data-auto-animate> <h3>Principal component analysis (PCA)</h3>
+					<p style="font-size:20pt; text-align: left;"><b>Goal:</b> identify the underlying <b>principal components</b> in the data and  project onto lower dimensions, minimizing <b>variance</b>, and preserving large pairwise distances.
+					</p>
+
+					<b style="font-size:24pt">Captures global, linear structure.</b>
+					<br>
+					<img width="700" height = auto src='media_dr/pca.png'/>
+
+				</section>
+
+				<section data-auto-animate> <h3>Principal component analysis (PCA)</h3>
+					<p style="font-size:20pt; text-align: left;"><b>Goal:</b> identify the underlying <b>principal components</b> in the data and  project onto lower dimensions, minimizing <b>variance</b>, and preserving large pairwise distances.
+					</p>
+
+					<b style="font-size:24pt">Captures global, linear structure.</b>
+					<br>
+					<img width="700" height = auto src='media_dr/swiss-roll-isomap.jpeg'/>
+
+				</section>
+
+				<section data-auto-animate> <h3>Principal component analysis (PCA)</h3>
+					<p style="font-size:20pt; text-align: left;"><b>Goal:</b> identify the underlying <b>principal components</b> in the data and  project onto lower dimensions, minimizing <b>variance</b>, and preserving large pairwise distances.
+					</p>
+
+					<b style="font-size:24pt">Captures global, linear structure.</b>
+					<br>
+					<img width="700" height = auto src='media_dr/swiss-roll-pca.jpeg'/>
+
+				</section>
+
+				<section data-auto-animate>
+					<h2>Dimensionality reduction</h2>
+
+					<span style="font-size:20pt">
+					Inputs are real-valued vectors in a high-dimensional space
+					<ul>
+						<li><b>Linear structure:</b> data lives in a low-dimensional linear subspace</li>
+						<li><b>Nonlinear structure:</b> data lives on a low-dimensional sub-manifold</li>
+					</ul>
+				</span>
+				<img width="700" height = auto src='media_dr/linear_nonlinear.png'/>
+					</section>
+
+
+				<section data-auto-animate>
+					<h2>Manifolds</h2>
+					<span style="font-size: 23px; text-align:center;">
+					Spaces that are locally like $\mathbb{R}^n$, even though they are embedded in a higher dimensional space $\mathbb{R}^N$.
+					</span>
+					<br>
+					<img width="600" height = auto src='media_dr/manifold.png'/>
+					
+				</section>
+
+				<section data-auto-animate>
+					<h2>Manifold Learning</h2>
+				</section>
+
+
+				<section data-auto-animate>
+					<h2>Multidimensional Scaling (MDS)</h2>
+					<span style="font-size: 28px; text-align:center;">
+					Preserves the original distance between the points.</i>.
+					</span>
+					<br>
+					<img width="1000" height = auto src='media_dr/MDS.png'/>
+				</section>
+
+				<section data-auto-animate>
+					<h2>Isomap</h2>
+					<p style="font-size: 28px; text-align:left;">
+					Minimize the geodesic distance of the original points (within a manifold).
+					</p>
+					<img width="500" height = auto src='media_dr/geodesics-swiss-roll.png'/>
+
+				</section>
+
+				<section data-auto-animate>
+					<h2>Isomap</h2>
+					<span style="font-size: 28px; text-align:left;">ISOMAP = Geodesic Distance Matrix + MDS</span>
+
+
+					<img width="700" height = auto src='media_dr/swiss-roll-isomap.jpeg'/>
+					
+				</section>
+
+					
+
+
+
+				<section data-auto-animate>
+					<h2>UMAP</h2>
+					<p style="font-size: 28px; text-align:left;">
+					Assume the sample is uniform, and try to find a new distance on the data that ensures that. Then projects to a lower dimensional space.
+					</p>
+					<img width="400" height = 230 src='media_dr/sample.png'/> <img class="fragment" width="400" height = 230 src='media_dr/non-uniform.png'/>
+					<p style="margin-top:-20pt;">
+					<img class="fragment" width="400" height = 230 src='media_dr/uniform.png'/> <img class="fragment" width="400" height = 230 src='media_dr/metric_uniform.png'/></p>
+				</section>
+
+				<section data-auto-animate>
+					<h2>UMAP</h2>
+					<p style="font-size: 28px; text-align:left;">
+					Assume the sample is uniform, and try to find a new distance on the data that ensures that. Then projects to a lower dimensional space.
+					</p>
+					<img width="400" height = 230 src='media_dr/sample.png'/> 
+					 <img width="400" height = 230 src='media_dr/metric_uniform.png'/>
+					 <p style="margin-top:-20pt;">
+					 <img width="400" height = 230 src='media_dr/manifold_umap.png'/></p>
+
+				</section>
+
+
+
+				<section data-auto-animate>
+					<h2>t-SNE</h2>
+					
+					<p style="font-size: 24px; text-align:left;">
+					Measures the similarity between data points as <b>probabilities</b>. <br>Constructs a similar probability distribution in the lower-dimensional space and <b>minimizes the difference between the two distributions</b>.</p>
+					
+					<img width="700" src="media_dr/t-sne.png">
+					
+					
+				</section>
+
+				<section data-auto-animate>
+					<h2>t-SNE</h2>
+					<br>
+					<p style="font-size: 24px; text-align:left;">
+					Measures the similarity between data points as <b>probabilities</b>. <br>Constructs a similar probability distribution in the lower-dimensional space and <b>minimizes the difference between the two distributions</b>.
+					</p>
+				
+					<img width="700"  src="media_dr/t-sne.gif">
+					
+				</section>
+
+
+				
+				<section data-auto-animate>
+					<h4>Applications of manifold learning & dimensionality reduction</h4>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Neuroscience</h3>
+					<h6>ISOMAP</h6>
+					<video width="400" height="400" src="media_gridcells/grid_cells.mp4" data-autoplay></video>
+					<p style="font-size:18px;"> [<i>Toroidal topology of population activity in grid cells.</i> Gardner et al.,<b> Nature</b>, 2022]</p>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Neuroscience</h3>
+					<h6>ISOMAP</h6>
+
+
+				<img width="700"  src="media_gridcells/figure_toroidal_nobarcode.png">
+					<p style="font-size:18px;"> [<i>Toroidal topology of population activity in grid cells.</i> Gardner et al.,<b> Nature</b>, 2022]</p>
+				</section>
+
+
+			
+				<section data-auto-animate>
+					<h3>Neuroscience</h3>
+					<h6>ISOMAP</h6>
+					<img style="margin-right: 50pt;" width="390"  src="media_gridcells/grid_cells_0d.PNG">
+					<video width="400" height="400" src="media_gridcells/population_experiments.mp4" data-autoplay></video>
+					<p style="font-size:18px;"> [<i>Toroidal topology of population activity in grid cells.</i> Gardner et al.,<b> Nature</b>, 2022]</p>
+				</section>
+
+									<section data-auto-animate>
+					<h3>Biology</h3>
+					<h6>UMAP</h6>
+					<img width="700"  src="media_ph/proteins 2.png">
+					<p style="font-size:18px;"> [Barbensi et. al. <i>A Topological Selection of Folding Pathways from Native States of Knotted Proteins.</i> Symmetry 2021]</p>
+				</section>
+
+					<section data-auto-animate>
+					<h3>Biology</h3>
+					<h6>UMAP</h6>
+					<img width="700"  src="media_ph/proteins.png">
+					<p style="font-size:18px;"> [Barbensi et. al. <i>A Topological Selection of Folding Pathways from Native States of Knotted Proteins.</i> Symmetry 2021]</p>
+				</section>
+
+
+				<section data-auto-animate>
+					<h3>Face recognition</h3>
+					<h6>Riemannian Manifold Learning</h6>
+			
+				<img width="700"  src="media_dr/RML1.png">
+					<p style="font-size:17px;"> [Tong, L., Zha, H. <i>Riemannian manifold learning</i>. IEEE Transactions on Pattern Analysis and Machine Intelligence 30.5 (2008): 796-809.]</p>
+			</section>
+
+							<section data-auto-animate>
+					<h3>Face recognition</h3>
+					<h6>Riemannian Manifold Learning</h6>
+			
+				<img width="600"  src="media_dr/RML2.png">
+
+						<p style="font-size:17px;"> [Tong, L., Zha, H. <i>Riemannian manifold learning</i>. IEEE Transactions on Pattern Analysis and Machine Intelligence 30.5 (2008): 796-809.]</p>
+			</section>
+
+			
+
+				<section data-auto-animate> <h3>  SUmmary</h3>
+					<span style="font-size: 22px">
+					<table>
+					  <tr>
+					    <th>Method</th>
+					    <th>Nature</th>
+					    <th>Preserves</th>
+					  </tr>
+					  <tr>
+					    <td>PCA</td>
+					    <td>Linear</td>
+					    <td>Maximum variance of linearc omponents</td>
+					  </tr>
+					  <tr>
+					    <td>MDS</td>
+					    <td>Non-linear</td>
+					    <td>Distance matrix</td>
+					  </tr>
+					  <tr>
+					    <td>Isomap</td>
+					    <td>Non-linear</td>
+					    <td>Geodesic distance</td>
+					  </tr>
+					  <tr>
+					    <td>UMAP</td>
+					    <td>Non-linear</td>
+					    <td>Riemmanian metric for unifom distribution</td>
+					  </tr>
+					  <tr>
+					    <td>t-SNE</td>
+					    <td>Non-linear</td>
+					    <td>Similarity given by probability based on denisty</td>
+					  </tr>
+					</table>
+				</span>
+				</section>
+
+				<section data-auto-animate> <h3>  Take-home messages</h3>
+					
+				</section>
+
+				<section data-auto-animate> <h3>  Take-home messages</h3>
+					<span style="font-size: 22px">
+					<ul>
+						<li> <b style="color:red">Dimensionality reduction</b> techniques are different metods to determine a <b>projection</b> $D\subset \mathbb R^N \to \mathbb{R}^n$ with $n< < N$, while <b>preserving different features</b> of the original space $D$.</li>
+						<br>
+						<li class="fragment">
+							<b style="color:red">Manifold hypotesis:</b> The data $D$ lies in a low dimensional manifold.
+						</li>
+						<br>
+						<li class="fragment"> If $D$ is a <b style="color:red">linear subspace </b>, then  <b> of $\mathbb{R}^N$, linear projections</b> work well. 
+						</li>
+						<br>
+						<li class="fragment"> If $D$ is a <b style="color:red">non-linear manifold</b>, projections that <b>preserve the non-linear geometric features</b> are needed.
+						</li>
+					</ul>
+				</span>
+				</section>
+
+				<section> <h3>  Goals</h3>
+					<br>
+					<span style="font-size: 26px">
+					<ul>
+					<li>  Understand the <b  style="color:red">theory of dimensionality reductions methods</b> using Chapter 20 of book <i>'Probabilistic Machine Learning
+					An Introduction'</i>, by Kevin P. Murphy.
+					</li>
+					<br>
+					
+					<li>  Implement <b style="color:red">code in Python</b> to study examples of datasets, based on the book <i>'Introduction to Machine Learning with Python: A Guide for Data Scientists'</i>by  A. Müller and S. Guido.</li>
+					<br>
+					
+					</span>
+					
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/math/math.js"></script>
+		<script>
+			Reveal.initialize({
+				history: true,
+				transition: 'linear',
+
+				math: {
+					// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+					config: 'TeX-AMS_HTML-full',
+					TeX: {
+						Macros: {
+							R: '\\mathbb{R}',
+							set: [ '\\left\\{#1 \\; ; \\; #2\\right\\}', 2 ]
+						}
+					}
+				},
+
+				plugins: [ RevealMath ]
+			});
+		</script>
+
+	</body>
+</html>

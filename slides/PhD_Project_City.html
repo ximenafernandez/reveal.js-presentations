@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+		<title></title>
+
+		<meta name="description" content="City Phd Project">
+		<meta name="author" content="Ximena Fernandez">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/white.css" id="theme">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+		<link rel="stylesheet" href="../plugin/drawer/drawer.css" />
+		<link rel="stylesheet" href="../plugin/pointer/pointer.css" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			* {
+			  box-sizing: border-box;
+			}
+
+			.column_25 {
+			  float: left;
+			  width: 25%;
+			  padding: 0px;
+			}
+
+			.column_10 {
+			  float: left;
+			  width: 10%;
+			  padding: 10px;
+			}
+			.column_5 {
+			  float: left;
+			  width: 5 %;
+			  padding: 10px;
+			}
+
+
+			.column_15 {
+			  float: left;
+			  width: 15%;
+			  padding: 0px;
+			}
+			.column_50 {
+			  float: left;
+			  width: 50%;
+			  padding: 0px;
+			}
+
+			.column_70 {
+			  float: left;
+			  width: 70%;
+			  padding: 0px;
+			}	
+
+
+			.column_35 {
+			  float: left;
+			  width: 35%;
+			  padding: 0px;
+			}	
+
+			.column_33 {
+			  float: left;
+			  width: 33%;
+			  padding: 10px;
+			}	
+			 .column_60 {
+			  float: left;
+			  width: 60%;
+			  padding: 10px;
+			}
+			.column_66 {
+			  float: left;
+			  width: 66%;
+			  padding: 10px;
+			}
+			.column_20 {
+			  float: left;
+			  width: 20%;
+			  padding: 10px;
+			}	
+			.column_30 {
+			  float: left;
+			  width: 30%;
+			  padding: 0px;
+			}	
+			.column_40 {
+			  float: left;
+			  width: 40%;
+			  padding: 10px;
+			}	
+			.column_45 {
+			  float: left;
+			  width: 45%;
+			  padding: 10px;
+			}	
+			}
+
+			/* Clear floats after the columns */
+			.row:after {
+			  content: "";
+			  display: table;
+			  clear: both;
+			}
+			</style>
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+
+				<section data-auto-animate>
+					<h4  style="color:red; ">APPLIED ALGEBRAIC TOPOLOGY</h4>
+					<img  width=5000 height = auto src='media_research/triangle_1.png'/>
+		
+				</section>
+				
+				<section>
+					
+					<img  style="align-content: right;margin-top: -20pt;" width="200" height = auto src='media_city/logo_city.png'/>
+
+					<h4> Kuramoto models on geometric graphs <br>and Hodge theory</h4>
+					
+					<p style="font-size:32px; color: red;">XIMENA FERNANDEZ</p>
+
+				
+					
+				</section>
+
+
+				<section>
+				<video width="800" height = auto  src="media_research/metronomes.mp4" data-autoplay></video>
+				</section>
+
+				<section data-auto-animate>
+					<h4>Kuramoto models and synchronization</h4>
+			
+				
+				<div class="column_50">
+				<span style = "font-size: 22px;text-align: left">
+					<p><b>System of oscillators</b></p>
+					\[
+					\frac{d\theta_i}{dt} = \omega_i + \frac{1}{n}\sum_{j=1}^{n} \omega_{ij}\sin(\theta_j - \theta_i), \quad i = 1, 2, \dots, n;
+					\]
+					<p style="text-align:left; font-size: 14pt;"><i>(Kuramoto, 1975)</i></p>
+					<img style="margin-left:30px"  width="250" height = auto  src="media_research/oscillators.jpg" />
+				</span>
+				</div>
+
+				<div class="column_50" >
+					<span style = "font-size: 18px; text-align:left">
+					
+					
+
+					<p style="margin-top:60pt">$\quad \quad$ where:
+					<ul>
+					    <li> $ \theta_i(t) \in [0, 2\pi)$ is the <b style="color:red">phase</b> of the oscillator $i$ at time \( t \),</li>
+					    <li> $ \omega_i $ is the <b style="color:red">natural frequency</b> of the oscillator $i$,</li>
+					    <li> $ \omega_{ij}$ <b style="color:red">strength</b> of the coupling between  oscillators $i$ and $j$,</li>
+					    <li> $ n $ is the <b style="color:red">total number</b> of oscillators.</li>
+					</ul>
+
+				<p class="fragment" style = "font-size: 22px; text-align:left; margin-left:20pt"> A graph is <b style="color:red">globally synchronizing</b> if in the limit $t\to \infty$ all oscillators are in phase, starting from all initial conditions except a set of measure zero.</p>
+				</p>
+				</div>
+				</span>
+
+				<br>
+
+				<p class="fragment" style="font-size: 20pt;  padding: 10px; border: 2px solid black; border-radius: 5px; display: inline-block; max-width: 50%;">
+				  <b>Question:</b> How the structure of the graph determines synchronization?
+				</p>
+
+				</section>
+
+
+				<section data-auto-animate>
+				<h4>Dynamical systems</h4>
+			
+				
+				<div class="column_50">
+					<span style = "font-size: 22px;text-align: left">
+					<p><b>Removing natural frequency</b></p>
+					<p>Assume:</p>
+					<ul>
+						<li>$\omega_i=\omega$ for all $i$ and replace $\widehat{\theta}(t) = \theta(t)-wt$.</li>
+						<li>$\omega_{ij}=1$ for all $i,j$</li>
+
+					\[
+					\frac{d\theta_i}{dt} = \omega_i + \frac{1}{n}\sum_{j=1}^{n} \omega_{ij}\sin(\theta_j - \theta_i), \quad i = 1, 2, \dots, n;
+					\]
+				</span>
+				</div>
+
+				</section>
+
+				<section data-auto-animate>
+				<h4>Dynamical systems</h4>
+			
+				
+				<div class="column_50">
+					<span style = "font-size: 18px;text-align: left">
+					<p><b>Removing natural frequency</b></p>
+					<p>Assume:</p>
+					<ul>
+						<li>$\omega_i=\omega$ for all $i$ and replace $\widehat{\theta}(t) = \theta(t)-wt$.</li>
+						<li>$\omega_{ij}=1$ for all $i,j$</li>
+
+					\[
+					\frac{d\widehat{\theta}_i}{dt} = \frac{1}{n}\sum_{j=1}^{n} a_{ij}\sin(\widehat{\theta}_j - \widehat{\theta}_i), \quad i = 1, 2, \dots, n;
+					\]
+					
+				</span>
+				</div>
+
+				<div class="column_50, fragment" >
+					<span style = "font-size: 18px; text-align:left">
+					
+					<p><b>Gradient system</b></p>
+					<p>\[\frac{d\widehat{\theta}_i}{dt} =-\nabla V, \]
+					\[V=-\frac{1}{2}\sum_{j=1}^{n} a_{ij}\cos(\widehat{\theta}_j - \widehat{\theta}_i), <br>\quad i = 1, 2, \dots, n;
+					\]</p>
+					<p>All the trajectories flow monotonically downhill and converge to an equilibium point.</p>
+					<ul>
+					<li><b>Equilibrium point:</b> $\frac{d\widehat{\theta}_i}{dt} =0$</li>
+					<li><b>Linearly stable:</b> Jacobian has all negative eigenvalues.</li>
+					</ul>
+				</div>
+				</span>
+
+				</section>
+
+				<section data-auto-animate>
+				<h4>Examples</h4>
+				<span style = "font-size: 22px; text-align:left">
+								<div class="column_50">
+					<ul><b style="color: red;">Synchronizing graphs:</b>
+					    <li> Complete graphs</li>
+					    <li> Trees</li>
+					    <li> Dense graphs: $\delta(G)=min(deg_{v\in G}(v))>0.7889(n-1)$</li>
+					    <li> Connected Erdos Reyni graphs</li>
+					</ul>
+				</div>
+
+				<div class="column_50">
+					<ul><b style="color:red">Non-synchronizing graphs:</b>
+					    <li> Cycles $C_n$</li>
+					    <li> Circulant graphs: every vertex is connected to its $k$-neighbors.</li>
+					    <br>
+					    <br>
+					    <br>
+					</ul>
+				</div>
+				
+
+				<br>
+				<br>
+				<p>
+				<b style="margin-top:30pt">Potential lines of research:</b>
+					<ul>
+					<li><b>Cayley graphs:</b> How the properties of the group $G$ determine synchronization on $\Gamma(G)$?</li>
+					<li><b>Combinatorial topology:</b> elementary moves that preserve synchronization/non-sychronization properties</li>
+					</ul>
+				</p>
+
+				</span>
+				</section>
+
+				<section data-auto-animate>
+				<h4>More examples</h4>
+
+				
+				<video style="margin-top: 10pt;" width="450" height=auto controls>
+  				<source src="media_research/circle_long.mp4" type="video/mp4"></video>
+				<video style="margin-top: 10pt;" width="450" height=auto controls>
+  				<source src="media_research/cross_long.mp4" type="video/mp4"></video>
+				
+				</section>
+
+
+
+				<section data-auto-animate>
+				<h4>Random geometric graphs</h4>
+				<p style="font-size:18pt; text-align:left;">A <b>random geometric graph</b> is an undirected graph constructed by randomly sampling $n$ nodes in a metric space according to some  probability distribution, and connecting two nodes by an edge if their distance is less than $\epsilon$.</p>
+
+
+				<div class="column_50">
+				<span style = "font-size: 20px;text-align: left">
+					<p><b>Kuramoto on random geometric graphs</b></p>
+					$G=(V,E)$ with $V=\{x_1, x_2, \dots, x_n\}$ sample of a metric space $(X,d)$ and $(x_i, x_j)\in E$ if $d(x_i, x_j)<\epsilon$.
+					\[
+					\frac{d\theta_i}{dt} = \frac{1}{n}\sum_{j=1}^{n} \omega_{ij}\sin(\theta_j - \theta_i), \quad i = 1, 2, \dots, n;
+					\]
+					with $w_{ij} = \frac{1}{\epsilon^2 N_i}$, $N_i$ the number of neighbors of $x_i$
+					
+					
+				</span>
+				</div>
+				<img style="margin-left:30px"  width="250" height = auto  src="media_research/oscillators.jpg" />
+
+
+			</section>
+
+
+				<section data-auto-animate>
+				<h4>Connection with heat equation</h4>
+				<p style="font-size:20pt"><b style="color: red;">Claim</b>: For geometric graphs in a manifold $M$, the solutions of the Kuramoto model on a sample $X_n$ of $M$ converge to solutions of the heat equation on $M$.</p>
+
+			</section>
+
+			<section data-auto-animate>
+				<h4>Connection with Hodge theory</h4>
+				
+				
+
+				<p style="text-align:left; font-size: 20pt;"><b style="color:red; ">Conjecture:</b> The Kuramoto model on random geometric graphs over spaces with <b> non-trivial homology does <u>not</u> synchronize.</b></p>
+			</section>
+
+
+
+				<!----------------Fundamental group--------------------->
+
+				<section data-auto-animate>
+				<h3>Persistence beyond homology</h3>
+				</section>
+				
+				<section data-auto-animate>
+				<h4>Persistence beyond homology</h4>
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">New topological invariants of data</b></p>
+
+					<p style="font-size:24px; padding: 6px; border: 2px solid black;margin-top: -5pt;">
+					<b style="color:red; ">Problem:</b>   Homology may <b>fall short</b> in capturing topological aspects of data.
+					</p>
+
+				<img width="550" height = auto src='media_research/torus_wedge.png'/>
+							
+				</span>
+				</section>
+
+
+
+				<section data-auto-animate>
+				<h4>Persistence beyond homology</h4>
+					<p style = "margin-top: -10pt" ><b style="color: red; #ff4040;font-size: 28px;">New topological invariants of data</b></p>
+
+					<p style="font-size:24px; padding: 6px; border: 2px solid black;margin-top: -5pt;">
+					<b style="color:red; ">Problem:</b>   Homology may <b>fall short</b> in capturing topological aspects of data.
+					</p>
+
+
+							
+					<span style="font-size: 20px; text-align:left;">
+					<div class="column_50">
+					
+							<b style="color:red">Fundamental group of point clouds</b>
+							<ul>
+								<li> <b>Efficient  presentations</b> of presentations of $\pi_1(K)$.
+								</li>
+								<li> <b>Persistent</b> fundamental group.
+								</li>
+								<li> <b>Software</b> in GAP.
+								</li>
+							</ul>
+						
+					<br>
+					<br>
+						
+							<b style="color:red">Persistent knot invariants</b>
+							<ul>
+							<li> Fundamental group of the complement: $\pi_1(S^3\smallsetminus K)$
+							</li>
+							<li> Alexander polynomial.
+							</li>
+							<li> Reidemeister torsion.
+							</li>
+							</ul>
+
+					<span style="font-size: 16px; text-align:left;"> 
+					 <p style="padding: 6px; border: 2px solid black;">
+					<i>Related to:</i> <b>X. Fernandez.</b> <u>Morse theory for group presentations.</u> <b>Transactions of the AMS.</b> (2024) </p>
+					</span>
+
+				</div>
+				<div class="column_50">
+					<ul><b style="color:red">Applications </b>
+						 	 <li>Classification of <b>knotted proteins.</b></li>
+						 	
+							<img width="300" height = auto src='media_perspi1/proteins.jpg'/>
+							<li>
+							Classification of <b>chaotic attractors.</b></li>
+							
+							<img width="110" height = 100 src='media_perspi1/lorenz.png'/>$~~~~~~~~$<img width="110" height = 100 src='media_perspi1/chua.png'/>
+
+							<p style="font-size:10pt; margin-top: -20pt;">$~~$ Lorenz attractor$~~~~~~~~~~~~~~~~~~~$Chua attractor</p>
+							
+					</div>
+				
+				</span>
+
+				</section>
+
+
+
+			
+
+			</div>
+
+		</div>
+
+		<script src="../plugin/drawer/drawer.js"></script>
+		<script src="../plugin/pointer/pointer.js"></script>
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/math/math.js"></script>
+		<script>
+			Reveal.initialize({
+				history: true,
+				transition: 'linear',
+
+
+				math: {
+					// mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+					config: 'TeX-AMS_HTML-full',
+					TeX: {
+						Macros: {
+							R: '\\mathbb{R}',
+							set: [ '\\left\\{#1 \\; ; \\; #2\\right\\}', 2 ]
+						}
+					}
+				},
+
+
+				plugins: [ RevealMath]
+			});
+		</script>
+
+	</body>
+</html>
