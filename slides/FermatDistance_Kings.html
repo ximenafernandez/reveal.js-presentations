@@ -1,0 +1,1432 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>The Fermat principle in Riemannian geometry</title>
+
+		<meta name="description" content="Presentation about Fermat distance and applications">
+		<meta name="author" content="Ximena Fernandez">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/white.css" id="theme">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			* {
+			  box-sizing: border-box;
+			}
+
+			.column_25 {
+			  float: left;
+			  width: 25%;
+			  padding: 10px;
+			}
+
+			.column_20 {
+			  float: left;
+			  width: 20%;
+			  padding: 10px;
+			}
+
+
+			.column_30 {
+			  float: left;
+			  width: 30%;
+			  padding: 10px;
+			}
+
+			.column_75 {
+			  float: left;
+			  width: 75%;
+			  padding: 10px;
+			}	
+
+			.column_50 {
+			  float: left;
+			  width: 50%;
+			  padding: 10px;
+			}	
+
+			.column_eq {
+			  float: left;
+			  width: 32%;
+			  padding: 10px;
+			}	
+			}
+
+			/* Clear floats after the columns */
+			.row:after {
+			  content: "";
+			  display: table;
+			  clear: both;
+			}
+			</style>
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+				<section>
+					<img  style="align-content: right;margin-top: -50pt;" width="200" height = auto src='media_city/logo_city.png'/>
+
+					<h4>The Fermat principle in Riemannian geometry</h4>
+					<p style="font-size:32px;">XIMENA FERNANDEZ</p>
+					<p style="font-size:18px;margin-top: 30pt;">Joint work with E. Borghini, G. Mindlin and P. Groisman</p>
+					<br>
+					
+					<p style="font-size:22px; color: red; margin-top: 10pt;">Geometry Seminar - King's College of London</p>
+					<p style="font-size:20px;color: grey;">4 March 2025 </p> 
+	
+					
+
+				</section>
+
+
+				
+				<section data-auto-animate>
+					<h2>Motivation</h2>
+				</section>
+
+
+				<section data-auto-animate>
+				<h3>Motivation</h3>
+				<span style="font-size: 22px; text-align:left;"> 
+				<p>Let $\mathbb{X}_n = \{x_1,...,x_n\}\subseteq \mathbb{R}^D$ be a finite sample.</p>
+				
+				<div  class="row" style="font-size: 18px">
+					<div class="column_50">
+					<img width="550" height = auto src='media_fermat/sample.png'/>
+					</div>
+		 	 		<div class="column_50" style="font-size: 18px">
+					</div>
+				</div>
+
+				</span>
+				</section>
+
+
+				<section data-auto-animate>
+				<h3>Motivation</h3>
+				<span style="font-size: 22px; text-align:left;"> 
+				<p>Let $\mathbb{X}_n = \{x_1,...,x_n\}\subseteq \mathbb{R}^D$ be a finite sample.</p>
+
+				<p style = "color: red"><b>Assume that:</b>
+				<ul>
+				<li> $\mathbb{X}_n$ is a sample of a compact <b>manifold</b> $\mathcal M$ of dimension $d$.
+				</li>
+				<li> The points are sampled according to a <b>density</b> $f\colon \mathcal M\to \mathbb R$.
+				</li>
+				</ul>
+				</p>
+
+
+				<p class="fragment"><b style = "color: red">Goal:</b> Infer <b>topological properties</b> from $(\mathcal{M}, f)$.
+				
+				<div  class="row" style="font-size: 18px">
+					<div class="column_50">
+					<img width="550" height = auto src='media_fermat/sample.png'/>
+					</div>
+		 	 		<div class="column_50" style="font-size: 18px">
+		 	 		<img width="550" height = auto src='media_fermat/manifold_density_only.png'/>
+					</div>
+				</div>
+
+				</span>
+				</section>
+
+				<section data-auto-animate>
+				<h3>Density-based geometry</h3>
+				<img width="312" height = 225 src='media_fermat/Refraction_photo.png'/>
+				<img width="312" height = 280 src='media_fermat/fermat-ants.jpeg'/>
+				<img width="312" height = 225 src='media_fermat/bending_light.jpeg'/>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Fermat principle</h3>
+					<span style="font-size: 22px; text-align: left;">
+						<blockquote style="text-align:left; border: 2px solid #666; padding:20px;">
+						<p>The path taken by a ray between two given points is is the extreme of the functional
+						\[
+						\gamma\mapsto \int_{0}^1\eta(\gamma_t)||\dot{\gamma}_t|| dt
+						\]
+						 with $\eta$ is the <b>refraction index</b>.</p>
+					</blockquote>
+
+						
+					</span>
+					<img width="250" height = auto src='media_fermat/refraction.png'/>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Density-based geometry</h3>
+					<h6>(Hwang, Damelin & Hero, 2016)</h6>
+					<span   style="font-size: 22px; text-align:left;">
+
+					<p>Let $\mathcal M \subseteq \mathbb{R}^D$ be a manifold  and let $f\colon\mathcal{M}\to \mathbb{R}_{>0}$ be a smooth <b>density</b>.</p>
+
+					
+					<p>For $q>0$, the  <b style="color: red;">deformed Riemannian distance*</b> in $\mathcal{M}$ is
+
+					\[d_{f,q}(x,y) = \inf_{\gamma} \int_{I}\frac{1}{f(\gamma_t)^{q}}||\dot{\gamma}_t||  dt \]
+					over all $\gamma:I\to \mathcal{M}$ with $\gamma(0) = x$ and $\gamma(1)=y$.
+					</p>
+					<img width="500" height = auto src='media_fermat/manifold.png'/>
+					
+					<p style="color: grey; font-size: 18px;" >* More general, if $(\mathcal{M}, g)$ is a Riemannian manifold, then $d_{f,q}$ is the Riemannian distance induced by the tensor $g_q= f^{-2q} g$.</p>
+					</span>
+
+					</section>
+
+
+					<section data-auto-animate>
+						<h3>Fermat distance</h3>
+						<h6>(Mckenzie & Damelin, 2019) (Groisman, Jonckheere & Sapienza, 2022)</h6>
+
+						<span style="font-size: 22px; text-align:left">
+							
+						<p >Let $\mathbb{X}_n = \{x_1,...,x_n\}\subseteq \mathbb{R}^D$ be a finite sample.</p>
+						<p>For $p> 1$,
+						the <b style="color: red;">Fermat distance</b> between $x,y\in \mathbb{R}^D$ is defined by
+						\[
+						d_{\mathbb{X}_n, p}(x,y) = \inf_{\gamma} \sum_{i=0}^{r}|x_{i+1}-x_i|^{p}
+						\]
+						over all paths $\gamma=(x_0,  \dots, x_{r+1})$ of finite length with $x_0=x$, $x_{r+1} = y$ and $\{x_1, x_2, \dots, x_{r}\}\subseteq \mathbb{X}_n$.
+						</p>
+						
+						<img width="500" height = auto src='media_fermat/manifold_sample_path.png'/>
+						</span>
+
+					</section>
+
+
+					<section data-auto-animate>
+						<h3>Fermat distance</h3>
+						<br> 
+						<div class="row">
+						 	 <div class="column_50">
+							<img width=350 height = 230 src='media_fermat/eyeglasses_2.png'/>
+							</div>
+							<div  class="column_50">
+							<img width="350" height = auto src='media_fermat/normal_eyeglasses.png'/>
+							</div>
+						</div>
+
+
+					</section>
+
+					<section data-auto-animate>
+						<h3>Fermat distance</h3>
+						<br> 
+						<div class="row">
+						 	 <div class="column_50">
+							<img width="275" height = auto src='media_fermat/eyeglasses_2.png'/>
+							</div>
+							<div  class="column_50">
+							<img width="275" height = "170" src='media_fermat/normal_eyeglasses.png'/>
+							</div>
+						</div>
+						<div class="row">
+						 	 <div class="column_eq">
+							<img width="290" height = auto src='media_fermat/normal_eyeglasses_p=1.5.png'/>
+							</div>
+							<div  class="column_eq">
+							<img width="350" height = auto src='media_fermat/normal_eyeglasses_p=2.0.png'/>
+							</div>
+							<div  class="column_eq">
+							<img width="350" height = auto src='media_fermat/normal_eyeglasses_p=3.0.png'/>
+							</div>
+						</div>
+					</section>
+
+					<!--
+					<section data-auto-animate>
+						<h3>Fermat distance</h3>
+
+
+							<img width="250" height = 158 src='media_fermat/eyeglasses_2.png'/>
+							<img width="250" height = "155" src='media_fermat/normal_eyeglasses.png'/>
+							<br>
+							<img width="235" height = 155 src='media_fermat/normal_eyeglasses_p=1.5.png'/>
+
+							<img width="235" height = 155 src='media_fermat/normal_eyeglasses_p=2.0.png'/>
+
+							<img width="235" height = 155 src='media_fermat/normal_eyeglasses_p=3.0.png'/>
+
+							<img width="235" height = 155 src='media_fermat/embedding_eyeglasses_p3.5.png'/>
+							<img width="235" height = 155 src='media_fermat/embedding_eyeglasses_p=4.0.png'/>
+							<img width="210" height = 153 src='media_fermat/embedding_eyeglasses_p=4.5.png'/>
+							
+
+
+					</section>
+				-->
+				
+
+
+
+					<section data-auto-animate>
+						<h3>Convergence results</h3>
+						<span style="font-size: 24px;">
+						<div class="row">
+							<div class="column_50" >
+								$\mathbb{X}_n$ sample, with metric $d_{\mathbb X_n,p}$
+							<img width="550" height = auto src='media_fermat/sample.png'/>
+							</div>
+				 	 		<div class="column_50">
+				 	 			$\mathcal{M}$ manifold, with  metric $d_{f,q}$
+				 	 		<img width="550" height = auto src='media_fermat/manifold_density_only.png'/>
+							</div>
+						</div>
+						</span>
+
+							<br>
+
+						<span style="font-size: 24px;color: red">
+							<p>$d_{\mathbb X_n, p}$ is an estimator of $d_{f,q}$ if $q=(p-1)/d$.</p>
+						</span>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Convergence results</h3>
+						<h6>Previous work</h6>
+
+
+						<span style="font-size: 22px;text-align:left; ">
+						<p>Set $q = (p-1)/d.$</p>
+						<ul>
+							<li><span style="color:red">(Hwang, Damelin & Hero, 2016)</span> If $L_{\mathbb X_n, p}(x,y) := \inf_{\gamma}\sum_{i=0}^{k}d_{\mathcal M}(x_{i+1},x_i)^{p}$ over all paths $\gamma=(x_0, \dots, x_{r+1})$  of finite length with $x_0=x$, $x_{r+1} = y$ and $\{x_1, \dots, x_r\}\subseteq \mathbb{X}_n$, then \[C(n,p,d) L_{\mathbb{X}_n,p}\underset{n \to \infty}{\overset{a.s}{\rightrightarrows}}d_{f,q}~~~ \text{ in } \{(x,y)\in \mathcal{M}: d_{\mathcal M}(x,y)\geq b\}.\]</li>
+							<li class = "fragment"><span style="color:red">(Groisman, Jonckheere & Sapienza, 2022)</span> If there exists $S\subseteq \mathbb{R}^d$ an open connected set and $\phi:S \to \mathbb{R}^D$ an isometric transformation such that $\phi(\bar S)=\mathcal{M}.$
+							\[
+							\lim_{n\to +\infty} C(n,p,d) d_{\mathbb{X}_n, p}(x,y) =  d_{f,q}(x,y )~ \text{almost surely.}\]
+							</li>
+						
+						</ul>
+					</span>
+					</section>
+
+					<section data-auto-animate>
+						<h4>Convergence results</h4>
+						<h6>(F., Borghini, Mindlin & Groisman, 2023)</h6>
+
+						<br>
+						<p style="font-size: 22px;text-align:left; "> Let $\mathcal{M}$ be a closed smooth $d$-dimensional  manifold embedded in $\mathbb{R}^D$. 
+						</p>
+
+						<p style="padding: 6px; border: 2px solid black; font-size: 22px">\[\big(\mathbb{X}_n, C(n,p,d) d_{\mathbb{X}_n,p}\big)\xrightarrow[n\to \infty]{GH}\big(\mathcal{M}, d_{f,q}\big) ~~~ \text{ for } q = (p-1)/d\]</p>
+						<span class="fragment" style="font-size: 18px; text-align:left;">
+							<br>
+						<div class="column_75" >
+							<p>Recall that \[d_{H}\big((X, d)(Y,d)\big) = \max \big\{\sup_{x\in X}d(x,Y), \sup_{y\in Y}d(X,y)\big\}, ~~\text{for }X,Y\subseteq (Z,d)\]
+
+							\[d_{GH}\big((X, d_X),(Y,d_Y)\big)= \inf_{\substack{Z \text{ metric space}\\ f:X\to Z, g:Y\to Z \text{ isometries}}}d_H(f(X), g(Y))\]
+						</p>
+						</div>
+						<div class="column_25">
+							<img width="500" height = auto src='media_fermat/Hausdorff_distance_sample.png'/>
+							
+						</div>
+						</span>
+					</section>
+
+
+					<section data-auto-animate>
+						<h4>Convergence results</h4>
+						<h6>(F., Borghini, Mindlin & Groisman, 2023)</h6>
+
+						<br>
+						<p style="font-size: 22px;text-align:left; "> Let $\mathcal{M}$ be a closed smooth $d$-dimensional  manifold embedded in $\mathbb{R}^D$. 
+						</p>
+
+						<p style="padding: 6px; border: 2px solid black; font-size: 22px">\[\big(\mathbb{X}_n, C(n,p,d) d_{\mathbb{X}_n,p}\big)\xrightarrow[n\to \infty]{GH}\big(\mathcal{M}, d_{f,q}\big) ~~~ \text{ for } q = (p-1)/d\]</p>
+						<span  style="font-size: 21px; text-align:left; ">
+							
+						<p style="color: red; font-size: 21px; margin-top: 20pt;"><b>Theorem (F., Borghini, Mindlin, Groisman, 2023)</b></p>
+					<p > Let $\mathbb{X}_n$ be a sample of a closed  manifold $\mathcal M$ of dimension $d$, drawn according to a density $f\colon \mathcal M\to \mathbb R$.<br>
+						Given $p>1$ and $q=(p-1)/d$, there exists a constant $\mu = \mu(p,d)$ such that for every $\lambda \in \big((p-1)/pd, 1/d\big)$ and $\varepsilon>0$ there exist $\theta>0$ satisfying
+						\[
+						    \mathbb{P}\left( d_{GH}\left(\big(\mathcal{M}, d_{f,q}\big), \big(\mathbb{X}_n, {\scriptstyle \frac{n^{q}}{\mu}} d_{\mathbb{X}_n, p}\big)\right) > \varepsilon \right) \leq \exp{\left(-\theta n^{(1 - \lambda d) /(d+2p)}\right)}
+						\]
+						for $n$ large enough.
+						</p>
+						</span>
+					</section>
+
+					<!--
+					<section data-auto-animate>
+						<h4>Convergence results</h4>
+						<h6>(F., Borghini, Mindlin & Groisman, 2023)</h6>
+
+						<p style="font-size: 22px;text-align:left; "> Let $\mathcal{M}$ be a closed smooth $d$-dimensional  manifold embedded in $\mathbb{R}^D$. 
+						</p>
+						<p style="padding: 6px; border: 2px solid black; font-size: 22px">\[\big(\mathbb{X}_n, C(n,p,d) d_{\mathbb{X}_n,p})\big)\xrightarrow[n\to \infty]{GH}\big(\mathcal{M}, d_{f,q}\big) ~~~ \text{ for } q = (p-1)/d\]</p>
+
+						<span style = "font-size: 18px;  text-align:left;">
+						<p><b style = "color: red">Steps of the proof:</b></p>
+
+						<p><b style = "color: red">$\bullet$ Starting points</b></p>
+						<p style="color: red; font-size: 18"><b>Lemma</b></p>
+						<p> Given $\delta >0$, there exists $\epsilon>0$ such that for every $x,y\in \mathcal M$ with $|x-y|<\epsilon$, 
+						\[
+    					d_{\mathcal M}(x,y)\leq (1+\delta)|x-y|.
+						\]</p>
+						<p style="color: red; font-size: 18"><b>Theorem (Hwang, Damelin, Hero, 2016)</b></p>
+						<p>Given $\varepsilon > 0$ and $b>0$, there exists constants $\mu = \mu(d,p)>0$ and  $\theta = \theta(\varepsilon)>0$ such that, for all sufficiently large $n$,
+						\[
+						\mathbb {P} \left(\sup_{\substack{x,y: d_{\mathcal M}(x,y)\geq b}}\left|\frac{n^{(q}L_{\mathbb X_n, p}(x,y)}{ \mu d_{f,q}(x,y)}-1\right|>\varepsilon\right)\leq \exp(-\theta n^{1/(d+2p)})
+						\]
+
+						</p>
+
+
+
+						</span>
+
+					</section>
+
+						<section data-auto-animate>
+						<h4>Convergence results</h4>
+						<h6>(F., Borghini, Mindlin & Groisman, 2023)</h6>
+						<p style="font-size: 22px;text-align:left; "> Let $\mathcal{M}$ be a closed smooth $d$-dimensional  manifold embedded in $\mathbb{R}^D$. 
+						</p>
+						<p style="padding: 6px; border: 2px solid black; font-size: 22px">\[\big(\mathbb{X}_n, C(n,p,d) d_{\mathbb{X}_n,p})\big)\xrightarrow[n\to \infty]{GH}\big(\mathcal{M}, d_{f,q}\big) ~~~ \text{ for } q = (p-1)/d\]</p>
+
+						<span style = "font-size: 20px;  text-align:left;">
+						<p><b style = "color: red">Steps of the proof:</b></p>
+
+
+						<p><b style = "color: red">$\bullet$ Lemma 1 (Segment length)</b></p>
+						<p> Let $\epsilon>0$. 
+						Let $x,y\in \mathbb X_n$ such that they belong to some minimal path between points in $\mathcal M$ with respect to $d_{\mathbb X_n, p}$. Then, for some constant $\theta_1 > 0$ there exist  $n$  large enough such that
+						\[\mathbb P(|x-y|>\epsilon)\leq \exp(-\theta_1 n^{\alpha})\]
+						for $\alpha = 1/(d+2p)$.
+						</p>
+
+						</span>
+
+					</section>
+
+
+					<section data-auto-animate>
+						<h4>Convergence results</h4>
+						<h6>(F., Borghini, Mindlin & Groisman, 2023)</h6>
+
+						<span style = "font-size: 20px;  text-align:left;">
+						<p><b style = "color: red">Steps of the proof:</b></p>
+
+  
+						<p><b style = "color: red">$\bullet$ Lemma 1 (Segment length)</b></p>
+						<p> Let $\epsilon>0$. 
+						Let $x,y\in \mathbb X_n$ such that they belong to some minimal path between points in $\mathcal M$ with respect to $d_{\mathbb X_n, p}$. Then, for some constant $\theta_1 > 0$ there exist  $n$  large enough such that
+						\[\mathbb P(|x-y|>\epsilon)\leq \exp(-\theta_1 n^{\alpha})\]
+						for $\alpha = 1/(d+2p)$.
+						</p>
+						<p><b style = "color: red">$\bullet$ Proposition 2 </b></p>
+						<p>Fix $\varepsilon > 0$ and a sequence of positive real numbers $(b_n)_{n \geq 1}$ satisfying that $\frac{\log(n)}{n b_n^{d}} \to 0$ when $n \to \infty$. Then, for every $p>1$, there exists $\theta>0$ such that
+						\[
+						\mathbb{P}\left(\sup_{x,y}\left| \frac{n^{(p-1)/d} d_{\mathbb{X}_n, p}(x,y)}{d_{f,q}(x,y )} - \mu \right|>\varepsilon\right) \leq \exp\left(-\theta (n b_n^{d})^\alpha\right)
+						\]
+						for $n$ large enough, where the supremum is taken over $x,y\in \mathcal M$ with $d_{\mathcal M}(x,y)\geq b_n$. Here, $\alpha = 1/(d+2p)$.
+						</p>
+
+						</span>
+
+					</section>
+
+					<section data-auto-animate>
+						<h4>Convergence results</h4>
+						<h6>(F., Borghini, Mindlin & Groisman, 2023)</h6>
+
+						<span style = "font-size: 20px;  text-align:left;">
+						<p><b style = "color: red">Steps of the proof:</b></p>
+
+  
+						<p><b style = "color: red">$\bullet$ Proposition 2 </b></p>
+						<p>Fix $\varepsilon > 0$ and a sequence of positive real numbers $(b_n)_{n \geq 1}$ satisfying that $\frac{\log(n)}{n b_n^{d}} \to 0$ when $n \to \infty$. Then, for every $p>1$, there exists $\theta>0$ such that
+						\[
+						\mathbb{P}\left(\sup_{x,y}\left| \frac{n^{(p-1)/d} d_{\mathbb{X}_n, p}(x,y)}{d_{f,q}(x,y )} - \mu \right|>\varepsilon\right) \leq \exp\left(-\theta (n b_n^{d})^\alpha\right)
+						\]
+						for $n$ large enough, where the supremum is taken over $x,y\in \mathcal M$ with $d_{\mathcal M}(x,y)\geq b_n$. Here, $\alpha = 1/(d+2p)$.
+						</p>
+
+						<p><b style = "color: red">$\bullet$ Proposition 3 </b></p>
+						<p>
+						For every $p>1$ and $\lambda \in \big((p-1)/pd, 1/d\big)$, given $\varepsilon>0$ there exist $\mu, \theta>0$ such that
+						\[
+						    \mathbb P\left(\sup_{x,y}\left| n^{(p-1)/d} d_{\mathbb X_n, p}(x,y) - \mu d_{f,q}(x,y )\right|>\varepsilon\right) \le \exp\left(-\theta n^{(1 - \lambda d)\alpha}\right)
+						\]
+						for $n$ large enough, where the supremum is taken over  $x,y\in \mathcal M$. Here $\alpha = 1/(d+2p)$.
+						</p>
+
+						</span>
+
+					</section>
+
+					<section data-auto-animate>
+						<h4>Convergence results</h4>
+						<h6>(F., Borghini, Mindlin & Groisman, 2023)</h6>
+
+						<span style = "font-size: 20px;  text-align:left;">
+						<p><b style = "color: red">Steps of the proof:</b></p>
+
+						<p style = "margin-top: -10pt">$\bullet~$ Recall
+						 \[d_{GH}\big( (\mathbb X_n,  C(n,p,d)d_{\mathbb X_n, p}), (\mathcal M, d_{f,q})\big) = \frac{1}{2}\inf_R \sup_{(x,y), (x', y')\in R} | C(n, p, d)  d_{\mathbb X_n, p}(x, x')- d_{f,q}(y, y')|,\]
+						where the infimum is taken over subsets $R\subseteq \mathbb X_n\times \mathcal M$ such that the projections $\pi_{\mathcal M}(R) = \mathcal M$, $\pi_{\mathbb X_n}(R) = \mathbb X_n$.</p>
+
+
+						<p class = "fragment"> $\bullet~$ Consider $
+						R=\{(x_y, y)\colon y \in \mathcal M, d_{f,q}(x_y, y) = d_{f,q}(\mathbb X_n, y)\}.
+						$</p>
+
+						<p class = "fragment">$\bullet~$ By triangular inequality
+						\[d_{GH}\big( (\mathbb X_n, C(n, p, d) d_{\mathbb X_n,p}), (\mathcal M, d_{f,q})\big) \le \frac{1}{2}\left(\sup_{x,x'\in \mathbb X_n} | C(n, p, d) d_{\mathbb X_n,p}(x,x')-d_{f,q}(x, x')| + 2 \sup_{y\in \mathcal M}d_{f,q}(\mathbb X_n, y) \right).\]
+						</p>
+
+						<span class = "fragment">
+  						<p><b style = "color: red">$\bullet$ Lemma 4 (Spacing)</b></p>
+  						<p style = "margin-top: -10pt">
+						Given $\alpha = 1/(d+2p)$, the event
+						\[
+						    \left\{\sup_{y \in \mathcal M} d_{\mathcal M}(\mathbb X_n, y) \geq  n^{(\alpha-1)/d}\right\}
+						\]
+						holds with probability at most $\exp(-\theta_2 n^{\alpha})$ for some constant $\theta_2> 0$ if $n$ is large enough.</p>
+				
+						</span>
+
+					</section>
+				-->
+
+
+					
+					
+
+					<section data-auto-animate>
+						<h4>Fermat-distance</h4>
+						<h6>Computational implementation</h6>
+						<span style="font-size: 22px; text-align:left;">
+						<ul>
+						<li > <b style="color: red">Complexity:</b> <p>$O(n^3)$</p><p style="font-size: 20px">reducible to $O(n^2*k*\log(n))$ using the $k$-NN-graph <span style="color: grey;">(for  $k = O(\log n)$ the geodesics belong to the $k$-NN graph with high probability).</span></p>
+						</li>
+						<li > <b style="color: red">Python library:</b> <p style ="font-family:Courier New">
+							<i class="fab fa-python"></i> fermat</p>
+						</li>
+						<!--<li><b style="color: red">Tool in Giotto-TDA:</b> <p> In progress</p>-->
+						</li>
+						<li> <b style="color: red">Computational experiments:</b>
+						 <p > <i class="fab fa-github"></i> <span style ="font-family:Courier New"> ximenafernandez/intrinsicPH</span>
+						</p>
+						</li>
+						</ul>
+						</span>
+					</section>
+
+				
+
+					<section>
+						<h3>Applications to homology inference</h3>
+					</section>
+
+
+
+
+				<section data-auto-animate>
+					<h3>Homology inference</h3>
+					<span style="font-size: 22px; text-align:center;"> 
+					<p>Let $X$ be a topological space and let $\mathbb{X}_n = \{x_1,...,x_n\}$ be a finite sample of $X$.</p>
+					<p><b>Q:</b> How to infer topological properties of $X$ from $\mathbb{X}_n$?</p>
+
+					<div class="row">
+					 	 <div class="column_25">
+					 	 	<p class="fragment">Point cloud <br>$\mathbb{X}_n \subset \mathbb{R}^D$
+							 	<img width="400" height = auto src='media_ts/circle_resized.png'/>
+							 	</p>
+					 	 </div>
+					 	 
+						<div class="column_25"><p class="fragment">
+							 For $\epsilon>0$, the <b>$\epsilon$-thickening</b> of $\mathbb{X}_n$:
+							 \[\displaystyle U_\epsilon = \bigcup_{x\in \mathbb{X}_n}B_{\epsilon}(x)\]		<img width="165" height = auto src='media_ts/balls.png'/>
+							 </p>
+						</div>
+
+						<div class="column_50">
+							 <blockquote class="fragment"  style="font-size:17.5px; text-align:left; border: 2px solid #666; padding: 3 px; background-color: #ccc;">
+							 <b>Theorem (Niyogi, Smale & Weinberger, 2008).</b> 
+							 Given $\mathcal{M}$ a compact submanifold of $\mathbb{R}^D$ of dimension $k$ and $\mathbb{X}_n$  a  set  of i.i.d. $n$ points  drawn according  to  the uniform  probability  measure  on $\mathcal{M}$, then $$
+							 U_\epsilon \simeq \mathcal{M}$$ with probability $>1-\delta$ if
+							 $0<\epsilon< \frac{\tau_\mathcal{M}}{2}$ and $n> \beta_1 \left(\log(\beta_2)+\log\left(\frac{1}{\delta}\right)\right)$.*
+							 <br>
+						    <p style="font-size:14 px; text-align:left; color: #737373;">
+						    *Here $\beta_1=\frac{\mathrm{vol}(\mathcal{M})}{cos^k(\theta_1) \mathrm{vol(B^k_{\epsilon/4})}}$, $\beta_2=\frac{\mathrm{vol}(\mathcal{M})}{\cos^k(\theta_2)\mathrm{vol}(B^k_{\epsilon/8})}$
+						    and $\theta_1=\arcsin\left(\frac{\epsilon}{8\tau_\mathcal M}\right),$ $\theta_2=\arcsin\left(\frac{\epsilon}{16\tau_\mathcal M}\right)$.
+							</p>
+							</blockquote>
+						</div>
+					</div>
+					</span>
+					</section>
+
+
+
+				<section data-auto-animate>
+					<h3>Homology inference</h3>
+						<span style="font-size: 22px; text-align:center;">
+						<p>Let $X$ be a topological space and let $\mathbb{X}_n = \{x_1,...,x_n\}$ be a finite sample of $X$.</p>
+						<p><b>Q:</b> How to infer topological properties of $X$ from $\mathbb{X}_n$?</p>
+
+					<span style="font-size: 22px; text-align:center;">
+					<div class="row">
+					 	<div class="column_25">
+					 	 	<p>Point cloud <br>$\mathbb{X}_n \subset \mathbb{R}^D$
+							 	<img width="350" height = auto src='media_ts/circle_resized.png'/>
+							 	</p>
+					 	</div>
+					 	 
+						<div class="column_50"><p >Evolving thickenings
+							<br>
+							<br>
+							<img width="350" height = auto src='media_ts/filtration_circle.gif'/>
+							</p>
+						</div>
+					</div> 
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Homology inference</h3>
+						<span style="font-size: 22px; text-align:center;">
+						<p>Let $X$ be a topological space and let $\mathbb{X}_n = \{x_1,...,x_n\}$ be a finite sample of $X$.</p>
+						<p><b>Q:</b> How to infer topological properties of $X$ from $\mathbb{X}_n$?</p>
+
+					<span style="font-size: 22px; text-align:center;">
+
+					<div class="row">
+					 	 <div class="column_20">
+					 	 	<p>Point cloud <br>$\mathbb{X}_n \subset \mathbb{R}^D$
+							 	<img width="150" height = auto src='media_ts/circle_resized.png'/>
+							 	</p>
+					 	 </div>
+							 <div class="column_30">
+ 							 <p>Evolving thickenings
+ 							 <br>
+					 		 <br>
+ 							 <img width="350" height = auto src='media_ts/filtration_circle.gif'/>
+ 							 </p>
+							 </div>
+							 <div class="column_50">
+							 	<p>Filtration of simplicial complexes
+							 		<br>
+							 		<br>
+							 		<br>
+							 		<br>
+							 	<img width="600" height = auto src='media_ph/filtration.png'/>
+							 	</p>
+							 </div>
+					</div> 
+					</span>
+				</section>
+
+
+				<section data-auto-animate>
+					<h3>Homology inference</h3>
+					<span style="font-size: 22px; text-align:center;">
+					<p>Let $X$ be a topological space and let $\mathbb{X}_n = \{x_1,...,x_n\}$ be a finite sample of $X$.</p>
+					<p><b>Q:</b> How to infer topological properties of $X$ from $\mathbb{X}_n$?</p>
+
+
+					<div class="row">
+					 	 <div class="column_20">
+					 	 	<p>Metric space <br>$(\mathbb{X}_n, d)$
+							 	<img width="150" height = auto src='media_ts/circle_resized.png'/>
+							 	</p>
+					 	 </div>
+							 <div class="column_50">
+							 	<p>Filtration of simplicial complexes
+							 		<br>
+							 		<br>
+							 		<br>
+							 		<br>
+							 	<img width="600" height = auto src='media_ph/filtration.png'/>
+							 	</p>
+							 </div>
+							 <div class="column_30"><p>Persistence diagram/barcode
+							 
+							 <img width="200" height = auto src='media_ts/PD_resized.png'/>
+							 </p>
+							 </div>
+					</div> 
+					</span>
+				</section>
+
+								<section data-auto-animate>
+					<h4>From point clouds to (filtered) complexes</h4>
+					<span style="font-size: 21px; text-align:left;">
+
+					 <p>Let $(\mathbb{X}_n, d)$ be a finite set of points with a metric.</p>
+					 <p> Given a <b>parameter</b> $\epsilon>0$, the <b style="color: #fe6e61">Vietoris-Rips complex</b> $\mathrm{Rips}_{\epsilon}$ is defined as
+					 	\[\mathrm{Rips}_{\epsilon}(\mathbb{X}_n) := \{\sigma \subseteq \mathbb{X}_n\colon \forall u,v\in \sigma, d(u,v)\leq \epsilon\}\]
+					 <p>Equivalently, $\mathrm{Rips}_\epsilon$ contains all simplices whose <i>diameter</i> is less than or equal to $\epsilon$.</p>
+
+					 <img width="800" height = auto src='media_ph/rips.png'/>
+					 <br>
+					 <p style="font-size: 10px;text-align:right;">Image from: Bastian Rieck. Topological Data Analysis for Machine Learning.</p>
+					</span>
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>From point clouds to (filtered) complexes</h4>
+					<span style="font-size: 18px; text-align:left;">
+
+					 <p>Let $(\mathbb{X}_n, d)$ be a finite set of points wiht a metric.</p>
+					 <p> Given a <b>parameter</b> $\epsilon>0$, the <b style="color: #fe6e61">Vietoris-Rips complex</b> $\mathrm{Rips}_{\epsilon}$ is defined as
+					 	\[\mathrm{Rips}_{\epsilon}(\mathbb{X}_n) := \{\sigma \subseteq \mathbb{X}_n\colon \forall u,v\in \sigma, d(u,v)\leq \epsilon\}\]
+					 <p>Equivalently, $\mathrm{Rips}_\epsilon$ contains all simplices whose <i>diameter</i> is less than or equal to $\epsilon$.</p>
+					 <blockquote style="padding: 1px; border: 2px solid coral;"><b>Goal:</b> Track the evolution of the homology of $\mathrm{Rips}_\epsilon$ as the value of $\epsilon$ increases.</blockquote>
+
+					 <img width="700" height = auto src='media_ph/evolution_rips.png'/>
+					 <br>
+					 <p style="font-size: 10px;text-align:right;">Image from: Bastian Rieck. Topological Data Analysis for Machine Learning.</p>
+					</span>
+
+				</section>
+
+
+			<!--
+				<section data-auto-animate>
+					<h4>From point clouds to complexes</h4>
+					<br> 
+					<span style="font-size: 22px; text-align:left;">
+
+					
+					<p><b>
+					- <span style="color: #e67300"> $\check{\mathrm{C}}$ech filtration:</span></b>
+					For every $\varepsilon>0$, let $~\mathcal{U}_{\varepsilon} = \{B(x_i, \varepsilon)\}_{x_i\in \mathbb{X}_n}$ be a collection of open sets. Define
+					\[\check C_{\varepsilon} = \mathcal{N}(\mathcal{U}_{\varepsilon})\]
+					</p>
+					<p class="fragment"><b>
+					- <span style="color: #e67300">Vietoris Rips filtration:</span></b>
+					Let $\Delta_n$ be the $(n-1)$-simplex with vertices in $\mathbb{X}_n$. Define
+					$$V_{\varepsilon} = \{\sigma  \in \Delta_n: \mathrm{diam}(\sigma)<\varepsilon\}$$
+				    </p>
+					<img class="fragment" width="350" height = auto src='media_ts/cech_rips.png'/>
+
+					</span>
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>From point clouds to filtered complexes</h4>
+					<br> 
+					<span style="font-size: 22px; text-align:left;">
+					<ul> 
+					 <li class="fragment">A <b>filtered simplicial complex</b> $K_\bullet$ is a sequence of nested simplicial complexes \[K_0 \hookrightarrow K_1 \hookrightarrow K_2 \hookrightarrow \dots K_s = K\]
+					 </li>
+					</ul>
+					<br>
+					<img class="fragment" width="550" height = auto src='media_ts/filtration.png'/>
+					</span>
+				</section>
+
+
+
+				<section data-auto-animate>
+					<h4>From point clouds to filtered complexes</h4>
+					<br> 
+					<span style="font-size: 22px; text-align:left;">
+					<ul> 
+					 <li>A <b>filtered simplicial complex</b> $K_\bullet$ is a sequence of nested simplicial complexes \[K_0 \hookrightarrow K_1 \hookrightarrow K_2 \hookrightarrow \dots K_s = K\]
+					 </li>
+					</ul>
+					
+					<p><b>
+					- <span style="color: #e67300"> $\check{\mathrm{C}}$ech filtration:</span></b>
+					For every $\varepsilon>0$, let $~\mathcal{U}_{\varepsilon} = \{B(x_i, \varepsilon)\}_{x_i\in \mathbb{X}_n}$ be a collection of open sets. Define
+					\[\check C_{\varepsilon} = \mathcal{N}(\mathcal{U}_{\varepsilon})\]
+					</p>
+					<p class="fragment"><b>
+					- <span style="color: #e67300">Vietoris Rips filtration:</span></b>
+					Let $\Delta_n$ be the $(n-1)$-simplex with vertices in $\mathbb{X}_n$. Define
+					$$V_{\varepsilon} = \{\sigma  \in \Delta_n: \mathrm{diam}(\sigma)<\varepsilon\}$$
+				    </p>
+					<img class="fragment" width="350" height = auto src='media_ts/cech_rips.png'/>
+
+					</span>
+
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>From point clouds to filtered complexes</h4>
+					<br> 
+					<span style="font-size: 22px; text-align:left;">
+					<ul> 
+					 <li>A <b>filtered simplicial complex</b> $K_\bullet$ is a sequence of nested simplicial complexes \[K_0 \hookrightarrow K_1 \hookrightarrow K_2 \hookrightarrow \dots K_s = K\]
+					 </li>
+					</ul>
+					
+					<p><b>
+					- <span style="color: #e67300"> $\check{\mathrm{C}}$ech filtration:</span></b>
+					For every $\varepsilon>0$, let $~\mathcal{U}_{\varepsilon} = \{B(x_i, \varepsilon)\}_{x_i\in \mathbb{X}_n}$ be a collection of open sets. Define
+					\[\check C_{\varepsilon} = \mathcal{N}(\mathcal{U}_{\varepsilon})\]
+					</p>
+					<p><b>
+					- <span style="color: #e67300">Vietoris Rips filtration:</span></b>
+					Let $\Delta_n$ be the $(n-1)$-simplex with vertices in $\mathbb{X}_n$. Define
+					$$V_{\varepsilon} = \{\sigma  \in \Delta_n: \mathrm{diam}(\sigma)<\varepsilon\}$$
+				    </p>
+				    <br>
+					<blockquote style="padding: 2px; border: 2px solid coral;"> \[\check C_{\varepsilon}\subseteq V_\varepsilon \subseteq \check C_{2\varepsilon}, ~~\forall \varepsilon>0\]</blockquote>
+					</span>
+
+				</section>
+			-->
+
+				<section data-auto-animate>
+					<h3>Persistent homology</h3>
+					<span style="font-size: 22px">
+					<ul>
+					<li>A <b style="color: #fe6e61">filtration of simplicial complexes</b> is a sequence of nested simplicial complexes \[K_0 \hookrightarrow K_1 \hookrightarrow K_2 \hookrightarrow \dots \hookrightarrow K_s \]
+					 </li>
+					<li> A filtration $\{K_i\}$ of simplicial complexes induces a sequence of <b style="color: #fe6e61"> homology groups</b> $\{H_d(K_i)\}$ along with homomorphisms $f_d^{i,j}:H_d(K_i) \to H_d(K_j)$ induced by $K_i\subseteq K_j$ for every $i\leq j$
+						\[H_d(K_0) \rightarrow H_d(K_1) \rightarrow H_d(K_2) \rightarrow \dots \rightarrow H_d(K_s) .\]
+
+					</li>
+					<li> Given $i\leq j$, the <b style="color: #fe6e61">persistent homology group</b> $H_d^{i,j}$ is defined as 
+						\[H_d^{i,j} :=\frac{Z_d(K_i)}{B_d(K_j)\cap Z_d(K_i)} = \mathrm{Im}(f_d^{i,j}).\]
+					<!--i.e., all the homology classes of $K_i$ that are still present in $K_j$.-->
+					</li>
+					<!--
+					<blockquote class="fragment" style="border: 2px solid #666; padding: 2px; background-color: #ccc;"> <b>Theorem (Zomorodian, Carlsson, 2005).</b> For every degree $j\geq 0$, there is a decomposition
+					$$M_j = 
+					\left( \bigoplus_{s=1}^n \Sigma^{\alpha_s} k[x]\right) \oplus \left(\bigoplus_{l=1}^m \Sigma^{\gamma_l}k[x]/x^{n_l}k[x]\right)$$
+					where $\alpha_s, \gamma_j\in \mathbb{Z}$, $n_l< n_{l+1}$ y  $\Sigma^{\alpha}$ denotes an $\alpha$-shift in the degree.</blockquote>
+					<p class="fragment" style="padding: 8px; border: 2px solid coral;">We can represent $M_j$ as a set of intervals $(\alpha_s, + \infty)$ and $(\gamma_l,\gamma_l+n_l)$, also known as <b>barcode</b>.</p>
+					-->
+					<br>
+					<li><b>Persistent homology classes.</b>
+						<ul>
+						<li><i style="color: #fe6e61">Birth</i> in $K_i$: $C\in H_d(K_i)$, but $C\notin H_d^{i−1,i}$</li>
+						<li><i style="color: #fe6e61">Death</i> in $K_j$: once $C$ is created in $K_i$, $C\in H_d^{i, j-1}$ but $C\notin H_d^{i, j}$ </li>
+						</ul>
+					</li>
+					</ul>
+					</span>
+
+				</section>
+
+
+				</section>
+
+								<section data-auto-animate>
+					<h3>Persistent homology</h3>
+					<span style="font-size: 22px">
+					<ul>
+					<li><b>Structure Theorem.</b>
+						<ul>
+						The persistence module $\{(H_d(K_i), f_d^{ij})\colon i,j \}$ has a unique decomposition into indecomposables, thus producing a <b>barcode/persistence diagram</b>.
+					
+					
+					</ul>
+					</span>
+					<img width="830" height = auto src='media_ph/evolution_rips.png'/>
+
+				</section>
+
+
+				<section data-auto-animate>
+				<h3>Persistent homology</h3>
+					
+					<span style="font-size: 22px; text-align:left;">
+					<b>Metric space:</b> $(\mathbb X_n, d_E)\sim (\mathcal M, d_E)$
+
+					<div class="row">
+					 	 <div class="column_eq">
+					 	 	<br>
+					 	 	<br>
+						<img width="300" height = auto src='media_fermat/eyeglasses_1.png'/>
+						</div>
+						<div class="column_eq">
+							<br>
+							<br>
+						<img width="350" height = auto src='media_fermat/eyeglasses_sample.png'/>
+						</div>
+						<div  class="column_eq">
+						<img width="300" height = auto src='media_fermat/PH_euclidean_eyeglasses_sample.png'/>
+						</div>
+					</div>
+					<p class="fragment" >$\bullet ~ ~\mathrm{Rips}_\epsilon(\mathcal{M}, d_E)\simeq \mathcal{M}$ for $\epsilon < 2 \sqrt{\frac{D+1}{2D}}\mathrm{rch}(\mathcal{M})~~$ <span style = 'color:grey'>(Kim, Shin, Chazal, Rinaldo & Wasserman, 2020)</span></p>
+					</span>
+
+				</section>
+
+				<section data-auto-animate>
+				<h3>Persistent homology</h3>
+					
+					<span style="font-size: 22px; text-align:left;">
+						<b>Metric space:</b> $(\mathbb X_n, d_{kNN})\sim (\mathcal M, d_\mathcal{M})~~~$
+						<span style= "ont-size: 10px; color: grey">
+							<br><i>(Bernstein, De Silva, Langford & Tenenbaum, 2000)</i></span>
+
+					<div class="row">
+					 	 <div class="column_eq">
+					 	 <br>
+					 	 <br>
+						<img style = "margin-top: 20pt" width="300" height = auto src='media_fermat/eyeglasses_1.png'/>
+						</div>
+						<div  class="column_eq">
+						<br>
+						<br>
+						<img width="350" height = "160" src='media_fermat/eyeglasses_sample_knn.png'/>
+						</div>
+						<div  class="column_eq">
+						<img width="300" height = auto src='media_fermat/PH_k=5_eyeglasses_sample.png'/>
+						</div>
+					</div>
+
+					<p class="fragment">$\bullet ~ ~\mathrm{Rips}_\epsilon(\mathcal{M}, d_\mathcal{M})\simeq \mathcal{M}$ for $\epsilon <  \mathrm{conv}(\mathcal{M}, d_{\mathcal{M}})~~$ <span style = 'color:grey'>(Hausmann, 1995; Latschev, 2001)</p>
+					</span>
+				</section>
+
+				<section data-auto-animate>
+				<h3>Persistent homology</h3>
+					
+					<span style="font-size: 22px; text-align:left;">
+						<b>Metric space:</b> $(\mathbb X_n, d_{kNN})\sim (\mathcal M, d_\mathcal{M})$
+
+					<div class="row">
+					 	 <div class="column_eq">
+						<br>
+						<br>
+						<img style = "margin-top: 16pt", width="300" height = auto src='media_fermat/eyeglasses_1.png'/>
+						</div>
+						<div  class="column_eq">
+						<br>
+						<br>
+						<img width="350" height = 158 src='media_fermat/normal_eyeglasses_box.png'/>
+						</div>
+						<div  class="column_eq">
+						<img width="300" height = auto src='media_fermat/PH_k=5_eyeglasses.png'/>
+						</div>
+					</div>
+					</span>
+				</section>
+
+				<section data-auto-animate>
+				<h3>Persistent homology</h3>
+					
+					<span style="font-size: 22px; text-align:left;">
+						<b>Metric space:</b> $(\mathbb X_n, d_{kNN})\sim (\mathcal M, d_\mathcal{M})$
+
+					<div class="row">
+					 	 <div class="column_eq">
+						<br>
+						<br>
+						<img style = "margin-top: 20pt", width="300" height = auto src='media_fermat/eyeglasses_1.png'/>
+						</div>
+						<div  class="column_eq">
+						<br>
+						<br>
+						<img width="350" height = 160 src='media_fermat/normal_eyeglasses_k=5.png'/>
+						</div>
+						<div  class="column_eq">
+						<img width="300" height = auto src='media_fermat/PH_k=5_eyeglasses.png'/>
+						</div>
+					</div>
+					</span>
+				</section>
+
+				<section data-auto-animate>
+				<h3>Persistent homology</h3>
+					
+					<span style="font-size: 22px; text-align:left;">
+					<b>Metric space:</b> $(\mathbb X_n, d_{kNN})\sim (\mathcal M, d_\mathcal{M})$
+					<div class="row">
+					 	 <div class="column_eq">
+						<br>
+						<br>
+						<img style = "margin-top: 20pt", width="300" height = auto src='media_fermat/eyeglasses_1.png'/>
+						</div>
+						<div  class="column_eq">
+						<br>
+						<br>
+						<img width="350" height = "160" src='media_fermat/normal_eyeglasses_k=4.png'/>
+						</div>
+						<div  class="column_eq">
+						<img width="300" height = auto src='media_fermat/PH_k=4_eyeglasses.png'/>
+						</div>
+					</div>
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h3>The metric structure</h3>
+					<span style="font-size: 24px; text-align:left;"> 
+					<b style= "color:red">Desired properties of a metric:</b>
+						<br>
+						$\checkmark$ 'Independence' on the ambient space (intrinsic).
+						<br>
+						$\checkmark$ Robustness to noise/outliers.
+					
+					</span> 
+
+				</section>
+
+
+					
+					<section data-auto-animate>
+						<h4>Fermat-based  persistence diagrams</h4>
+						<span style="font-size: 22px; text-align:center;">
+						<div class="row">
+						 	 <div class="column_50">
+						 	 <br>
+							<img width="250" height = auto src='media_fermat/eyeglasses_curve_black.png'/>
+							</div>
+							<div  class="column_50">
+							<img width="250" height = auto src='media_fermat/normal_eyeglasses.png'/>
+							</div>
+						</div>
+						<div class="row">
+						 	 <div class="column_eq">
+							<img width="235" height = auto src='media_fermat/PH_p=2.5_eyeglasses.png'/>
+							</div>
+							<div  class="column_eq">
+							<img width="245" height = auto src='media_fermat/PH_p=3_eyeglasses.png'/>
+							</div>
+							<div  class="column_eq">
+							<img width="250" height = auto src='media_fermat/PH_p=3.5_eyeglasses.png'/>
+							</div>
+		
+						</div>
+
+						</span>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Fermat distance</h3>
+						<br> 
+						<div class="row">
+						 	 <div class="column_50">
+							<img width="275" height = auto src='media_fermat/eyeglasses_2.png'/>
+							</div>
+							<div  class="column_50">
+							<img width="275" height = "170" src='media_fermat/normal_eyeglasses.png'/>
+							</div>
+						</div>
+						<div class="row">
+						 	 <div class="column_eq">
+							<img width="290" height = auto src='media_fermat/normal_eyeglasses_p=2.5.png'/>
+							</div>
+							<div  class="column_eq">
+							<img width="350" height = auto src='media_fermat/normal_eyeglasses_p=3.0.png'/>
+							</div>
+							<div  class="column_eq">
+							<img width="350" height = auto src='media_fermat/normal_eyeglasses_p=3.5.png'/>
+							</div>
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<h4>Fermat-based  persistence diagrams</h4>
+						<span style="font-size: 22px; text-align:center;">
+						<div class="row">
+						 	 <div class="column_50">
+						 	 <br>
+							<img width="250" height = auto src='media_fermat/eyeglasses_curve_black.png'/>
+							</div>
+							<div  class="column_50">
+							<img width="250" height = auto src='media_fermat/normal_eyeglasses.png'/>
+							</div>
+						</div>
+						<div class="row">
+						 	 <div class="column_eq">
+							<img width="235" height = auto src='media_fermat/eyeglasses_p25_H1.png'/>
+							</div>
+							<div  class="column_eq">
+							<img width="245" height = auto src='media_fermat/eyeglasses_p3_H1.png'/>
+							</div>
+							<div  class="column_eq">
+							<img width="250" height = auto src='media_fermat/eyeglasses_p35_H1.png'/>
+							</div>
+		
+						</div>
+
+						</span>
+					</section>
+
+					<section data-auto-animate>
+						<h4>Fermat-based  persistence diagrams</h4>
+						<span style="font-size: 22px; text-align:center;">
+						<div class="row">
+						 	 <div class="column_50">
+						 	 <br>
+							<img width="250" height = auto src='media_fermat/eyeglasses_curve_black.png'/>
+							</div>
+							<div  class="column_50">
+							<img width="250" height = auto src='media_fermat/normal_eyeglasses.png'/>
+							</div>
+						</div>
+						<div class="row">
+						 	 <div class="column_eq">
+							<img width="255" height = auto src='media_fermat/eyeglasses_p4_H1.png'/>
+							</div>
+							<div  class="column_eq">
+							<img width="245" height = auto src='media_fermat/eyeglasses_p5_H1.png'/>
+							</div>
+							<div  class="column_eq">
+							<img width="240" height = auto src='media_fermat/eyeglasses_p6_H1.png'/>
+							</div>
+		
+						</div>
+
+						</span>
+					</section>
+
+					<section data-auto-animate>
+						<h4> Convergence of persistence diagrams</h4>
+
+						<p style="padding: 6px; border: 2px solid black; font-size: 22px">\[\big(\mathbb{X}_n, C(n,p,d) d_{\mathbb{X}_n,p}\big)\xrightarrow[n\to \infty]{GH}\big(\mathcal{M}, d_{f,q}\big) ~~~ \text{ for } q = (p-1)/d\]</p>
+						+
+						<p style="padding: 6px; border: 2px solid black; font-size: 20px"><b style="color:red">Stability</b> \[d_B\Big( \mathrm{dgm}\big(\mathrm{Rips}(X, d_X)\big), \mathrm{dgm}\big(\mathrm{Rips}(Y, d_Y\big)\Big)\leq 2 d_{GH}\big((X,d_X),(Y,d_Y)\big)\]</p>
+	
+					</section>
+
+					<section data-auto-animate>
+						<h4> Convergence of persistence diagrams</h4>
+
+						<p style="padding: 6px; border: 2px solid black; font-size: 22px">\[\big(\mathbb{X}_n, C(n,p,d) d_{\mathbb{X}_n,p})\big)\xrightarrow[n\to \infty]{GH}\big(\mathcal{M}, d_{f,q}\big) ~~~ \text{ for } q = (p-1)/d\]</p>
+						+
+						<p style="padding: 6px; border: 2px solid black; font-size: 18px"><b style="color:red">Stability</b> \[d_B\Big( \mathrm{dgm}\big(\mathrm{Rips}(\mathbb X_n, C(n,p,d) d_{\mathbb{X}_n,p})\big), \mathrm{dgm}\big(\mathrm{Rips}(\mathcal M, d_{f,q})\big)\Big)\leq 2 d_{GH}\big((\mathbb X_n,C(n,p,d) d_{\mathbb{X}_n,p}),(\mathcal M,d_{f,q})\big)\]</p>
+						$\Downarrow$
+						<p style="padding: 6px; border: 2px solid black; font-size: 22px">\[\mathrm{dgm}(\mathrm{Rips}(\mathbb{X}_n, {C(n,p,d)} d_{\mathbb{X}_n,p}))\xrightarrow[n\to \infty]{B}\mathrm{dgm}(\mathrm{Rips}(\mathcal{M}, d_{f,q})) ~~~ \text{ for } q = (p-1)/d\]</p>
+						
+
+					</section>
+
+					<!--
+					<section data-auto-animate>
+						<h4> Convergence of persistence diagrams</h4>
+
+						<p style="padding: 6px; border: 2px solid black; font-size: 22px">\[\mathrm{dgm}(\mathrm{Filt}(\mathbb{X}_n, {C(n,p,d)} d_{\mathbb{X}_n,p}))\xrightarrow[n\to \infty]{B}\mathrm{dgm}(\mathrm{Filt}(\mathcal{M}, d_{f,q})) ~~~ \text{ for } q = (p-1)/d\]</p>
+						<span  style="font-size: 22px; text-align:left; ">
+						<p style="color: red; font-size: 24px"><b>Corollary (F., Borghini, Mindlin & Groisman, 2023)</b></p>
+						<p > Let $\mathcal{M}$ be a closed smooth $d$-dimensional manifold embedded in $\mathbb{R}^D$. Let $\mathbb X_n\subseteq \mathcal{M}$
+						be  a  set  of  $n$ independent sample points with common smooth density $f:\mathcal{M}\to \mathbb{R}_{>0}$.
+						</p>
+						<p > Given $p>1$ and $q=(p-1)/d$, there exists a constant $\mu = \mu(p,d)$ such that for every $\lambda \in \big((p-1)/pd, 1/d\big)$ and $\varepsilon>0$ there exist $\theta>0$ satisfying
+    					\[
+    						\mathbb{P}\Big( d_B\big(\mathrm{dgm}(\mathrm{Filt}(\mathcal{M}, d_{f,q})),\mathrm{dgm}(\mathrm{Filt}(\mathbb{X}_n, {\scriptstyle \frac{n^{q}}{\mu}} d_{\mathbb{X}_n,p}))\big)>\varepsilon\Big)\\\leq \exp{\big(-\theta n^{(1 - \lambda d)/(d+2p)}\big)}\]
+						for $n$ large enough.
+						</p>
+						</span>
+					</section>
+					-->
+
+
+
+					<section data-auto-animate>
+						<h4>Fermat-based  persistence diagrams</h4>
+						<h6> Robustness to outliers</h6>
+						<img width="240" height = auto src='media_fermat/trefoil_no_out.png'/>
+						<img width="210" height = auto src='media_fermat/PH_trefoil_euclidean_no_out.png'/>
+						<img width="205" height = auto src='media_fermat/PH_trefoil_k=10_no_out.png'/>
+						<img width="210" height = auto src='media_fermat/PH_trefoil_p=3_no_out.png'/>
+
+						<img width="240" height = auto src='media_fermat/trefoil.png'/>
+
+						<img width="220" height = auto src='media_fermat/PH_trefoil_euclidean_out.png'/>
+
+						<img width="205" height = auto src='media_fermat/PH_trefoil_k=10_out.png'/>
+
+						<img width="250" height = auto src='media_fermat/PH_trefoil_p=3_out.png'/>
+					</section>
+
+
+					<section data-auto-animate>
+						<h4>Fermat-based  persistence diagrams</h4>
+						<h6> Robustness to outliers</h6>
+						<span style="font-size: 20px; text-align:left;">
+
+						<p style="color: red; font-size: 22px"><b>Prop (F., Borghini, Mindlin, Groisman, 2023)</b></p>
+						<p> 
+						Let $\mathbb{X}_n$  be a <b>sample</b> of $\mathcal{M}$ and let $Y\subseteq \mathbb{R}^D\smallsetminus \mathcal{M}$ be a finite set of <b> outliers</b>. <br>Let $\delta = \displaystyle \min\Big\{\min_{y\in Y} d_E(y, Y\smallsetminus \{y\}), ~d_E(\mathbb X_n, Y)\Big\}$.
+						<br>
+						Then, for all $k>0$ and $p>1$,
+						 \[
+						 \mathrm{dgm}_k(\mathrm{Rips}_{<\delta^p}(\mathbb{X}_n \cup Y, d_{\mathbb{X}_n\cup Y, p})) = \mathrm{dgm}_k(\mathrm{Rips}_{<\delta^p}(\mathbb{X}_n, d_{\mathbb{X}_n, p}))
+						\]
+						where $\mathrm{Rips}_{<\delta^p}$ stands for the Rips filtration  up to parameter $\delta^{p}$ and $\mathrm{dgm}_k$ for the persistent homology of deg $k$.</p>
+						<img width="280" height = auto src='media_fermat/trefoil.png'/>
+						</span>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Time series Analysis</h3>
+					</section>
+
+					<section data-auto-animate>
+						<h4>Topological analysis of time series</h4>
+						<span style="font-size: 22px; text-align:left;">
+						<ul>
+						<li > <b>Signal:</b>
+						$\varphi:\mathbb R \to \mathbb{R}$
+						<br>
+						<img  width="800" height = auto src='media_fermat/x_lorenz_noise.png'/></li>
+
+						<li><b>Delay embedding:</b> Given $T$ the <b>time delay</b> and $D$ the <b>embedding dimension</b>.
+						 \[\mathcal{M}_{T,D} (\varphi) = \{\big(\varphi(t), \varphi(t+T), \varphi(t+2 T) \dots, \varphi(t+(D-1)T)\big): t\in \mathbb R\}\subseteq \mathbb{R}^D\]
+						</li>
+						</ul>
+						<img class="fragment" width="270" align='center' height = auto src='media_fermat/lorenz_embedding.png'/>
+						<img  class="fragment" width="260" align='center' height = auto src='media_fermat/lorenz.png'/>
+						</span>
+					</section>
+
+					<section data-auto-animate>
+						<h4>Topological analysis of time series</h4>
+						<span style="font-size: 22px; text-align:left;">
+						<ul>
+						<li > <b>Signal:</b>
+						$\varphi:\mathbb R \to \mathbb{R}$
+						<br>
+						<img  width="800" height = auto src='media_fermat/x_lorenz_noise.png'/></li>
+
+						<li><b>Delay embedding:</b> Given $T$ the <b>time delay</b> and $D$ the <b>embedding dimension</b>.
+						 \[\mathcal{M}_{T,D} (\phi) = \{\big(\varphi(t), \varphi(t+T), \varphi(t+2 T) \dots, \varphi(t+(D-1)T)\big): t\in \mathbb R\}\subseteq \mathbb{R}^D\]
+						</li>
+
+						<li> <b>Limit set: </b> Given $(\mathcal M, \phi)$ a dynamical system and $x_0\in \mathcal M$, \[\mathcal A_{x_0} = \{x\in \mathcal M: \exists t_i\to \infty \text { with } \phi_{t_i}(x_0)\to x\}.\]
+						</li>
+
+						<li> <b style= 'color:red'>Theorem (Takens).*</b> Let $\mathcal{M}$ be a smooth, compact, Riemannian manifold. Let $T> 0$ be a real number and let $D > 2 \mathrm{dim}(\mathcal{M})$
+						be an integer. Then, for generic $\phi \in  C^2(\mathbb{R} \times \mathcal{M}, \mathcal{M})$, $F\in  C^2(\mathcal{M}, \mathbb{R})$ and $x_0\in \mathcal M$,  if $\varphi_{x_0} = F(\phi_\bullet(x_0))$ is an observation of $(\mathcal M, \phi)$, then 
+						the limit set $\mathcal A_{x_0}$ is 'diffeomorphic'$^{**}$ to 
+						$\mathcal{M}_{T,D} (\varphi_{x_0})$.
+						</li>
+						</ul>
+						</span>
+						<p style="font-size: 12px; text-align:left;">
+
+						** There exists $\psi:\mathcal M\to \mathbb R^{D}$ an embedding such that $\psi|_{\mathcal A_{x_0}}: \mathcal A_{x_0}\to \mathcal{M}_{T,D} (\varphi_{x_0})$ is a bijection.
+						<br>
+						*Corollary 5, <i>Detecting strange attractors in tubulence</i>, F. Takens, 1971.
+						</p>
+						
+					</section>
+
+				
+					<section data-auto-animate>
+						<h3>Anomaly detection</h3>
+						<h5 >Electrocardiogram</h5>
+						<img width="900" height = auto src='media_ts/ECG_signal_raw.png'/>
+						<p style="font-size: 15px; text-align:left;"><i>Source data:</i> PhysioNet Database  https://physionet.org/about/database/</p>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Anomaly detection</h3>
+						<h5>Electrocardiogram</h5>
+						<img width="900" height = auto src='media_ts/ECG_signal_raw.png'/>
+						<img width="300" height = auto src='media_ts/ECG_embedding_raw.png'/>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Anomaly detection</h3>
+						<h5>Electrocardiogram</h5>
+						<img width="900" height = auto src='media_ts/ECG_signal.png'/>
+						<img width="300" height = auto src='media_ts/ECG_embedding.png'/>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Anomaly detection</h3>
+						<h5>Electrocardiogram</h5>
+						<img width="900" height = auto src='media_ts/ECG_signal.png'/>
+						<div class="row">
+						 	 <div class="column_eq">
+							<img width="300" height = auto src='media_ts/ECG_embedding.png'/>
+							</div>
+							<div class="column_eq">
+							<img width="340" height = auto src='media_fermat/PH_ECG_4000.png'/>
+							</div>
+							<div class="fragment" class="column_eq">
+							<img  style = "margin-top: 23pt", width="280" height = auto src='media_fermat/PH_ECG_6000.png'/>
+							</div>
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Anomaly detection</h3>
+						<h5>Electrocardiogram</h5>
+						<img width="900" height = auto src='media_ts/ECG_signal.png'/>
+						<p style = "font-size: 24px">\[t\mapsto \mathrm{dgm_1}(\mathrm{Rips}(\mathcal{M}_{T, D}\varphi|_{[0,t]}))=: \mathcal{D}_t\]</p>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Anomaly detection</h3>
+						<h5>Electrocardiogram</h5>
+						<img width="900" height = auto src='media_ts/ECG_signal.png'/>
+						<p style = "font-size: 24px"><b style="color: red; ">Approximate Derivative:</b> Given a time step $\varepsilon>0$\[\dfrac{d_{B}(\mathcal{D}_t, \mathcal{D}_{t-\varepsilon})}{\varepsilon}\]</p>
+						<img style = "margin-top: -15pt", class="fragment" width="900" height = auto src='media_ts/bottleneck_ECG.png'/>
+					</section>
+
+
+
+					<section data-auto-animate>
+						<h3>Change-points detection</h3>
+						<h4 > Birdsongs</h4>
+						<img  width="900" height = auto src='media_ts/birdsong.png'/>
+						<p  style="font-size: 15px; text-align:left;"><i>Source data:</i> Private experiments. Laboratory of Dynamical Systems, University of Buenos Aires.</p>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Change-points detection</h3>
+						<h4> Birdsongs</h4>
+						<img width="900" height = auto src='media_ts/birdsong.png'/><img width="300" height = auto src='media_ts/canary_embedding.png'/>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Change-points detection</h3>
+						<h4> Birdsongs</h4>
+						<img width="900" height = auto src='media_ts/birdsong.png'/>
+						<div class="row">
+						 	 <div class="column_50">
+							<img width="300" height = auto src='media_ts/canary_embedding.png'/>
+							</div>
+							 <div class="column_50">
+							 <img width="290" height = auto src='media_ts/PH_canary.png'/>
+							 </div>
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Change-points detection</h3>
+						<h4> Birdsongs</h4>
+						<img width="900" height = auto src='media_ts/time_series_birdsong_cuts.png'/>
+						<div class="row">
+						 	 <div class="column_75">
+							<img width="800" height = auto src='media_ts/canary_embedding_cuts.png'/>
+							</div>
+							 <div class="column_25">
+							 <img width="300" height = auto src='media_ts/PH_canary.png'/>
+							 </div>
+						</div>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Change-points detection</h3>
+						<h4> Birdsongs</h4>
+						<img width="900" height = auto src='media_ts/time_series_birdsong_cuts.png'/>
+						<span style="font-size: 15px">Aproximate derivative </span>
+						<img style="margin-top: -10pt;" width="900" height = auto src='media_ts/PH_canary_peaks.png'/>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Change-points detection</h3>
+						<h4> Birdsongs</h4>
+					<img width="1000" height = auto src='media_ts/birdsong_twitter.gif'/>
+				</section>
+
+					<!--
+					<section data-auto-animate>
+						<h3>Epileptic seizure detection</h3>
+						<h4> EEG</h4>
+						<img width="800" height = 400  src='media_epilepsy/EEG_CbMIT_raw.png'/>
+						<p style="font-size: 12px; text-align:center; margin-top: -30px;"> <i>Source: Open database CHB-MIT, Massachusetts Institute of Technology, USA.</i> </p>
+					</section>
+
+					<section data-auto-animate>
+						<h3>Epileptic seizure detection</h3>
+						<h4> EEG</h4>
+						<img width="800" height = 400  src='media_epilepsy/EEG_CbMIT.png'/>
+						<p style="font-size: 12px; text-align:center; margin-top: -30px;"> <i>Source: Open database CHB-MIT, Massachusetts Institute of Technology, USA.</i> </p>
+					</section>
+				-->
+
+					
+
+				<!--
+				<section>
+					<h4  data-auto-animate >Topological biomarkers</h4>
+
+					<span style="font-size: 23px; text-align:left;">
+					<p>Given $\varphi = (\varphi_1, \varphi_2, \dots \varphi_n):\mathbb R\to \mathbb{R}^n$ a multichannel recording and $\omega$ a window size.</p>
+					<blockquote  style="border: 2px solid #666; padding: 0px;">  \[\mathbb{R} ~\longrightarrow ~\mathrm{Top} ~\longrightarrow ~\mathrm{Dgm}~~~~~~~~~~~~~~~~~~~~~~~~~~~~\]
+					\[t\mapsto \mathrm{SWE}_{\varphi, \omega} (t)\mapsto \mathrm{dgm}\big(\mathrm{SWE}_{\varphi, \omega}(t) \big)=:\mathcal{D}_t\]
+				</blockquote>
+				
+					<p class="fragment">We compute the following <b><i>topological summaries</i></b>:
+						<br>
+						<ul >
+							<li class="fragment"><b style="color: red">Approximate Derivative:</b> Given a time step $\varepsilon>0$\[\dfrac{d_{W}(\mathcal{D}_t, \mathcal{D}_{t-\varepsilon})}{\varepsilon}\]</li>
+							<li class="fragment"> <b style="color: red">Total persistence:</b> \[\sum_{(x,y) \in \mathcal{D_t}} \mathrm{pers}(x,y).\]</li>
+						</ul>
+					</p>
+				</section>
+				
+
+				<section data-auto-animate>
+					<h3>Epileptic seizure detection</h3>
+						<h4> EEG</h4>
+					<img  style = "margin-top: -15px;"  width=auto height = 550 src='media_epilepsy/EEG_CHMIT_derivative.png'/>
+				</section>
+			-->
+
+				<section data-auto-animate>
+					<h3>Future work</h3>
+					<br>
+					<span style="font-size: 24px; text-align:left"> 
+					
+						<div class = "column_75">
+						<u><b>Density-based homology theory</b></u>
+							<br>
+						<p>Given $X$ a topological space and $\mu:X\to \mathbb R$ a density, 'understand' the homology of $(X,\mu)$.</p>
+						</div>
+						<div class = "column_25">
+						<img width="170" height = auto  src='media_fermat/ring.png'/>
+						</div>
+				
+					</span>
+
+				</section>
+
+					<section data-auto-animate>
+						<h3>References</h3>
+						<br>
+						<span style="font-size: 24px; text-align:left;">
+						<ul>
+							<li><b style="color: red;">Source:</b> X. Fernandez, E. Borghini, G. Mindlin, P. Groisman. <i>Intrinsic persistent homology via density-based metric learning.</i> <b>Journal of Machine Learning Research</b> 24(75):1−42 (2023).</li>
+							<br>
+
+							<li><i class="fab fa-github"></i> <b style="color: red;">Github Repository:</b> <span style ="font-family:Courier New"> ximenafernandez/intrinsicPH</span></li>
+
+							<br>
+
+							<li><b style="color: red;">Tutorial:</b> <i>Intrinsic persistent homology.</i> <b>AATRN Youtube Channel</b> (2021)</li>
+							<br>
+							<li><i class="fab fa-python"></i>  <b style="color: red;">Python Library:</b>  <span style ="font-family:Courier New">fermat</span></p>
+</li>
+						</ul>
+						</span>
+
+						<span style="font-size: 50px;margin-top: 60pt;" class = 'fragment'><b>THANKS!</b></span>
+					
+					</section>
+
+
+			</div>
+
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/math/math.js"></script>
+		<script>
+		Reveal.initialize({ plugins: [ RevealMath.KaTeX ] });
+		</script>
+
+	</body>
+</html>
