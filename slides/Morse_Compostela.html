@@ -1,0 +1,980 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+		<title></title>
+
+		<meta name="description" content="Morse theory for group presentations and applications">
+		<meta name="author" content="Ximena Fernandez">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/white.css" id="theme">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+		<link rel="stylesheet" href="../plugin/drawer/drawer.css" />
+		<link rel="stylesheet" href="../plugin/pointer/pointer.css" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			* {
+			  box-sizing: border-box;
+			}
+
+			.column_50 {
+			  float: left;
+			  width: 50%;
+			  padding: 10px;
+			}
+
+			.column_10 {
+			  float: left;
+			  width: 10%;
+			  padding: 2px;
+			}	
+
+			.column_45 {
+			  float: left;
+			  width: 45%;
+			  padding: 10px;
+			}	
+
+			.column_35 {
+			  float: left;
+			  width: 35%;
+			  padding: 10px;
+			}	
+			.column_65 {
+			  float: left;
+			  width: 65%;
+			  padding: 10px;
+			}	
+			}
+
+			/* Clear floats after the columns */
+			 {
+			  content: "";
+			  display: table;
+			  clear: both;
+			}
+
+
+			</style>
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+				<section>
+					<img  style="align-content: right;margin-top: -40pt;" width="200" height = auto src='media_city/logo_city.png'/>
+					
+					<h4>Discrete Morse theory <br>as generalized collapses</h4>
+					<p style="font-size:32px; color:red ;">XIMENA FERNANDEZ</p>
+					<p style="font-size:22px;">City St George's University of London</p>
+					<!--<p style="font-size:20px;">UK CENTRE FOR TOPOLOGICAL DATA ANALYSIS</p>-->
+					<p style="font-size:24px;"><b> Conference on Algebraic Topology </b></i></p> 
+					<p style="font-size:20px;color: grey;">24 April 2025 </p> 
+					<br>
+					<p style="font-size:20px;text-align:right;"><i style = "color: #ff4040">'Every mathematician has a secret weapon.<br>
+					Mine is Morse theory.'</i><br>
+					Raoul Bott.
+					</p>
+					 
+					
+				</section>
+
+				<section data-auto-animate>
+				  <h2>Motivation</h2>
+				</section>
+
+				<section data-auto-animate>
+				  <h2>Motivation</h2>
+				  <div style="font-size:32px; text-align:left">
+				    <p>Let $K$ be a finite CW-complex.</p>
+				    <p class="fragment"><b>Q:</b> Is there any <b>algorithm</b> to "determine" its homotopy type?</p> <p  class="fragment" style="color:red;"><b>A: NO</b></p>
+				  </div>
+				</section>
+
+
+
+				<section data-auto-animate>
+				  <h2>Motivation</h2>
+				  <div style="font-size:32px; text-align:left">
+				    <p>Let $K$ be a finite CW-complex.</p>
+				    <p> <b>Q:</b> Is there any <b>algorithm</b> to find a complex $L$ such that $K \simeq L$, <br> with $L$ <i style="color:red">"simpler"</i>?</p>
+				    <p class="fragment"> <b style="color:red;">A: YES.</b> <br>Collapses & Discrete Morse Theory <br> Strong Collapses & Strong Discrete Morse Theory</p>
+				  </div>
+				</section>
+ 
+
+
+				<section data-auto-animate>  
+					<h3>Combinatorial Homotopy Theory</h3>
+				</section>
+
+				<section data-auto-animate>  
+					<h3>Simple Homotopy Theory</h3>
+					<p style="font-size: 36px;">J.H.C. Whitehead ~1950</p>
+				</section>
+
+				<section data-auto-animate>  
+					<h3>Simple Homotopy Theory</h3>
+					<span style="font-size: 24px; text-align:left;"> 
+					<p>Let $K,L$ be CW-complexes.</p>
+					<ul>
+						<li> There is an <b style = "color: #ff4040">elementary collapse</b> $K\searrow^{\hspace{-5pt}e} L$ (or <b>elementary expansion</b> $L^{\hspace{5pt}e}\hspace{-8pt}\nearrow K$) if
+					    </li>
+					
+					<img width="700" height = auto src='media_perspi1/collapse_intro.png'/ class="center">
+					<li>For simplicial complexes, there is an <b style = "color: #ff4040">elementary collapse</b> $K\searrow^{\hspace{-5pt}e} L$ if $L=K\smallsetminus\{\sigma, \tau\}$ with $\tau$ the only simplex containing properly $\sigma$.</li>
+
+					</ul>
+					<img width="400" height = auto src='media_morse/collapse_labels.jpg'/ class="center">
+				</span>
+				</section>
+
+				<!--
+				<section data-auto-animate>  
+					<h3>Simple Homotopy Theory</h3>
+					<span style="font-size: 24px; text-align:left;"> 
+					<p>Let $K,L$ be CW-complexes.</p>
+					<ul>
+						<li> There is an <b style = "color: #ff4040">elementary collapse</b>  $K\searrow^{\hspace{-5pt}e} L$ (or <b>elementary expansion</b> $L^{\hspace{5pt}e}\hspace{-8pt}\nearrow K$) if
+					    </li>
+					</ul>
+					<img width="750" height = auto src='media_perspi1/collapse_conditions.png'/ class="center">
+				</span>
+				</section>
+				-->
+
+
+				<section data-auto-animate>  
+					<h3>Simple Homotopy Theory</h3>
+					<span style="font-size: 24px; text-align:left;"> 
+					<p>Let $K,L$ be CW-complexes.</p>
+					<ul>
+						<li> A <b style = "color: #ff4040">collapse</b> $K\searrow L$ is a sequence of elementary collapses $$K=K_0\searrow^{\hspace{-5pt}e} K_1 \searrow^{\hspace{-5pt}e} K_2 \searrow^{\hspace{-5pt}e} \dots \searrow^{\hspace{-5pt}e} K_n = L$$
+					    </li>
+					</ul>
+					<br>
+					<video  width="650" height = auto src="media_perspi1/collapse.mp4" data-autoplay></video>
+				</span>
+				</section>
+
+				<section data-auto-animate>  
+					<h3>Simple Homotopy Theory</h3>
+					<span style="font-size: 24px; text-align:left;"> 
+					<p>Let $K,L$ be CW-complexes.</p>
+					<ul>
+						<li> There is an <b style = "color: #ff4040">$n$-deformation</b> $K \nearrow \hspace{-2 pt}\searrow^{^{\hspace{-5pt}n}}L$  if there is a
+						 sequence of CW-complexes $$K=K_0,K_1,\dots K_r=L$$ s. t. 
+						 $K_i \searrow^{\hspace{-5pt}e}  K_{i+1}$ or
+						 $K_i ^{\hspace{5pt}e}\hspace{-5pt}\nearrow K_{i+1}  ~\forall 0\leq i\leq r-1$, $\dim(K_i)\leq n ~\forall 0\leq i\leq r$.
+						 </li>
+						 <br>
+						<li class="fragment">
+						 There is <b style = "color: #ff4040">simple homotopy equivalence</b> $K\nearrow\hspace{-2 pt}\searrow  L$ if $K \nearrow \hspace{-2 pt}\searrow^{^{\hspace{-5pt}n}}L$  for some $n\in \mathbb{N}$.
+					    </li>
+					</ul>
+				</span>
+				</section>
+
+
+				<section data-auto-animate>  
+					<h3>Simple Homotopy Theory</h3>
+					<span style="font-size: 24px; text-align:left;"> 
+					<p>Let $K,L$ be CW-complexes.</p>
+					<ul>
+						<li> <span style="color: red">YES</span> $K \nearrow\hspace{-2 pt}\searrow L \xRightarrow[]{:)} K\simeq L.$</li>
+						<br>
+  						<li class="fragment"> <span style="color: red"> BUT</span> $K\simeq L  ~~ \;\not\!\!\! \xRightarrow[]{:(} K \nearrow\hspace{-2 pt}\searrow L  $<br>
+  							<span class = "fragment">The <b>converse</b> is <b style="color:red">not true</b>, the obstruction is measured by the <b>Whitehead group</b>.
+  							<br> <i  style = "font-size: 22px; color: grey">If the Whitehead group $\mathrm{Wh} (K)$ of the complex $K$ is <b>trivial</b>, then any complex <b>homotopy equivalent</b> to $K$ is also <b>simple homotopy equivalent</b> to $K$.</i></span>
+  						</li>
+  						<br>
+						<li class="fragment"> For $K$ <b>contractible</b>, $\mathrm{Wh}(K)=0$ and, hence, $K\simeq * \Leftrightarrow K \nearrow\hspace{-2 pt}\searrow *.$ </li>
+						<br>
+						<li class="fragment"> (Whitehead '50) If $K, L$ are $n$-complexes, then $K \nearrow\hspace{-2 pt}\searrow  L \Rightarrow K \nearrow\hspace{-2 pt}\searrow^{^{\hspace{-7pt}n+1}}L$ if $n\neq 2$.
+						<br><span  style = "color: #ff4040"> For $n=2$, this question is open.</span></li>
+						<br>
+    					<li class="fragment"> (C.T.C. Wall '66) If $K, L$ are $2$-complexes, then $K \nearrow\hspace{-2 pt}\searrow L \Rightarrow K\nearrow\hspace{-2 pt}\searrow^{^{\hspace{-7pt}4}} L$.</li>
+					</ul>
+				</span>
+				</section>
+
+
+
+
+
+
+				<section data-auto-animate>  
+					<h3>Discrete Morse Theory</h3>
+				</section>
+
+				<section data-auto-animate>
+				<h3>Discrete Morse Theory</h3>
+				<span style="font-size: 24px; text-align:left;"> 
+				
+				<p><span style = "color: #ff4040"><b>Goal:</b> </span>'Simplify' the cell decomposition of a CW-complex while preserving its <b>homotopy type</b>.</p>
+				
+				<ul class="fragment">
+				<li> $K$ a <b>regular</b> CW-complex.
+				</li>
+				</ul>
+
+				</span>
+
+
+				<p class="fragment"><img width="210" height = auto src='media_perspi1/torus.png' class="center"></p>
+				</section>
+
+
+				<section data-auto-animate>
+				<h3>Discrete Morse Theory</h3>
+				<span style="font-size: 24px; text-align:left;"> 
+				
+				<p><span style = "color: #ff4040"><b>Goal:</b> </span>'Simplify' the cell decomposition of a CW-complex while preserving its <b>homotopy type</b>.</p>
+				
+				<ul>
+				<li > $K$ a <b>regular</b> CW-complex.
+				</li>
+				<li> $f:K\to \mathbb{R}$ a <b>discrete Morse function</b>.
+				</li>
+				<p style = "font-size: 22px; color: grey"> For every cell $e^n$ in $K$,<br>
+				$\#\{e^n\succ e^{n-1}: f(e^n)\leq  f(e^{n-1})\}\leq 1$ and  <br>$\#\{e^n\prec e^{n+1} : f(e^n)\geq f(e^{n+1})\}\leq 1.$</p>
+				
+				</ul>
+				
+				</span>
+				<p><img width="270" height = auto src='media_perspi1/morse.png'/ class="center"></p>
+				</section>
+
+
+				<section data-auto-animate>
+				<h3>Discrete Morse Theory</h3>
+				<span style="font-size: 24px; text-align:left;"> 
+				
+				<p><span style = "color: #ff4040"><b>Goal:</b> </span>'Simplify' the cell decomposition of a CW-complex while preserving its <b>homotopy type</b>.</p>
+				
+				<ul>
+				<li> $K$ a <b>regular</b> CW-complex.
+				</li>
+				<li> $f:K\to \mathbb{R}$ a <b>discrete Morse function</b>.
+				</li>
+				<li> $C$ the set of <b>critical cells</b> of $K$.<br>
+				</li>
+				<p style = "font-size: 22px; color: grey"> An $n$-cell $e^n \in  K$
+				is a <b>critical cell of index $n$</b> if the values of $f$ in every face and coface of $e^n$ increase with dimension.</p>
+				</ul>
+				
+				</span>
+
+				<p><img width="270" height = auto src='media_perspi1/critical.png'/ class="center"></p>
+				</section>
+
+
+
+				<section data-auto-animate>
+				<h3>Discrete Morse Theory</h3>
+				<span style="font-size: 24px; text-align:left;"> 
+				
+				<p><span style = "color: #ff4040"><b>Goal:</b> </span>'Simplify' the cell decomposition of a CW-complex while preserving its <b>homotopy type</b>.</p>
+				
+				<ul>
+				<li> $K$ a <b>regular</b> CW-complex.
+				</li>
+				<li> $f:K\to \mathbb{R}$ a <b>discrete Morse function</b>.
+				</li>
+				<li> $C$ the set of <b>critical cells</b> of $K$.<br>
+				</li>
+				</ul>
+				
+				<p style="padding: 6px; border: 2px solid black; font-size: 24px"><b> <span style ="color: #ff4040">Theorem </span>[Forman, '98].</b> $K$ is <b>homotopy equivalent</b> to a CW-complex <b>$\mathrm{core}_f(K)$</b> with exactly one cell of dimension $k$ for every critical cell of index $k$.</p>
+
+				</span>
+
+				<img width="700" height = auto src='media_perspi1/thm_morse.png'/ class="center"> <img class="fragment" width="250" height = auto src='media_perspi1/CW_decomposition.png'/ class="center"> 
+				</section>
+
+
+
+				<section data-background-image='media_morse/Epic Handshake Meme Collapses.png'>
+				<!--<img width="950" height = auto src='media_perspi1/Epic_Handshake.png'/ class="center"> -->
+				</section>
+
+				<section data-auto-animate>
+				<h3>Discrete Morse Theory</h3>
+				<span style="font-size: 24px; text-align:left;"> 
+					<b>Level subcomplex:</b> $K(\alpha) = \bigcup_{e\in K, f(e)\leq \alpha} \bar e$.
+				<p style="padding: 6px; border: 2px solid black; font-size: 24px"><b> <span style ="color: #ff4040">Lemma </span>[Forman, '98].</b> Let $f\colon K\to \mathbb{R}$ be a discrete Morse function.<br>
+					<b>A.</b>  If $f^{-1}(\alpha, \beta]$ contains no critical cells, then $K(\beta) \searrow K(\alpha)$.
+					<br>
+					<b>B.</b> If $f^{-1}(\alpha, \beta]$ contains exactly one critical $k$-cell, then $K(\beta) \simeq K(\alpha) \cup e^k$.
+					</p>
+				</span>
+
+				<img width="950" height = auto src='media_perspi1/level_collapse.png'/ class="center"> 
+				</section>
+
+				<section data-auto-animate>
+				<h5>Discrete Morse Theory 🤝  Simple Homotopy Theory</h5>
+				<span style="font-size: 24px; text-align:left;"> 
+				
+				<p style="padding: 6px; border: 2px solid black;"><b><span style = "color: #ff4040">Lemma </span>(Internal collapse):</b> Let $K$ be a CW-complex of dimension  $\leq n$. Let $\varphi:\partial D^n\to K$ be the 
+					attaching map of an $n$-cell $e^n$. 
+					If <b style="color:red">$K \searrow L$</b>, then \[K\cup e^n \nearrow\hspace{-1.5 pt} \searrow^{^{\hspace{-8pt} n+1}}L\cup \widetilde{e}^n\]
+					where the attaching map $\widetilde{\varphi}\colon \partial D^ n\to L$ of $\widetilde{e}^n$ is defined as $\widetilde{\varphi}=r \varphi$ with $r:K\to L$ the canonical
+					strong deformation retract induced by the collapse $K \searrow L$. </p>
+				
+
+				</span>
+
+				<img width="650" height = auto src='media_perspi1/collapse.png'/ class="center"> 
+				</section>
+
+
+				<section data-auto-animate>
+				<h5>Discrete Morse Theory 🤝 Simple Homotopy Theory</h5>
+				<span style="font-size: 24px; text-align:left;"> 
+				
+				<p style="padding: 6px; border: 2px solid black;"><b><span style = "color: #ff4040">Lemma </span>(Internal collapse):</b>  Let $K$ be a CW-complex of dimension  $\leq n$. Let $\varphi:\partial D^n\to K$ be the 
+					attaching map of an $n$-cell $e^n$. 
+					If <b style="color:red">$K \searrow L$</b>, then \[K\cup e^n \nearrow\hspace{-1.5 pt} \searrow^{^{\hspace{-8pt} n+1}}L\cup \widetilde{e}^n\]
+					where the attaching map $\widetilde{\varphi}\colon \partial D^ n\to L$ of $\widetilde{e}^n$ is defined as $\widetilde{\varphi}=r \varphi$ with $r:K\to L$ the canonical
+					strong deformation retract induced by the collapse $K \searrow L$. </p>
+
+				</span>
+
+				<img width="650" height = auto src='media_perspi1/new_cell.png'/ class="center"> 
+				</section>
+
+				<section data-auto-animate>
+				<h5>Discrete Morse Theory 🤝 Simple Homotopy Theory</h5>
+				<span style="font-size: 24px; text-align:left;"> 
+				
+				<p style="padding: 6px; border: 2px solid black;"><b><span style = "color: #ff4040">Lemma </span>(Internal collapse):</b> Let $K$ be a CW-complex of dimension  $\leq n$. Let $\varphi:\partial D^n\to K$ be the 
+					attaching map of an $n$-cell $e^n$. 
+					If <b style="color:red">$K \searrow L$</b>, then \[K\cup e^n \nearrow\hspace{-1.5 pt} \searrow^{^{\hspace{-8pt} n+1}}L\cup \widetilde{e}^n\]
+					where the attaching map $\widetilde{\varphi}\colon \partial D^ n\to L$ of $\widetilde{e}^n$ is defined as $\widetilde{\varphi}=r \varphi$ with $r:K\to L$ the canonical
+					strong deformation retract induced by the collapse $K \searrow L$. </p>
+				
+				</span>
+
+				<img width="650" height = auto src='media_perspi1/retract.png'/ class="center"> 
+				</section>
+
+				
+				<section data-auto-animate>
+				<h5>Discrete Morse Theory 🤝 Simple Homotopy Theory</h5>
+				<span style="font-size: 24px; text-align:left;"> 
+				
+				<p style="padding: 6px; border: 2px solid black;"><b><span style = "color: #ff4040">Lemma </span>(Internal collapse):</b>  Let $K$ be a CW-complex of dimension  $\leq n$. Let $\varphi:\partial D^n\to K$ be the 
+					attaching map of an $n$-cell $e^n$. 
+					If <b style="color:red">$K \searrow L$</b>, then \[K\cup e^n \nearrow\hspace{-1.5 pt} \searrow^{^{\hspace{-8pt} n+1}}L\cup \widetilde{e}^n\]
+					where the attaching map $\widetilde{\varphi}\colon \partial D^ n\to L$ of $\widetilde{e}^n$ is defined as $\widetilde{\varphi}=r \varphi$ with $r:K\to L$ the canonical
+					strong deformation retract induced by the collapse $K \searrow L$. </p>
+
+				</span>
+
+				<img width="650" height = auto src='media_perspi1/attaching.png'/ class="center"> 
+				</section>
+
+				<section data-auto-animate>
+				<h5>Discrete Morse Theory 🤝 Simple Homotopy Theory</h5>
+				<span style="font-size: 24px; text-align:left;"> 
+				
+				<p style="padding: 6px; border: 2px solid black;"><b><span style = "color: #ff4040">Lemma </span>(Internal collapse):</b>  Let $K$ be a CW-complex of dimension  $\leq n$. Let $\varphi:\partial D^n\to K$ be the 
+					attaching map of an $n$-cell $e^n$. 
+					If <b style="color:red">$K \searrow L$</b>, then \[K\cup e^n \nearrow\hspace{-1.5 pt} \searrow^{^{\hspace{-8pt} n+1}}L\cup \widetilde{e}^n\]
+					where the attaching map $\widetilde{\varphi}\colon \partial D^ n\to L$ of $\widetilde{e}^n$ is defined as $\widetilde{\varphi}=r \varphi$ with $r:K\to L$ the canonical
+					strong deformation retract induced by the collapse $K \searrow L$. </p>
+				
+				</span>
+
+				<img width="650" height = auto src='media_perspi1/question.png'/ class="center"> 
+				</section>
+
+
+				<section data-auto-animate>
+				<h5>Discrete Morse Theory 🤝 Simple Homotopy Theory</h5>
+				<span style="font-size: 24px; text-align:left;"> 
+				
+				<p style="padding: 6px; border: 2px solid black;"><b><span style = "color: #ff4040">Lemma </span>(Internal collapse):</b>  Let $K$ be a CW-complex of dimension  $\leq n$. Let $\varphi:\partial D^n\to K$ be the 
+				attaching map of an $n$-cell $e^n$. 
+				If <b style="color:red">$K \searrow L$</b>, then \[K\cup e^n \nearrow\hspace{-1.5 pt} \searrow^{^{\hspace{-8pt} n+1}}L\cup \widetilde{e}^n\]
+				where the attaching map $\widetilde{\varphi}\colon \partial D^ n\to L$ of $\widetilde{e}^n$ is defined as $\widetilde{\varphi}=r \varphi$ with $r:K\to L$ the canonical
+				strong deformation retract induced by the collapse $K \searrow L$. </p>
+				</span>
+
+				<img style="margin-top: -8pt;" width="630" height = auto src='media_perspi1/deformation.jpeg'/ class="center"> 
+				</section>
+
+				<!--
+				<section data-auto-animate>
+				<h5>Discrete Morse Theory 🤝 Simple Homotopy Theory</h5>
+				<span style="font-size: 24px; text-align:left;"> 
+				
+				<p style="padding: 6px; border: 2px solid black;"><b style = "color: #ff4040">Proposition [F.]: </b> Let $ \displaystyle K \cup \bigcup_{i=1}^d e_i$ be a CW-complex where
+				$\dim (K) \leq \dim (e_{i})\leq  \dim (e_{i+1})\leq n$ for all $i=1, 2, \dots, d$.
+				<br>
+				Let $\displaystyle \varphi_j:\partial D_j\to K\cup \bigcup_{i < j} e_i$  be the attaching map of $e_j$. 
+				 If <b style="color:red">$K \searrow L$</b>, then there exist CW-complexes $Z_1\leq Z_2\leq \dots \leq Z_d$ of <b style="color:red">dim $\leq n+1$</b> such that for every $j=1, 2, \dots, d,$
+				 \[K\cup \bigcup_{i=1}^j e_i \nearrow Z_j \searrow L\cup 
+				 \bigcup_{i=1}^j \widetilde e_i\] where the <b style="color:red">attaching map</b>
+				$\displaystyle \widetilde \varphi_j:\partial D_j\to L\cup \bigcup_{i< j}
+				\widetilde e_i$  of the cell $\widetilde e_j$ is defined <b style="color:red">inductively</b> as:
+				<br>
+
+				$\bullet ~~\displaystyle \widetilde \varphi_1=r_0\varphi_1$  with $r_0:K\to L$ the canonical strong deformation retract and for $j>1$,
+
+				$\bullet ~~\widetilde \varphi_{j}=\widetilde r_{j-1}\imath_{j-1}\varphi_{j}$ where $ \widetilde r_{j-1}:Z_{j-1}\to L\cup \bigcup_{i< j} \widetilde e_i$ is the strong deformation retract and $\imath_{j-1}: K\cup \bigcup_{i< j} e_i \to Z_{j-1}$ is the inclusion.
+				
+				</p>
+				
+				</span>
+				</section>
+				-->
+
+
+				<section data-auto-animate>
+				<h5>Discrete Morse Theory 🤝 Simple Homotopy Theory</h5>
+				<span style="font-size: 24px; text-align:left;"> 
+				
+				<p style="padding: 6px; border: 2px solid black;"><b style = "color: #ff4040">Theorem [F. 2024]: </b> Let $K$ be a regular CW-complex of <b>dim $n$</b> and let $f:K\to \mathbb{R}$  be <b>discrete Morse function</b>.
+				 Then, $f$ induces a  sequence of <b style="color: red;">internal collapses</b> given by a filtration of $K$ 
+				  \[ \varnothing = K_{-1} \subseteq L_0 \subseteq K_0\subseteq L_1\subseteq K_1 \dots \subseteq L_{N}\subseteq K_{N}=K\]
+				  such that:<br> $K_j\searrow L_{j}$ for all $1\leq j\leq N$ and <br>$\displaystyle L_{j}=K_{j-1}\cup \bigcup_{i=1}^{d_j} 
+				e_i^j$ with $\{e_i^j:0\leq j\leq N, 1\leq i \leq d_j\}$ the set of <b>critical cells</b> of $f$.
+				Moreover,
+				<br>
+				$ K \nearrow\hspace{-1.5 pt} \searrow^{^{\hspace{-8pt} n+1}}
+				L_0\cup \bigcup_{j=1}^{N} \bigcup_{i=1}^{d_j}\widetilde e_i^j = \mathrm{core}_f(K)$ the <b style="color: red;">internal core</b> of $K$. 
+
+				</p>
+				<p style="font-size: 20px; color: grey">* Here, the attaching maps of the cells $\widetilde e_i^j$ can be explicitly reconstructed from the internal collapses.</p>
+				</span>
+				</section>
+
+				<section data-auto-animate>
+				<h5>Discrete Morse Theory 🤝 Simple Homotopy Theory</h5>
+				<img width="850" height = auto src='media_perspi1/whitehead_morse.png'/ class="center"> 
+				</section>
+
+
+
+				<section data-auto-animate>
+					<h4 style="color:red">Application:</h4>
+					<h3>The Andrews-Curtis conjecture</h3>
+					<!--
+					<br>
+					<br>
+					<p style="font-size: 18px;text-align:left;">
+					$\bullet$ J. J. Andrews and M. L. Curtis. <i>Free groups and handlebodies.</i> Proc. Amer. Math. Soc., 16:192–195, 1965.
+					<br>
+					$\bullet$ X. Fernandez, <i>Combinatorial methods and algorithms in low-dimensional topology and the
+					Andrews-Curtis conjecture.</i> PhD thesis, University
+					of Buenos Aires, 2017.
+					<br>
+					$\bullet$ X. Fernandez. <i>Morse theory for group presentations.</i> arXiv:1912.00115, 2019.
+					</p>
+					-->
+				</section>
+
+				<section data-auto-animate>
+					<h3>The Andrews-Curtis conjecture</h3>
+					<span style="font-size: 24px; text-align:left;">
+					<p><b><span style = "color: #ff4040">Conjecture</span> [Andrews & Curtis, 1965].</b>
+						<br>
+					 Any finite <b>balanced</b> presentation  $\mathcal{P}=\langle x_1,\dots,x_n ~|~  r_1,\dots,r_n\rangle $ of the <b>trivial group</b>
+					can be transformed into the empty presentation $\langle ~|~\rangle$ by a 
+					finite sequence of the following <b>operations</b>:
+					<ol>
+					<li> replace  $r_i \leadsto r_i^{-1}$</li>
+					<li> replace  $r_i\leadsto r_i r_j$, $j \neq i$</li>
+					<li> replace $r_i\leadsto wr_i w^{-1}, $ for some $w\in F(x_1, x_2, \dots, x_n)$</li>
+					<li> add a generator $x_{n+1}$ and a relator $x_{n+1}$, or the inverse of this operation</li>
+					</ol>
+					</p>
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h3>Tietze transformations</h3>
+					<span style="font-size: 24px; text-align:left;">
+					<p><b><span style = "color: #ff4040">Theorem</span> [Tietze, 1908].</b>
+					<br>
+					 Any finite presentation  $\mathcal{P}=\langle x_1,\dots,x_n ~|~  r_1,\dots,r_m\rangle $ of a group $G$ 
+					can be transformed into any other presentation of the same group by a 
+					finite sequence of the following <b>operations</b>:
+					<ol>
+					<li> replace  $r_i \leadsto r_i^{-1}$</li>
+					<li> replace  $r_i\leadsto r_i r_j$, $j \neq i$</li>
+					<li> replace $r_i\leadsto wr_i w^{-1}, $ for some $w\in F(x_1, x_2, \dots, x_n)$</li>
+					<li> add a generator $x_{n+1}$ and a relator $x_{n+1}$, or the inverse of this operation</li>
+					<li> <b>add a relator $1$, or the inverse of this operation</b></li>
+					</ol>
+					</p>
+					</span>
+				</section>
+
+
+				<section data-auto-animate>
+					<h3>The Andrews-Curtis conjecture</h3>
+					<span style="font-size: 24px; text-align:left;">
+					<p><b style = "color: #ff4040">Potential counterexamples.</b>
+					<ul>
+					<li> $\mathcal{P}=\langle x, y~|~ xyx = yxy,~ x^n = y^{n+1}\rangle,~n\geq 2~$ [Akbulut & Kirby, 1985]</li>
+					<li>$\mathcal{P} = \langle x,y~|~x^{-1}y^n x = y^{n+1}, ~x = y^{-1}xyx^{-1}\rangle,~n\geq 2~ $  [Miller & Schupp, 1999]</li>
+					<li>$\mathcal{P}=\langle x,y~| ~x=[x^m,y^n], y=[y^p,x^q]\rangle ,~n,m,p,q\in \mathbb{Z}~$ [Gordon, 1984]</li>
+					<li>$\mathcal{P}=\langle x,y~| ~xy^2x^{-1} = y^3, yx^2y^{-1} = x^3\rangle$ [Crowell & Fox, 1968]</li>
+					<li>$\mathcal{P}=\langle x,y, z~| ~z^{-1}yz = y^2, x^{-1}zx = z^2, y^{-1}xy = x^2\rangle~$ [Rapaport, 1968]</li>
+					</ul>
+					</p>
+
+					<p class="fragment"><b><span style = "color: #ff4040">Theorem</span> [Bridson, 2015]</b> There exist balanced presentations of the trivial group that <b>satisfy the AC-conjecture</b> for which
+					the minimun length of any simplification sequence is <b>superexponential</b> in the total length of the relators.
+					</p>
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h3>The Andrews-Curtis conjecture</h3>
+					<span style="font-size: 24px; text-align:left;">
+					<p style="padding: 6px; border: 2px solid black;"><b>Remark <span style = "color: #ff4040">[Anonymous Referee].</span> </b>
+					 AC-transformations of group presentations are in correspondence with 3-deformations of 2-complexes.
+					</p>
+					<img width="400" height = auto src='media_perspi1/paper_AC.png'/>
+
+					</span>
+				</section>
+
+				<section data-auto-animate>
+					<h3>The Andrews-Curtis conjecture</h3>
+					<br>
+					<span style="font-size: 30px; text-align:left;">
+					<p><b><span style = "color: #ff4040">Conjecture</span> [Andrews & Curtis, 1965].</b>
+						<br>
+					 For any contractible CW-complex of dimension 2, it 3-deforms to a point.
+				</section>
+
+
+				<!--<section data-auto-animate>
+					<h3 data-id="title2">Morse theory for <br> group presentations</h3>
+				</section>
+				-->
+
+
+				<section data-auto-animate=true auto-animate-easing="ease-in-out">
+					<div  class="row" style="font-size: 37px; text-align:center;">
+					<div class="column_45">
+						<h4>CW-complexes of dim 2 </h4>
+
+					</div>
+					<div class="column_10">
+						$\leftrightarrow$
+					</div>
+		 	 		<div class="column_45">
+		 	 			<h4>Group presentations</h4>
+					</div>
+				</div>
+				</section>
+
+				<section data-auto-animate=true auto-animate-easing="ease-in-out">
+					<div  class="row" style="font-size: 28px; text-align:center;">
+					<div class="column_45">
+						<h4>CW-complexes </h4>
+						<p>$K_{\mathcal{P}}$</p>
+						<img width="350" height = auto src='media_perspi1/CW_presentation.png'/>
+					</div>
+					<div class="column_10">
+						$\leftrightarrow$
+						<br>
+						<p style="margin-top: 15pt;">$\longleftarrow$</p>
+					</div>
+		 	 		<div class="column_45">
+		 	 			<h4>Group presentations</h4>
+
+		 	 			<p> $\mathcal{P}= \langle x,y ~|~xyx^{-1}y^{-1}\rangle $</p>
+					</div>
+				</div>
+				</section>
+
+
+
+				<section data-auto-animate=true auto-animate-easing="ease-in-out">
+					<div  class="row" style="font-size: 28px; text-align:center;">
+					<div class="column_45">
+						<h4>CW-complexes of dim 2 </h4>
+						<p>$K$</p>
+						<img width="300" height = auto src='media_perspi1/tree.png'/>
+					</div>
+					<div class="column_10">
+						$\leftrightarrow$
+						<br>
+						<p style="margin-top:15pt;">$\longrightarrow$</p>
+					</div>
+		 	 		<div class="column_45">
+		 	 			<h4>Group presentations</h4>
+
+		 	 			<p style="font-size: 24px"> $\mathcal{P}_K = \langle x_4, x_6, x_7, x_8, x_9, x_{10}, x_{11},  x_{12}, x_{13}~ | \\~x_{13}, x_{13}^{-1}x_{12}x_4^{-1},x_{12}^{-1}x_{11}, x_{11}^{-1}x_{10}x_6^{-1}, \\
+								x_{10}^{-1}x_9x_4, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $</p>
+					</div>
+				</div>
+				</section>
+
+
+
+				<section data-auto-animate>
+					<h4>Morse theory for group presentations</h4>
+
+					<div  class="row" style="font-size: 28px; text-align:center;">
+						<div class="column_50">
+							<p>$K$</p>
+							<img width="300" height = auto src='media_perspi1/tree.png'/>
+							<p style="font-size: 22px;">$\mathcal{P}_K = \langle x_4, x_6, x_7, x_8, x_9, x_{10}, x_{11},  x_{12}, x_{13}~ | \\~ ~ ~ ~ ~ ~ ~ ~ ~ ~x_{13}, x_{13}^{-1}x_{12}x_4^{-1},x_{12}^{-1}x_{11}, x_{11}^{-1}x_{10}x_6^{-1}, \\
+								~ ~ ~ ~ ~ ~ ~ ~ ~ ~x_{10}^{-1}x_9x_4, x_9^{-1}x_8, x_8^{-1}x_7x_6, x_7^{-1}\rangle $</p>
+						</div>
+
+			 	 		<div class="column_50">
+			 	 			<p>$K + f\colon K\to \mathbb{R}$ Morse function</p>
+			 	 			<img width="300" height = auto src='media_perspi1/matching.png'/>
+			 	 			<p class="fragment" style="font-size: 22px;">$\mathcal{P}_{\mathrm{core}_f(K)} = \langle x_4, x_6~ | ~ x_6x_4x_6^{-1}x_4^{-1}\rangle $</p>
+						</div>
+
+					</div>
+
+				</section>
+
+				<section data-auto-animate>
+					<h4>Morse theory for group presentations</h4>
+					<span style="font-size: 24px; text-align:left;">
+					<p style="padding: 6px; border: 2px solid black;"><b style = "color: #ff4040">Theorem [F.]: </b> Given $K$ a <b style = "color: #ff4040">regular CW-complex</b> of dim 2 and $f\colon K\to \mathbb{R}$ a <b style = "color: #ff4040"> discrete Morse function </b> with a single critical 0-cell, there exist an algorithm to compute the <b>attaching maps</b> of $\mathrm{core}_f(K)$.
+					</p>
+					<p><i class="fas fa-desktop"></i> $O(M^2)$ with $M$ = |2-cells of $K$|.</p>
+					
+
+					<p > <i class="fab fa-github"></i> <span style ="font-family:Courier New"> <a href="https://github.com/ximenafernandez/Finite-Topological-Spaces">ximenafernandez/Finite-Topological-Spaces</a></span> (SAGE)
+					<p > <i class="fab fa-github"></i> <span style ="font-family:Courier New"> <a href="https://github.com/isadofschi/posets">Posets-Package</a></span> (GAP) <span style = "font-size: 22px; color: grey"> (joint with K. Piterman & I. Sadofschi Costa).
+
+					<p class="fragment"><b  style = "color: #ff4040">Corollary [F.]: </b> Given $\mathcal{P}$ a <b style="color: red">group presentation</b>, and a <b style="color:red;">discrete Morse function</b> on $K'_\mathcal{P}$, there exist an  algorithm to compute $\tilde{\mathcal{P}} = \mathcal{P}_{\mathrm{core}_f(K'_\mathcal{P})}$. In particular, $\mathcal P\sim_{AC}\mathcal{\tilde{P}}$.
+					</p>
+
+					<p class="fragment"><i class="fas fa-desktop"></i>$O(R^2)$ with $R$ the total length relator of $\mathcal P$.</p>
+					
+					
+					</span>
+					</p>
+					<br>
+					<p style="font-size: 16px">(c.f. Brendel, Ellis, Juda, Mrozek. <i>Fundamental group algorithm for low dimensional tessellated CW-complexes,</i> 2015. arXiv:1507.03396)</p>
+
+					</p>
+
+					</span>
+				</section>
+
+				
+
+				<section data-auto-animate>
+					<h3>The Andrews-Curtis conjecture</h3>
+					<br>
+					<span style="font-size: 24px; text-align:left;">
+					<p style="padding: 6px; border: 2px solid black;"><b style = "color: #ff4040">Theorem [F.].</b>  The following balanced presentations of the trivial group <b>satisfies</b> the Andrews-Curtis conjecture:
+				    <br>
+				    $\bullet ~~\mathcal{P}=\langle x, y~|~ xyx = yxy,~ x^2 = y^{3}\rangle$*  [Akbulut & Kirby, 1985]
+				    <br>
+				    $\bullet ~~\mathcal{P}= \langle x,y~|~x^{-1}y^3 x = y^{4}, ~x = y^{-1}xyx^{-1}\rangle$  [Miller & Schupp, 1999]
+				    <br>
+				    $\bullet ~~\mathcal{P}=\langle x,y~| ~x=[x^{-1},y^{-1}], y=[y^{-1},x^q]\rangle, \forall q \in \mathbb{N}$ [Gordon, 1984]
+					</p>
+					<br>
+					<p style="font-size: 16px">* First proved by Miasnikov in 2003 using genetic algorithms.</p>
+					</span>
+				</section>
+			</section>
+
+				<section data-auto-animate>
+				<h5>Discrete Morse Theory as generalized collapses</h5>
+				<span style="font-size: 28px">
+				<div class="column_50">
+					<b>Simple Homotopy Theory</b>
+					<br>
+					Collapses
+					<br>
+					$K\searrow L$
+					<br>
+				<img width="410" height = auto src='media_morse/collapse.jpg'/>
+				</div> 
+				
+				<div class="column_50">
+					<b>Discrete Morse Theory</b>
+					<br>
+					Internal collapses
+					<br>
+					$K \leadsto L$
+				<img width="440" height = auto src='media_morse/internal_collapse.jpg'/>
+				</div>
+
+				<p style="text-align: left; font-size: 24px;"><b style="color:red;">Rmk:</b> If $K\searrow L$, then there exists $f\colon K\to \mathbb{R}$ discrete Morse function s.t. $L = \mathrm{core}_f(K)$.</p>
+				<p style="text-align: left;" class="fragment"><b style="color:red;">Goal:</b> Understand the attaching maps of $\mathrm{core}_f(K)$.</p>
+				</span>
+				</section>
+
+				<section data-auto-animate>
+				<h5>Discrete Morse Theory as generalized collapses</h5>
+				<span style="font-size: 28px">
+				<div class="column_50">
+					<b>Simple Homotopy Theory</b>
+					<br>
+					Collapses
+					<br>
+					$K\searrow L$
+					<br>
+				<img width="410" height = auto src='media_morse/collapse.jpg'/>
+				</div> 
+				
+				<div class="column_50">
+					<b>Discrete Morse Theory</b>
+					<br>
+					Internal collapses
+					<br>
+					$K \leadsto L$
+				<img width="440" height = auto src='media_morse/internal_collapse.jpg'/>
+				</div>
+				<p style="text-align: left; font-size: 24px;"><b style="color:red;">Rmk:</b> If $K\searrow L$, then there exists $f\colon K\to \mathbb{R}$ discrete Morse function s.t. $L = \mathrm{core}_f(K)$.</p>
+				<p style="text-align: left;"><s><b>Goal:</b> Understand the attaching maps of $\sout{\mathrm{core}_f(K)}$.</s></p>
+				<p style="text-align: left;"><b style="color:red;">Goal:</b> Understand <b>when</b> the attaching maps of $\mathrm{core}_f(K)$ are <b>understandable</b>.</p>
+				</span>
+				</section>
+
+				<section data-auto-animate>  
+					<h3>Strong Homotopy Theory</h3>
+					<span style="font-size:30px">J. A. Barmak & E. G. Minian (2012)</span>
+				</section>
+
+				<section data-auto-animate>  
+					<h3>Strong Homotopy Theory</h3>
+					<span style="font-size: 24px; text-align:left;"> 
+					<p>Let $K, L$ be a simplicial complexes.</p>
+					<ul>
+						<li> There is an <b style = "color: #ff4040">elementary strong collapse</b> $K\searrow\hspace{-6 pt}\searrow\hspace{-8 pt}^e \hspace{5 pt} K\smallsetminus v$  if $\mathrm{lk}(v,K)$ is a simplicial cone with apex $a$ ($v$ <b> dominated</b> by $a$).
+					    </li>
+					
+					   	
+					</ul>
+					<img width="600" height = auto src='media_morse/strong_collapse_labels.png'/ class="center">
+				</span>
+				</section>
+
+								<section data-auto-animate>  
+					<h3>Strong Homotopy Theory</h3>
+					<span style="font-size: 24px; text-align:left;"> 
+					<p>Let $K, L$ be a simplicial complexes.</p>
+					<ul>
+						<li> There is an <b style = "color: #ff4040">elementary strong collapse</b> $K\searrow\hspace{-6 pt}\searrow\hspace{-8 pt}^e \hspace{5 pt} K\smallsetminus v$  if $\mathrm{lk}(v,K)$ is a simplicial cone with apex $a$ ($v$ <b> dominated</b> by $a$).
+					    </li>
+					    <li> A <b style = "color: #ff4040">strong collapse</b> $K\searrow\hspace{-6 pt}\searrow L$ is a sequence of elementary strong collapses $$K=K_0\searrow\hspace{-6 pt}\searrow\hspace{-8 pt}^e \hspace{5 pt} K_1 \searrow\hspace{-6 pt}\searrow\hspace{-8 pt}^e \hspace{5 pt} K_2 \searrow\hspace{-6 pt}\searrow\hspace{-8 pt}^e \hspace{5 pt} \dots \searrow\hspace{-6 pt}\searrow\hspace{-8 pt}^e \hspace{5 pt} K_n = L$$
+					    </li>
+					    
+					</ul>
+
+					<p class="fragment"><b style="color:red">Remark:</b> $K\searrow L$ implies $K\searrow\hspace{-6 pt}\searrow L$ BUT the converse is not true.</p>
+					<img width="600" height = auto src='media_morse/strong_collapse_labels.png'/ class="center">
+				</span>
+				</section>
+
+
+
+				<section data-auto-animate>
+				<h5>Discrete Morse Theory 🤝 Strong Homotopy Theory</h5>
+					<span style="font-size: 24px; text-align:left;"> 
+					<p>Let $g\colon V(K)\to \mathrm{R}$ be a real-valued function. <br>Define $K_\alpha = \{\sigma\in K\colon f(v)\leq \alpha ~ \forall v\in V(\sigma)\}$ <b>sublevel complex</b>.
+
+					<ul>
+					<li>A vertex $v$ is <b style="color:red;">descending dominated</b> if $v$ is dominated by $a$ in $K_{f(v)}$ and $f(a)< f(v)$.</li>
+					<br>
+					<li class = "fragment">A vertex is <b style="color:red;">strong critical</b> if it is not descending dominated.</li>
+					</ul>
+					</p>
+
+					<p class="fragment" style="padding: 6px; border: 2px solid black; font-size: 24px; text-align:left"><b> <span style ="color: #ff4040">Theorem </span>[F. 2025].</b> $K$ is <b>homotopy equivalent</b> to a CW-complex <b>$\mathrm{core}_g(K)$</b> with exactly one cell of dimension $k$ for every $k$-simplex in $\mathrm{st}(v,K_{f(v)})$ with $v$ strong critical vertex.<br>
+				Moreover, $\mathrm{core}_g(K)$ is <b style="color:red">regular</b>.</p>
+				</section>
+
+	
+
+
+				<section data-background-image='media_morse/Epic Handshake Meme Strong.png'>
+				<!--<img width="950" height = auto src='media_perspi1/Epic_Handshake.png'/ class="center"> -->
+				</section>
+
+
+
+				<section data-auto-animate>
+				<h3>Strong Discrete Morse Theory</h3>
+				<span style="font-size: 24px; text-align:left;"> 
+					<b>Level subcomplex:</b> $K_\alpha = \displaystyle \bigcup_{\substack{\sigma\in K, \\f(v)\leq \alpha \forall v\in \sigma}}  \sigma$.
+				<br>
+				<div style="padding: 2px; border: 2px solid black; font-size: 24px; margin-top: 10px;">
+				<p ><b> <span style ="color: #ff4040">Lemma </span>[F., 2025].</b> Let $f\colon V(K)\to \mathbb{R}$ be a real-valued function.<br>
+					<b>A.</b>  If $f^{-1}(\alpha, \beta]$ has no strong critical vertices, then $K(\beta) \searrow\hspace{-6 pt}\searrow K(\alpha)$.
+					<br>
+					<b>B.</b> If $f^{-1}(\alpha, \beta]$ has exactly one strong critical vertex $v$, then $K(\beta) \simeq K_\alpha \cup \bigcup e_k$ with $e_k$ in corrspondence with simplices in $\mathrm{st}(v,K_{f(v)})$.
+					</p>
+				</div>
+				<div style="padding: 2px; border: 2px solid black; margin-top: 10px;" class="fragment">
+					<p  style="font-size: 24px"><b> <span style ="color: #ff4040">Proposition </span>[F., 2025].</b> Let $K$ be a finite simplicial complex.
+					<ul>
+					<li> If $K \searrow\hspace{-6 pt}\searrow L$, then there exists a function $g \colon V(K) \to \mathbb{R}$ such that $\mathrm{core}_g(K) = L$.</li>
+					<li> Let $g\colon V(K) \to \mathbb{R}$ be a real-valued map. <br> Then, there exists <b>discrete Morse function</b> $f\colon K\to \mathbb{R}$ such that its <b>critical simplices</b> are the simplices in $\{\mathrm{st}^\downarrow(w, K) : w \text{ is a strong critical vertex} \text{ of } g\}$. <br>Moreover,  $\mathrm{core}_{g}(K)\cong  \mathrm{core}_{f}(K)$ <!--, that is the strong internal core associated to  $g$ is precisely the internal core  associated to $f$.-->
+					</li>
+					</ul>
+					</div>
+				
+				</span>
+
+				
+				</section>
+
+			
+				<section data-auto-animate>
+					<h4 style="color:red">Application:</h4>
+					<h3>Algorithmic simplification of simplicial complexes</h3>
+
+					
+
+				</section>
+
+				<section data-auto-animate>
+					<h3>Algorithmic simplification of simplicial complexes</h3>
+					<span style="font-size: 26px; text-align:left;">
+					<p>Given $g\colon V(K)\to \mathbb{R}$ map, the <b style="color: red">face poset</b> of $\mathrm{core}_g(K)$ determines it.</p>
+
+					<p><b style="color:red">Rmk:</b> The face poset of $\mathrm{core}_g(K)$ is the <b>poset of incidence of the critical simplices</b>.</p>
+					</span>
+					<span class="fragment"><img width="300" height = auto src='media_morse/simplicial_complex.png'/>
+					<span style="margin-left:40px"><img  width="400" height = auto src='media_morse/face_poset.png'/></span>
+					<span style="margin-left:30px"><img width="120" height = auto src='media_morse/internal_core_poset.png'/></span>
+
+
+					</span>
+				</section>
+
+				<section data-auto-animate>
+
+					<h3>Algorithmic simplification of simplicial complexes</h3>
+					<span style="font-size: 26px; text-align:left;">
+					<p>Given $g\colon V(K)\to \mathbb{R}$ map, the face poset of $\mathrm{core}_g(K)$ determines it.</p>
+
+					<p><b>Rmk:</b> The face poset of $\mathrm{core}_g(K)$ is the poset of incidence of the critical simplices.</p>
+					</span>
+					<img style="margin-top: -40px;" width="300" height = auto src='media_morse/simplicial_complex_strong.png'/>
+					<span style="margin-left:40px"><img width="140" height = auto src='media_morse/strong_internal_core.png'/></span>
+					<span style="margin-left:80px"><img  width="250" height = auto src='media_morse/strong_internal_core_poset.png'/></span>
+
+				</section>
+
+				<section data-auto-animate>
+
+					<h3>Algorithmic simplification of simplicial complexes</h3>
+					
+					
+					<img  width="1000" height = auto src='media_morse/diagram_cores.png'/>
+
+				</section>
+
+				<section data-auto-animate>
+					
+					<h3>Algorithmic simplification of simplicial complexes</h3>
+					
+					
+					<img  width="1000" height = auto src='media_morse/table.png'/>
+
+				</section>
+
+
+				
+
+				<section data-auto-animate> 
+					<h4>Collapsing the talk into a slide</h4>
+					<br>
+					<span style="font-size: 26px; text-align:left;">
+					<ul>
+					<li><b style="color:red">Discrete Morse theory</b> provides a organized framework for <b style="color:red">internal collapses</b>, which represent <b>$(n+1)$-deformations</b>.</li>
+					<br>
+					<li>The <b style="color:red">attaching maps</b> of the <b>internal core</b> and the  can be <b> algorithmically</b> tracked from the original CW-complex for:
+						<ul><li>2-complexes;</li>
+							<li>strong internal collapses.</li>
+						</ul>
+					</li>
+					<br>
+
+					<li> <b>Algorithm</b> to compute:
+						<ul>
+							<li>(some) <b style="color:red">AC-equivalent presentations/3-deformations of 2-complexes</b>  $\leadsto$ Andrews-Curtis conjecture</li>
+							<li> <b style="color:red">random strong internal core</b> $\leadsto$ simplified homotopy equivalent simplicial complexes </li>
+						</ul>
+					</li>
+				</ul>
+					<br>
+					</span>
+	
+				</section>
+
+				<section data-auto-animate> 
+					<h4>References</h4>
+					<br>
+					<span style="font-size: 22px; text-align:left;">
+					<ul>
+					<li> <b style = 'color:red'>PhD thesis.</b> X. Fernandez, <b>Combinatorial methods and algorithms in low-dimensional topology and the
+					Andrews-Curtis conjecture.</b> University
+					of Buenos Aires (2017)</li>
+					<br>
+					<li> <b style = 'color:red'> Articles.</b> 
+						<ul>
+							<li>X. Fernandez. <b>Morse theory for group presentations.</b>  Trans. Amer. Math. Soc. 377 (2024), 2495-2523.</li>
+							<li>X. Fernandez. <b>Strong Morse Theory.</b>  Arxiv. (2025)</li>
+						</ul>
+					</li>
+					<br>
+					<li> <b style = 'color:red'>Github repositories.</b> 
+						<ul>
+							<li><tt style = "font-size: 18px;">ximenafernandez/<b>Finite-Topological-Spaces</b></tt> (SAGE)</li>
+							<li><tt style = "font-size: 18px;">ximenafernandez/<b>Strong-Morse-Theory</b></tt> (SAGE)</li>
+						</ul>
+					<br>
+					<li> <b style = 'color:red'>Tutorial.</b> <b>Morse Theory 2.0</b> at AATRN Youtube Channel.</li>
+					<br>
+					<li> <b style = 'color:red'>Slides.</b> </li>
+					</ul>
+					</span>
+					<br>
+					<br>
+					<h5 class="fragment" style="color: red;">Thanks!</h5>
+				</section>
+
+
+
+
+
+			
+
+
+			</div>
+
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/math/math.js"></script>
+		<script>
+		Reveal.initialize({ plugins: [ RevealMath.KaTeX ] });
+		</script>
+
+	</body>
+</html>

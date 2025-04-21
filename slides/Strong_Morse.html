@@ -1,0 +1,362 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+
+
+		<title></title>
+
+		<meta name="description" content="Strong Discrete Morse Theory">
+		<meta name="author" content="Ximena Fernandez">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="../dist/reveal.css">
+		<link rel="stylesheet" href="../dist/theme/white.css" id="theme">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.1/css/all.css">
+		<link rel="stylesheet" href="../plugin/drawer/drawer.css" />
+		<link rel="stylesheet" href="../plugin/pointer/pointer.css" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<style>
+			* {
+			  box-sizing: border-box;
+			}
+
+			.column_50 {
+			  float: left;
+			  width: 50%;
+			  padding: 10px;
+			}
+
+			.column_10 {
+			  float: left;
+			  width: 10%;
+			  padding: 2px;
+			}	
+
+			.column_45 {
+			  float: left;
+			  width: 45%;
+			  padding: 10px;
+			}	
+
+			.column_35 {
+			  float: left;
+			  width: 35%;
+			  padding: 10px;
+			}	
+			.column_65 {
+			  float: left;
+			  width: 65%;
+			  padding: 10px;
+			}	
+			}
+
+			/* Clear floats after the columns */
+			 {
+			  content: "";
+			  display: table;
+			  clear: both;
+			}
+
+
+			</style>
+
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<div class="slides">
+
+				<section>
+					<img  style="align-content: right;margin-top: -30pt;" width="200" height = auto src='media_city/logo_city.png'/>
+					<h3>Strong Discrete Morse Theory</h3>
+					<p style="font-size:30px;">XIMENA FERNANDEZ</p>
+					<p style="font-size:22px;">City St George's University of London</p>
+					
+					<p style="font-size:24px;margin-top: 50pt;"><b> Northeastern Topology Seminar </b></i></p> 
+					<br>
+					<br>
+					<p style="font-size:20px;text-align:right;"><i style = "color: #ff4040">'Every mathematician has a secret weapon.<br>
+					Mine is Morse theory.'</i><br>
+					Raoul Bott.
+					</p>
+					 
+					
+				</section>
+
+
+
+				<section data-auto-animate>  
+					<h3>Discrete Morse Theory</h3>
+				</section>
+
+				<section data-auto-animate>
+				<h3>Discrete Morse Theory</h3>
+				<span style="font-size: 24px; text-align:left;"> 
+				
+				<p><span style = "color: #ff4040"><b>Goal:</b> </span>'Simplify' the structure of a simplicial complex while preserving its homotopy type.</p>
+				
+				<p class="fragment">
+				Let $f\colon K\to \mathbb{R}$ be a function over the simplices of $K$.
+
+				For every simplex $\sigma\in K$, \[
+				C(\sigma) := \{\tau \prec \sigma \colon f(\tau) \geq f(\sigma)\}
+				 \cup \{\tau \succ \sigma \colon f(\tau) \leq f(\sigma)\}
+				\]
+				<ul  class="fragment">
+				<li>$f$ is  a <b>discrete Morse function</b> if $|C(\sigma)|\leq 1$ for all $\sigma\in K$.</li>
+				<li>A simplex $\sigma\in K$ is  <b>critical</b> if $|C(\sigma)|=0$.</li>
+				<li>$M = \big\{\{\sigma, \tau\} \colon C(\sigma) = \{\tau\}\big\}$ defines a <b>matching</b>. Moreover, $M$ is <b>'acyclic'</b>.</li>
+				</b>
+
+				</p>
+
+				</span>
+
+				</section>
+
+
+				<section data-auto-animate>
+				<h3>Discrete Morse Theory</h3>
+				<span style="font-size: 24px; text-align:left;"> 
+				
+				<p><span style = "color: #ff4040"><b>Goal:</b> </span>'Simplify' the structure of a simplicial complex while preserving its homotopy type.</p>
+	
+				<p style="padding: 6px; border: 2px solid black; font-size: 24px"><b> <span style ="color: #ff4040">Theorem </span>[Forman, '98].</b> Let $K$ be a finite simplicial complex, and let $f\colon K \to \mathbb{R}$ be a discrete Morse function. Then $K$ is homotopy equivalent to a CW-complex,  with exactly one cell of dimension $d$ for every critical $d$-simplex of $f$. </p>
+
+				</span>
+
+				</section>
+
+				<section data-auto-animate>
+				<h3>Discrete Morse Theory</h3>
+				<span style="font-size: 24px; text-align:left;"> 
+				
+				If $\tau$ is the unique simplex containing $\sigma$ properly in $K$, $\sigma$ is  a <b>free face</b> of $\tau$ if . Elementary collapse  $K \searrow K\smallsetminus \{\sigma, \tau\}$
+
+				<b>(Simple) collapse</b> $K \searrow L$: $K = K_n \ce K_{n-1} \ce \dots \ce K_0 = L$ of elementary collapses from $K$ to $L$.
+	
+				<p style="padding: 6px; border: 2px solid black; font-size: 24px"><b> <span style ="color: #ff4040">Lemma </span>[Forman, '98].</b> Let $f\colon K\to \mathbb{R}$ be a discrete Morse function and let $M$ be the induced acyclic matching. Let $\{\bar \sigma_1, \bar \sigma_2, \dots, \bar \sigma_k\}$ be a linear extension of $\Loc_M(K)$.
+				<ol type="A">
+				<li> If $Q^{-1}(\{\bar \sigma_i, \bar \sigma_{i+1}, \dots, \bar \sigma_j\})$  contains no critical simplices, then $K_{j}\co K_{i-1}$.</li>
+				<li>If $Q^{-1}(\{\bar \sigma_i, \bar \sigma_{i+1}, \dots, \bar \sigma_j\})$ contains exactly one critical simplex of dimension $k$, then $K_j\simeq K_{i-1}\cup e^k$, where $e^k$ is a $k$-dimensional cell.</li>
+				</ol>
+
+				</p>
+
+				</span>
+
+				</section>
+
+
+
+
+				<section data-auto-animate>
+				<h3>Combinatorial perspective</h3>
+				Collapse  Internal collapse
+				</section>
+
+				<section data-auto-animate>
+				<h4>Combinatorial perspective</h3>
+				
+				Simple homotopy theory Discrete Morse theory
+				</section>
+
+
+				<section data-auto-animate>
+				<h4>Combinatorial perspective</h3>
+				
+				Goal: Understand attaching maps of core(K).
+				</section>
+
+				<section data-auto-animate>
+				<h4>Combinatorial perspective</h3>
+				
+				Goal: Understand when attaching maps of core(K) are understandable.
+				</section>
+
+				<section data-auto-animate>
+				<h3>Combinatorial perspective</h3>
+				Strong collapse 
+				</section>
+
+				<section data-auto-animate>
+				<h3>Combinatorial perspective</h3>
+				Internal Strong collapse 
+				</section>
+
+				<section data-auto-animate>
+				<h4>Combinatorial perspective</h3>
+				
+				Strong homotopy theory Strong Discrete Morse theory
+				</section>
+
+
+
+
+				<section data-auto-animate>
+				<h5>Discrete Morse Theory & Whitehead deformations</h5>
+				<span style="font-size: 24px; text-align:left;"> 
+				
+				<p style="padding: 6px; border: 2px solid black;"><b><span style = "color: #ff4040">Lemma </span>(Internal collapse):</b> Let $K$ be a CW-complex of dimension  $\leq n$. Let $\varphi:\partial D^n\to K$ be the 
+					attaching map of an $n$-cell $e^n$. 
+					If $K \searrow L$, then \[K\cup e^n \nearrow\hspace{-1.5 pt} \searrow\hspace{-8pt}^{^{n+1}}L\cup \widetilde{e}^n\]
+					where the attaching map $\widetilde{\varphi}\colon \partial D^ n\to L$ of $\widetilde{e}^n$ is defined as $\widetilde{\varphi}=r \varphi$ with $r:K\to L$ the canonical
+					strong deformation retract induced by the collapse $K \searrow L$. </p>
+				
+
+				</span>
+
+				<img width="650" height = auto src='media_perspi1/collapse.png'/ class="center"> 
+				</section>
+
+
+				<section data-auto-animate>
+				<h5>Discrete Morse Theory & Whitehead deformations</h5>
+				<span style="font-size: 24px; text-align:left;"> 
+				
+				<p style="padding: 6px; border: 2px solid black;"><b><span style = "color: #ff4040">Lemma </span>(Internal collapse):</b>  Let $K$ be a CW-complex of dimension  $\leq n$. Let $\varphi:\partial D^n\to K$ be the 
+					attaching map of an $n$-cell $e^n$. 
+					If $K \searrow L$, then \[K\cup e^n \nearrow\hspace{-1.5 pt} \searrow\hspace{-8pt}^{^{n+1}}L\cup \widetilde{e}^n\]
+					where the attaching map $\widetilde{\varphi}\colon \partial D^ n\to L$ of $\widetilde{e}^n$ is defined as $\widetilde{\varphi}=r \varphi$ with $r:K\to L$ the canonical
+					strong deformation retract induced by the collapse $K \searrow L$. </p>
+
+				</span>
+
+				<img width="650" height = auto src='media_perspi1/new_cell.png'/ class="center"> 
+				</section>
+
+				<section data-auto-animate>
+				<h5>Discrete Morse Theory & Whitehead deformations</h5>
+				<span style="font-size: 24px; text-align:left;"> 
+				
+				<p style="padding: 6px; border: 2px solid black;"><b><span style = "color: #ff4040">Lemma </span>(Internal collapse):</b> Let $K$ be a CW-complex of dimension  $\leq n$. Let $\varphi:\partial D^n\to K$ be the 
+					attaching map of an $n$-cell $e^n$. 
+					If $K \searrow L$, then \[K\cup e^n \nearrow\hspace{-1.5 pt} \searrow\hspace{-8pt}^{^{n+1}}L\cup \widetilde{e}^n\]
+					where the attaching map $\widetilde{\varphi}\colon \partial D^ n\to L$ of $\widetilde{e}^n$ is defined as $\widetilde{\varphi}=r \varphi$ with $r:K\to L$ the canonical
+					strong deformation retract induced by the collapse $K \searrow L$. </p>
+				
+				</span>
+
+				<img width="650" height = auto src='media_perspi1/retract.png'/ class="center"> 
+				</section>
+
+				
+				<section data-auto-animate>
+				<h5>Discrete Morse Theory & Whitehead deformations</h5>
+				<span style="font-size: 24px; text-align:left;"> 
+				
+				<p style="padding: 6px; border: 2px solid black;"><b><span style = "color: #ff4040">Lemma </span>(Internal collapse):</b>  Let $K$ be a CW-complex of dimension  $\leq n$. Let $\varphi:\partial D^n\to K$ be the 
+					attaching map of an $n$-cell $e^n$. 
+					If $K \searrow L$, then \[K\cup e^n \nearrow\hspace{-1.5 pt} \searrow\hspace{-8pt}^{^{n+1}}L\cup \widetilde{e}^n\]
+					where the attaching map $\widetilde{\varphi}\colon \partial D^ n\to L$ of $\widetilde{e}^n$ is defined as $\widetilde{\varphi}=r \varphi$ with $r:K\to L$ the canonical
+					strong deformation retract induced by the collapse $K \searrow L$. </p>
+
+				</span>
+
+				<img width="650" height = auto src='media_perspi1/attaching.png'/ class="center"> 
+				</section>
+
+				<section data-auto-animate>
+				<h5>Discrete Morse Theory & Whitehead deformations</h5>
+				<span style="font-size: 24px; text-align:left;"> 
+				
+				<p style="padding: 6px; border: 2px solid black;"><b><span style = "color: #ff4040">Lemma </span>(Internal collapse):</b>  Let $K$ be a CW-complex of dimension  $\leq n$. Let $\varphi:\partial D^n\to K$ be the 
+					attaching map of an $n$-cell $e^n$. 
+					If $K \searrow L$, then \[K\cup e^n \nearrow\hspace{-1.5 pt} \searrow\hspace{-8pt}^{^{n+1}}L\cup \widetilde{e}^n\]
+					where the attaching map $\widetilde{\varphi}\colon \partial D^ n\to L$ of $\widetilde{e}^n$ is defined as $\widetilde{\varphi}=r \varphi$ with $r:K\to L$ the canonical
+					strong deformation retract induced by the collapse $K \searrow L$. </p>
+				
+				</span>
+
+				<img width="650" height = auto src='media_perspi1/question.png'/ class="center"> 
+				</section>
+
+
+				<section data-auto-animate>
+				<h5>Discrete Morse Theory & Whitehead deformations</h5>
+				<span style="font-size: 24px; text-align:left;"> 
+				
+				<p style="padding: 6px; border: 2px solid black;"><b><span style = "color: #ff4040">Lemma </span>(Internal collapse):</b>  Let $K$ be a CW-complex of dimension  $\leq n$. Let $\varphi:\partial D^n\to K$ be the 
+				attaching map of an $n$-cell $e^n$. 
+				If $K \searrow L$, then \[K\cup e^n \nearrow\hspace{-1.5 pt} \searrow\hspace{-8pt}^{^{n+1}}L\cup \widetilde{e}^n\]
+				where the attaching map $\widetilde{\varphi}\colon \partial D^ n\to L$ of $\widetilde{e}^n$ is defined as $\widetilde{\varphi}=r \varphi$ with $r:K\to L$ the canonical
+				strong deformation retract induced by the collapse $K \searrow L$. </p>
+				
+				</span>
+
+				<img width="650" height = auto src='media_perspi1/deformation.jpeg'/ class="center"> 
+				</section>
+
+
+				<section data-auto-animate>
+				<h5>Discrete Morse Theory & Whitehead deformations</h5>
+				<span style="font-size: 24px; text-align:left;"> 
+				
+				<p style="padding: 6px; border: 2px solid black;"><b style = "color: #ff4040">Proposition [F. 2017]: </b> Let $ \displaystyle K \cup \bigcup_{i=1}^d e_i$ be a CW-complex where
+				$\dim (K) \leq \dim (e_{i})\leq  \dim (e_{i+1})\leq n$ for all $i=1, 2, \dots, d$.
+				Let $\displaystyle \varphi_j:\partial D_j\to K\cup \bigcup_{i < j} e_i$  be the attaching map of $e_j$. 
+				 If $K\searrow L$, then there exist CW-complexes $Z_1\leq Z_2\leq \dots \leq Z_d$ of dim $\leq n+1$ such that for every $j=1, 2, \dots, d,$
+				 \[K\cup \bigcup_{i=1}^j e_i \nearrow Z_j \searrow L\cup 
+				 \bigcup_{i=1}^j \widetilde e_i\] where the attaching map
+				$\displaystyle \widetilde \varphi_j:\partial D_j\to L\cup \bigcup_{i< j}
+				\widetilde e_i$  of the cell $\widetilde e_j$ is defined <b>inductively</b> as:
+				<br>
+
+				$\bullet ~~\displaystyle \widetilde \varphi_1=r_0\varphi_1$  with $r_0:K\to L$ the canonical strong deformation retract and for $j>1$,
+
+				$\bullet ~~\widetilde \varphi_{j}=\widetilde r_{j-1}\imath_{j-1}\varphi_{j}$ where $ \widetilde r_{j-1}:Z_{j-1}\to L\cup \bigcup_{i< j} \widetilde e_i$ is the strong deformation retract and $\imath_{j-1}: K\cup \bigcup_{i< j} e_i \to Z_{j-1}$ is the inclusion.
+				
+				</p>
+				
+				</span>
+				</section>
+
+
+				<section data-auto-animate>
+				<h5>Discrete Morse Theory & Whitehead deformations</h5>
+				<span style="font-size: 24px; text-align:left;"> 
+				
+				<p style="padding: 6px; border: 2px solid black;"><b style = "color: #ff4040">Theorem [F. 2017]: </b> Let $K$ be a regular CW-complex of <b>dim $n$</b> and let $f:K\to \mathbb{R}$  be discrete Morse function.
+				 Then, $f$ induces a  sequence of internal collapses given by a filtration of $K$ 
+				  \[ \varnothing = K_{-1} \subseteq L_0 \subseteq K_0\subseteq L_1\subseteq K_1 \dots \subseteq L_{N}\subseteq K_{N}=K\]
+				  such that $K_j\searrow L_{j}$ for all $1\leq j\leq N$ and $\displaystyle L_{j}=K_{j-1}\cup \bigcup_{i=1}^{d_j} 
+				e_i^j$ with $\{e_i^j:0\leq j\leq N, 1\leq i \leq d_j\}$ the set of <b>critical cells</b> of $f$.
+				Moreover,
+				\[
+				K \nearrow\hspace{-1.5 pt} \searrow\hspace{-8pt}^{^{n+1}}
+				L_0\cup \bigcup_{j=1}^{N} \bigcup_{i=1}^{d_j}\widetilde e_i^j = K_\mathcal{M}.\]
+
+				</p>
+				<p style="font-size: 20px; color: grey">* Here, the attaching maps of the cells $\widetilde e_i^j$ can be explicitly reconstructed from the internal collapses.</p>
+				</span>
+				</section>
+
+				<section data-auto-animate>
+				<h5>Discrete Morse Theory & Whitehead deformations</h5>
+				<img width="850" height = auto src='media_perspi1/whitehead_morse.png'/ class="center"> 
+				</section>
+
+					
+
+
+			
+
+
+			</div>
+
+		</div>
+
+		<script src="../dist/reveal.js"></script>
+		<script src="../plugin/math/math.js"></script>
+		<script>
+		Reveal.initialize({ plugins: [ RevealMath.KaTeX ] });
+		</script>
+
+	</body>
+</html>
