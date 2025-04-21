@@ -203,8 +203,8 @@
 						<br>
 						<li class="fragment"> (Whitehead '50) If $K, L$ are $n$-complexes, then $K \nearrow\hspace{-2 pt}\searrow  L \Rightarrow K \nearrow\hspace{-2 pt}\searrow^{^{\hspace{-7pt}n+1}}L$ if $n\neq 2$.
 						<br><span  style = "color: #ff4040"> For $n=2$, this question is open.</span></li>
-						<br>
-    					<li class="fragment"> (C.T.C. Wall '66) If $K, L$ are $2$-complexes, then $K \nearrow\hspace{-2 pt}\searrow L \Rightarrow K\nearrow\hspace{-2 pt}\searrow^{^{\hspace{-7pt}4}} L$.</li>
+						<!--<br>
+    					<li class="fragment"> (C.T.C. Wall '66) If $K, L$ are $2$-complexes, then $K \nearrow\hspace{-2 pt}\searrow L \Rightarrow K\nearrow\hspace{-2 pt}\searrow^{^{\hspace{-7pt}4}} L$.</li>-->
 					</ul>
 				</span>
 				</section>
@@ -784,30 +784,45 @@
 					    
 					</ul>
 
-					<p class="fragment"><b style="color:red">Remark:</b> $K\searrow L$ implies $K\searrow\hspace{-6 pt}\searrow L$ BUT the converse is not true.</p>
+					<p class="fragment"><b style="color:red">Remark:</b> $K \searrow\hspace{-6 pt}\searrow L$ implies $K \searrow L$ BUT the converse is not true.</p>
 					<img width="600" height = auto src='media_morse/strong_collapse_labels.png'/ class="center">
 				</span>
 				</section>
 
-
-
 				<section data-auto-animate>
 				<h5>Discrete Morse Theory 🤝 Strong Homotopy Theory</h5>
 					<span style="font-size: 24px; text-align:left;"> 
-					<p>Let $g\colon V(K)\to \mathrm{R}$ be a real-valued function. <br>Define $K_\alpha = \{\sigma\in K\colon f(v)\leq \alpha ~ \forall v\in V(\sigma)\}$ <b>sublevel complex</b>.
+					<p>Let $K$ be a simplicial complex.</p>
+					<p>Let $g\colon V(K)\to \mathbb{R}$ be a real-valued function. <br>Define $K_\alpha = \{\sigma\in K\colon f(v)\leq \alpha ~ \forall v\in V(\sigma)\}$ <b>sublevel complex</b>.
 
 					<ul>
-					<li>A vertex $v$ is <b style="color:red;">descending dominated</b> if $v$ is dominated by $a$ in $K_{f(v)}$ and $f(a)< f(v)$.</li>
+					<li class = "fragment">A vertex $v$ is <b style="color:red;">descending dominated</b> if $v$ is dominated by $a$ in $K_{f(v)}$ and $f(a)< f(v)$.</li>
 					<br>
 					<li class = "fragment">A vertex is <b style="color:red;">strong critical</b> if it is not descending dominated.</li>
 					</ul>
 					</p>
+					<img  width="300" height = auto src='media_morse/simplicial_complex_strong.png'/>
 
-					<p class="fragment" style="padding: 6px; border: 2px solid black; font-size: 24px; text-align:left"><b> <span style ="color: #ff4040">Theorem </span>[F. 2025].</b> $K$ is <b>homotopy equivalent</b> to a CW-complex <b>$\mathrm{core}_g(K)$</b> with exactly one cell of dimension $k$ for every $k$-simplex in $\mathrm{st}(v,K_{f(v)})$ with $v$ strong critical vertex.<br>
-				Moreover, $\mathrm{core}_g(K)$ is <b style="color:red">regular</b>.</p>
 				</section>
 
-	
+				<section data-auto-animate>
+				<h5>Discrete Morse Theory 🤝 Strong Homotopy Theory</h5>
+					<span style="font-size: 24px; text-align:left;"> 
+					<p>Let $K$ be a simplicial complex.</p>
+					<p>Let $g\colon V(K)\to \mathbb{R}$ be a real-valued function. <br>Define $K_\alpha = \{\sigma\in K\colon f(v)\leq \alpha ~ \forall v\in V(\sigma)\}$ <b>sublevel complex</b>.
+
+					<ul>
+					<li >A vertex $v$ is <b style="color:red;">descending dominated</b> if $v$ is dominated by $a$ in $K_{f(v)}$ and $f(a)< f(v)$.</li>
+					<li >A vertex is <b style="color:red;">strong critical</b> if it is not descending dominated.</li>
+					</ul>
+					</p>
+
+					<p style="padding: 6px; border: 2px solid black; font-size: 24px; text-align:left"><b> <span style ="color: #ff4040">Theorem </span>[F. 2025].</b> $K$ is <b>homotopy equivalent</b> to a CW-complex <b>$\mathrm{core}_g(K)$</b> with exactly one cell of dimension $k$ for every $k$-simplex in $\mathrm{st}(v,K_{f(v)})$ with $v$ strong critical vertex.<br>
+				Moreover, $\mathrm{core}_g(K)$ is <b style="color:red">regular</b>.</p>
+
+					<span  style="margin-top:-40px;"> <img  width="250" height = auto src='media_morse/simplicial_complex_strong.png'/>
+				<img width="140" height = auto src='media_morse/strong_internal_core.png'/></span>
+			</section>
 
 
 				<section data-background-image='media_morse/Epic Handshake Meme Strong.png'>
@@ -951,7 +966,7 @@
 					<br>
 					<li> <b style = 'color:red'>Tutorial.</b> <b>Morse Theory 2.0</b> at AATRN Youtube Channel.</li>
 					<br>
-					<li> <b style = 'color:red'>Slides.</b> </li>
+					<li> <b style = 'color:red'>Slides.</b> <tt style = "font-size: 18px;">https://ximenafernandez.github.io/talks/</tt> </li>
 					</ul>
 					</span>
 					<br>
