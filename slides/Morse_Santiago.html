@@ -820,8 +820,8 @@
 					<p style="padding: 6px; border: 2px solid black; font-size: 24px; text-align:left"><b> <span style ="color: #ff4040">Theorem </span>[F. 2025].</b> $K$ is <b>homotopy equivalent</b> to a CW-complex <b>$\mathrm{core}_g(K)$</b> with exactly one cell of dimension $k$ for every $k$-simplex in $\mathrm{st}(v,K_{f(v)})$ with $v$ strong critical vertex.<br>
 				Moreover, $\mathrm{core}_g(K)$ is <b style="color:red">regular</b>.</p>
 
-					<span  style="margin-top:-40px;"> <img  width="250" height = auto src='media_morse/simplicial_complex_strong.png'/>
-				<img width="140" height = auto src='media_morse/strong_internal_core.png'/></span>
+					<div  style="margin-top:-30px;align-content: center;"> $~~~~~~~~~~~~~~~~~~~~~~~~~~~~$<img  width="220" height = auto src='media_morse/simplicial_complex_strong.png'/>$~~~~~~~~~~~~$
+				<img width="100" height = auto src='media_morse/strong_internal_core.png'/></div>
 			</section>
 
 
@@ -830,6 +830,24 @@
 				</section>
 
 
+				<section data-auto-animate>
+				<h3>Strong Discrete Morse Theory</h3>
+				<span style="font-size: 24px; text-align:left;"> 
+					<b>Level subcomplex:</b> $K_\alpha = \displaystyle \bigcup_{\substack{\sigma\in K, \\f(v)\leq \alpha \forall v\in \sigma}}  \sigma$.
+				<br>
+				<div style="padding: 2px; border: 2px solid black; font-size: 24px; margin-top: 10px;">
+				<p ><b> <span style ="color: #ff4040">Lemma </span>[F., 2025].</b> Let $f\colon V(K)\to \mathbb{R}$ be a real-valued function.<br>
+					<b>A.</b>  If $f^{-1}(\alpha, \beta]$ has no strong critical vertices, then $K_\beta \searrow\hspace{-6 pt}\searrow K_\alpha$.
+					<br>
+					<b>B.</b> If $f^{-1}(\alpha, \beta]$ has exactly one strong critical vertex $v$, then $K_\beta \simeq K_\alpha \cup \bigcup e_k$ with $e_k$ in corrspondence with simplices in $\mathrm{st}(v,K_{f(v)})$.
+					</p>
+				</div>
+				<img  width="500" height = auto src='media_morse/internal_strong_collapse.jpg'/>
+				
+				</span>
+
+				
+				</section>
 
 				<section data-auto-animate>
 				<h3>Strong Discrete Morse Theory</h3>
@@ -843,7 +861,7 @@
 					<b>B.</b> If $f^{-1}(\alpha, \beta]$ has exactly one strong critical vertex $v$, then $K(\beta) \simeq K_\alpha \cup \bigcup e_k$ with $e_k$ in corrspondence with simplices in $\mathrm{st}(v,K_{f(v)})$.
 					</p>
 				</div>
-				<div style="padding: 2px; border: 2px solid black; margin-top: 10px;" class="fragment">
+				<div style="padding: 2px; border: 2px solid black; margin-top: 10px;">
 					<p  style="font-size: 24px"><b> <span style ="color: #ff4040">Proposition </span>[F., 2025].</b> Let $K$ be a finite simplicial complex.
 					<ul>
 					<li> If $K \searrow\hspace{-6 pt}\searrow L$, then there exists a function $g \colon V(K) \to \mathbb{R}$ such that $\mathrm{core}_g(K) = L$.</li>
@@ -899,6 +917,7 @@
 
 					<h3>Algorithmic simplification of simplicial complexes</h3>
 					
+				
 					
 					<img  width="1000" height = auto src='media_morse/diagram_cores.png'/>
 
@@ -907,7 +926,7 @@
 				<section data-auto-animate>
 					
 					<h3>Algorithmic simplification of simplicial complexes</h3>
-					
+						<p style="font-size:30px" ><b style="color:red">Library of triangulations</b> by Benedetti & Lutz</p>
 					
 					<img  width="1000" height = auto src='media_morse/table.png'/>
 
