@@ -4,9 +4,9 @@
 	<head>
 		<meta charset="utf-8">
 
-		<title>DATAME</title>
+		<title>Clase 7: Aplicaciones </title>
 
-		<meta name="description" content="DATAME">
+		<meta name="description" content="ELENA Dia 5: Aplicaciones ">
 		<meta name="author" content="Ximena Fernandez">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -77,26 +77,38 @@
 
 			<div class="slides">
 
-
 				<section>
-					
-					<p style="font-size:20px;color: grey;">18 Septiembre 2025 </p> 
-					<p style="font-size:32px;"><b> ¡Dátame! Las charlas de LCD</b></p> 
-					<br>
-					<h4>Se puede escuchar la forma de una cancion?</h4>
-					<p style="font-size:32px; color:red ;">XIMENA FERNANDEZ</p>
-					<p style="font-size:22px;">City St George's University of London</p>
-					<br>
-					<img  style="align-content: right;margin-top: -40pt;" width="200" height = auto src='media_city/logo_city.png'/>
-					
-					 
-					
-				</section>
 
+					<h6>Departamento de Matematica - UBA</h6>
+					<h4>Homologia Persistente y Aplicaciones</h4>
+					<p style="font-size:28px;">XIMENA FERNANDEZ</p>
+					<p style="font-size:18px; color: red;">City University of London</p>
+					<img style="margin-top: -23px;" width="600" height = auto src='media_ph/filtration_circle.gif'/>
+
+
+				
+					</section>
+
+				<!-- INTRODUCTION TO TDA
+				<section data-auto-animate>
+					<h3>Topological data analisis</h3>
+					<span style = "font-size:22px; text-align: left;">
+						<p>Input dataset $X$.</p>
+				    <ul style = " margin-top: -10pt;">
+				    	<li> <b style=" color: red;">Combinatorics:</b> construct an increasing family $\{X_t\}$ of  complexes around $X$, where the indexing $t$ is a <b>scale parameter</b> in $\mathbb R\geq 0$.
+				    	</li>
+				    	<li> <b style=" color: red;">Algebraic topology:</b> compute the $d$-th <b>homology</b> vector spaces $H_d(X_t)$ for scales $t\in R_{\geq 0}$ and dimensions $d \in Z_{\geq 0}$.
+				    	<li> <b style=" color: red;">Representation theory:</b> decompose each family of vector spaces $\{H_d(X_t)\colon t \geq 0\}$ into irreducible summands, thus producing a <b>barcode</b>.
+				    	</li>
+				    </ul>
+				    <img width="600" height = auto src='media_audioID/tda.png'/>
+					<p style = "font-size:16px; text-align: right; margin-top: -45pt;">Source: Ali et.al. (2023)</p>
+					</span>
+				</section>
+				-->	
 
 				<section data-auto-animate>
 					<h2>Los datos suelen tener topologias no triviales</h2>
-
 				</section>
 
 				<section data-auto-animate>
@@ -122,7 +134,7 @@
 					<h5>Los datos suelen tener topologias no triviales</h5>
 					
 					<video width="350" src="media_gridcells/grid_cells.mp4" data-autoplay></video>
-					<img class="fragment" width="5o0" height = auto src='media_ph/grid_cells.png'/>
+					<img class="fragment" width="500" height = auto src='media_ph/grid_cells.png'/>
 
 					<br>
 					<p style="font-size:18px"><b>Toroidal topology of population activity in grid cells.</b> Nature 602, 123–128 (2022).</p>
@@ -130,52 +142,518 @@
 
 				<section data-auto-animate>
 				  <h3>Análisis topológico de datos </h3>
-				  <span style="font-size:22px; text-align: left;">
-				    <p>Input dataset $X$.</p>
-				    <ul style="margin-top: -10pt;">
-				      <li>
-				        <b style="color: red;">Combinatoria:</b> construir una filtracion  
-				        $\{X_t\}$ de complejos alrededor de $X$, donde el índice $t$ es un 
-				        <b>parámetro de escala</b> en $\mathbb{R}_{\geq 0}$.
-				      </li>
-				      <li>
-				        <b style="color: red;">Topología algebraica:</b> calcular los espacios vectoriales 
-				        de <b>homología</b> $H_k(X_t)$ para escalas $t \in \mathbb{R}_{\geq 0}$ y dimensiones 
-				        $k \in \mathbb{Z}_{\geq 0}$.
-				      </li>
-				      <li>
-				        <b style="color: red;">Teoría de representaciones:</b> descomponer cada familia 
-				        de espacios vectoriales $\{H_k(X_t)\colon t \geq 0\}$ en sumandos indescomponibles, 
-				        produciendo así un <b>barcode</b>.
-				      </li>
-				    </ul>
-				    <img width="600" height=auto src='media_audioID/tda.png'/>
-				    <p style="font-size:16px; text-align: right; margin-top: -45pt;">
-				      Source: Ali et al. (2023)
-				    </p>
-				  </span>
-				</section>
-				
-				<section data-auto-animate>
-				  <h3>Análisis topológico de datos </h3>
 				  <img width="700" height="auto" src='media_ph/PH_pipeline.png'>
 				</section>
 
+				
+				<section data-auto-animate>
+					<h2>APLICACIONES</h2>
+					<a href="https://donut.topology.rocks/papers">DONUT</a>
+				</section>
 
 
 				<section data-auto-animate>
-				    <h3>Analisis topologico de audio</h3>
-				    <p ><b style="color: red; #ff4040;font-size: 30px;">Colaboración con Spotify</b></p>
-				    <br>
-				    <br>
-				    <p style="font-size:22px; margin-bottom: 50px; padding: 6px; border: 2px solid black;">W. Reise, X. Fernandez, M. Dominguez. H. A. Harrington and M. Beguerisse-Diaz,
-				    	<br>
-<i>Topological fingerprints for audio identification.</i> <br> <b>SIAM Journal on Mathematics of
-Data Science </b> Vol. 6 Iss. 3 (2024).</p>
+					<h2>APLICACIONES</h2>
+					Persistent homology in simplectic geometry
+					<ul>
+						<li>
+						<p style = "font-size:24px;text-align: left;">L. Polterovich et.al. <i>'Topological persistence in geometry and analysis'.</i>   <b>American Mathematical Society.</b> (2020)</b>
+						</p>
+						</li>
+						<li><p style = "font-size:24px;text-align: left;">E. Shelukhin. <i>'On the Hofer-Zehnder conjecture'.</i> <b>Annals of Mathematics.</b> (2022)</p>
+							<p><i style="font-size: 18px;">We prove that if a Hamiltonian diffeomorphism of a closed monotone symplectic manifold with semisimple quantum homology has more contractible fixed points, counted homologically, than the total dimension of the homology of the manifold, then it must have an infinite number of contractible periodic points. This constitutes a higher-dimensional homological generalization of a celebrated result of Franks from 1992, as conjectured by Hofer and Zehnder in 1994.</i></p>
+						</li>
+					</ul>
+				</section>
+
+
+				<section data-auto-animate>
+					<h4>Aplicacion 1:</h4>
+					<h2>Series Temporales</h2>
+				</section>
+
+					<section data-auto-animate>
+					<h4>Sistemas dinámicos</h4>
+					<br>
+					<span style="font-size: 20px; text-align:left;">
+					<ul>
+						<li class='fragment'>
+							Un <b style="color: red">sistema dinámico continuo</b> es $(X, \phi)$, con $X$ un espacio topológico y 
+							$\phi_t \colon X \to X$ una familia suave de <b>funciones de evolución</b> para $t \in \mathbb{R}$.
+						</li>
+						<br>
+						<li class='fragment'>
+							Un conjunto $A \subset X$ es un <b style="color: red">atractor</b> si es un <b>estado asintótico</b> del sistema.
+							Concretamente, dado $(  M, \phi)$ un sistema dinámico y $x_0\in   M$,
+							\[
+							  A_{x_0} = \{x\in   M: \exists t_i\to \infty \text{ tal que } \phi_{t_i}(x_0)\to x\}.
+							\]
+						</li>
+							<span class="fragment">
+				 	 		<div class="column_50" style="font-size: 18px">
+				 	 		Ejemplo: <b style="color: red">Lorenz attractor</b>
+							\[\begin{cases}
+							\dot x = \sigma ( y - x ) , \\
+							\dot y = x(\rho-z)-y ,\\
+							\dot z = xy-\beta z \end{cases}
+							\]
+							con $(\sigma, \rho, \beta) = (10, 28, 8/3)$. 
+							</div>
+							<div class="column_50">
+							<img width="250" height = auto src='media_fermat/lorenz.png'/>
+							</div>
+							</span>
+					
+					</span>
+				</section>
+
+					<section data-auto-animate>
+						<h4>Series temporales</h4>
+						<span style="font-size: 20px; text-align:left;">
+						<ul>
+						<li > <b>Señal </b>
+						$\varphi:\mathbb R  \to \mathbb{R}$
+						<br>
+						<img  width="800" height = auto src='media_fermat/x_lorenz_noise.png'/></li>
+
+						<p class='fragment'>
+						Suponemos que $\varphi$ es una <b>observación</b> de un <b>sistema dinámico</b> subyacente $(  M, \phi)$.
+						</p>
+
+						<p class='fragment'>
+						Es decir, existen una <b>función de observación</b> $F:  M \to \mathbb R$ y un <b>estado inicial</b> 
+						$x_0 \in   M$ tales que
+						\[\begin{align*}
+						\varphi = \varphi_{x_0}:\mathbb{R}& \to \mathbb{R}, \\
+						t &\mapsto F(\phi_t(x_0))
+						\end{align*}
+						\]
+						</p>
+
+						<blockquote class="fragment" style="padding: 5px; border: 2px solid red; font-size: 23px;">
+						<b>Dato:</b> Es posible <b>reconstruir topológicamente</b> el atractor a partir de la observación.
+						</blockquote>
+
+						</span>
+					</section>
+
+					<section data-auto-animate>
+						<h4>Series temporales 🤝 Sistemas Dinamicos</h4>
+						<span style="font-size: 20px; text-align:left;">
+						<ul>
+						<li > <b>Señal </b>
+						$\varphi:\mathbb R  \to \mathbb{R}$
+						<br>
+						<img  width="800" height = auto src='media_fermat/x_lorenz_noise.png'/></li>
+
+						<li ><b>Delay embedding:</b> Dado $T$ el <b>time delay</b> y $D$ la <b>dimensión del embedding</b>:
+						\[
+						 {M}_{T,D} = \{\big(\varphi(t), \varphi(t+T), \varphi(t+2 T), \dots, \varphi(t+(D-1)T)\big): t\in \mathbb R\}\subseteq \mathbb{R}^D
+						\]
+						</li>
+						</ul>
+						<span class = 'fragment'>
+						<img  width="270" align='center' height = auto src='media_fermat/lorenz_embedding.png'/>
+						</span>
+					</section>
+
+
+					<section data-auto-animate>
+						<h4>Series temporales 🤝 Sistemas Dinamicos</h4>
+						<span style="font-size: 20px; text-align:left;">
+						<ul>
+						<li > <b>Señal </b>
+						$\varphi:\mathbb R  \to \mathbb{R}$
+						<br>
+						<img  width="800" height = auto src='media_fermat/x_lorenz_noise.png'/></li>
+
+						<li ><b>Delay embedding:</b> Dado $T$ el <b>time delay</b> y $D$ la <b>dimensión del embedding</b>:
+						\[
+						 {M}_{T,D} = \{\big(\varphi(t), \varphi(t+T), \varphi(t+2 T), \dots, \varphi(t+(D-1)T)\big): t\in \mathbb R\}\subseteq \mathbb{R}^D
+						\]
+						</li>
+						<span>
+						<div class="column_50">
+						<img  width="270" align='center' height = auto src='media_fermat/lorenz_embedding.png'/>
+						</div>
+						<div class="column_50">
+						<img  width="270"  height = auto src='media_fermat/lorenz.png'/>
+						</div>
+				
+						</ul>
+						</span>
+					</section>
+
+
+
+
+
+	
+
+					<section data-auto-animate>
+						<h4>Series temporales 🤝 Sistemas Dinamicos</h4>
+						<span style="font-size: 20px; text-align:left;">
+						<ul>
+						<li > <b>Señal </b>
+						$\varphi:\mathbb R  \to \mathbb{R}$
+						<br>
+						<img  width="800" height = auto src='media_fermat/x_lorenz_noise.png'/></li>
+
+						<li ><b>Delay embedding:</b> Dado $T$ el <b>time delay</b> y $D$ la <b>dimensión del embedding</b>:
+						\[
+						 {M}_{T,D} = \{\big(\varphi(t), \varphi(t+T), \varphi(t+2 T), \dots, \varphi(t+(D-1)T)\big): t\in \mathbb R\}\subseteq \mathbb{R}^D
+						\]
+						</li>
+
+						<li> <b>Atractor: </b>  dado $(  M, \phi)$ un sistema dinámico y $x_0\in   M$,
+							\[
+							  A_{x_0} = \{x\in   M: \exists t_i\to \infty \text{ tal que } \phi_{t_i}(x_0)\to x\}.
+							\]
+						</li>
+							<div  class="row" style="font-size: 18px">
+								<div class="column_50">
+								<img width="300" height = auto src='media_ts/lorenz_time_series.gif'/>
+								</div>
+					 	 		<div class="column_50" style="font-size: 18px">
+					 	 		<img width="300" height = auto src='media_ts/lorenz_takens.gif'/>
+								</div>
+							</div>
+						</ul>
+					</span>
+						
+				</section>
+
+				
+					<section data-auto-animate>
+						<h4>Series temporales 🤝 Sistemas Dinamicos</h4>
+						<span style="font-size: 20px; text-align:left;">
+						<ul>
+						<li > <b>Señal </b>
+						$\varphi:\mathbb R  \to \mathbb{R}$
+						<br>
+						<img  width="800" height = auto src='media_fermat/x_lorenz_noise.png'/></li>
+
+						<li ><b>Delay embedding:</b> Dado $T$ el <b>time delay</b> y $D$ la <b>dimensión del embedding</b>:
+						\[
+						 {M}_{T,D} = \{\big(\varphi(t), \varphi(t+T), \varphi(t+2 T), \dots, \varphi(t+(D-1)T)\big): t\in \mathbb R\}\subseteq \mathbb{R}^D
+						\]
+						</li>
+
+						<li> <b>Atractor: </b>  dado $(  M, \phi)$ un sistema dinámico y $x_0\in   M$,
+							\[
+							  A_{x_0} = \{x\in   M: \exists t_i\to \infty \text{ tal que } \phi_{t_i}(x_0)\to x\}.
+							\]
+						</li>
+
+						<li> <b style='color:red'>Teorema (Takens).*</b> Sea $ {M}$ una variedad Riemanniana suave, compacta. Sea $T>0$ un número real y sea $D > 2\mathrm{dim}( {M})\in \mathbb{Z}$. 
+						Entonces, para $\phi \in C^2(\mathbb{R} \times  {M},  {M})$, $F \in C^2( {M}, \mathbb{R})$ y $x_0 \in   M$ genéricos, si $\varphi_{x_0} = F(\phi_\bullet(x_0))$ es una observación de $(  M, \phi)$, entonces $  A_{x_0}$ es 'difeomorfo'$^{**}$ a 
+						$ {M}_{T,D} (\varphi_{x_0})$.
+						</li>
+						</ul>
+						</span>
+						<p style="font-size: 16px; text-align:left;">
+						** Existe $\psi:  M\to \mathbb R^{D}$ un embedding tal que $\psi|_{  A_{x_0}}:   A_{x_0}\to  {M}_{T,D} (\varphi_{x_0})$ es una biyección.
+						<br>
+						*Corolario 5, <i>Detecting strange attractors in tubulence</i>, F. Takens, 1971.
+						</p>
+						
+					</section>
+
 
 			
 
+			<section data-auto-animate>
+				<h4>Series temporales 🤝 Sistemas Dinamicos</h4>
+				<span style="font-size: 24px; text-align:center;">
+				
+						<b>Observacion</b>
+						
+						<img  width="1000" height = auto src='media_epilepsy/periodic_signal.png'/>
+
+						<span class="fragment">
+						<b>Delay Embedding</b>
+						<br>
+						<img  width="300" height = auto src='media_epilepsy/periodic_delay.png'/>
+						</span>
+				</span>
+			</section>
+
+			<section data-auto-animate>
+				<h4>Series temporales 🤝 Sistemas Dinamicos</h4>
+				<span style="font-size: 24px; text-align:center;">
+				
+						<b>Observacion</b>
+						
+						<img  width="1000" height = auto src='media_epilepsy/periodic_signal.png'/>
+						
+						<div class="column_50">
+						<b>Delay Embedding</b>
+						<br>
+						<img  width="300" height = auto src='media_epilepsy/periodic_delay.png'/>
+						</div>
+						<div class="column_50">
+						<b>Diagrama de persistencia</b>
+						<br>
+						<img  width="320" height = auto src='media_epilepsy/PD_periodic.png'/>
+						</div>
+				</span>
+			</section>
+
+
+			<section data-auto-animate>
+				<h3>Aplicaciones</h3>
+			</section>
+
+			<section data-auto-animate>
+				<h3>Anomaly detection</h3>
+				<h5 class="fragment">Electrocardiograma</h5>
+				<span class="fragment">
+				<img  width="900" height = auto src='media_ts/ECG_signal_raw.png'/>
+				<p style="font-size: 18px; text-align:left;"><i>Source data:</i> PhysioNet Database  https://physionet.org/about/database/</p>
+			</span>
+			</section>
+
+			<section data-auto-animate>
+				<h3>Anomaly detection</h3>
+				<h5>Electrocardiograma</h5>
+				<video data-autoplay src='media_ts/ECG.mp4' width="1000" height=auto> </video>
+				<video data-autoplay src='media_ts/embedding.mp4' width="500" height=auto> </video>
+			</section>
+
+			<!--
+			<section data-auto-animate>
+				<h3>Anomaly detection</h3>
+				<h5>Electrocardiogram</h5>
+				<img width="900" height = auto src='media_ts/ECG_signal_raw.png'/>
+				<img width="300" height = auto src='media_ts/ECG_embedding_raw.png'/>
+			</section>
+			-->
+
+			<section data-auto-animate>
+				<h3>Anomaly detection</h3>
+				<h5>Electrocardiograma</h5>
+				<img width="900" height = auto src='media_ts/ECG_signal.png'/>
+				<img width="300" height = auto src='media_ts/ECG_embedding.png'/>
+			</section>
+
+			<section data-auto-animate>
+				<h3>Anomaly detection</h3>
+				<h5>Electrocardiograma</h5>
+				<img width="900" height = auto src='media_ts/ECG_signal.png'/>
+				<div class="row">
+				 	 <div class="column_33">
+					<img width="300" height = auto src='media_ts/ECG_embedding.png'/>
+					</div>
+					<div class="column_33">
+					<img width="290" height = auto src='media_ts/PH_ECG_4000.png'/>
+					</div>
+					<div class="fragment" class="column_33">
+					<img width="280" height = auto src='media_ts/PH_ECG_6000.png'/>
+					</div>
+				</div>
+			</section>
+
+
+
+			<section data-auto-animate>
+				<h3>Anomaly detection</h3>
+				<h5>Electrocardiograma</h5>
+				<img width="800" height = auto src='media_ts/ECG_signal.png'/>
+				<div class="column_eq">
+				<span style="font-size:18px">
+					\(t \mapsto dgm\big({M}_{T,D} f([0,t])\big)\)
+				</span>
+				</div>
+				<div class="column_66">
+					<video data-autoplay src='media_ts/animation_PD.mp4' width="300" height=auto> </video>
+				</div>
+			</section>
+
+
+			<section data-auto-animate>
+				<h3>Anomaly detection</h3>
+				<h5>Electrocardiograma</h5>
+				<img width="900" height = auto src='media_ts/ECG_signal.png'/>
+				<span style="font-size:18px">
+				<b>Estimador de la 'derivada'</b>\[\dfrac{d_b\Big(\mathrm{dgm}_1(M_{T,D}f([0,t_0])), \mathrm{dgm}_1(M_{T,D}f([0,t_1]))\Big)}{|t_0-t_1|}\]
+				</span>
+			
+				
+				<img style="margin-top:-18px" width="900" height = auto src='media_ts/bottleneck_ECG.png'/>
+			</section>
+
+
+			<section data-auto-animate>
+				<h3>Change-points detection</h3>
+				<h5 class="fragment"> Canto de pajaros</h5>
+				<img class="fragment" width="900" height = auto src='media_ts/birdsong.png'/>
+			</section>
+
+			<section data-auto-animate>
+				<h3>Change-points detection</h3>
+				<h5> Canto de pajaros</h5>
+				<img width="900" height = auto src='media_ts/birdsong.png'/><img width="300" height = auto src='media_ts/canary_embedding.png'/>
+			</section>
+
+			<section data-auto-animate>
+				<h3>Change-points detection</h3>
+				<h4> Canto de pajaros</h4>
+				<img width="900" height = auto src='media_ts/birdsong.png'/>
+				<div class="row">
+				 	 <div class="column_50">
+					<img width="300" height = auto src='media_ts/canary_embedding.png'/>
+					</div>
+					 <div class="column_50">
+					 <img width="290" height = auto src='media_ts/PH_canary_notitle.png'/>
+					 </div>
+				</div>
+			</section>
+
+			<section data-auto-animate>
+				<h3>Change-points detection</h3>
+				<h4> Canto de pajaros</h4>
+				<img width="900" height = auto src='media_ts/time_series_birdsong_cuts.png'/>
+
+					<img width="800" height = auto src='media_ts/canary_embedding_cuts.png'/>
+					
+			</section>
+
+
+			<section data-auto-animate>
+				<h3>Change-points detection</h3>
+				<h4> Canto de pajaros</h4>
+				<img width="900" height = auto src='media_ts/time_series_birdsong_cuts.png'/>
+				<small>
+				\[t\mapsto  [0,t] \mapsto f[0,t] \mapsto M_{T,D}f([0,t]) \mapsto \mathrm{dgm_1}(M_{T,D}f([0,t]))\]
+				</small>
+			</section>
+
+			<section data-auto-animate>
+				<h3>Change-points detection</h3>
+				<h4> Canto de pajaros</h4>
+				<img width="900" height = auto src='media_ts/time_series_birdsong_cuts.png'/>
+				<small>
+				<p><b>Estimador de la 'derivada'</b></p>
+				</small>
+
+				<img width="900" height = auto src='media_ts/PH_canary_peaks.png'/>
+			</section>
+
+
+			<section data-auto-animate>
+			    <h3>Epilepsia</h3>
+			    <span style="font-size: 22px; text-align:left;">
+			        <ul>
+			            <li class='fragment'> <b style="color: slategrey">EEG/MEG</b> durante los estados <i>preictal, ictal</i> e <i>interictal</i>.</li>
+			        </ul>
+			        <img class='fragment' width="1300" height="auto" src='media_epilepsy/CC_iEEG.png'/>
+			    </span>
+			</section>
+
+			<section data-auto-animate>
+			    <h3>Epilepsia</h3>
+			    <span style="font-size: 22px; text-align:left;">
+			        <ul>
+			            <li> <b style="color: slategrey">EEG/MEG</b> durante los estados <i>preictal, ictal</i> e <i>interictal</i>.</li>
+			        </ul>
+			        <img width="1300" height="auto" src='media_epilepsy/CC_iEEG_seizure.png'/>
+			    </span>
+			   
+			</section>
+
+			<section data-auto-animate>
+			    <h3>Epilepsia</h3>
+			    <span style="font-size: 24px; text-align:left;">
+			        Dadas las señales $f_1, f_2, \dots f_N:[0,T]\to \mathbb{R}$, construimos un <b style="color: red;">embedding</b> en $\mathbb{R}^N$ dado por 
+			        $$
+			        \{(f_1(t), f_2(t), \dots, f_N(t)): t\in [0,T]\}
+			        $$
+			    </span>
+			    <img width="1500" height="auto" class='fragment' src='media_epilepsy/iEEG_embedding_f.png'/>
+			</section>
+
+			<section data-auto-animate>
+			    <h3>Epilepsia</h3>
+			    <span style="font-size: 23px; text-align:left;">
+			        <ul>
+			            <li>Sea $f_1, f_2, \dots f_N:[0,T]\to \mathbb{R}$ un conjunto de señales.</li>
+			            <li>Dado un tamaño de <b style="color: red">ventana</b> $W$, calculamos para cada $t\in [W,T]$ el embedding de $f_1, f_2, \dots f_N:[t-W, t]\to \mathbb{R}$ en $\mathbb{R}^N$.</li>
+			        </ul>
+			        <img width="1000" height="auto" src='media_epilepsy/CC_iEEG_window.png'/>
+			    </span>
+			</section>
+
+			<section data-auto-animate>
+			    <h3>Epilepsia</h3>
+			    <span style="font-size: 23px; text-align:left;">
+			        <ul>
+			            <li>Sea $f_1, f_2, \dots f_N:[0,T]\to \mathbb{R}$ un conjunto de señales.</li>
+			            <li>Dado un tamaño de <b style="color: red">ventana</b> $W$, calculamos para cada $t\in [W,T]$ el embedding de $f_1, f_2, \dots f_N:[t-W, t]\to \mathbb{R}$ en $\mathbb{R}^N$.</li>
+			            <video style="margin-top:-2pt" data-autoplay src='media_epilepsy/EEG_channel_window.mp4' width="1000" height=auto> </video>
+			        </ul>
+			    </span>
+			</section>
+			
+
+			<section data-auto-animate>
+			    <h3>Epilepsia</h3>
+			    <span style="font-size: 23px; text-align:left;">
+			        <ul>
+			            <li>Sea $f_1, f_2, \dots f_N:[0,T]\to \mathbb{R}$ un conjunto de señales.</li>
+			            <li>Dado un tamaño de <b style="color: red">ventana</b> $W$, calculamos para cada $t\in [W,T]$ el embedding de $f_1, f_2, \dots f_N:[t-W, t]\to \mathbb{R}$ en $\mathbb{R}^N$.</li>
+			            <li>Calculamos la <b style="color: red">(homología persistente)</b> del <b style="color: red">sliding-window embedding</b> que evoluciona en el tiempo.</li>
+			        </ul>
+			        <img width="1200" height="auto" src='media_epilepsy/PD_path_CC.png'/>
+			    </span>
+			</section>
+
+			<section data-auto-animate>
+			    <h3>Epilepsia</h3>
+			    <span style="font-size: 23px; text-align:left;">
+			        <ul>
+			            <li>Sea $f_1, f_2, \dots f_N:[0,T]\to \mathbb{R}$ un conjunto de señales.</li>
+			            <li>Dado un tamaño de <b style="color: red">ventana</b> $W$, calculamos para cada $t\in [W,T]$ el embedding de $f_1, f_2, \dots f_N:[t-W, t]\to \mathbb{R}$ en $\mathbb{R}^N$.</li>
+			            <li>Calculamos la <b style="color: red">(homología persistente)</b> del <b style="color: red">sliding-window embedding</b> que evoluciona en el tiempo.</li>
+			        </ul>
+			<div class="column_70">
+					<video style="margin-top: -5pt;" data-autoplay src='media_epilepsy/EEG_channel_window.mp4' width="700" height=auto> </video>
+				</div>
+				<div class="column_30">
+					<video style="margin-top: 15pt;" data-autoplay src='media_epilepsy/animation_PD_short.mp4' width="300" height=auto> </video>
+				</div>
+
+			</span>
+
+			</section>
+
+			<section data-auto-animate>
+			    <h3>Epilepsia</h3>
+			    <span style="font-size: 20px; text-align:left;">
+			        EEG $\to$ Sliding-window embedding $\to$ Camino de diagramas de persistencia $\to$ (Estimador de) primera derivada
+			    </span>
+			    <img width="750" height="auto" src='media_epilepsy/iEEG_derivative_b.png'/>
+			</section>
+
+			<section data-auto-animate>
+			    <h3>Epilepsia</h3>
+			    <img width="750" height="auto" src='media_epilepsy/CC_all.png'/>
+			</section>
+
+				<section  data-auto-animate>
+				<h3>Epilepsia</h3>
+
+		
+				<img  style="margin-top:-10pt" width="600" height = auto src='media_epilepsy/EEG_CHMIT_derivative.png'/>
+
 				</section>
+
+
+				<section data-auto-animate>
+					<h4>Aplicacion 2:</h4>
+					<h2>Imagenes/Audio</h2>
+				</section>
+
+
 
 				<section data-auto-animate>
 				    <h4>El Problema</h4>
@@ -592,34 +1070,121 @@ Data Science </b> Vol. 6 Iss. 3 (2024).</p>
 </section>
 
 <section data-auto-animate>
-    <h3>Resultados Experimentales</h3>
+    <h5>Resultados Experimentales</h5>
+</section>
+
+	<section data-auto-animate>
+	<h5>Resultados Experimentales</h5>
+	<p style="font-size:26px;"><i><b><a href="https://bengrosser.com/projects/music-obfuscator/">Music Obfuscator</a></b></i> by Ben Grosser</p>
+	<table style="font-size:22px;">
+	    	<thead><tr>
+	            <th>Song</th>
+	            <th>Shazam (60 sec)</th>
+	        </tr></thead>
+	        </tr></thead>
+	        <tbody>
+	        <tr>
+	        	<td>Smells Like Teen Spirit</td>
+	        	<td><span style = 'color:red'>No</span></td>
+	        </tr>
+	        <tr>
+				<td>Get Lucky</td>
+				<td><span style = 'color:red'>No</span></td>
+			</tr>
+			<tr>
+				<td>Giant Steps</td>
+				<td><span style = 'color:red'>No</span></td>
+
+			</tr>
+			<tr>
+				<td>Stairway to Heaven</td>
+				<td>Yes</td>
+			</tr>
+			<tr>
+				<td>Headlines</td>
+				<td>Yes</td>
+			</tr>
+			<tr>
+				<td>Blue in Green</td>
+				<td><span style = 'color:red'>No</span></td>
+			</tr>
+			<tr>
+				<td>You’re Gonna Leave</td>
+				<td><span style = 'color:red'>No</span></td>
+			</tr>
+			<tr>
+				<td>Blue Ocean Floor</td>
+				<td><span style = 'color:red'>No</span></td>
+	        </tr>
+	        <tr>
+	        </tr>
+			</tbody>
+		    </table>
+</section>
+
+
+<section data-auto-animate>
+	<h5>Resultados Experimentales</h5>
+	<p style="font-size:26px;"><i><b>Music Obfuscator</b></i> by Ben Grosser</p>
+	<table style="font-size:22px;">
+	    	<thead><tr>
+	            <th>Song</th>
+	            <th>Shazam (60 sec)</th>
+	            <th>Correlation (60-30 sec)</th>
+	            </tr></thead>
+	        </tr></thead>
+	        <tbody>
+	        <tr>
+	        	<td>Smells Like Teen Spirit</td>
+	        	<td><span style = 'color:red'>No</span></td>
+	        	<td><b>0.83208</b><!--14226776198--></td>
+	        	
+	        </tr>
+	        <tr>
+				<td>Get Lucky</td>
+				<td><span style = 'color:red'>No</span></td>
+				<td><b>0.99906</b><!--91203743751--></td>
+			</tr>
+			<tr>
+				<td>Giant Steps</td>
+				<td><span style = 'color:red'>No</span></td>
+				<td><b>0.83904</b><!--37785150638--></td>
+			</tr>
+			<tr>
+				<td>Stairway to Heaven</td>
+				<td>Yes</td>
+				<td><b>0.88533</b><!--52573717076--></td>
+				
+			</tr>
+			<tr>
+				<td>Headlines</td>
+				<td>Yes</td>
+				<td><b>0.91173</b><!--43295029914--></td>
+				
+			</tr>
+			<tr>
+				<td>Blue in Green</td>
+				<td><span style = 'color:red'>No</span></td>
+				<td><b>0.89276</b><!--64263785734--></td>
+			</tr>
+			<tr>
+				<td>You’re Gonna Leave</td>
+				<td><span style = 'color:red'>No</span></td>
+				<td>0.71766<!--04631763022--></td>
+			</tr>
+			<tr>
+				<td>Blue Ocean Floor</td>
+				<td>Yes</td>
+				<td>0.51332<!--5640724315--></td>
+	        </tr>
+	        <tr>
+	        </tr>
+			</tbody>
+		    </table>
 </section>
 
 <section data-auto-animate>
-    <h3>Resultados Experimentales</h3>
-    <p style="font-size:26px;"><i><b><a href="https://bengrosser.com/projects/music-obfuscator/">Music Obfuscator</a></b></i> de Ben Grosser</p>
-    <table style="font-size:22px;">
-        <thead>
-            <tr>
-                <th>Canción</th>
-                <th>Shazam (60 seg)</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr><td>Smells Like Teen Spirit</td><td><span style='color:red'>No</span></td></tr>
-            <tr><td>Get Lucky</td><td><span style='color:red'>No</span></td></tr>
-            <tr><td>Giant Steps</td><td><span style='color:red'>No</span></td></tr>
-            <tr><td>Stairway to Heaven</td><td>Sí</td></tr>
-            <tr><td>Headlines</td><td>Sí</td></tr>
-            <tr><td>Blue in Green</td><td><span style='color:red'>No</span></td></tr>
-            <tr><td>You’re Gonna Leave</td><td><span style='color:red'>No</span></td></tr>
-            <tr><td>Blue Ocean Floor</td><td><span style='color:red'>No</span></td></tr>
-        </tbody>
-    </table>
-</section>
-
-<section data-auto-animate>
-    <h3>Resultados Experimentales</h3>
+    <h5>Resultados Experimentales</h5>
     <p style="font-size:26px;"><b>Spotify Database + PySOX Transformer</b></p>
     <ul style="font-size:24px;">
         <li><b style='color:green'><img style="margin-bottom:-5px" width="25" height=auto src='media_audioID/Spotify_icon.svg.png'/> Spotify Web API.</b> Dataset de fragmentos de 30 segundos de ~135.000 canciones.</li>
@@ -645,7 +1210,7 @@ Data Science </b> Vol. 6 Iss. 3 (2024).</p>
 </section>
 
 		<section data-auto-animate>
-		    <h3>Resultados Experimentales</h3>
+		    <h5>Resultados Experimentales</h5>
 		    <p style="font-size:26px;"><b>(Accuracy)</b></p>
 		    <div class="row">
 		        <div class="column_50">
@@ -662,36 +1227,10 @@ Data Science </b> Vol. 6 Iss. 3 (2024).</p>
 		</section>
 
 		<section>
-					<h3>Referencia</h3>
-					<div class="column_75" style="font-size:22px;">
-					<ul>
-					<li>
-					<p >W. Reise, X. Fernandez, M. Dominguez, H.A. Harrington, M. Beguerisse-Diaz. <i>Topological fingerprints for audio identification</i> (2024) <b>SIAM Journal of Data Science</b> 
-					</p>
-				
-					</li>
-					</ul>
-					</div>
-					<div class="column_25">
-					<img width="200" height = auto src='media_audioID/qr_paper.png' class="center"/>
-					</div>
-				
-					<br>
-					<br>
+			 <h3>Resumen</h3>
 
-					<!--<img class = 'fragment' style = "margin-top: -50pt;" width="350" heighcst = auto src='media_audioID/tda_photo.png' class="center"/>-->
-					
-				</section>
-
-				
-			<section data-auto-animate>
-				<h2>MUCHAS MAS APLICACIONES</h2>
-				<a href="https://donut.topology.rocks/papers">DONUT</a>
-				<br>
-				<br>
-
-				<p><h3 class = 'fragment' style = 'color:red'>Gracias!</h3></p>
-			</section>
+			 <img width="700" height="auto" src='media_ph/PH_pipeline.png'>
+		</section>
 
 
 				
